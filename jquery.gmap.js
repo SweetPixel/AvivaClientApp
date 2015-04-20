@@ -12,6 +12,8 @@
  *  autoAddMarkers: boolean. If true, a marker is automatically added for each item with the
  *  	attribute data-marker-info="lat,lng". If the element or any descendant has the class
  *  	"ui-gmap-marker-content", then an infobox containing that content will be shown when
+ 
+ 
  *  	the marker is clicked (this content is cloned). The HTML contents of a subelement with
  *  	class "ui-gmap-marker-title" will be used for the mouseover tooltip.
  *  infoWindowConfig: Object containing a list of properties for the info window (if applicable).
