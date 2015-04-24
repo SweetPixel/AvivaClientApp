@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+/*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -16,11 +15,20 @@
  KIND, either express or implied.  See the License for the
  specific language governing permissions and limitations
  under the License.
--->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
-        version   = "2.0.0">
+ */
 
-    <!-- Preferences for Android -->
-    <preference name="loglevel" value="DEBUG" />
-</widget>
+#import <Foundation/Foundation.h>
+
+extern NSString* const kCDVDefaultWhitelistRejectionString;
+
+@interface CDVWhitelist : NSObject
+
+@property (nonatomic, copy) NSString* whitelistRejectionFormatString;
+
+- (id)initWithArray:(NSArray*)array;
+- (BOOL)schemeIsAllowed:(NSString*)scheme;
+- (BOOL)URLIsAllowed:(NSURL*)url;
+- (BOOL)URLIsAllowed:(NSURL*)url logFailure:(BOOL)logFailure;
+- (NSString*)errorStringForURL:(NSURL*)url;
+
+@end
