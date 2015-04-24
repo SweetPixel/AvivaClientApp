@@ -1,0 +1,14 @@
+D:\Node\Cordova\sample applications\sps\platforms\wp8\Bin\Debug\ApplicationIcon.png
+D:\Node\Cordova\sample applications\sps\platforms\wp8\Bin\Debug\Background.png
+D:\Node\Cordova\sample applications\sps\platforms\wp8\Bin\Debug\com.phonegap.helloworld.dll
+D:\Node\Cordova\sample applications\sps\platforms\wp8\Bin\Debug\com.phonegap.helloworld.pdb
+D:\Node\Cordova\sample applications\sps\platforms\wp8\Bin\Debug\AppManifest.xaml
+D:\Node\Cordova\sample applications\sps\platforms\wp8\Bin\Debug\Properties\WMAppManifest.xml
+D:\Node\Cordova\sample applications\sps\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap
+D:\Node\Cordova\sample applications\sps\platforms\wp8\obj\Debug\App.g.cs
+D:\Node\Cordova\sample applications\sps\platforms\wp8\obj\Debug\cordovalib\CordovaView.g.cs
+D:\Node\Cordova\sample applications\sps\platforms\wp8\obj\Debug\MainPage.g.cs
+D:\Node\Cordova\sample applications\sps\platforms\wp8\obj\Debug\com.phonegap.helloworld.g.resources
+D:\Node\Cordova\sample applications\sps\platforms\wp8\obj\Debug\com.phonegap.helloworld.dll
+D:\Node\Cordova\sample applications\sps\platforms\wp8\obj\Debug\com.phonegap.helloworld.pdb
+D:\Node\Cordova\sample applications\sps\platforms\wp8\obj\Debug\XapCacheFile.xml
