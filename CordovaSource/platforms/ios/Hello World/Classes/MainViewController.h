@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+/*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -16,11 +15,26 @@
  KIND, either express or implied.  See the License for the
  specific language governing permissions and limitations
  under the License.
--->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
-        version   = "2.0.0">
+ */
 
-    <!-- Preferences for Android -->
-    <preference name="loglevel" value="DEBUG" />
-</widget>
+//
+//  MainViewController.h
+//  Hello World
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
+//
+
+#import <Cordova/CDVViewController.h>
+#import <Cordova/CDVCommandDelegateImpl.h>
+#import <Cordova/CDVCommandQueue.h>
+
+@interface MainViewController : CDVViewController
+
+@end
+
+@interface MainCommandDelegate : CDVCommandDelegateImpl
+@end
+
+@interface MainCommandQueue : CDVCommandQueue
+@end

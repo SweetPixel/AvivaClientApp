@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+/*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -16,11 +15,28 @@
  KIND, either express or implied.  See the License for the
  specific language governing permissions and limitations
  under the License.
--->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
-        version   = "2.0.0">
+ */
 
-    <!-- Preferences for Android -->
-    <preference name="loglevel" value="DEBUG" />
-</widget>
+//
+//  AppDelegate.h
+//  Hello World
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#import <Cordova/CDVViewController.h>
+
+@interface AppDelegate : NSObject <UIApplicationDelegate>{}
+
+// invoke string is passed to your app on launch, this is only valid if you
+// edit Hello World-Info.plist to add a protocol
+// a simple tutorial can be found here :
+// http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+
+@property (nonatomic, strong) IBOutlet UIWindow* window;
+@property (nonatomic, strong) IBOutlet CDVViewController* viewController;
+
+@end

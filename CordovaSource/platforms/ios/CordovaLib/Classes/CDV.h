@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+/*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -16,11 +15,27 @@
  KIND, either express or implied.  See the License for the
  specific language governing permissions and limitations
  under the License.
--->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
-        version   = "2.0.0">
+ */
 
-    <!-- Preferences for Android -->
-    <preference name="loglevel" value="DEBUG" />
-</widget>
+#import "CDVAvailability.h"
+
+#import "CDVPlugin.h"
+#import "CDVViewController.h"
+#import "CDVCommandDelegate.h"
+#import "CDVURLProtocol.h"
+#import "CDVInvokedUrlCommand.h"
+
+#import "CDVDebug.h"
+#import "CDVPluginResult.h"
+#import "CDVWhitelist.h"
+#import "CDVLocalStorage.h"
+#import "CDVScreenOrientationDelegate.h"
+#import "CDVTimer.h"
+
+#import "NSArray+Comparisons.h"
+#import "NSData+Base64.h"
+#import "NSDictionary+Extensions.h"
+#import "NSMutableArray+QueueAdditions.h"
+#import "UIDevice+Extensions.h"
+
+#import "CDVJSON.h"
