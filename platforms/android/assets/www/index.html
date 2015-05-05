@@ -66,10 +66,13 @@
 </head>
 <body>
 
- <div data-role="page" id="map-page" data-theme="b">
+
+ 
+
+ <div data-role="page" id="map-page" data-theme="e">
 	
 		<!-- Header -->
-		<div data-role="header" data-theme="b" class="jqm-header"  data-quicklinks="true" data-position="fixed">
+		<div data-role="header"   class="jqm-header"  data-quicklinks="true" data-position="fixed">
 		<h2><a href="#main" title="dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a> </h2>
 		<a href="#popupMenu" data-rel="popup" data-transition="slide" class="jqm-navmenu-link ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"></a>
 	
@@ -79,7 +82,7 @@
 		</div>
 		
 		
-		<div data-role="popup" id="popupMenu" data-theme="b">
+		<div data-role="popup" id="popupMenu" >
         <ul data-role="listview" style="min-width:170px;">
           
             <li><a href="#login">Login</a></li>
@@ -376,7 +379,7 @@
 	
 	
 			<!-- footer -->
-	 <div data-role="footer" data-theme="b" data-position="fixed"  data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	 <div data-role="footer"  data-position="fixed"  data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
 
 	  <nav data-role="navbar" data-position="fixed">
             <ul>
@@ -391,19 +394,19 @@
 	</div>
 </div>
 <!-- Detail Screen -->
- <div data-role="page" id="detail" data-theme="b"> 
+ <div data-role="page" id="detail" > 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"   class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a> </h2>
-	<a href="#map-page" data-transition="slidedown" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
-		<a href="#map-page" data-transition="slidedown" class="ui-btn-right ui-corner-all ui-btn-icon-phone">Book Now</a>
+	<a data-rel="back" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+		<a data-rel="back" data-transition="slidedown" class="ui-btn-right ui-corner-all ui-btn-icon-phone">Book Now</a>
 	</div>
 	
 	<!-- contents -->
 	<div class="ui-content"> 
-	<div data-demo-html="true" data-theme="b" >
-			<div class="ui-body ui-body-a" data-theme="b">
+	<div data-demo-html="true"  >
+			<div class="ui-body ui-body-a" >
 	      <h3 style="color:#FAA635">My Teeth Dental Clinic</h3>
 		  <hr style="forecolor:#FAA635">
 		<p >Jehandir abad main University Road Peshawar, Phone: 0999 333 4444 22</p>
@@ -411,17 +414,17 @@
 		<p style="font-size:10pt">Timing: 9:00 TO 17:00 / MON - SAT</p>
 			</div>
 			
-			<a href="#treatment" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-theme="b">Treatment Details</a>
-			<a href="#staff" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-theme="b">Our Staff</a>
-			<a href="#contact" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-theme="b">Contact Us</a>
-			<a href="#rating" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-theme="b">Ratings & Reviews</a>
+			<a href="#treatment" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" >Treatment Details</a>
+			<a href="#staff" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" >Our Staff</a>
+			<a href="#contact" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" >Contact Us</a>
+			<a href="#rating" data-transition="slide" class="ui-btn ui-icon-carat-r ui-btn-icon-right" >Ratings & Reviews</a>
 	</div>
   
   
 	</div>
 
 	<!-- footer -->
-	<div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	<div data-role="footer"  data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
   
 	</div>
 	
@@ -431,9 +434,9 @@
  <div data-role="page" id="directions"> 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"   class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="Dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a></h2>
-	<a href="#map-page" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+	<a data-rel="back" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
 	</div>
 	<!-- contents -->
 	<div class="ui-content"> 
@@ -441,7 +444,7 @@
 	</div>
 
 	<!-- footer -->
-	<div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	<div data-role="footer"  data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
         <nav data-role="navbar" data-position="fixed">
             <ul>
                 <li><a href="#detail" class="ui-btn ui-icon-bullets ui-btn-icon-top ">Details</a></li>
@@ -459,9 +462,9 @@
  <div data-role="page" id="booking"> 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"  class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="Dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a></h2>
-	<a href="#map-page" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+	<a data-rel="back" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
 	</div>
 	
 	<!-- contents -->
@@ -470,7 +473,7 @@
 	</div>
 
 	<!-- footer -->
-	<div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	<div data-role="footer"   data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
 
         <nav data-role="navbar" data-position="fixed">
             <ul>
@@ -487,9 +490,9 @@
 <!-- Feedback Screen -->
  <div data-role="page" id="feedback"> 
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"   class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="Dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a></h2>
-	<a href="#map-page" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+	<a data-rel="back" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
 	</div>
 	
 	<!-- contents -->
@@ -498,7 +501,7 @@
 	</div>
 
 	<!-- footer -->
- <div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+ <div data-role="footer"  data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
 
         <nav data-role="navbar" data-position="fixed">
             <ul>
@@ -514,10 +517,10 @@
 </div> 
 
 <!-- about dialog -->
- <div data-role="dialog" id="about" data-theme="b"> 
+ <div data-role="dialog" id="about" > 
  
 <!-- Header -->
-<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+<div data-role="header"   class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a> </h2>
     </div>
 	
@@ -533,11 +536,16 @@
 
 </div> 
 
+
+
+
+
+
 	<!-- theme dialog -->
- <div data-role="dialog" id="theme" data-theme="b"> 
+ <div data-role="dialog" id="theme" > 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"  class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a> </h2>
     </div>
 	
@@ -561,10 +569,10 @@
 	</div>
 	
 	<!-- login dialog -->
- <div data-role="dialog" id="login" data-theme="b"> 
+ <div data-role="dialog" id="login" > 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"  class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a> </h2>
     </div>
 	
@@ -591,16 +599,16 @@
  <div data-role="page" id="treatment"> 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"  class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="Dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a></h2>
-	<a href="#detail" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+	<a data-rel="back" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
 	</div>
 	
 	<!-- contents -->
 	<div class="ui-content"> 
 	
 	
-	 <ul id="list-results" data-role="listview" data-filter="true" data-filter-placeholder="Search faciity..." data-theme="b">
+	 <ul id="list-results" data-role="listview" data-filter="true" data-filter-placeholder="Search faciity..."  >
 					<li>
 			 
 	            	  	<h1 class="ui-gmap-marker-title wrap"style="font-size:14pt; color:#FAA635">Fast Clinic</h1>
@@ -882,7 +890,7 @@
  	</div>
 
 	<!-- footer -->
-	<div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	<div data-role="footer"  data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
 
     
 	</div>
@@ -893,14 +901,14 @@
  <div data-role="page" id="staff"> 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"  class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="Dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a></h2>
-	<a href="#detail" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+	<a data-rel="back" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
 	</div>
 	
 	<!-- contents -->
 	<div class="ui-content"> 
-	 <ul id="list-results" data-role="listview" data-filter="true" data-filter-placeholder="Search faciity..." data-theme="b">
+	 <ul id="list-results" data-role="listview" data-filter="true" data-filter-placeholder="Search faciity..." >
 					<li>
 			
 						<img style="width:100px; height:100px" src="assets/img/staff/1.jpg">
@@ -1145,7 +1153,7 @@
  	</div>
 
 	<!-- footer -->
-	<div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
 
         <nav data-role="navbar" data-position="fixed">
   
@@ -1155,12 +1163,12 @@
 </div> 
 
  <!-- Contact US Screen -->
- <div data-role="page" id="contact" data-theme="b"> 
+ <div data-role="page" id="contact" > 
  
 	<!-- Header -->
-	<div data-role="header" data-theme="b" class="jqm-header" data-quicklinks="true" data-position="fixed">
+	<div data-role="header"  class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="Dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a></h2>
-	<a href="#detail" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+	<a data-rel="back" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
 	</div>
 	
 	<!-- contents -->
@@ -1192,7 +1200,7 @@
 	</div>
  
 	<!-- footer -->
-	<div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	<div data-role="footer"  data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
 
   
 	</div>
@@ -1200,12 +1208,12 @@
 </div> 
 
  <!-- Ratings & Review -->
- <div data-role="page" id="rating" data-theme="b"> 
+ <div data-role="page" id="rating"  > 
  
 	<!-- Header -->
 	<div data-role="header"  class="jqm-header" data-quicklinks="true" data-position="fixed">
 	<h2><a href="#main" title="Dentalink"><img src="assets/img/logo.png" alt="dentalink" style="width:80px; height:20px"></a></h2>
-	<a href="#detail" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
+	<a data-rel="back" data-transition="slide" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left">Back</a>
 	</div>
 	
 	<!-- contents -->
@@ -1253,7 +1261,7 @@
 	</div>
 
 	<!-- footer -->
-	<div data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
+	<div data-role="footer"  data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-bar-inherit ui-footer-fixed slide" role="contentinfo">
 
  
 	</div>
