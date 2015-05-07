@@ -2201,7 +2201,7 @@ thead {
   border-bottom: 1px solid #d0d0d0; }
 
 td, th {
-  padding: 1px 1px;
+  padding: 7px 7px;
   display: table-cell;
   text-align: left;
   vertical-align: middle;
@@ -5374,17 +5374,17 @@ small {
       left: 0;
       right: 0; }
   .card.small {
-    height: 1000px; }
+    height: 450px; }
     .card.small .card-image {
       height: 150px; }
     .card.small .card-content {
-      height: 850px; }
+      height: 300px; }
   .card.medium {
-    height: 400px; }
+    height: 850px; }
     .card.medium .card-image {
-      height: 250px; }
-    .card.medium .card-content {
       height: 150px; }
+    .card.medium .card-content {
+      height: 850px; }
   .card.large {
     height: 500px; }
     .card.large .card-image {
