@@ -21,6 +21,7 @@ D:\projects\Github\AvivaClientApp\platforms\android\ant-build\res\drawable-port-
 D:\projects\Github\AvivaClientApp\platforms\android\ant-build\res\drawable-port-xhdpi\screen.png \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\_where-is-www.txt \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\appointments.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\contact.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\cordova.js \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\cordova_plugins.js \
@@ -34,11 +35,13 @@ D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\index.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\js \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\LICENSE \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\list.html \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\login.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\new.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\rating.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\search.html \
-D:\projects\Github\AvivaClientApp\platforms\android\assets\www\service.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\staff.html \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\timing.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\treatment.html \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\css\materialize.css \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\css\materialize.min.css \
@@ -71,6 +74,7 @@ D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\favicon.ic
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\logo.png \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\logo2.png \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\logo3.png \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\map.jpg \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\ph.bmp \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\ratings \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff \
@@ -80,11 +84,21 @@ D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\ratings\2.
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\ratings\3.png \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\ratings\4.png \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\ratings\5.png \
-D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\1.jpg \
-D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\2.jpg \
-D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\3.jpg \
-D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\4.jpg \
-D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\5.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\AbelMoreira.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\AhmedAbdullah.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\CharlotteStilwell-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\EmmaLaing-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\JasSharma-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\JeanClaude-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\MaryShenouda-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\NectariaPolycarpou-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\PascalLarousse-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\PedjaPavlovic-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\RamanBedi-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\SarahNeale-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\stanley kay.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\StephenDover-profile.jpg \
+D:\projects\Github\AvivaClientApp\platforms\android\assets\www\images\staff\TaniaLunn-profile.jpg \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\js\init.js \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\js\materialize.js \
 D:\projects\Github\AvivaClientApp\platforms\android\assets\www\js\materialize.min.js \
