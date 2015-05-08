@@ -10,6 +10,7 @@ CordovaSource/platforms/ios/build/
 platforms/ios/www/
 platforms/ios/cordova/console.log
 *.xcuserdatad
+CordovaSource/platforms/ios
 
 # android
 CordovaSource/platforms/android/assets/www

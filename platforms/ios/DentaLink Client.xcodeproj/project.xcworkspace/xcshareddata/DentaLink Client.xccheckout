@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>86DC4714-DABA-49D0-A325-0628623142FB</string>
+	<string>B9DE4859-A08D-4272-AA29-9273EBAA572A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>DentaLink Client</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>https://github.com/SweetPixel/AvivaClientApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CordovaSource/platforms/ios/DentaLink Client.xcodeproj</string>
+	<string>platforms/ios/DentaLink Client.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>29545C4F4AB7C71E48D32131FF9EF30AD6B2DBAF</key>
-		<string>../../../../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/SweetPixel/AvivaClientApp.git</string>
