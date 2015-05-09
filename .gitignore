@@ -4,7 +4,7 @@
 # Node
 npm-debug.log
 /node_modules
-platforms
+
 # iOS
 CordovaSource/platforms/ios/build/
 platforms/ios/www/
