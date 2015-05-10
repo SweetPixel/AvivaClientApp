@@ -13,15 +13,32 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+  <script>
+      $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+    });
+ </script>
 
 </head>
 <body>
+
+  <div id="qrmodal" class="modal">
+    <div class="modal-content center">
+      <h4>My QR Code</h4>
+      <img src="images/harley-qr.png"/>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
 
   <nav class="orange" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" >Nearby</h6> </a>
       <ul id="nav-mobile" class="side-nav">
         <li><a href="index.html">Services</a></li>
+        <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
         <li><a href="#">Settings</a></li>
         <li><a href="#">Help</a></li>
       </ul>
@@ -56,7 +73,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                  <h4 class="center black-text">0.33</h4>
+                  <h4 class="center black-text">1.2</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3.2</h4>
@@ -86,8 +103,8 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                  <h4 class="center black-text">0.44</h4>
-                  <h5 class="center grey-text " >Km</h5>
+                  <h4 class="center black-text">2.6</h4>
+                  <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3</h4>
                 </div>
@@ -115,7 +132,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                  <h4 class="center black-text">0.5</h4>
+                  <h4 class="center black-text">3</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3.2</h4>
@@ -170,7 +187,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                  <h4 class="center black-text"> 0.11</h4>
+                  <h4 class="center black-text">4.7</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >2.5</h4>
@@ -195,7 +212,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">0.30</h4>
+                <h4 class="center black-text">5.1</h4>
                 <h5 class="center grey-text " >miles</h5>
                 <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                 <h4 class="center grey-text " >2.5</h4>
@@ -221,7 +238,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                  <h4 class="center black-text">0.31</h4>
+                  <h4 class="center black-text">5.2</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3</h4>
@@ -248,7 +265,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                  <h4 class="center black-text">0.41</h4>
+                  <h4 class="center black-text">5.5</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3</h4>
@@ -274,7 +291,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">0.53</h4>
+                <h4 class="center black-text">5.6</h4>
                 <h5 class="center grey-text " >miles</h5>
                 <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                 <h4 class="center grey-text " >3</h4>
@@ -300,7 +317,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">0.57</h4>
+                <h4 class="center black-text">5.8</h4>
                 <h5 class="center grey-text " >miles</h5>
                 <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                 <h4 class="center grey-text " >3</h4>
@@ -326,7 +343,7 @@
               <div class="col s3 ">
                 <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">0.57</h4>
+                <h4 class="center black-text">6.4</h4>
                 <h5 class="center grey-text " >miles</h5>
                 <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                 <h4 class="center grey-text " >3</h4>

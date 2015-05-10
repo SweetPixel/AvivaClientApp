@@ -8,29 +8,29 @@
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-   <!--  Scripts-->
+  <!-- <link href='css/jquery.steps.css' type='text/css' rel='stylesheet' media='screen,projection'/> -->
+  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <!-- // <script src='js/jquery.steps.min.js'></script> -->
   <script>
- $("document").ready(function() {
-
-  $(".modal-trigger").leanModal();
-});
+  $("document").ready(function() {
+    $(".modal-trigger").leanModal();
+  });
   </script>
 
 </head>
 <body>
 
 
-	  <div id="m" class="modal">
+  <div id="m" class="modal">
     <div class="modal-content">
-      <h4 class="orange-text">Appointment</h4>
+      <h4 class="orange-text">Done!</h4>
       <p>Your appointment has been booked successfully.</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      <a href="details.html" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
     </div>
   </div>
 
@@ -38,59 +38,117 @@
 
   <nav class="orange" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="white-text" >Appointments</h6> </a>
-      <a href="list.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
-
-   </div>
+      <a href="details.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
+    </div>
   </nav>
- <br>
- <br>
-<table class="bordered">
+
+<br />
+<br />
+<br />
+<div class="row">
+  <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Choose a Dentist</option>
+      <option value="1">Dr Stanley Kay</option>
+      <option value="2">Dr Sarah Neale</option>
+      <option value="3">Dr. Nectaria Polycarpou</option>
+    </select>
+    <label>Dentists</label>
+  </div>
+</div>
 
 
-        <thead>
-          <tr>
-              <th data-field="id">Treatment</th>
-              <th data-field="name">Fee</th>
-              <th data-field="price">Book Appointment</th>
-          </tr>
-        </thead>
+  <!-- <div class="row"> -->
+  <!-- <div class="input-field col s12">
+  <select>
+  <option value="" disabled selected>Choose a Dentist</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</select>
+<label>Dentists</label>
+</div> -->
+<!-- </div> -->
 
-        <tbody>
-          <tr>
-            <td>Intra-oral – Bite-wing per unit</td>
-            <td>£ 10</td>
+<div class="row">
+  <div class="col s12">
+  <input type="date" class="datepicker" placeholder="Pick a Date">
+</div>
 
-			          <td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
+<div class="row">
+  <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Pick a time</option>
+      <option value="1">9:00</option>
+      <option value="2">10:00</option>
+      <option value="3">11:00</option>
+    </select>
+    <label>Pick a time</label>
+  </div>
+</div>
 
-          </tr>
-          <tr>
-            <td>Intra-oral – Periapical per unit</td>
-            <td>£ 10</td>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row center">
+  <a data-target="m" class="orange waves-effect waves-light btn center modal-trigger">Book Appointment </a>
+</div>
 
-			          <td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
-
-          </tr>
-          <tr>
-            <td>CBCT Scan Single</td>
-            <td>£ 95</td>
-        <td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
-          </tr>
-		       <tr>
-            <td>Topical Application of Fluoride</td>
-            <td>£ 250</td>
-            <td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
-          </tr>
-
-		       <tr>
-            <td>Sealant – per tooth</td>
-            <td>£ 200</td>
-           <td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
-          </tr>
-        </tbody>
-      </table>
+<!-- <br>
+<br> -->
+<!-- <table class="bordered">
 
 
+<thead>
+<tr>
+<th data-field="id">Treatment</th>
+<th data-field="name">Fee</th>
+<th data-field="price">Book Appointment</th>
+</tr>
+</thead>
 
+<tbody>
+<tr>
+<td>Intra-oral – Bite-wing per unit</td>
+<td>£ 10</td>
 
- </body>
+<td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
+
+</tr>
+<tr>
+<td>Intra-oral – Periapical per unit</td>
+<td>£ 10</td>
+
+<td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
+
+</tr>
+<tr>
+<td>CBCT Scan Single</td>
+<td>£ 95</td>
+<td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
+</tr>
+<tr>
+<td>Topical Application of Fluoride</td>
+<td>£ 250</td>
+<td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
+</tr>
+
+<tr>
+<td>Sealant – per tooth</td>
+<td>£ 200</td>
+<td> <a data-target="m" class="orange waves-effect waves-light btn left modal-trigger"> Book Now </a></td>
+</tr>
+</tbody>
+</table> -->
+<script>
+  $('select').material_select();
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+</script>
+</body>
 </html>
