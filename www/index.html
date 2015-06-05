@@ -7,41 +7,61 @@
 
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="medical-icons/packages/webfont-medical-icons/wfmi-style.css" rel="stylesheet"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
    <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+<script>
+ 
+	 $(document).ready(function() {
+		$("#btn").click(function(){
+		 
+		 $(location).attr('href',"services2.html?cid="+$('#name').val());
+		}); 
+	});
 
+	 
+</script>
 
 </head>
 <body>
+ <div data-role="page" id="index">
   <nav class="orange" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" ></h6> </a>
-      <ul id="nav-mobile" class="side-nav">
-
-        <li><a href="index.html">Services</a></li>
-		<li><a href="#">Settings</a></li>
-		<li><a href="#">Help</a></li>
-      </ul>
-    <!--   <a href="index.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>-->
-
-
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="left white-text" >Login</h6> </a>
+    <!--   <a href="#"><i class="left white-text mdi-navigation-arrow-back"></i></a>-->
    </div>
-
   </nav>
 
- <br>
- <br>
- <br>
- 	<div class="row center" >
-	  <h4 class="grey-text" >Find The Nearest</h4>
-	  <br>
- <a href = "list.html" class="orange-text grey lighten-4  waves-effect waves-light btn-large"><i class="icon-i-dental left"></i>   Dentist   </a> <br><br><br>
- <a class="orange-text grey lighten-4 waves-effect waves-light btn-large"><i class="icon-i-health-services left"></i>   Doctor   </a><br><br><br>
- <a class="orange-text grey lighten-4 waves-effect waves-light btn-large"><i class="  mdi-action-visibility left"></i>   Eye Specialist   </a>
- <div>
-</body>
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-action-account-circle prefix"></i> -->
+          <input id="name" type="text" class="validate">
+          <label for="name">User Name</label>
+        </div>
+		 </div>
+		  <div class="row">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-communication-phone prefix"></i> -->
+          <input id="icon_telephone" type="password" class="validate">
+          <label for="icon_telephone">Password</label>
+        </div>
+      </div>
+
+
+	    <div class="row">
+        <div class="input-field col s12">
+		        <a class="orange waves-effect waves-light btn" id="btn"><i class="mdi-communication-vpn-key left"></i>Login</a>
+        </div>
+ 
+		</div>
+    </form>
+  </div>
+  </div>
+
+  
+ </body>
 </html>
