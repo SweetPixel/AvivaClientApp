@@ -7,7 +7,7 @@
     <author email="hello@sweetpixelstudios.com" href="http://sweetpixelstudios.com">
         SPS Team
     </author>
-    <content src="login.html" />
+    <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
