@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Healthpick</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="medical-icons/packages/webfont-medical-icons/wfmi-style.css" rel="stylesheet"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+   <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+<script>
+
+	 $(document).ready(function() {
+	 
+ $( "#name" ).append( getParameterByName('cid') );
+ 
+});
+
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+</script>
+
+</head>
+
+<body>
+
+ <div data-role="page" id="home">
+<div class="fullscreen background" style="background-image:url('images/bk.png');" data-img-width="100%" data-img-height="100%">
+ 
+ <br>
+ <br>
+ <h3  class="center-align  white-text lighten-2"> Welcome</h3>
+  <h4  class="center-align  white-text lighten-2" id="name"></h4>
+ <br>
+  <br>
+   <br>
+ 
+   <h5  class="center-align  white-text lighten-2">  How can we help ?  </h5>
+	 <br>
+     <div class="row center-align" style="padding-left:60px">
+	     <div class="col s2">      </div>
+      <div class="col s4"> <a href="list.html"class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-dental"></i> </a></div>
+      <div class="col s2"> </div>
+      <div class="col s4"> <a class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-health-services"></i> </a></div>
+    </div>
+	 <div class="row center-align" style="padding-left:60px">
+	    <div class="col s2"> </div>
+      <div class="col s4 orange-text">Dentist</div>
+      <div class="col s2"> </div>
+      <div class="col s4 orange-text">Doctor</div>
+    </div>
+	 <div class="row center-align" style="padding-left:60px">
+    	     <div class="col s2"> </div>
+      <div class="col s4"> <a class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-ophthalmology"></i> </a></div>
+      <div class="col s2"> </div>
+      <div class="col s4"> <a class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-cardiology"></i> </a></div>
+    </div>
+	 <div class="row center-align" style="padding-left:60px">
+	    <div class="col s2"> </div>
+      <div class="col s4 orange-text">Eye Specialist</div>
+      <div class="col s2"> </div>
+      <div class="col s4 orange-text">Other</div>
+    </div>
+	
+ </div>
+ </div>
+</body>
+</html>
