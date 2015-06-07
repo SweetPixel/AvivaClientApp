@@ -1,0 +1,16 @@
+{
+  "name" : "Aviva Client",
+  "version" : "0.0.1",
+  "dependencies" : {
+    "backbone" : "1.2.0",
+    "jquery" : "2.1.1",
+    "kinwin" : "*",
+    "handlebars": "~1.0.0",
+    "requirejs" : "~2.1.8",
+    "requirejs-plugins" : "~1.0.2",
+    "requirejs-text" : "~2.0.10",
+    "backbone.routemanager": "0.1.0",
+    "underscore" : "1.7.0",
+    "underscore.string" : "~2.3.3"
+  }
+}
