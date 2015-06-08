@@ -1,6 +1,9 @@
-var gulp 	  = require('gulp'),
-	webserver = require('gulp-webserver'),
-	connect = require('gulp-connect');
+'use strict';
+
+
+var gulp		= require('gulp'),
+	webserver	= require('gulp-webserver'),
+	connect		= require('gulp-connect');
 
 
 gulp.task('default', function () {
@@ -20,5 +23,5 @@ gulp.task('server', function () {
 	connect.server({
 		root: 'www',
 		livereload: true
-	})
+	});
 });
