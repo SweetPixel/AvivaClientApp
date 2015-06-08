@@ -1,3 +1,4 @@
+/* globals: define */
 //
 // LearningStation Backbone Loader
 // =============================================================================
@@ -5,6 +6,7 @@
 // See the require statements for the ways that we extend our Backbone.
 //
 // See the ls.js file to see the mainView class that works with the new
+
 // `.close()` method. When we load a new view into the `#main` div, we run the
 // close on the previous view and then render the new one.
 //
@@ -15,7 +17,7 @@ define(function (require) {
   'use strict';
 
   var _        = require('underscore'),
-      Backbone = require('backbone');
+  Backbone = require('backbone');
 
   // Computed Model Fields from [github][cf].
   // [cf]: https://github.com/alexanderbeletsky/backbone-computedfields
@@ -45,7 +47,7 @@ define(function (require) {
   // Allow for more complicated [route management][rm]
   // [rm]: https://raw.github.com/tbranyen/backbone.routemanager
   // require('backbone_route_filter');
-  require('backbone_route_manager');
+  // require('backbone_route_manager');
 
   // Attach our [sync implementation][sync] to Backbone
   // [sync]: http://backbonejs.org/#Sync
