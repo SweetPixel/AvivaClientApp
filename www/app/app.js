@@ -1,3 +1,5 @@
+/* global window, define */
+
 //
 // Aviva Client App
 // ===============================
@@ -7,43 +9,49 @@
 
 
 define([
-  'jquery',
-  'underscore',
-  'backbone_loader',
-  'handlebars',
-  'templates'
+    'jquery',
+    'underscore',
+    'backbone_loader',
+    'handlebars',
+    'templates',
 ], function (
   $, _, Backbone, Handlebars, JST
 ) {
 
-  'use strict';
+    'use strict';
 
 
-  //Attach template object to global scope
-  window.JST = JST;
+    //Attach template object to global scope
+    window.JST = JST;
 
 
 
-  var app = {
-    root : '/'
-  };
+    var app = {
+        root : '/'
+    };
+
+
+    // For inlineTemplates we create the following function
+    app.getTemplate = function (id) {
+        return _.template($('#' + id).html());
+    };
   // Load a template from the server, compile it, and return
   // through the callback. In production mode, we have a
   // templates.js file that we precompile. This file will prepopulate
   // the JST var and so we won't have to async load the templates.
-  app.fetchTemplate = function (path, done) {
-    var self = this,
-    JST = window.JST = window.JST || {},
-    def = new $.Deferred();
+    app.fetchTemplate = function (path, done) {
+        var self = this,
+              JST = window.JST = window.JST || {},
+              def = new $.Deferred();
 
     // Should be an instant synchronous way of getting the template, if it
     // exists in the JST object.
-    if (JST[path]) {
-      if (_.isFunction(done)) {
-        done(JST[path]);
-      }
-      return def.resolve(JST[path]);
-    }
+        if (JST[path]) {
+          if (_.isFunction(done)) {
+            done(JST[path]);
+          }
+          return def.resolve(JST[path]);
+        }
 
     // Fetch it asynchronously if not available from JST
     // Note that some bugs pop up if the views ask for paths

@@ -35,7 +35,7 @@ require([
   // We've proven that we're authenticated, so we can start the app.
   // enable HTML5 History API support
     main.init.startBackboneHistory = function () {
-        Backbone.history.start({ pushState: true, root: app.root });
+        // Backbone.history.start({ pushState: true, root: app.root });
         return this;
     };
 
@@ -44,6 +44,9 @@ require([
         main.init
         .setupRouters()
         .startBackboneHistory();
+
+        // call materialize init
+        // $('.button-collapse').sideNav();
     };
 
   // The jQuery ready function is the entry point to the application.

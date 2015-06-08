@@ -15,6 +15,7 @@ define(function () {
       handlebars              : '../bower_components/handlebars/handlebars',
       jquery                  : '../bower_components/jquery/dist/jquery',
       kinwin                  : '../bower_components/kinwin/dist/kinwin',
+      // materialize             : '../bower_components/materialize/dist/js/materialize',
       templates               : 'helpers/templates', // empty placeholder
       underscore              : '../bower_components/underscore/underscore-min',
       underscore_string       : '../bower_components/underscore.string/lib/underscore.string'
