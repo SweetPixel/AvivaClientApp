@@ -14,17 +14,40 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <!-- // <script src='js/jquery.steps.min.js'></script> -->
-  <script>
+  <!-- <script>
   $("document").ready(function() {
     $(".modal-trigger").leanModal();
   });
-  </script>
+  </script> -->
+  <script>
+ 
+   $(document).ready(function() {
+    $("#book-app").click(function(){
+      var dentistID = $('#dentist').find(":selected").val();
+      var date = $('.datepicker').val();
+      var timeID = $('#time').find(":selected").val();
+
+      if(dentistID !== "" && date !== "" && timeID !== "") {
+        var dentist = $('#dentist').find(":selected").text();
+        var time = $('#time').find(":selected").text();
+       
+       $(location).attr('href',"appoint-confirm.html?dentist=" + dentist + "&date=" + date + "&time=" + time);
+      }
+      else {
+        alert("Please fill all the fields.")
+      }
+
+    }); 
+  });
+
+   
+</script>
 
 </head>
 <body>
 
 
-  <div id="m" class="modal">
+  <!-- <div id="m" class="modal">
     <div class="modal-content">
       <h4 class="orange-text">Done!</h4>
       <p>Your appointment has been booked successfully.</p>
@@ -32,7 +55,7 @@
     <div class="modal-footer">
       <a href="details.html" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -47,7 +70,7 @@
 <br />
 <div class="row">
   <div class="input-field col s12">
-    <select>
+    <select id="dentist">
       <option value="" disabled selected>Choose a Dentist</option>
       <option value="1">Dr Stanley Kay</option>
       <option value="2">Dr Sarah Neale</option>
@@ -77,7 +100,7 @@
 
 <div class="row">
   <div class="input-field col s12">
-    <select>
+    <select id="time">
       <option value="" disabled selected>Pick a time</option>
       <option value="1">9:00</option>
       <option value="2">10:00</option>
@@ -94,7 +117,7 @@
 <br>
 <br>
 <div class="row center">
-  <a data-target="m" class="orange waves-effect waves-light btn center modal-trigger">Book Appointment </a>
+  <a id="book-app" class="orange waves-effect waves-light btn center ">Book Appointment </a><!-- modal-trigger  data-target="m" -->
 </div>
 
 <!-- <br>
