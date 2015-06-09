@@ -10,67 +10,92 @@
   <link href="medical-icons/packages/webfont-medical-icons/wfmi-style.css" rel="stylesheet"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-   <!--  Scripts-->
+  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-<script>
+  <script>
 
-	 $(document).ready(function() {
-	 
- $( "#name" ).append( getParameterByName('cid') );
- 
-});
+  $(document).ready(function() {
 
-function getParameterByName(name) {
+   $( "#name" ).append( getParameterByName('cid') );
+
+ });
+
+  function getParameterByName(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-}
-</script>
+  }
+  </script>
 
 </head>
 
 <body>
 
  <div data-role="page" id="home">
-<div class="fullscreen background" style="background-image:url('images/bk.png');" data-img-width="100%" data-img-height="100%">
- 
- <br>
- <br>
- <h3  class="center-align  white-text lighten-2"> Welcome</h3>
-  <h4  class="center-align  white-text lighten-2" id="name"></h4>
- <br>
-  <br>
-   <br>
- 
-   <h5  class="center-align  white-text lighten-2">  How can we help ?  </h5>
-	 <br>
-     <div class="row center-align" style="padding-left:60px">
-	     <div class="col s2">      </div>
-      <div class="col s4"> <a href="list.html"class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-dental"></i> </a></div>
-      <div class="col s2"> </div>
-      <div class="col s4"> <a class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-health-services"></i> </a></div>
+  <!-- <div class="fullscreen background" style="background-image:url('images/bk.png');" data-img-width="100%" data-img-height="100%"> -->
+  <div class="navbar-fixed">
+   <nav class="orange">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">HealthPick</a>
     </div>
-	 <div class="row center-align" style="padding-left:60px">
-	    <div class="col s2"> </div>
-      <div class="col s4 orange-text">Dentist</div>
-      <div class="col s2"> </div>
-      <div class="col s4 orange-text">Doctor</div>
+  </nav>
+</div>
+<!-- <h3  class="center-align orange-text lighten-2"> HealthPick</h3> -->
+<!-- <h4  class="center-align orange-text lighten-2" id="name"></h4> -->
+<!-- style="width: 50%; margin: 0 auto;" -->
+<br>
+<br>
+<br>
+<div class="row right-align">
+  <div class="col s12">
+    <a class="btn-floating btn-large waves-effect waves-light orange">
+      <i class="mdi-social-notifications-none medium"></i>
+    </a>
+  </div>
+</div>
+<div class="row">
+ <h5  class="center-align orange-text lighten-2">  How can we help ?  </h5>
+</div>
+<div class="row" >
+  <div class="col s6 center-align">
+    <div class="row">
+      <a href="list.html"class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-dental"></i> </a>
     </div>
-	 <div class="row center-align" style="padding-left:60px">
-    	     <div class="col s2"> </div>
-      <div class="col s4"> <a class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-ophthalmology"></i> </a></div>
-      <div class="col s2"> </div>
-      <div class="col s4"> <a class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-cardiology"></i> </a></div>
+    <div class="row">
+      <label class="orange-text center-align">Dentist</label>
     </div>
-	 <div class="row center-align" style="padding-left:60px">
-	    <div class="col s2"> </div>
-      <div class="col s4 orange-text">Eye Specialist</div>
-      <div class="col s2"> </div>
-      <div class="col s4 orange-text">Other</div>
+  </div>
+  <div class="col s6 center-align">
+    <div class="row">
+      <a class="btn-floating btn-large waves-effect waves-light orange"><i class="icon-i-health-services"></i> </a>
     </div>
-	
- </div>
- </div>
+    <div class="row">
+      <label class="orange-text center-align">Doctor</label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s6 center-align">
+    <div class="row">
+      <a href="list.html"class="btn-floating btn-large waves-effect waves-light orange"><i class="mdi-communication-chat"></i> </a>
+    </div>
+    <div class="row">
+      <label class="orange-text center-align">Query</label>
+    </div>
+  </div>
+  <div class="col s6 center-align">
+    <div class="row">
+     <a class="btn-floating btn-large waves-effect waves-light orange"><i class="mdi-action-settings"></i> </a>
+   </div>
+   <div class="row">
+    <label class="orange-text">Settings</label>
+  </div>
+</div>
+</div>
+
+
+<!-- </div> -->
+</div>
 </body>
 </html>
