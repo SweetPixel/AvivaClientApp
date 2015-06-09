@@ -12,8 +12,10 @@ require([
     'jquery',
     'underscore',
     'backbone_loader',
-    'routers/index'
-], function (app, $, _, Backbone, IndexRouter) {
+    'routers/index',
+    'materialize',
+    'hammer'
+], function (app, $, _, Backbone, IndexRouter, Materialize, hammer) {
 
     'use strict';
 
@@ -46,7 +48,7 @@ require([
         .startBackboneHistory();
 
         // call materialize init
-        // $('.button-collapse').sideNav();
+        $('.button-collapse').sideNav();
     };
 
   // The jQuery ready function is the entry point to the application.
