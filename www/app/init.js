@@ -12,10 +12,8 @@ require([
     'jquery',
     'underscore',
     'backbone_loader',
-    'routers/index',
-    'materialize',
-    'hammer'
-], function (app, $, _, Backbone, IndexRouter, Materialize, hammer) {
+    'routers/index'
+], function (app, $, _, Backbone, IndexRouter) {
 
     'use strict';
 
@@ -25,11 +23,6 @@ require([
   // Instantiate our application routers
   // Remember that these prefixes go onto the url routes in our routers
     main.init.setupRouters = function () {
-    // var AppRouter = IndexRouter
-    //   routes: {
-    //     ''     : IndexRouter
-    //   }
-    // });
         app.router = new IndexRouter();
         return this;
     };
