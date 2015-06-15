@@ -30,14 +30,47 @@
     <h5  class="center-align orange-text lighten-2">  What's in your mind ?  </h5>
   </div>
 
-  <div class="row bottom">
-    <textarea name="myTextBox" cols="50" rows="5" style="margin-left: 5%;width: 90%;"></textarea>
-    <div class="col s6 offset-s10">
-      <button class="btn waves-effect waves-light orange" type="submit" name="action">Submit
-        <i class="mdi-content-send right"></i>
-      </button>
+  <div class="container">
+    <div class="row">
+      <div id="right">
+        <div id="top">
+          <!-- <div id="empty"></div>
+          <div id="chatContent"></div> -->
+          <ul class="collection">
+<!--             <li class="collection-item avatar">
+              <img src="images/thunderbird.jpeg" alt="" class="circle">
+              <span class="title">Mr. Example</span>
+              <p></p>
+            </li> -->
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+
+  <footer id="chat-footer" class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col s9">
+          <input type="text" id="message">
+        </div>
+        <div class="col s3">
+          <button class="btn waves-effect waves-light orange" type="submit" name="action" id="clickMe">
+            Submit
+          </button>  
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    $(function(){
+      $('#clickMe').click(function(event){
+        $('.collection').append('<li class="collection-item avatar"><img src="images/thunderbird.jpeg" alt="" class="circle"><span class="title">Mr. Example</span><p>' + $('#message').val() + '</p></li>');
+        $('#message').val('');
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -5,9 +5,24 @@
  *
  * Made By MaterializeCSS.com
  */
- .bottom {
-    position: fixed;
+
+#chat-footer {
+	background-color: #ffffff;
+	/*position: fixed;*/
+	bottom: 0;
+}
+#message {
+	margin-left: 0%;
+	width: 79%;
+}
+
+.bottom {
+    /*position: fixed;*/
     bottom: 0;
+}
+
+.collection {
+    border: none;
 }
 
  .waves-effect {
