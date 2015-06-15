@@ -5,6 +5,22 @@
  *
  * Made By MaterializeCSS.com
  */
+ .bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+ .waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -moz-user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: all 0.3s ease-out 0s;
+    width: 22%;
+}
 
  .icon-block {
  	padding: 0 15px;
