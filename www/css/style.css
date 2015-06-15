@@ -10,6 +10,8 @@
 	background-color: #ffffff;
 	/*position: fixed;*/
 	bottom: 0;
+	position: fixed;
+	padding-bottom: 0px;
 }
 #message {
 	margin-left: 0%;
