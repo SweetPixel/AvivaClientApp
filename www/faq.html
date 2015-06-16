@@ -65,7 +65,8 @@
 <script>
   $(function(){
     if (('#message').val() !== '') 
-      {$('#clickMe').click(function(event){
+      {
+        $('#clickMe').click(function(event){
         $('.collection').append('<li class="collection-item avatar"><img src="images/thunderbird.jpeg" alt="" class="circle"><span class="title">Mr. Example</span><p>' + $('#message').val() + '</p></li>');
         $('#message').val('');
         window.scrollTo(0, document.body.scrollHeight);
