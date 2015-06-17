@@ -27,13 +27,18 @@
   </div> -->
   <div class="row">
     <a class="left left-align orange-text col s2" href="services2.html"><i class="mdi-hardware-keyboard-backspace medium"></i></a>
-    <h1 class="center center-align orange-text col s2 m2 l2 offset-s2 offset-m3 offset-l3">Ask</h1>
+
   </div>
   <!-- <div class="row" style="margin-top: 8%;">
     <h5  class="center-align orange-text lighten-2">  What's in your mind ?  </h5>
   </div> -->
 
   <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <h4 class="center-align center orange-text">Ask</h4>
+      </div>
+    </div>
     <div style="overflow: auto;" class="row">
       <div id="right">
         <div id="top">
@@ -63,16 +68,17 @@
 </div>
 
 <script>
-  $(function(){
-    if (('#message').val() !== '') 
+// $(function(){
+  $('#clickMe').click(function(event){
+    if ($('#message').val() !== '') 
     {
-      $('#clickMe').click(function(event){
-        $('.collection').append('<li class="collection-item avatar"><img src="images/thunderbird.jpeg" alt="" class="circle"><span class="title">Mr. Example</span><p>' + $('#message').val() + '</p></li>');
-        $('#message').val('');
-        window.scrollTo(0, document.body.scrollHeight);
-      });
+      $('.collection').append('<li class="collection-item avatar"><img src="images/765-default-avatar.png" alt="" class="circle"><span class="title">Mr. White</span><p>' + $('#message').val() + '</p></li>');
+      $('#message').val('');
+      window.scrollTo(0, document.body.scrollHeight);
     }
   });
+  // }
+// });
 </script>
 </body>
 
