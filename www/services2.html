@@ -16,16 +16,16 @@
   <script src="js/init.js"></script>
   <script>
 
-  $(document).ready(function() {
+    $(document).ready(function() {
 
-   $( "#name" ).append( getParameterByName('cid') );
+     $( "#name" ).append( getParameterByName('cid') );
 
- });
+   });
 
-  function getParameterByName(name) {
-    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-  }
+    function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }
   </script>
 
 </head>
@@ -78,12 +78,23 @@
 <div class="row">
   <div class="col s6 center-align">
     <div class="row">
+    <a href="#"class="btn-floating btn-large waves-effect waves-light orange"><i class="mdi-image-remove-red-eye"></i> </a>
+    </div>
+    <div class="row">
+      <label class="orange-text center-align">Eye Specialist</label>
+    </div>
+  </div>
+  <div class="col s6 center-align">
+    <div class="row">
       <a href="faq.html"class="btn-floating btn-large waves-effect waves-light orange"><i class="mdi-action-question-answer"></i> </a>
     </div>
     <div class="row">
       <label class="orange-text center-align">Ask a Question</label>
     </div>
   </div>
+  
+</div>
+<div class="row">
   <div class="col s6 center-align">
     <div class="row">
      <a href="settings.html" class="btn-floating btn-large waves-effect waves-light orange"><i class="mdi-action-settings"></i> </a>
@@ -91,6 +102,14 @@
    <div class="row">
     <label class="orange-text">Settings</label>
   </div>
+</div>
+  <!-- <div class="col s6 center-align">
+    <div class="row">
+     <a href="settings.html" class="btn-floating btn-large waves-effect waves-light orange"><i class="mdi-action-settings"></i> </a>
+   </div>
+   <div class="row">
+    <label class="orange-text">Settings</label>
+  </div> -->
 </div>
 </div>
 
