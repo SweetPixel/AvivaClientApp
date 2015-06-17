@@ -6,6 +6,37 @@
  * Made By MaterializeCSS.com
  */
 
+/*#home {
+    background-image: url('../images/Aviva_BG.svg');
+}*/
+
+.white-text {
+    color: #fff;
+}
+.gradient {
+  background: #f2f6f8; /* Old browsers */
+  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 36%, #b5c6d0 100%, #e0eff9 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f6f8), color-stop(36%,#d8e1e7), color-stop(100%,#b5c6d0), color-stop(100%,#e0eff9)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f2f6f8 0%,#d8e1e7 36%,#b5c6d0 100%,#e0eff9 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f2f6f8 0%,#d8e1e7 36%,#b5c6d0 100%,#e0eff9 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f2f6f8 0%,#d8e1e7 36%,#b5c6d0 100%,#e0eff9 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #f2f6f8 0%,#d8e1e7 36%,#b5c6d0 100%,#e0eff9 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9',GradientType=0 ); /* IE6-9 */
+}
+
+#list-images {
+margin-top: 9px;
+width: 70%;
+margin-left: 2px;
+}
+
+.colors {
+    background-color: #ecf0f1;
+}
+.colors:hover {
+    background-color: orange;
+}
+
 #chat-footer {
 	background-color: #ffffff;
 	/*position: fixed;*/
@@ -37,51 +68,51 @@
     z-index: 1;
     transition: all 0.3s ease-out 0s;
     width: 22%;
-}*/
+    }*/
 
- .icon-block {
- 	padding: 0 15px;
- }
- .confirm-type {
- 	font-weight: bold;
- }
- .confirm-table {
- 	font-size: 14px;
- 	margin-left: auto;
- 	margin-right: auto;
- 	width: 80%;
- 	margin-top: 30px;
- }
- .footer-buttons {
- 	background-color: transparent;
- 	border: none;
- 	color:#fff;
- 	font-size: 15px;
- }
- footer.page-footer {
- 	position: absolute;
- 	width: 100%;
- 	bottom: 0px;
- 	padding-bottom: 8px;
- 	background-color: #FF9800;
- 	padding-top: 10px;
- }
- .container {
- 	padding: 0px 0px;
- 	margin: 0px auto;
- 	max-width: 1280px;
- 	width: 90%;
- }
- .switch label input[type="checkbox"]:checked + .lever {
- 	background-color:#F9C579;
- }
- .switch label input[type="checkbox"]:checked + .lever::after {
- 	background-color: #FF9800 !important;
- }
- input[type="password"]:focus:not([readonly]) {
- 	border-bottom: 1px solid #FF9800;
- 	box-shadow: 0px 1px 0px 0px #FF9800;
- }
- input[type="password"]:focus:not([readonly]) + label {
- 	color: #FF9800 !important;
- }
+    .icon-block {
+      padding: 0 15px;
+  }
+  .confirm-type {
+      font-weight: bold;
+  }
+  .confirm-table {
+      font-size: 14px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+      margin-top: 30px;
+  }
+  .footer-buttons {
+      background-color: transparent;
+      border: none;
+      color:#fff;
+      font-size: 15px;
+  }
+  footer.page-footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      padding-bottom: 8px;
+      background-color: #FF9800;
+      padding-top: 10px;
+  }
+  .container {
+      padding: 0px 0px;
+      margin: 0px auto;
+      max-width: 1280px;
+      width: 90%;
+  }
+  .switch label input[type="checkbox"]:checked + .lever {
+      background-color:#F9C579;
+  }
+  .switch label input[type="checkbox"]:checked + .lever::after {
+      background-color: #FF9800 !important;
+  }
+  input[type="password"]:focus:not([readonly]) {
+      border-bottom: 1px solid #FF9800;
+      box-shadow: 0px 1px 0px 0px #FF9800;
+  }
+  input[type="password"]:focus:not([readonly]) + label {
+      color: #FF9800 !important;
+  }
