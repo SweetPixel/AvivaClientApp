@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>Healthpick</title>
+    <!-- CSS -->
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style type="text/css">
+        .title{
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+    <!-- Scripts-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/materialize.js"></script>
+    <script src="../js/init.js"></script>
+</head>
+
+<body>
+    <nav class="orange" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" >My Claims</h6> </a>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="../services2.html">Home</a></li>
+                <!-- <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li> -->
+                <li><a href="../settings.html">Settings</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <a href="#"><i  class="right white-text large mdi-action-search"></i> </a>
+        </div>
+    </nav>
+    <div class="container">
+        <ul class="collection">
+            <li class="collection-item">
+                <span class="title">Treatment 1</span>
+                <span></span>
+                <p>Dr. Strange</p>
+                <p>Insurance payout</p>
+                <p>Status: Pending</p>
+                <a class="orange email-claim btn btn-default">Email Claims Form</a>
+            </li>
+            <li class="collection-item">
+                <span class="title">Treatment 2</span>
+                <span></span>
+                <p>Dr. Strange</p>
+                <p>Insurance payout</p>
+                <p>Status: Pending</p>
+                <a class="orange email-claim btn btn-default">Email Claims Form</a>
+            </li>
+            <li class="collection-item">
+                <span class="title">Treatment 3</span>
+                <span></span>
+                <p>Dr. Strange</p>
+                <p>Insurance payout</p>
+                <p>Status: Approved</p>
+                <a class="orange email-claim btn btn-default">Email Claims Form</a>
+            </li>
+            <li class="collection-item">
+                <span class="title">Treatment 4</span>
+                <span></span>
+                <p>Dr. Strange</p>
+                <p>Insurance payout</p>
+                <p>Status: Pending Approval</p>
+                <a class="orange email-claim btn btn-default">Email Claims Form</a>
+            </li>
+            <li class="collection-item">
+                <span class="title">Treatment 5</span>
+                <span></span>
+                <p>Dr. Strange</p>
+                <p>Insurance payout</p>
+                <p>Status: Approved</p>
+                <a class="orange email-claim btn btn-default">Email Claims Form</a>
+            </li>
+            <li class="collection-item">
+                <span class="title">Treatment 6</span>
+                <span></span>
+                <p>Dr. Strange</p>
+                <p>Insurance payout</p>
+                <p>Status: Pending Approval</p>
+                <a class="orange email-claim btn btn-default">Email Claims Form</a>
+            </li>
+        </ul>
+    </div>
+    <div id="email-claim-modal" class="modal">
+        <div class="modal-content">
+            <h4>Enter Email</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="email" id="email" class="validate">
+                    <label for="email">Email of receiver</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a onclick="Materialize.toast('Email Sent', 4000)" href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Send</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $('.email-claim').on('click', function () {
+        $('#email-claim-modal').openModal();
+    })
+    </script>
+</body>
