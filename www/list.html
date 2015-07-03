@@ -14,11 +14,27 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script>
-      $(document).ready(function(){
+    $(document).ready(function(){
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
       $('.modal-trigger').leanModal();
     });
- </script>
+  </script>
+
+  <style>
+    html {
+      /*height: 100%;*/
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background: -webkit-linear-gradient(90deg, #003973 10%, #E5E5BE 90%); /* Chrome 10+, Saf5.1+ */
+      background:    -moz-linear-gradient(90deg, #003973 10%, #E5E5BE 90%); /* FF3.6+ */
+      background:     -ms-linear-gradient(90deg, #003973 10%, #E5E5BE 90%); /* IE10 */
+      background:      -o-linear-gradient(90deg, #003973 10%, #E5E5BE 90%); /* Opera 11.10+ */
+      background:         linear-gradient(90deg, #003973 10%, #E5E5BE 90%); /* W3C */
+      background-repeat: no-repeat;
+    }
+  </style>
 
 </head>
 <body>
@@ -49,19 +65,15 @@
 
 
   <div class="row">
-    <div class="col s12">
-      <div class="collection">
-        <a class="collection-item" href="dental-services/find-dentist.html">Find Dentist</a>
-        <a class="collection-item" href="dental-services/claims.html">My Claims</a>
-        <a class="collection-item" href="dental-services/dental-advice.html">Get Dental Advice</a>
-        <a class="collection-item" href="dental-services/support.html">Help and Support</a>
-        <a class="collection-item" href="dental-services/well-being.html">My Well-being</a>
-        <a class="collection-item" href="dental-services/policy.html">My Policy</a>
-      </div>
+    <h1  class="center-align white-text lighten-2 fonts">  Service Locations  </h1>
+  </div>
+  
+  <div class="row">
+    <div class="col s12 center-align white-text">
       <p> The following 216 practices are within 30km of EC3P 3DQ, London</p>
       <ul class="tabs">
-        <li class="tab col s3"><a class="active" href="#list">List View</a></li>
-        <li class="tab col s3"><a href="#map">Map View</a></li>
+        <li class="tab col s6"><a class="active" href="#list">List View</a></li>
+        <li class="tab col s6"><a href="#map">Map View</a></li>
       </ul>
     </div>
     <div id="list" class=" blue-text text-darken-2 col s12">
@@ -79,16 +91,12 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
                   <h4 class="center black-text">1.2</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3.2</h4>
                 </div>
-                <!-- <br> -->
-
-
               </div>
             </div>
           </div>
@@ -109,16 +117,12 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
                   <h4 class="center black-text">2.6</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3</h4>
                 </div>
-                <!-- <br> -->
-
-
               </div>
             </div>
           </div>
@@ -138,14 +142,12 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
                   <h4 class="center black-text">3</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3.2</h4>
                 </div>
-                <!-- <br> -->
               </div>
             </div>
           </div>
@@ -165,16 +167,12 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
                   <h4 class="center black-text">4.4</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >5</h4>
                 </div>
-                <!-- <br> -->
-
-
               </div>
             </div>
           </div>
@@ -193,7 +191,6 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
                   <h4 class="center black-text">4.7</h4>
                   <h5 class="center grey-text " >miles</h5>
@@ -218,12 +215,11 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">5.1</h4>
-                <h5 class="center grey-text " >miles</h5>
-                <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
-                <h4 class="center grey-text " >2.5</h4>
+                  <h4 class="center black-text">5.1</h4>
+                  <h5 class="center grey-text " >miles</h5>
+                  <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
+                  <h4 class="center grey-text " >2.5</h4>
                 </div>
               </div>
             </div>
@@ -236,7 +232,6 @@
               <img src="images/fb.jpg">
             </div>
             <div class="row">
-
               <div class="col s9">
                 <h4 class="grey-text left-align" >77 Harley Dental Practice</h4>
                 <p class="black-text left-align">When you visit our practice in London, your smile is our top priority. Our entire team are dedicated to providing you with the personalized,</p>
@@ -244,14 +239,12 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
                   <h4 class="center black-text">5.2</h4>
                   <h5 class="center grey-text " >miles</h5>
                   <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
                   <h4 class="center grey-text " >3</h4>
                 </div>
-
               </div>
             </div>
           </div>
@@ -263,7 +256,6 @@
               <img src="images/fb.jpg">
             </div>
             <div class="row">
-
               <div class="col s9">
                 <h4 class="grey-text left-align" >Harley Street Dental Studio</h4>
                 <p class="black-text left-align">Harley Street, in London's West End, has been a name synonymous with medical excellence since the mid 1800's.</p>
@@ -271,7 +263,6 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
                   <h4 class="center black-text">5.5</h4>
                   <h5 class="center grey-text " >miles</h5>
@@ -289,7 +280,6 @@
               <img src="images/fb.jpg">
             </div>
             <div class="row">
-
               <div class="col s9">
                 <h4 class="grey-text left-align" >Dentalcare Marylebone</h4>
                 <p class="black-text left-align">As a fast-growing dental practice with stylish and clean new facilities, state of the art technologies and a highly experienced and expert team</p>
@@ -297,12 +287,11 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">5.6</h4>
-                <h5 class="center grey-text " >miles</h5>
-                <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
-                <h4 class="center grey-text " >3</h4>
+                  <h4 class="center black-text">5.6</h4>
+                  <h5 class="center grey-text " >miles</h5>
+                  <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
+                  <h4 class="center grey-text " >3</h4>
                 </div>
               </div>
             </div>
@@ -315,7 +304,6 @@
               <img src="images/fb.jpg">
             </div>
             <div class="row">
-
               <div class="col s9">
                 <h4 class="grey-text left-align" >Baker Street Dental</h4>
                 <p class="black-text left-align">ere at Baker Street dental clinic we have a team of highly experienced cosmetic dentists that can help you to achieve the smile of your dreams</p>
@@ -323,12 +311,11 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">5.8</h4>
-                <h5 class="center grey-text " >miles</h5>
-                <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
-                <h4 class="center grey-text " >3</h4>
+                  <h4 class="center black-text">5.8</h4>
+                  <h5 class="center grey-text " >miles</h5>
+                  <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
+                  <h4 class="center grey-text " >3</h4>
                 </div>
               </div>
             </div>
@@ -341,7 +328,6 @@
               <img src="images/fb.jpg">
             </div>
             <div class="row">
-
               <div class="col s9">
                 <h4 class="grey-text left-align" >Dental Studio 22</h4>
                 <p class="black-text left-align">Dental Studio 22 offers a wide range of services from routine cleanings to ZOOM bleaching, Botox and extreme makeovers</p>
@@ -349,20 +335,16 @@
               </div>
 
               <div class="col s3 ">
-                <!-- <br> -->
                 <div class='row'>
-                <h4 class="center black-text">6.4</h4>
-                <h5 class="center grey-text " >miles</h5>
-                <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
-                <h4 class="center grey-text " >3</h4>
+                  <h4 class="center black-text">6.4</h4>
+                  <h5 class="center grey-text " >miles</h5>
+                  <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
+                  <h4 class="center grey-text " >3</h4>
                 </div>
-
               </div>
             </div>
           </div>
         </a>
-
-
       </ul>
 
 
