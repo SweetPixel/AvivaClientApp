@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'Lobster';
+	font-style: normal;
+	font-weight: 400;
+	src: url(Lobster-normal-400.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Poiret One';
+	font-style: normal;
+	font-weight: 400;
+	src: url(Poiret_One-normal-400.woff) format('woff');
+}

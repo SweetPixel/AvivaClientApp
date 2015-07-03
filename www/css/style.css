@@ -12,9 +12,13 @@
 
     @import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
 
+/*<<<<<<< HEAD*/
     .fonts {
       font-family: 'Poiret One', bold, serif;
     }
+/*=======*/
+/*@import url(../font/fonts.css);*/
+/*>>>>>>> 3d579be9481ea5c3b79153369a911b0a594e6b11*/
 
     .btn-floating.btn-large {
       width: 70.5px;
