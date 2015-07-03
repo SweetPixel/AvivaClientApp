@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<title>Healthpick</title>
+	<!-- CSS -->
+	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<!-- Scripts-->
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/materialize.js"></script>
+	<script src="../js/init.js"></script>
+</head>
+
+<body>
+	<nav class="orange" role="navigation">
+	<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" >Find Dentist</h6> </a>
+	        <ul id="nav-mobile" class="side-nav">
+	            <li><a href="../services2.html">Home</a></li>
+	            <!-- <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li> -->
+	            <li><a href="../settings.html">Settings</a></li>
+	            <li><a href="#">Help</a></li>
+	        </ul>
+	        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+	        <a href="#"><i  class="right white-text large mdi-action-search"></i> </a>
+	    </div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>
+							<input type="checkbox" id="use-location" checked="checked" />
+							<label for="use-location">Use my location</label>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title grey-text text-darken-4">Search by Post Code</span>
+						<form action="#">
+							<div class="row">
+								<div class="input-field col s12">
+									<input type="text" id="by-postcode" class="validate">
+									<label for="post-code">Post Code</label>
+								</div>
+							</div>
+							<a class="waves-effect waves-light btn orange">Search</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title grey-text text-darken-4">Advanced Search</span>
+						<form action="#">
+							<div class="input-field col s12">
+								<input id="post-code" type="text" class="validate">
+								<label for="post-code">Post Code</label>
+							</div>
+							<p>
+								<input name="dentist-gender" type="radio" id="dentist-male" />
+								<label for="dentist-male">Male</label>
+							</p>
+							<p>
+								<input name="dentist-gender" type="radio" id="dentist-female" />
+								<label for="dentist-female">Female</label>
+							</p>
+						</form>
+						<div class="input-field col s12">
+							<label>Treatments</label>
+							<select>
+								<option value="" disabled selected>Choose a Treatment</option>
+								<option value="1">Treatment 1</option>
+								<option value="2">Treatment 2</option>
+								<option value="3">Treatment 3</option>
+							</select>
+						</div>
+						<a class="waves-effect waves-light btn orange">Search</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

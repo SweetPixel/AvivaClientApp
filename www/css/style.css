@@ -129,3 +129,20 @@ margin-left: 2px;
   input[type="password"]:focus:not([readonly]) + label {
       color: #FF9800 !important;
   }
+  .collection a.collection-item {
+    color: #FF9800;
+  }
+  [type="checkbox"]:checked + label::before {
+    border-color: transparent #FF9800 #FF9800 transparent;
+  }
+  input[type="text"]:focus:not([readonly]), input[type="email"]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #FF9800;
+    box-shadow: 0px 1px 0px 0px #FF9800;
+  }
+  input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #FF9800;
+  }
+  [type="radio"]:checked + label::after {
+    border: 2px solid #FF9800;
+    background-color: #FF9800;
+  }
