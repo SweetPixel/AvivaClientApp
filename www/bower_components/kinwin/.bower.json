@@ -1,0 +1,31 @@
+{
+  "name": "kinwin.js",
+  "homepage": "https://github.com/aliirz/kinwin.js",
+  "authors": [
+    "aliirz <dejavu87@gmail.com>"
+  ],
+  "description": "A minimalist DOM manipulation javascript library",
+  "main": "dist/kinwin.js",
+  "keywords": [
+    "dom",
+    "kinwin",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "dcbd1779f4",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "dcbd1779f47f1cf4f13c9ed15d3db7e33606ea5d"
+  },
+  "_source": "git://github.com/aliirz/kinwin.js.git",
+  "_target": "*",
+  "_originalSource": "kinwin"
+}
