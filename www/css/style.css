@@ -10,6 +10,12 @@
     background-image: url('../images/Aviva_BG.svg');
 }*/
 
+@import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
+
+.fonts {
+  font-family: 'Poiret One', bold, serif;
+}
+
 .btn-floating.btn-large {
     width: 70.5px;
     height: 70.5px;
