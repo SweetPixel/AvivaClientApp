@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Healthpick</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="medical-icons/packages/webfont-medical-icons/wfmi-style.css" rel="stylesheet"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!--  Scripts-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</head>
+<body>
+  <div data-role="page" id="home">
+ <!-- <div class="navbar-fixed">
+     <nav>
+      <div class="nav-wrapper">
+        <i class="mdi-hardware-keyboard-backspace medium"></i>
+        <a href="#" class="brand-logo center orange-text"> Ask </a>
+      </div>
+    </nav>
+  </div> -->
+  <div class="row">
+    <a class="left left-align orange-text col s2" href="services2.html"><i class="mdi-hardware-keyboard-backspace medium"></i></a>
+
+  </div>
+  <!-- <div class="row" style="margin-top: 8%;">
+    <h5  class="center-align orange-text lighten-2">  What's in your mind ?  </h5>
+  </div> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <h4 class="center-align center orange-text">Ask</h4>
+      </div>
+    </div>
+    <div style="overflow: auto;" class="row">
+      <div id="right">
+        <div id="top">
+          <ul class="collection">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="chat-footer" class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col s8 offset-s1">
+          <input type="text" id="message">
+        </div>
+        <div class="col s3">
+          <button class="btn-floating btn-large waves-effect waves-light orange" type="submit" name="action" id="clickMe">
+            <i class="mdi-content-send"></i>
+            <!-- Submit -->
+          </button>  
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// $(function(){
+  $('#clickMe').click(function(event){
+    if ($('#message').val() !== '') 
+    {
+      $('.collection').append('<li class="collection-item avatar"><img src="images/765-default-avatar.png" alt="" class="circle"><span class="title">Mr. White</span><p>' + $('#message').val() + '</p></li>');
+      $('#message').val('');
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  });
+  // }
+// });
+</script>
+</body>
+
+</html>

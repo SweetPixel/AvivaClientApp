@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Healthpick</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!--  Scripts-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    $("document").ready(function() {
+      $(".modal-trigger").leanModal();
+
+      var dentist = getParameterByName('dentist');
+      var date = getParameterByName('date');
+      var time = getParameterByName('time');
+      $('#dentist').text(dentist);
+      $('#date').text(date);
+      $('#time').text(time);
+
+      function getParameterByName(name) {
+        var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+      }
+    });
+  </script>
+  
+
+</head>
+<body>
+  <div id="m" class="modal">
+    <div class="modal-content">
+      <h4 class="orange-text">Done!</h4>
+      <p>Your appointment has been booked successfully.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="details.html" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+    </div>
+  </div>
+  <h4 class="center" style="margin-top: 18px">Is this correct?</h4>
+  <div class="row">
+    <table class="confirm-table">
+      <tr>
+        <td class="confirm-type">Dentist:</td>
+        <td><span id="dentist"></span></td>
+      </tr>
+      <tr>
+        <td class="confirm-type">Date:</td>
+        <td> <span id="date"></span></td>
+      </tr>
+      <tr>
+        <td class="confirm-type">Time:</td>
+        <td><span id="time"></span></td>
+      </tr>
+    </table>
+  </div>
+  
+  <footer class="page-footer">
+    <div class="container">
+      <a href="appointments.html"><button class="footer-buttons">Cancel</button></a>
+      <a style="float: right;" class="modal-trigger" data-target="m"><button class="footer-buttons">Save</button></a>
+    </div>
+  </footer>
+
+</body>
+</html>

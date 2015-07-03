@@ -10,7 +10,7 @@
     background-image: url('../images/Aviva_BG.svg');
 }*/
 
-@import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
+@import url(../font/fonts.css);
 
 .fonts {
   font-family: 'Poiret One', bold, serif;
