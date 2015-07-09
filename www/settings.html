@@ -114,10 +114,36 @@
 
       <div class="col s6 center-align">
         <div class="row">
-          <a href="dental-services/find-dentist.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="mdi-action-subject"></i></a>
+          <a data-target="qrmodal" href="#pwdqrmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger"><i class="mdi-action-subject"></i></a>
         </div>
         <div class="row">
           <p class="white-text center-align">Change Password</p>
+          <div id="pwdqrmodal" class="modal">
+            <div style="margin-top: 5%;" class="switch">
+              <h5>Change Password</h5>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Old Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">New Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Confirm</label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -186,7 +212,7 @@
       </div> -->
       <div class="col s6 center-align">
         <div class="row">
-          <a href="dental-services/find-dentist.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="mdi-action-list"></i></a>
+          <a href="#" class="btn-floating btn-large waves-effect waves-light colors"><i class="mdi-action-list"></i></a>
         </div>
         <div class="row">
           <p class="white-text center-align">Terms & Conditions</p>
