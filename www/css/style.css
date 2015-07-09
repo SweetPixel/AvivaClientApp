@@ -12,6 +12,12 @@
   font-family: 'Poiret One', bold, serif;
   font-weight: bold;
 }
+#personaldetail-footer {
+  /*background-color: ;*/
+  bottom: 0px;
+  position: fixed;
+  padding-bottom: 0px;
+}
 .btn-floating.btn-large i {
   line-height: 70.5px;
   color: orange;
