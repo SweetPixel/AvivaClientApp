@@ -18,7 +18,8 @@
 
     $(document).ready(function() {
 
-     $( "#name" ).append( getParameterByName('cid') );
+    $( "#name" ).append( getParameterByName('cid') );
+    $('.modal-trigger').leanModal();
 
    });
 
@@ -98,32 +99,55 @@
   <div class="col s6 center-align">
     <div class="row">
     <a href="dentalservices.html"class="btn-floating btn-large waves-effect waves-light colors"><!-- <i class="icon-i-dental"></i> --> 
-        <img id="list-images" src="images/Aviva_Dental.svg"></a>
-      </div>
-      <div class="row">
-        <p class="white-text center-align">Dental Services</p>
-      </div>
+      <img id="list-images" src="images/Aviva_Dental.svg"></a>
     </div>
-    <div class="col s6 center-align">
-      <div class="row">
-        <a class="btn-floating btn-large waves-effect waves-light colors"><!-- i class="icon-i-health-services"></i>  -->
-          <img id="list-images" src="images/Aviva_Doctor.svg"></a>
-        </div>
-        <div class="row">
-          <p class="white-text center-align">Medical Services</p>
-        </div>
-      </div>
-      <!-- x<div class="col s4 center-align">
-        <div class="row">
-          <a href="#"class="btn-floating btn-large waves-effect waves-light colors"><i class="mdi-image-remove-red-eye"></i>
-            <img id="list-images" src="images/Aviva_Eye.svg"></a>
-          </div>
-          <div class="row">
-            <p class="white-text center-align">Optical Services</p>
-          </div>
-        </div> -->
-      </div>
+    <div class="row">
+      <p class="white-text center-align">Dental Services</p>
     </div>
   </div>
+  <div class="col s6 center-align">
+    <div class="row">
+      <a class="btn-floating btn-large waves-effect waves-light colors"><!-- i class="icon-i-health-services"></i>  -->
+        <img id="list-images" src="images/Aviva_Doctor.svg"></a>
+    </div>
+    <div class="row">
+      <p class="white-text center-align">Medical Services</p>
+    </div>
+  </div>
+  <div class="col s12 center-align">
+      <div class="row">
+          <a href="#modal1" class="btn btn-floating btn-large waves-effect waves-light colors modal-trigger">
+              <img src="images/Aviva_Feedback.svg" alt="" id="list-images" />
+          </a>
+      </div>
+      <div class="row">
+          <p class="white-text center-align">Feedback</p>
+      </div>
+  </div>
+    <!-- x<div class="col s4 center-align">
+      <div class="row">
+        <a href="#"class="btn-floating btn-large waves-effect waves-light colors"><i class="mdi-image-remove-red-eye"></i>
+          <img id="list-images" src="images/Aviva_Eye.svg"></a>
+        </div>
+        <div class="row">
+          <p class="white-text center-align">Optical Services</p>
+        </div>
+      </div> -->
+</div>
+
+    <!--========== Feedback Modal ============-->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h5>Your Feedback</h5>
+            <div class="row">
+                <textarea id="feedback-text" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" onclick="Materialize.toast('Feedback Sent', 2000)" class="modal-action modal-close waves-effect waves-green btn-flat">Send</a>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
