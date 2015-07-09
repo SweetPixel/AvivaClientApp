@@ -14,13 +14,30 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 
+  <style>
+    html {
+      height: 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      
+      background: -webkit-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Chrome 10+, Saf5.1+ */
+      background:    -moz-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* FF3.6+ */
+      background:     -ms-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* IE10 */
+      background:      -o-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Opera 11.10+ */
+      background:         linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* W3C */
+
+      background-repeat: no-repeat;
+    }
+  </style>
 
 </head>
 <body>
   <nav class="orange" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" class="brand-logo"><h6 class="white-text" ></h6> </a>
       <a href="list.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
-      <a href="#"><i  class="right white-text large mdi-action-today"></i> </a>
+      <!-- <a href="#"><i  class="right white-text large mdi-action-today"></i> </a> -->
     </div>
   </nav>
 
@@ -42,7 +59,7 @@
           </div>
           <div class="row">
             <div class="col s12">
-            <a href="appointments.html" class="orange waves-effect waves-light btn"> Book Now </a>
+              <a href="appointments.html" class="orange waves-effect waves-light btn"> Book Now </a>
             </div>
           </div>
         </div>
