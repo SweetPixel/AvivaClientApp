@@ -18,6 +18,14 @@
       $(".modal-trigger").leanModal();
     });
   </script>
+  <script>
+    $(document).ready(function(){
+      $("#Add").click(function(){
+        var obj =  $("div.testcontent").eq(0).clone(); //this will clone the html elements
+        $("div.thisrow").append(obj); //this will append to the existing elements
+      });
+    });
+  </script>
 
   <style>
     html {
@@ -49,59 +57,146 @@
     </div>
   </div>
   <nav class="orange" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" class="brand-logo fonts"><h6 class="white-text" ></h6> Settings </a>
-            <a href="services2.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
-            <!-- <a href="#"><i  class="right white-text large mdi-action-today"></i> </a> -->
-        </div>
-    </nav>
-  <!-- <h4 style="color: #ffffff;" class="center fonts">Settings</h4> -->
+    <div class="nav-wrapper container">
+      <a id="logo-container" class="brand-logo fonts center"><h6 class="white-text" ></h6> Settings </a>
+      <a href="services2.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
+    </div>
+  </nav>
   <div class="row" style="margin-top: 5%;">
     <div class="row">
       <div class="col s6 center-align">
         <div class="row">
-          <a href="dental-services/find-dentist.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="mdi-action-accessibility"></i></a>
+          <a data-target="detailmodal" href="#detailmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger"><i class="mdi-action-accessibility"></i></a>
         </div>
         <div class="row">
           <p class="white-text center-align">Personal Details</p>
+          <div id="detailmodal" class="modal">
+            <div class="modal-content center">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="mdi-action-account-circle prefix"></i>
+                  <input id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">Title</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="mdi-action-account-circle prefix"></i>
+                  <input id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">First Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="mdi-action-account-circle prefix"></i>
+                  <input id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">Sur Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="mdi-communication-email prefix"></i>
+                  <input id="email" type="email" class="validate">
+                  <label for="email" data-error="wrong" data-success="right">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="mdi-action-home prefix"></i>
+                  <input id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">Address</label>
+                  <input id="icon_prefix" type="text" class="validate">
+                  <input id="icon_prefix" type="text" class="validate">
+                  <input id="icon_prefix" type="text" class="validate">
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="mdi-maps-local-post-office prefix"></i>
+                  <input id="email" type="email" class="validate">
+                  <label for="email" data-error="wrong" data-success="right">Postcode</label>
+                </div>
+              </div>
+              <div class="input-field col s12">
+                <i class="mdi-communication-phone prefix"></i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">Telephone</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="mdi-communication-stay-current-portrait prefix"></i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">Mobile</label>
+              </div>              
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="col s6 center-align">
         <div class="row">
-          <a href="dental-services/find-dentist.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-genetics"></i></a>
+          <a data-target="fmmodal" href="#fmmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger"><i class="icon-i-genetics"></i></a>
         </div>
         <div class="row">
           <p class="white-text center-align">Family Details</p>
+          <div id="fmmodal" class="modal">
+            <div class="modal-content center">
+              <h5>Add Family Details</h5>              
+              <div class="row thisrow">
+                <div class="testcontent">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="mdi-action-account-circle prefix"></i>
+                      <input id="icon_prefix" type="text" class="validate">
+                      <label for="icon_prefix">First Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="mdi-action-account-circle prefix"></i>
+                      <input id="icon_prefix" type="text" class="validate">
+                      <label for="icon_prefix">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="mdi-communication-email prefix"></i>
+                      <input id="email" type="email" class="validate">
+                      <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="mdi-editor-insert-invitation prefix"></i>
+                      <input type="date" class="datepicker">
+                      <label for="icon_prefix">Datepicker</label>
+                    </div>
+                  </div>
+                  <DIV class="row">
+                    <div class="input-field col s12">
+                      <select class="browser-default">
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                      </select>
+                    </div>
+                  </DIV>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="pull-right">
+                <a id="Add" class="orange waves-effect waves-light btn">Add Another</a>
+              </div>
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <!-- <div class="col s12 m12">
-        <div class="card">
-          <div class="card-content">
-            <h5>Change Password</h5>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Old Password</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">New Password</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Confirm</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div class="col s6 center-align">
         <div class="row">
           <a data-target="qrmodal" href="#qrmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger"><i class="mdi-action-assignment"></i></a>
