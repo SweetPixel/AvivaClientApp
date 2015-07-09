@@ -10,6 +10,7 @@
 
  .fonts {
   font-family: 'Poiret One', bold, serif;
+  font-weight: bold;
 }
 .btn-floating.btn-large i {
   line-height: 70.5px;
