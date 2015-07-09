@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Healthpick</title>
+
+    <!-- CSS  -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="medical-icons/packages/webfont-medical-icons/wfmi-style.css"/>
+
+    <!--  Scripts-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+        $(document).ready(function(){
+// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+$('.modal-trigger').leanModal();
+});
+    </script>
+
+    <style>
+        /* html {
+            height: 100%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        
+            background: -webkit-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); Chrome 10+, Saf5.1+
+            background:    -moz-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); FF3.6+
+            background:     -ms-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); IE10
+            background:      -o-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); Opera 11.10+
+            background:         linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); W3C
+        
+        
+            background-repeat: repeat !important;
+        } */
+    </style>
+
+</head>
+<body>
+
+    <div id="qrmodal" class="modal">
+        <div class="modal-content center">
+            <h4>My QR Code</h4>
+            <img src="images/harley-qr.png"/>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+
+    <nav class="orange" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" >Notifications</h6> </a>
+            <a href="dentalservices.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
+            <a href="#"><i  class="right white-text large mdi-action-search"></i> </a>
+        </div>
+    </nav>
+
+
+    <div class="row" >
+        <ul class="collection" style="border: 1px solid #ddd">
+            <li class="collection-item notif-new">Dr. Flan is available. <a href="#" class="secondary-content">@10:00</a></li>
+            <li class="collection-item notif-new">Breath test can be collected.  <a href="#" class="secondary-content">@10:00</a></li>
+            <li class="collection-item">Lorem ipsum dolor sit amet.  <a href="#" class="secondary-content">@10:00</a></li>
+            <li class="collection-item">Lorem ipsum dolor sit amet.  <a href="#" class="secondary-content">@10:00</a></li>
+        </ul>
+    </div>
+</body>
+</html>

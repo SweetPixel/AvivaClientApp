@@ -174,3 +174,28 @@
       border: 2px solid #FF9800;
       background-color: #FF9800;
     }
+#nav-mobile span.badge {
+  margin-top: 1rem;
+  line-height: 2.8rem;
+}
+#nav-mobile span.badge.new {
+  background-color: #FF9800;
+}
+.secondary-content {
+  color: #FF9800;
+}
+.collection .collection-item.notif-new{
+  background-color: #FF9800;
+  color: #fff;
+}
+.notif-new .secondary-content {
+  color: #FFF;
+}
+.toast {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+#toast-container {
+  top: 0%;
+  bottom: 100%;
+}
