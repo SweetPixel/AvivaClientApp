@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Healthpick</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="medical-icons/packages/webfont-medical-icons/wfmi-style.css"/>
+
+  <!--  Scripts-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+    });
+  </script>
+
+  <style>
+    html {
+      height: 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
+      background: -webkit-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* Chrome 10+, Saf5.1+ */
+      background:    -moz-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* FF3.6+ */
+      background:     -ms-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* IE10 */
+      background:      -o-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* Opera 11.10+ */
+      background:         linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* W3C */
+
+
+      background-repeat: no-repeat;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="qrmodal" class="modal">
+    <div class="modal-content center">
+      <h4>My QR Code</h4>
+      <img src="images/harley-qr.png"/>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+
+  <nav class="orange" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" ></h6> </a>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="services2.html">Home</a></li>
+        <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <a href="#"><i  class="right white-text large mdi-action-search"></i> </a>
+    </div>
+  </nav>
+
+
+  <div class="row">
+    <h3  class="center-align white-text lighten-2 fonts">  Medical Services  </h3>
+  </div>
+
+  <div class="row" >
+    <div class="col s6 center-align">
+      <div class="row">
+        <a href="dental-services/find-dentist.html" class="btn-floating btn-large waves-effect waves-light colors">
+          <img src="images/Aviva_Doctor.svg" id="list-images" alt="" />
+          <!-- <i class="icon-i-dental"></i> -->
+        </a>
+      </div>
+      <div class="row">
+        <p class="white-text center-align">Find Doctor</p>
+      </div>
+    </div>
+
+    <div class="col s6 center-align">
+      <div class="row">
+        <a href="dental-services/claims.html" class="btn-floating btn-large waves-effect waves-light colors">
+          <i class="icon-i-billing"></i>
+        </a>
+      </div>
+      <div class="row">
+        <p class="white-text center-align">My Claims</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" >
+    <div class="col s6 center-align">
+      <div class="row">
+        <a href="dental-services/dental-advice.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-administration"></i></a>
+      </div>
+      <div class="row">
+        <p class="white-text center-align">Get Medical Advise</p>
+      </div>
+    </div>
+
+    <div class="col s6 center-align">
+      <div class="row">
+        <a href="dental-services/support.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-family-practice"></i></a>
+      </div>
+      <div class="row">
+        <p class="white-text center-align">Help & Support</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" >
+    <div class="col s6 center-align">
+      <div class="row">
+        <a href="dental-services/well-being.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-medical-library"></i></a>
+      </div>
+      <div class="row">
+        <p class="white-text center-align">My Wellbeing</p>
+      </div>
+    </div>
+
+    <div class="col s6 center-align">
+      <div class="row">
+        <a class="btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-medical-records"></i></a>
+      </div>
+      <div class="row">
+        <p class="white-text center-align">My Policy</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
