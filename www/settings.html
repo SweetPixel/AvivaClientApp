@@ -66,22 +66,13 @@
     <div class="row">
       <div class="col s6 center-align">
         <div class="row">
-          <a href="personaldetails.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="mdi-action-accessibility"></i></a>
+          <a data-target="personalmodal" href="#personalmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger"><i class="mdi-action-accessibility"></i></a>
         </div>
         <div class="row">
-          <p class="white-text center-align">Personal Details</p>          
-        </div>
-      </div>
-
-      <div class="col s6 center-align">
-        <div class="row">
-          <a data-target="fmmodal" href="#fmmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger"><i class="icon-i-genetics"></i></a>
-        </div>
-        <div class="row">
-          <p class="white-text center-align">Family Details</p>
-          <div id="fmmodal" class="modal">
+          <p class="white-text center-align">Personal Details</p>
+          <div id="personalmodal" class="modal">
             <div class="modal-content center">
-              <h5>Add Family Details</h5>              
+              <h5>Add Details</h5>              
               <div class="row thisrow">
                 <div class="testcontent">
                   <div class="row">
@@ -125,12 +116,18 @@
               </div>
             </div>
             <div class="modal-footer">
-              <div class="pull-right">
-                <a id="Add" class="orange waves-effect waves-light btn">Add Another</a>
-              </div>
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
             </div>
-          </div>
+          </div>     
+        </div>
+      </div>
+
+      <div class="col s6 center-align">
+        <div class="row">
+          <a href="familydetails.html" class="btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-genetics"></i></a>
+        </div>
+        <div class="row">
+          <p class="white-text center-align">Family Details</p>
         </div>
       </div>
     </div>
