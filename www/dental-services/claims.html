@@ -20,6 +20,26 @@
             font-weight: bold;
         }
     </style>
+    <style>
+      html {
+        height: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        
+        background: -webkit-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Chrome 10+, Saf5.1+ */
+        background:    -moz-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* FF3.6+ */
+        background:     -ms-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* IE10 */
+        background:      -o-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Opera 11.10+ */
+        background:         linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* W3C */
+
+        background-repeat: repeat !important;
+      }
+      .card .card-content p {
+        margin: 1rem 0;
+      }
+    </style>
     <!-- Scripts-->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/materialize.js"></script>
@@ -27,75 +47,74 @@
 </head>
 
 <body>
-<!--     <nav class="orange" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" >My Claims</h6> </a>
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="../services2.html">Home</a></li>
-                <li><a href="../settings.html">Settings</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-            <a href="#"><i  class="right white-text large mdi-action-search"></i> </a>
-        </div>
-    </nav> -->
     <nav class="orange" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" class="brand-logo"><h6 class="white-text" ></h6> </a>
             <a href="../dentalservices.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
-            <a href="#"><i  class="right white-text large mdi-action-today"></i> </a>
+            <a href="#"><i  class="right white-text large mdi-action-today"></i></a>
         </div>
     </nav>
-    <div class="container">
-        <ul class="collection">
-            <li class="collection-item">
-                <span class="title">Treatment 1</span>
-                <span class="secondary-content">£81</span>
-                <p>Dr. Strange</p>
-                <p>Insurance payout</p>
-                <p>Status: Pending</p>
-                <a class="orange email-claim btn btn-default">Email Claims Form</a>
-            </li>
-            <li class="collection-item">
-                <span class="title">Treatment 2</span>
-                <span class="secondary-content">£21</span>
-                <p>Dr. Strange</p>
-                <p>Insurance payout</p>
-                <p>Status: Pending</p>
-                <a class="orange email-claim btn btn-default">Email Claims Form</a>
-            </li>
-            <li class="collection-item">
-                <span class="title">Treatment 3</span>
-                <span class="secondary-content">£31</span>
-                <p>Dr. Strange</p>
-                <p>Insurance payout</p>
-                <p>Status: Approved</p>
-                <a class="orange email-claim btn btn-default">Email Claims Form</a>
-            </li>
-            <li class="collection-item">
-                <span class="title">Treatment 4</span>
-                <span class="secondary-content">£11</span>
-                <p>Dr. Strange</p>
-                <p>Insurance payout</p>
-                <p>Status: Pending Approval</p>
-                <a class="orange email-claim btn btn-default">Email Claims Form</a>
-            </li>
-            <li class="collection-item">
-                <span class="title">Treatment 5</span>
-                <span class="secondary-content">£41</span>
-                <p>Dr. Strange</p>
-                <p>Insurance payout</p>
-                <p>Status: Approved</p>
-                <a class="orange email-claim btn btn-default">Email Claims Form</a>
-            </li>
-            <li class="collection-item">
-                <span class="title">Treatment 6</span>
-                <span class="secondary-content">£21</span>
-                <p>Dr. Strange</p>
-                <p>Insurance payout</p>
-                <p>Status: Pending Approval</p>
-                <a class="orange email-claim btn btn-default">Email Claims Form</a>
-            </li>
-        </ul>
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card">
+                <div class="card-content">
+                    
+                    
+                            <ul class="collection">
+                                <li class="collection-item">
+                                    <span class="title">Treatment 1</span>
+                                    <span class="secondary-content">£81</span>
+                                    <p>Dr. Strange</p>
+                                    <p>Insurance payout</p>
+                                    <p>Status: Pending</p>
+                                    <a class="orange email-claim btn btn-default">Email Claims Form</a>
+                                </li>
+                                <li class="collection-item">
+                                    <span class="title">Treatment 2</span>
+                                    <span class="secondary-content">£21</span>
+                                    <p>Dr. Strange</p>
+                                    <p>Insurance payout</p>
+                                    <p>Status: Pending</p>
+                                    <a class="orange email-claim btn btn-default">Email Claims Form</a>
+                                </li>
+                                <li class="collection-item">
+                                    <span class="title">Treatment 3</span>
+                                    <span class="secondary-content">£31</span>
+                                    <p>Dr. Strange</p>
+                                    <p>Insurance payout</p>
+                                    <p>Status: Approved</p>
+                                    <a class="orange email-claim btn btn-default">Email Claims Form</a>
+                                </li>
+                                <li class="collection-item">
+                                    <span class="title">Treatment 4</span>
+                                    <span class="secondary-content">£11</span>
+                                    <p>Dr. Strange</p>
+                                    <p>Insurance payout</p>
+                                    <p>Status: Pending Approval</p>
+                                    <a class="orange email-claim btn btn-default">Email Claims Form</a>
+                                </li>
+                                <li class="collection-item">
+                                    <span class="title">Treatment 5</span>
+                                    <span class="secondary-content">£41</span>
+                                    <p>Dr. Strange</p>
+                                    <p>Insurance payout</p>
+                                    <p>Status: Approved</p>
+                                    <a class="orange email-claim btn btn-default">Email Claims Form</a>
+                                </li>
+                                <li class="collection-item">
+                                    <span class="title">Treatment 6</span>
+                                    <span class="secondary-content">£21</span>
+                                    <p>Dr. Strange</p>
+                                    <p>Insurance payout</p>
+                                    <p>Status: Pending Approval</p>
+                                    <a class="orange email-claim btn btn-default">Email Claims Form</a>
+                                </li>
+                            </ul>
+                        
+                </div>
+            </div>
+        </div>
     </div>
+    
     <div id="email-claim-modal" class="modal">
         <div class="modal-content">
             <h4>Enter Email</h4>
