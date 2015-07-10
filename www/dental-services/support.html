@@ -17,20 +17,26 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/materialize.js"></script>
     <script src="../js/init.js"></script>
+    <style>
+      html {
+        height: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        
+        background: -webkit-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Chrome 10+, Saf5.1+ */
+        background:    -moz-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* FF3.6+ */
+        background:     -ms-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* IE10 */
+        background:      -o-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Opera 11.10+ */
+        background:         linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* W3C */
+
+        background-repeat: repeat !important;
+      }
+    </style>
 </head>
 
 <body>
-<!--     <nav class="orange" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="center white-text" >Help & Support</h6> </a>
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="../services2.html">Home</a></li>
-                <li><a href="../settings.html">Settings</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-            <a href="#"><i  class="right white-text large mdi-action-search"></i> </a>
-        </div>
-    </nav> -->
     <nav class="orange" role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" class="brand-logo"><h6 class="white-text" ></h6> </a>
@@ -47,11 +53,13 @@
                         <p style="font-weight: bold; font-size: 1.3rem; margin-bottom: 2rem;">For queries, contact us through the following media.</p>
                         <p>Phone: (12) 859 1292</p>
                         <p>Email: drwho@who.com</p>
+
+                        <a class="btn btn-default orange" href="#" style="margin-top: 2rem;">Raise Support Ticket</a>
                     </div>
                 </div>
             </div>
         </div>
-        <a class="btn btn-default orange" href="#" style="margin-top: 2rem;">Raise Support Ticket</a>
+        
         
     </div>
 </body>
