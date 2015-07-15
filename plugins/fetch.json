@@ -1,0 +1,31 @@
+{
+    "plugin.google.maps": {
+        "source": {
+            "type": "registry",
+            "id": "plugin.google.maps"
+        },
+        "is_top_level": true,
+        "variables": {
+            "API_KEY_FOR_ANDROID": "AIzaSyAfhxRkfsKi5GmlxjjUlaGminbYJBFzEFc",
+            "API_KEY_FOR_IOS": "AIzaSyAZk7EECfQrzRU0uUccjI4n7vd0EF63cJI"
+        }
+    },
+    "plugin.http.request": {
+        "source": {
+            "type": "registry",
+            "id": "plugin.http.request"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "com.googlemaps.ios": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wf9a5m75/googlemaps-ios-sdk-for-phonegap",
+            "subdir": ".",
+            "ref": "master"
+        },
+        "is_top_level": false,
+        "variables": {}
+    }
+}
