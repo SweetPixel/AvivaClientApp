@@ -41,28 +41,24 @@
 
   <script src="js/js"></script>
   <script>
-    function initialize() {
-      var map;
-      document.addEventListener("deviceready", function() {
-        var div = document.getElementById("map_canvas");
+    function GoogleMap(){
 
-      // Initialize the map view
-      map = plugin.google.maps.Map.getMap(div);
-
-      // Wait until the map is ready status.
-      map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-    }, false);
-
-      function onMapReady() {
-        var button = document.getElementById("button");
-        button.addEventListener("click", onBtnClicked, false);
+      this.initialize = function(){
+        var map = showMap();
       }
 
-      function onBtnClicked() {
-        map.showDialog();
+      var showMap = function(){
+        var mapOptions = {
+          zoom: 4,
+          center: new google.maps.LatLng(-0.127758, 51.507351),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        return map;
       }
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
   </script>
 
 
