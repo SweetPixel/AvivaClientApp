@@ -7,7 +7,7 @@
         "is_top_level": true,
         "variables": {
             "API_KEY_FOR_ANDROID": "AIzaSyAfhxRkfsKi5GmlxjjUlaGminbYJBFzEFc",
-            "API_KEY_FOR_IOS": "AIzaSyAZk7EECfQrzRU0uUccjI4n7vd0EF63cJI"
+            "API_KEY_FOR_IOS": "AIzaSyCiQhEWzDSBttiNQETeFU42_bCf6kj8-eY"
         }
     },
     "plugin.http.request": {
