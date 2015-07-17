@@ -99,6 +99,10 @@
                         {
                             "xml": "<feature name=\"Geocoder\"><param name=\"ios-package\" value=\"Geocoder\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -139,6 +143,9 @@
         },
         "plugin.google.maps": {
             "API_KEY_FOR_IOS": "AIzaSyCiQhEWzDSBttiNQETeFU42_bCf6kj8-eY",
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "com.dentalink.client"
         }
     },
