@@ -24,5 +24,16 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "plugin.google.maps": {
+        "source": {
+            "type": "registry",
+            "id": "plugin.google.maps"
+        },
+        "is_top_level": true,
+        "variables": {
+            "API_KEY_FOR_ANDROID": "AIzaSyBGoq8EmU8BSoqfW6856NPcElpcwAL1jPc",
+            "API_KEY_FOR_IOS": "AIzaSyDLWICmyG8IvEza-vJ1tq_b6jtWXMvhGts"
+        }
     }
 }
