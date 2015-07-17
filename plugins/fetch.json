@@ -1,15 +1,4 @@
 {
-    "plugin.google.maps": {
-        "source": {
-            "type": "registry",
-            "id": "plugin.google.maps"
-        },
-        "is_top_level": true,
-        "variables": {
-            "API_KEY_FOR_ANDROID": "AIzaSyAbyGY8WBjDnLEtONSDXq5kTQmlVT17KqE",
-            "API_KEY_FOR_IOS": "AIzaSyCiQhEWzDSBttiNQETeFU42_bCf6kj8-eY"
-        }
-    },
     "plugin.http.request": {
         "source": {
             "type": "registry",
