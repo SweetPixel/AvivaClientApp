@@ -5,6 +5,28 @@
     },
     "config_munge": {
         "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"HttpRequest\"><param name=\"ios-package\" value=\"HttpRequest\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GoogleMaps\"><param name=\"ios-package\" value=\"GoogleMaps\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"External\"><param name=\"ios-package\" value=\"External\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geocoder\"><param name=\"ios-package\" value=\"Geocoder\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
             "framework": {
                 "parents": {
                     "AVFoundation.framework": [
@@ -81,37 +103,11 @@
                     ]
                 }
             },
-            "config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"HttpRequest\"><param name=\"ios-package\" value=\"HttpRequest\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"GoogleMaps\"><param name=\"ios-package\" value=\"GoogleMaps\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"External\"><param name=\"ios-package\" value=\"External\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Geocoder\"><param name=\"ios-package\" value=\"Geocoder\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
             "*-Info.plist": {
                 "parents": {
                     "Google Maps API Key": [
                         {
-                            "xml": "<string>AIzaSyDLWICmyG8IvEza-vJ1tq_b6jtWXMvhGts</string>",
+                            "xml": "<string>AIzaSyAZk7EECfQrzRU0uUccjI4n7vd0EF63cJI</string>",
                             "count": 1
                         }
                     ],
@@ -138,19 +134,16 @@
         }
     },
     "installed_plugins": {
-        "com.googlemaps.ios": {
-            "PACKAGE_NAME": "com.dentalink.client"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.dentalink.client"
-        },
         "plugin.google.maps": {
-            "API_KEY_FOR_IOS": "AIzaSyDLWICmyG8IvEza-vJ1tq_b6jtWXMvhGts",
+            "API_KEY_FOR_IOS": "AIzaSyCiQhEWzDSBttiNQETeFU42_bCf6kj8-eY",
             "PACKAGE_NAME": "com.dentalink.client"
         }
     },
     "dependent_plugins": {
         "plugin.http.request": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "com.googlemaps.ios": {
             "PACKAGE_NAME": "com.dentalink.client"
         }
     }
