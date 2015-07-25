@@ -61,12 +61,7 @@
       const clinic4 = new plugin.google.maps.LatLng(37.422297, -122.02382);
       const clinic5 = new plugin.google.maps.LatLng(37.422405, -122.02382);
 
-      map = plugin.google.maps.Map.getMap(div, {
-        'camera': {
-          'latLng': clinic1,
-          'zoom': 17
-        }
-      });
+      map = plugin.google.maps.Map.getMap(div);
 
       // Wait until the map is ready status.
       map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
@@ -75,6 +70,7 @@
     function onMapReady() {
       var button = document.getElementById("map-button");
       button.addEventListener("click", onBtnClicked, false);
+      map.setCenter(clinic1);
       map.addMarker({
         'position': clinic1,
         'title': 'Debonshyre Clinic'
