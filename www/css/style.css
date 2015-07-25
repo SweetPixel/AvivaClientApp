@@ -12,6 +12,14 @@
   font-family: 'Poiret One', bold, serif;
   font-weight: bold;
 }
+.list-item {
+  background-color: #FFF;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0px;
+  border-bottom: 1px solid #E0E0E0;
+  font-weight: normal;
+}
 #personaldetail-footer {
   /*background-color: ;*/
   bottom: 0px;
@@ -174,28 +182,28 @@
       border: 2px solid #FF9800;
       background-color: #FF9800;
     }
-#nav-mobile span.badge {
-  margin-top: 1rem;
-  line-height: 2.8rem;
-}
-#nav-mobile span.badge.new {
-  background-color: #FF9800;
-}
-.secondary-content {
-  color: #FF9800;
-}
-.collection .collection-item.notif-new{
-  background-color: #FF9800;
-  color: #fff;
-}
-.notif-new .secondary-content {
-  color: #FFF;
-}
-.toast {
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-#toast-container {
-  top: 0%;
-  bottom: 100%;
-}
+    #nav-mobile span.badge {
+      margin-top: 1rem;
+      line-height: 2.8rem;
+    }
+    #nav-mobile span.badge.new {
+      background-color: #FF9800;
+    }
+    .secondary-content {
+      color: #FF9800;
+    }
+    .collection .collection-item.notif-new{
+      background-color: #FF9800;
+      color: #fff;
+    }
+    .notif-new .secondary-content {
+      color: #FFF;
+    }
+    .toast {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    #toast-container {
+      top: 0%;
+      bottom: 100%;
+    }
