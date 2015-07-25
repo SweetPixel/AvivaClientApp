@@ -18,29 +18,29 @@
   $("document").ready(function() {
     $(".modal-trigger").leanModal();
   });
-  </script> -->
-  <script>
- 
-   $(document).ready(function() {
-    $("#book-app").click(function(){
-      var dentistID = $('#dentist').find(":selected").val();
-      var date = $('.datepicker').val();
-      var timeID = $('#time').find(":selected").val();
+</script> -->
+<script>
 
-      if(dentistID !== "" && date !== "" && timeID !== "") {
-        var dentist = $('#dentist').find(":selected").text();
-        var time = $('#time').find(":selected").text();
-       
-       $(location).attr('href',"appoint-confirm.html?dentist=" + dentist + "&date=" + date + "&time=" + time);
-      }
-      else {
-        alert("Please fill all the fields.")
-      }
+ $(document).ready(function() {
+  $("#book-app").click(function(){
+    var dentistID = $('#dentist').find(":selected").val();
+    var date = $('.datepicker').val();
+    var timeID = $('#time').find(":selected").val();
 
-    }); 
-  });
+    if(dentistID !== "" && date !== "" && timeID !== "") {
+      var dentist = $('#dentist').find(":selected").text();
+      var time = $('#time').find(":selected").text();
 
-   
+      $(location).attr('href',"appoint-confirm.html?dentist=" + dentist + "&date=" + date + "&time=" + time);
+    }
+    else {
+      alert("Please fill all the fields.")
+    }
+
+  }); 
+});
+
+
 </script>
 
 </head>
@@ -65,20 +65,20 @@
     </div>
   </nav>
 
-<br />
-<br />
-<br />
-<div class="row">
-  <div class="input-field col s12">
-    <select id="dentist">
-      <option value="" disabled selected>Choose a Dentist</option>
-      <option value="1">Dr Stanley Kay</option>
-      <option value="2">Dr Sarah Neale</option>
-      <option value="3">Dr. Nectaria Polycarpou</option>
-    </select>
-    <label>Dentists</label>
+  <br />
+  <br />
+  <br />
+  <div class="row">
+    <div class="input-field col s12">
+      <select id="dentist">
+        <option value="" disabled selected>Choose a Dentist</option>
+        <option value="1">Dr Stanley Kay</option>
+        <option value="2">Dr Sarah Neale</option>
+        <option value="3">Dr. Nectaria Polycarpou</option>
+      </select>
+      <label>Dentists</label>
+    </div>
   </div>
-</div>
 
 
   <!-- <div class="row"> -->
@@ -94,8 +94,18 @@
 <!-- </div> -->
 
 <div class="row">
-  <div class="col s12">
-  <input type="date" class="datepicker" placeholder="Pick a Date">
+  <!-- <div class="col s12">
+    <input type="date" class="datepicker" placeholder="Pick a Date">
+  </div> -->
+  <div class="input-field col s12">
+    <select id="date">
+      <option value="" disabled selected>Pick a date</option>
+      <option value="1">03-07-2015</option>
+      <option value="2">04-07-2015</option>
+      <option value="3">05-07-2015</option>
+    </select>
+    <label>Pick a Date</label>
+  </div>
 </div>
 
 <div class="row">
