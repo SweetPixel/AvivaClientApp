@@ -18,26 +18,53 @@
     $(document).ready(function(){
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
       $('.modal-trigger').leanModal();
+      document.addEventListener("deviceready", onDeviceReady, false);
     });
-  </script>
 
-  <style>
-    html {
-      /*height: 100%;*/
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      
-      background: -webkit-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Chrome 10+, Saf5.1+ */
-      background:    -moz-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* FF3.6+ */
-      background:     -ms-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* IE10 */
-      background:      -o-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Opera 11.10+ */
-      background:         linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* W3C */
+    function onDeviceReady() {
+    // Now safe to use device APIs
+    $('#policyBtn').click(function (e) {
+      e.preventDefault();
+      SitewaertsDocumentViewer.viewDocument(
+    'file://pdf/Corpora-Complete-Care-Plan.pdf', mimeType, options, onShow, onClose, onMissingApp, onError);
 
-      background-repeat: no-repeat;
-    }
-  </style>
+    //   cordova.plugins.fileOpener2.open(
+    // 'pdf/Corpora-Complete-Care-Plan.pdf', // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+    // 'application/pdf',
+    // {
+    //   error : function(e) {
+    //     console.log('Error status: ' + e.status + ' - Error message: ' + e.message);
+    //   },
+    //   success : function () {
+    //     console.log('file opened successfully');
+    //   }
+    // }
+    // );
+    });
+  }
+
+    // document.addEventListener('deviceready', function () {
+
+    // }, false);
+</script>
+
+<style>
+  html {
+    /*height: 100%;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    background: -webkit-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* W3C */
+
+    background-repeat: no-repeat;
+  }
+</style>
 
 </head>
 <body>
@@ -52,13 +79,23 @@
     </div>
   </div>
 
+  <!-- Modal Structure -->
+  <div id="pdfmodal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <iframe src="https://drive.google.com/file/d/0B5IWG_1lX4QDcWMxVDAzeDN3ejQ/preview" width="auto" height="auto"></iframe>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
 
   <nav class="orange" role="navigation">
     <div class="nav-wrapper container">
       <div class="col s4">
         <a href="services2.html"><i class="left white-text mdi-navigation-arrow-back"></i></a>
       </div>
-      <div class="col s4 right">        
+      <div class="col s4 right">
         <ul id="nav-mobile" class="side-nav right">
           <li><a href="services2.html">Home</a></li>
           <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
@@ -128,7 +165,7 @@
 
     <div class="col s6 center-align">
       <div class="row">
-        <a href="#" onclick="window.open('http://animation-republic.com/CorporaCompleteCarePlan.pdf',  '_blank', 'location=yes');" class="btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-medical-records"></i></a>
+        <a  href="#pdfmodal" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors"><i class="icon-i-medical-records"></i></a>
       </div>
       <div class="row">
         <p class="white-text center-align">My Policy</p>
@@ -137,17 +174,17 @@
   </div>
   <div class="row">
     <div class="col s12 center-align">
-        <div class="row">
+      <div class="row">
         <a href="feedback.html" class="btn btn-floating btn-large waves-effect waves-light colors">
-            <!-- <img src="images/Aviva_Feedback.svg" alt="" id="list-images" /> -->
-            <i style="color: #EBB66E" class="mdi-action-alarm"></i>
-          </a>
-        </div>
-        <div class="row">
-          <p class="white-text center-align">Feedback</p>
-        </div>
+          <!-- <img src="images/Aviva_Feedback.svg" alt="" id="list-images" /> -->
+          <i style="color: #EBB66E" class="mdi-action-alarm"></i>
+        </a>
       </div>
+      <div class="row">
+        <p class="white-text center-align">Feedback</p>
+      </div>
+    </div>
   </div>
-  
+
 </body>
 </html>

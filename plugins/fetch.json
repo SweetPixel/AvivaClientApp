@@ -43,5 +43,23 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "de.sitewaerts.cordova.documentviewer": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sitewaerts/cordova-plugin-document-viewer.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "io.github.pwlin.cordova.plugins.fileopener2": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pwlin/cordova-plugin-file-opener2",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

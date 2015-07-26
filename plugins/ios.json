@@ -40,7 +40,7 @@
                     "ImageIO.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "libc++.dylib": [
@@ -70,7 +70,7 @@
                     "QuartzCore.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "SystemConfiguration.framework": [
@@ -80,6 +80,24 @@
                         }
                     ],
                     "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 2
+                        }
+                    ],
+                    "UIKit.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "Foundation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "MessageUI.framework": [
                         {
                             "xml": false,
                             "count": 1
@@ -112,6 +130,14 @@
                         },
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SitewaertsDocumentViewer\"><param name=\"ios-package\" value=\"SitewaertsDocumentViewer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileOpener2\"><param name=\"ios-package\" value=\"FileOpener2\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -159,6 +185,12 @@
             "PACKAGE_NAME": "com.dentalink.client"
         },
         "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "de.sitewaerts.cordova.documentviewer": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "io.github.pwlin.cordova.plugins.fileopener2": {
             "PACKAGE_NAME": "com.dentalink.client"
         }
     },
