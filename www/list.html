@@ -63,9 +63,6 @@
       var div = document.getElementById("map_canvas");
 
       // Initialize the map view
-
-
-
       map = plugin.google.maps.Map.getMap(div);
 
       // Wait until the map is ready status.
@@ -75,42 +72,49 @@
     function onMapReady() {
 
       //markers
-      const clinic1 = new plugin.google.maps.LatLng(37.422382, -122.02382);
-      const clinic2 = new plugin.google.maps.LatLng(37.422312, -122.02382);
-      const clinic3 = new plugin.google.maps.LatLng(37.422324, -122.02382);
-      const clinic4 = new plugin.google.maps.LatLng(37.422297, -122.02382);
-      const clinic5 = new plugin.google.maps.LatLng(37.422405, -122.02382);
+      const clinic1 = new plugin.google.maps.LatLng(51.516738, -0.079474);
+      const clinic2 = new plugin.google.maps.LatLng(51.518351, -0.087370);
+      const clinic3 = new plugin.google.maps.LatLng(51.518228, -0.078485);
+      const clinic4 = new plugin.google.maps.LatLng(51.521185, -0.148060);
+      const clinic5 = new plugin.google.maps.LatLng(51.521857, -0.149687);
+      const clinic6 = new plugin.google.maps.LatLng(51.520091, -0.147240);
 
       var button = document.getElementById("map-button");
       button.addEventListener("click", onBtnClicked, false);
       map.setCenter(clinic1);
       map.addMarker({
         'position': clinic1,
-        'title': 'Debonshyre Clinic'
+        'title': 'Devonshire Square Dental Studios'
       }, function(marker) {
 
       });
       map.addMarker({
         'position': clinic2,
-        'title': 'Debonshyre Clinic'
+        'title': 'City Perio'
       }, function(marker) {
         
       });
       map.addMarker({
         'position': clinic3,
-        'title': 'Debonshyre Clinic'
+        'title': 'Vitaldent Wellbeing Studio'
       }, function(marker) {
         
       });
       map.addMarker({
         'position': clinic4,
-        'title': 'Debonshyre Clinic'
+        'title': 'Harley Street Dental Clinic'
       }, function(marker) {
         
       });
       map.addMarker({
         'position': clinic5,
-        'title': 'Debonshyre Clinic'
+        'title': 'Zenith Dentistry'
+      }, function(marker) {
+        
+      });
+      map.addMarker({
+        'position': clinic6,
+        'title': '76 harley Street'
       }, function(marker) {
         
       });
