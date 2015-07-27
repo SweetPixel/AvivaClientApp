@@ -20,8 +20,12 @@
  @import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
 
  .fonts {
-  font-family: 'Poiret One', bold, serif;
+  font-family: 'PoiretOne';
   font-weight: bold;
+}
+@font-face {
+  font-family: 'PoiretOne';
+  src: url(../font/Poiret_One-normal-400.woff);
 }
 .list-item {
   background-color: #FFF;

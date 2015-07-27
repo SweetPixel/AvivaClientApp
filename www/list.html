@@ -63,7 +63,11 @@
       var div = document.getElementById("map_canvas");
 
       // Initialize the map view
-      map = plugin.google.maps.Map.getMap(div);
+      var mapOptions = {
+        center: { lat: 51.516738, lng: -0.079474 },
+        zoom: 8
+      }
+      map = plugin.google.maps.Map.getMap(div, mapOptions);
 
       // Wait until the map is ready status.
       map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
