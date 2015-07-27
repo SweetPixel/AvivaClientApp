@@ -64,12 +64,7 @@
 
       // Initialize the map view
 
-      //markers
-      const clinic1 = new plugin.google.maps.LatLng(37.422382, -122.02382);
-      const clinic2 = new plugin.google.maps.LatLng(37.422312, -122.02382);
-      const clinic3 = new plugin.google.maps.LatLng(37.422324, -122.02382);
-      const clinic4 = new plugin.google.maps.LatLng(37.422297, -122.02382);
-      const clinic5 = new plugin.google.maps.LatLng(37.422405, -122.02382);
+
 
       map = plugin.google.maps.Map.getMap(div);
 
@@ -78,6 +73,14 @@
     }, false);
 
     function onMapReady() {
+
+      //markers
+      const clinic1 = new plugin.google.maps.LatLng(37.422382, -122.02382);
+      const clinic2 = new plugin.google.maps.LatLng(37.422312, -122.02382);
+      const clinic3 = new plugin.google.maps.LatLng(37.422324, -122.02382);
+      const clinic4 = new plugin.google.maps.LatLng(37.422297, -122.02382);
+      const clinic5 = new plugin.google.maps.LatLng(37.422405, -122.02382);
+
       var button = document.getElementById("map-button");
       button.addEventListener("click", onBtnClicked, false);
       map.setCenter(clinic1);
