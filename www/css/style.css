@@ -121,104 +121,151 @@
 .collection {
   border: none;
 }
-/*
- .waves-effect {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    overflow: hidden;
-    -moz-user-select: none;
-    vertical-align: middle;
-    z-index: 1;
-    transition: all 0.3s ease-out 0s;
-    width: 22%;
-    }*/
 
-    .icon-block {
-      padding: 0 15px;
-    }
-    .confirm-type {
-      font-weight: bold;
-    }
-    .confirm-table {
-      font-size: 14px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 80%;
-      margin-top: 30px;
-    }
-    .footer-buttons {
-      background-color: transparent;
-      border: none;
-      color:#fff;
-      font-size: 15px;
-    }
-    footer.page-footer {
-      position: relative;
-      width: 100%;
-      bottom: 0px;
-      padding-bottom: 8px;
-      background-color: #FF9800;
-      padding-top: 10px;
-    }
-    .container {
-      padding: 0px 0px;
-      margin: 0px auto;
-      max-width: 1280px;
-      width: 90%;
-    }
-    .switch label input[type="checkbox"]:checked + .lever {
-      background-color:#F9C579;
-    }
-    .switch label input[type="checkbox"]:checked + .lever::after {
-      background-color: #FF9800 !important;
-    }
-    input[type="password"]:focus:not([readonly]) {
-      border-bottom: 1px solid #FF9800;
-      box-shadow: 0px 1px 0px 0px #FF9800;
-    }
-    input[type="password"]:focus:not([readonly]) + label {
-      color: #FF9800 !important;
-    }
-    .collection a.collection-item {
-      color: #FF9800;
-    }
-    [type="checkbox"]:checked + label::before {
-      border-color: transparent #FF9800 #FF9800 transparent;
-    }
-    input[type="text"]:focus:not([readonly]), input[type="email"]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-      border-bottom: 1px solid #FF9800;
-      box-shadow: 0px 1px 0px 0px #FF9800;
-    }
-    input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
-      color: #FF9800;
-    }
-    [type="radio"]:checked + label::after {
-      border: 2px solid #FF9800;
-      background-color: #FF9800;
-    }
-    #nav-mobile span.badge {
-      margin-top: 1rem;
-      line-height: 2.8rem;
-    }
-    #nav-mobile span.badge.new {
-      background-color: #FF9800;
-    }
-    .secondary-content {
-      color: #FF9800;
-    }
-    .collection .collection-item.notif-new{
-      background-color: #FF9800;
-      color: #fff;
-    }
-    .notif-new .secondary-content {
-      color: #FFF;
-    }
-    .toast {
-      margin-top: 0px;
-      margin-bottom: 10px;
-    }
-    #toast-container {
-      top: 0%;
-      bottom: 100%;
-    }
+.icon-block {
+  padding: 0 15px;
+}
+.confirm-type {
+  font-weight: bold;
+}
+.confirm-table {
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 30px;
+}
+.footer-buttons {
+  background-color: transparent;
+  border: none;
+  color:#fff;
+  font-size: 15px;
+}
+footer.page-footer {
+  position: relative;
+  width: 100%;
+  bottom: 0px;
+  padding-bottom: 8px;
+  background-color: #FF9800;
+  padding-top: 10px;
+}
+.container {
+  padding: 0px 0px;
+  margin: 0px auto;
+  max-width: 1280px;
+  width: 90%;
+}
+.switch label input[type="checkbox"]:checked + .lever {
+  background-color:#F9C579;
+}
+.switch label input[type="checkbox"]:checked + .lever::after {
+  background-color: #FF9800 !important;
+}
+input[type="password"]:focus:not([readonly]) {
+  border-bottom: 1px solid #FF9800;
+  box-shadow: 0px 1px 0px 0px #FF9800;
+}
+input[type="password"]:focus:not([readonly]) + label {
+  color: #FF9800 !important;
+}
+.collection a.collection-item {
+  color: #FF9800;
+}
+[type="checkbox"]:checked + label::before {
+  border-color: transparent #FF9800 #FF9800 transparent;
+}
+input[type="text"]:focus:not([readonly]), input[type="email"]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #FF9800;
+  box-shadow: 0px 1px 0px 0px #FF9800;
+}
+input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #FF9800;
+}
+[type="radio"]:checked + label::after {
+  border: 2px solid #FF9800;
+  background-color: #FF9800;
+}
+#nav-mobile span.badge {
+  margin-top: 1rem;
+  line-height: 2.8rem;
+}
+#nav-mobile span.badge.new {
+  background-color: #FF9800;
+}
+.secondary-content {
+  color: #FF9800;
+}
+.collection .collection-item.notif-new{
+  background-color: #FF9800;
+  color: #fff;
+}
+.notif-new .secondary-content {
+  color: #FFF;
+}
+.toast {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+#toast-container {
+  top: 0%;
+  bottom: 100%;
+}
+
+/* Attempt on responsiveness */
+
+.card .card-content .card-title {
+  font-size: 1.6rem;
+  line-height: 2.3rem;
+  padding: .4rem;
+  display: block;
+}
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 1.5rem;
+  }
+}
+.card .card-content p {
+  padding: .4rem;
+}
+/*@media screen and (min-width: 400px) {
+  .clinic-list-img {
+    width: 70%;
+  }
+}*/
+.clinic-list img {
+  width: 100%;
+}
+.claims-list .collection-item p {
+  padding: 0;
+}
+.title {
+  margin-bottom: 0.4rem;
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.email-claim {
+  margin-top: 1.4rem;
+}
+@media screen and (min-width: 600px) {
+  .clinic-list span {
+    float: auto;
+    display: block;
+    text-align: right;
+    font-size: 1.2rem;
+  }
+  h6 {
+    line-height: 2.4rem;
+  }
+  .collection .collection-item {
+    padding: 1rem 1rem 2rem;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 599px) {
+  .clinic-list span:nth-child(n+2) {
+    float: right;
+  }
+}
