@@ -7,19 +7,19 @@
  */
 
  .modal.bottom-sheet {
-    top: 0px;
-    bottom: -100%;
-    margin: 0px;
-    width: 100%;
-    max-height: 100%;
-    border-radius: 0px;
-    will-change: bottom, opacity;
-    /*height: 349px;*/
+  top: 0px;
+  bottom: -100%;
+  margin: 0px;
+  width: 100%;
+  max-height: 100%;
+  border-radius: 0px;
+  will-change: bottom, opacity;
+  /*height: 349px;*/
 }
 
- @import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
 
- .fonts {
+.fonts {
   font-family: 'PoiretOne';
   font-weight: bold;
 }
@@ -219,6 +219,14 @@ input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not(
   padding: .4rem;
   display: block;
 }
+@media only screen and (min-width: 0) {
+  html {
+    font-size: 1.2rem;
+  }
+  .ipad-settings{
+    margin-top: 10%;
+  }
+}
 @media only screen and (min-width: 992px) {
   html {
     font-size: 1.5rem;
@@ -231,41 +239,41 @@ input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not(
   .clinic-list-img {
     width: 70%;
   }
-}*/
-.clinic-list img {
-  width: 100%;
-}
-.claims-list .collection-item p {
-  padding: 0;
-}
-.title {
-  margin-bottom: 0.4rem;
-  display: block;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-.email-claim {
-  margin-top: 1.4rem;
-}
-@media screen and (min-width: 600px) {
-  .clinic-list span {
-    float: auto;
-    display: block;
-    text-align: right;
-    font-size: 1.2rem;
+  }*/
+  .clinic-list img {
+    width: 100%;
   }
-  h6 {
-    line-height: 2.4rem;
-  }
-  .collection .collection-item {
-    padding: 1rem 1rem 2rem;
+  .claims-list .collection-item p {
+    padding: 0;
   }
   .title {
-    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
   }
-}
-@media screen and (max-width: 599px) {
-  .clinic-list span:nth-child(n+2) {
-    float: right;
+  .email-claim {
+    margin-top: 1.4rem;
   }
-}
+  @media screen and (min-width: 600px) {
+    .clinic-list span {
+      float: auto;
+      display: block;
+      text-align: right;
+      font-size: 1.2rem;
+    }
+    h6 {
+      line-height: 2.4rem;
+    }
+    .collection .collection-item {
+      padding: 1rem 1rem 2rem;
+    }
+    .title {
+      font-size: 1.3rem;
+    }
+  }
+  @media screen and (max-width: 599px) {
+    .clinic-list span:nth-child(n+2) {
+      float: right;
+    }
+  }
