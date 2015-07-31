@@ -210,9 +210,16 @@ input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not(
   top: 0%;
   bottom: 100%;
 }
+.side-alignment{
+  position: absolute;
+  right: 0px;
+}
 
 /* Attempt on responsiveness */
-
+.modal-footer {
+  bottom: 0px;
+  position: absolute;
+}
 .card .card-content .card-title {
   font-size: 1.6rem;
   line-height: 2.3rem;
@@ -226,10 +233,22 @@ input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not(
   .ipad-settings{
     margin-top: 10%;
   }
+  .pdf-modal-settings{
+    width: 95%;
+    bottom: 60px;
+    position: absolute;
+    height: 89%;
+  }
+  .top-margin {
+    margin-top: 10%;
+  }
 }
 @media only screen and (min-width: 992px) {
   html {
     font-size: 1.5rem;
+  }
+  .top-margin {
+    margin-top: 5%;
   }
 }
 .card .card-content p {

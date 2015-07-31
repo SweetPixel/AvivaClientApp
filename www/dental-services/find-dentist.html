@@ -16,59 +16,59 @@
 	<script src="../js/init.js"></script>
 	<style>
 		html {
-            /*height: 100%;*/
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+			min-height: 100%;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
 
-            background: -webkit-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Chrome 10+, Saf5.1+ */
-            background:    -moz-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* FF3.6+ */
-            background:     -ms-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* IE10 */
-            background:      -o-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Opera 11.10+ */
-            background:         linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* W3C */
+			background: -webkit-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Chrome 10+, Saf5.1+ */
+			background:    -moz-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* FF3.6+ */
+			background:     -ms-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* IE10 */
+			background:      -o-linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* Opera 11.10+ */
+			background:         linear-gradient(90deg, #D1913C 10%, #FFD194 90%); /* W3C */
 
-            background-repeat: no-repeat;
-        }
-        #search:focus ~ .search-nav-cancel{
-        	color: #000;
-        }
-        .search-nav-cancel {
-            position: absolute;
-            top: 0;
-            right: 1rem;
-            color: #FFF;
-            cursor: pointer;
-        }
-        #list p {
-            font-size: 1.4rem;
-        }
-        .list-heading {
-            font-size: 1.3rem;
-        }
-        .collection-item div, .collection-item span {
-            color: #EE6E73;
-            padding-bottom: .4rem;
-        }
-        .search-advance {
-        	line-height: 1rem;
-        	background-color: #FF9800;
-        	color: #FFF;
-        	font-size: 1rem;
-        	padding: .6rem;
-        	text-align: right;
-        	margin-bottom: .4rem;
-        }
+			background-repeat: no-repeat;
+		}
+		#search:focus ~ .search-nav-cancel{
+			color: #000;
+		}
+		.search-nav-cancel {
+			position: absolute;
+			top: 0;
+			right: 1rem;
+			color: #FFF;
+			cursor: pointer;
+		}
+		#list p {
+			font-size: 1.4rem;
+		}
+		.list-heading {
+			font-size: 1.3rem;
+		}
+		.collection-item div, .collection-item span {
+			color: #EE6E73;
+			padding-bottom: .4rem;
+		}
+		.search-advance {
+			line-height: 1rem;
+			background-color: #FF9800;
+			color: #FFF;
+			font-size: 1rem;
+			padding: .6rem;
+			text-align: right;
+			margin-bottom: .4rem;
+		}
 	</style>
 	<script type="text/javascript">
-        var map;
-        document.addEventListener("deviceready", function() {
-            var div = document.getElementById("map_canvas");
+		var map;
+		document.addEventListener("deviceready", function() {
+			var div = document.getElementById("map_canvas");
 
             // Initialize the map view
             var mapOptions = {
-                center: { lat: 51.516738, lng: -0.079474 },
-                zoom: 8
+            	center: { lat: 51.516738, lng: -0.079474 },
+            	zoom: 8
             }
             map = plugin.google.maps.Map.getMap(div, mapOptions);
 
@@ -77,12 +77,12 @@
             google.maps.event.addDomListener(window, 'load', initialize);
         }, false);
 
-        function initialize() {
-        	var firstMapOptions = {
-        		zoom: 8
-        	};
-        	var firstMap = new google.maps.Map(document.getElementById('first_map_canvas'), firstMapOptions);
-        	var option = {
+		function initialize() {
+			var firstMapOptions = {
+				zoom: 8
+			};
+			var firstMap = new google.maps.Map(document.getElementById('first_map_canvas'), firstMapOptions);
+			var option = {
         	    enableHighAccuracy: true      // Force GPS
         	};
         	firstMap.getMyLocation(option, onLocationSuccess, onLocationError);
@@ -91,10 +91,10 @@
         		var lat = result.latLng.lat;
         		var lng = result.latLng.lng;
         		var center = new plugin.google.maps.LatLng(lat, lng);
-        	    firstMap.setCenter(center);
+        		firstMap.setCenter(center);
         	}
         	function onLocationError( error_msg ) {
-        	    alert( error_msg );
+        		alert( error_msg );
         	}
         }
 
@@ -112,51 +112,51 @@
             button.addEventListener("click", onBtnClicked, false);
             /*map.setCenter(clinic1);*/
             map.addMarker({
-                'position': clinic1,
-                'title': 'Devonshire Square Dental Studios'
+            	'position': clinic1,
+            	'title': 'Devonshire Square Dental Studios'
             }, function(marker) {
 
             });
             map.addMarker({
-                'position': clinic2,
-                'title': 'City Perio'
+            	'position': clinic2,
+            	'title': 'City Perio'
             }, function(marker) {
 
             });
             map.addMarker({
-                'position': clinic3,
-                'title': 'Vitaldent Wellbeing Studio'
+            	'position': clinic3,
+            	'title': 'Vitaldent Wellbeing Studio'
             }, function(marker) {
 
             });
             map.addMarker({
-                'position': clinic4,
-                'title': 'Harley Street Dental Clinic'
+            	'position': clinic4,
+            	'title': 'Harley Street Dental Clinic'
             }, function(marker) {
 
             });
             map.addMarker({
-                'position': clinic5,
-                'title': 'Zenith Dentistry'
+            	'position': clinic5,
+            	'title': 'Zenith Dentistry'
             }, function(marker) {
 
             });
             map.addMarker({
-                'position': clinic6,
-                'title': '76 harley Street'
+            	'position': clinic6,
+            	'title': '76 harley Street'
             }, function(marker) {
 
             });
         }
 
         function onBtnClicked() {
-            map.showDialog();
+        	map.showDialog();
         }
 
         $(document).ready(function(){
-         	$('.modal-trigger').leanModal();
+        	$('.modal-trigger').leanModal();
         });
-                
+        
     </script>
 </head>
 
@@ -190,22 +190,22 @@
 		</div>
 
 		<div style="display: none;" class="search-map">
-            <div class="nav-wrapper">
-                <form>
-                    <div class="input-field">
-                        <input id="search" type="search" required style="margin-bottom: 0">
-                        <label for="search">
-                            <i style="display: inline-block" class="mdi-action-search"></i>
-                        </label>
-                        <span class="search-nav-cancel">Cancel</span>
-                    </div>
-                </form>
-                <div class="search-advance">
-	            	<a href="#modal-advanced-search" class="modal-trigger">Advanced Search</a>
-	            </div>
-            </div>
-            
-        </div>
+			<div class="nav-wrapper">
+				<form>
+					<div class="input-field">
+						<input id="search" type="search" required style="margin-bottom: 0">
+						<label for="search">
+							<i style="display: inline-block" class="mdi-action-search"></i>
+						</label>
+						<span class="search-nav-cancel">Cancel</span>
+					</div>
+				</form>
+				<div class="search-advance">
+					<a href="#modal-advanced-search" class="modal-trigger">Advanced Search</a>
+				</div>
+			</div>
+			
+		</div>
 	</nav>
 
 	<div id="search-tabs">
@@ -222,218 +222,218 @@
 	    </div> -->
 
 	    <div class="row">
-	        <div class="col s12">
-	            <ul class="tabs">
-	                <li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
-	                <li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger"  href="#list">Browse</a></li>
-	            </ul>
-	        </div>
-	        <div id="first-map" class="col s12">
-			    <div style="width:100%;height:400px" id="first_map_canvas"></div>
-			    <!-- <button id="button">Full Screen</button> -->
-			</div>
-	        <div id="list" class="blue-text text-darken-2 col s12">
-	            <ul class="collection clinic-list">
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Devonshire Square Dental Studios</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/fb.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-">1.2 miles</span>
-	                                		<span class="clinic-list-"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">City Perio</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/slide03.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">4.6 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 5</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Vitaldent Wellbeing Studio</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/fb2.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">4.5 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 4.1</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Harley Street Dental Clinic</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/fb.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">2.2 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 5</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Zenith Dentistry</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/slide03.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">7 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">76 harley Street</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/fb2.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">2 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">77 Harley Dental Practice</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/fb.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">5.2 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Harley Street Dental Studio</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/slide03.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">1.2 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Dentalcare Marylbone</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/fb2.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">1.2 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Baker Street Dental</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/fb.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">1.2 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Dental Studio 22</div>
-	                                <div class="row">
-	                                	<div class="col s12 m9">
-	                                	    <img class="clinic-list-img" src="../images/slide03.jpg"/>
-	                                	</div>
-	                                	<div class="col s12 m3">
-	                                		<span class="clinic-list-info">1.2 miles</span>
-	                                		<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
-	                                	</div>
-	                                </div>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	            </ul>
-	        </div>
+	    	<div class="col s12">
+	    		<ul class="tabs">
+	    			<li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
+	    			<li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger"  href="#list">Browse</a></li>
+	    		</ul>
+	    	</div>
+	    	<div id="first-map" class="col s12">
+	    		<div style="width:100%;height:400px" id="first_map_canvas"></div>
+	    		<!-- <button id="button">Full Screen</button> -->
+	    	</div>
+	    	<div id="list" class="blue-text text-darken-2 col s12">
+	    		<ul class="collection clinic-list">
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Devonshire Square Dental Studios</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/fb.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-">1.2 miles</span>
+	    									<span class="clinic-list-"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">City Perio</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/slide03.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">4.6 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 5</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Vitaldent Wellbeing Studio</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/fb2.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">4.5 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 4.1</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Harley Street Dental Clinic</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/fb.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">2.2 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 5</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Zenith Dentistry</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/slide03.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">7 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">76 harley Street</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/fb2.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">2 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">77 Harley Dental Practice</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/fb.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">5.2 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Harley Street Dental Studio</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/slide03.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">1.2 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Dentalcare Marylbone</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/fb2.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">1.2 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Baker Street Dental</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/fb.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">1.2 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Dental Studio 22</div>
+	    							<div class="row">
+	    								<div class="col s12 m9">
+	    									<img class="clinic-list-img" src="../images/slide03.jpg"/>
+	    								</div>
+	    								<div class="col s12 m3">
+	    									<span class="clinic-list-info">1.2 miles</span>
+	    									<span class="clinic-list-info"><i class="mdi-action-grade"></i> 3.2</span>
+	    								</div>
+	    							</div>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    		</ul>
+	    	</div>
 	    </div>
 	</div>
 
@@ -498,63 +498,63 @@
 		</div>
 	</div> -->
 	<div id="map" class="col s12">
-	    <div style="width:100%;height:400px" id="map_canvas"></div>
-	    <!-- <button id="button">Full Screen</button> -->
+		<div style="width:100%;height:400px" id="map_canvas"></div>
+		<!-- <button id="button">Full Screen</button> -->
 	</div>
 	<div id="modal-advanced-search" class="modal modal-fixed-footer">
-	    <div class="modal-content">
-	    	<form action="#">
-	    		<div class="input-field col s12">
-	    			<input id="post-code" type="text" class="validate">
-	    			<label for="post-code">Post Code</label>
-	    		</div>
-	    		<p>
-	    			<input name="dentist-gender" type="radio" id="dentist-male" />
-	    			<label for="dentist-male">Male Dentist</label>
-	    		</p>
-	    		<p>
-	    			<input name="dentist-gender" type="radio" id="dentist-female" />
-	    			<label for="dentist-female">Female Dentist</label>
-	    		</p>
-	    	</form>
-	    	<div class="row">
-	    		<div class="input-field col s12">
-	    			<select class="browser-default">
-	    				<option value="" disabled selected>Choose your Treatment</option>
-	    				<option value="1">Root Canal</option>
-	    				<option value="2">Extraction</option>
-	    			</select>
-	    		</div>
-	    	</div>
-	    </div>
-	    <div class="modal-footer">
-	    	<a href="#!" class="modal-action modal-close waves-effect btn-flat ">Search</a>
-	    	<a href="#!" class="modal-action modal-close modal-cancel waves-effect btn-flat ">Cancel</a>
-	    </div>
+		<div class="modal-content">
+			<form action="#">
+				<div class="input-field col s12">
+					<input id="post-code" type="text" class="validate">
+					<label for="post-code">Post Code</label>
+				</div>
+				<p>
+					<input name="dentist-gender" type="radio" id="dentist-male" />
+					<label for="dentist-male">Male Dentist</label>
+				</p>
+				<p>
+					<input name="dentist-gender" type="radio" id="dentist-female" />
+					<label for="dentist-female">Female Dentist</label>
+				</p>
+			</form>
+			<div class="row">
+				<div class="input-field col s12">
+					<select class="browser-default">
+						<option value="" disabled selected>Choose your Treatment</option>
+						<option value="1">Root Canal</option>
+						<option value="2">Extraction</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-action modal-close waves-effect btn-flat ">Search</a>
+			<a href="#!" class="modal-action modal-close modal-cancel waves-effect btn-flat ">Cancel</a>
+		</div>
 	</div>
 	<script type="text/javascript">
-	    $('#search-map-trigger').on('click', function() {
-	        toggleStuff();
-	        $('#search').focus();
-	        $('#map').css('display', 'block');
-	        $('#first-map').css('display', 'none');
-	    });
-	    $('.search-nav-cancel').on('click', function() {
-	        toggleStuff();
-	        $('#list').css('display', 'none');
-	        $('#map').css('display', 'none');
-	        $('.indicator').css({'left': '0', 'right': '150px'});
-	        $('#first-map').css('display', 'block');
-	    });
-	    $('#browse-trigger').on('click', function() {
-	    	$(this).addClass('active');
-	    	$('#first-map').css('display', 'none');
-	    })
-	    function toggleStuff() {
-	        $('.common-nav').toggle();
-	        $('.search-map').toggle();
-	        $('#search-tabs').toggle();
-	    }
+		$('#search-map-trigger').on('click', function() {
+			toggleStuff();
+			$('#search').focus();
+			$('#map').css('display', 'block');
+			$('#first-map').css('display', 'none');
+		});
+		$('.search-nav-cancel').on('click', function() {
+			toggleStuff();
+			$('#list').css('display', 'none');
+			$('#map').css('display', 'none');
+			$('.indicator').css({'left': '0', 'right': '150px'});
+			$('#first-map').css('display', 'block');
+		});
+		$('#browse-trigger').on('click', function() {
+			$(this).addClass('active');
+			$('#first-map').css('display', 'none');
+		})
+		function toggleStuff() {
+			$('.common-nav').toggle();
+			$('.search-map').toggle();
+			$('#search-tabs').toggle();
+		}
 	</script>
 </body>
 </html>
