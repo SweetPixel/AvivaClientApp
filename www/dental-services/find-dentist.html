@@ -11,9 +11,11 @@
 	
 	<!-- Scripts-->
 	<script src="../js/jquery.min.js"></script>
+	<script src="../js/underscore.js"></script>
 	<script src="../js/materialize.js"></script>
-	<script src="cordova.js"></script>
+	<script src="../cordova.js"></script>
 	<script src="../js/init.js"></script>
+	<script src="../js/clinics.js"></script>
 	<style>
 		html {
             /*height: 100%;*/
@@ -63,18 +65,24 @@
 	<script type="text/javascript">
         var map;
         document.addEventListener("deviceready", function() {
+        	// alert("1/4: Device is ready");
+            fillClinicsList();
             var div = document.getElementById("map_canvas");
+            // alert("2/4: Got div");
 
             // Initialize the map view
             var mapOptions = {
                 center: { lat: 51.516738, lng: -0.079474 },
                 zoom: 8
-            }
+            };
             map = plugin.google.maps.Map.getMap(div, mapOptions);
+            // alert("3/4: map plugin set");
 
             // Wait until the map is ready status.
             map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-            google.maps.event.addDomListener(window, 'load', initialize);
+            // google.maps.event.addDomListener(window, 'load', initialize);
+            
+            // alert("4/4: Everything worked");
         }, false);
 
         function initialize() {
@@ -233,7 +241,7 @@
 			    <!-- <button id="button">Full Screen</button> -->
 			</div>
 	        <div id="list" class="blue-text text-darken-2 col s12">
-	            <ul class="collection">
+	            <ul class="collection" id="clinics-list">
 	                <li class="collection-item">
 	                    <a href="../details.html">
 	                        <div class="row">
@@ -241,146 +249,6 @@
 	                                <div class="list-heading">Devonshire Square Dental Studios</div>
 	                                <div>
 	                                    <img style="width: 100%" src="../images/fb.jpg"/>
-	                                </div>
-	                                <span style="float: left;">1.2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">City Perio</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/slide03.jpg"/>
-	                                </div>
-	                                <span style="float: left;">4.6 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 5</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Vitaldent Wellbeing Studio</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/fb2.jpg"/>
-	                                </div>
-	                                <span style="float: left;">4.5 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 4.1</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Harley Street Dental Clinic</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/fb.jpg"/>
-	                                </div>
-	                                <span style="float: left;">2.2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 5</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Zenith Dentistry</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/slide03.jpg"/>
-	                                </div>
-	                                <span style="float: left;">7 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">76 harley Street</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/fb2.jpg"/>
-	                                </div>
-	                                <span style="float: left;">2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">77 Harley Dental Practice</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/fb.jpg"/>
-	                                </div>
-	                                <span style="float: left;">5.2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Harley Street Dental Studio</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/slide03.jpg"/>
-	                                </div>
-	                                <span style="float: left;">1.2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Dentalcare Marylbone</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/fb2.jpg"/>
-	                                </div>
-	                                <span style="float: left;">1.2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Baker Street Dental</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/fb.jpg"/>
-	                                </div>
-	                                <span style="float: left;">1.2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Dental Studio 22</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/slide03.jpg"/>
 	                                </div>
 	                                <span style="float: left;">1.2 miles</span>
 	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
