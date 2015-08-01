@@ -11,9 +11,37 @@
 
   <!--  Scripts-->
   <script src="js/jquery.min.js"></script>
+  <script src="js/underscore.js"></script>
   <script src="js/materialize.js"></script>
+  <script src="cordova.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/clinics.js"></script>
 
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        } else {
+            onDeviceReady();
+        }
+    });
+    function onDeviceReady() {
+      $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null){
+           return null;
+        }
+        else{
+           return results[1] || 0;
+        }
+      }
+
+      var id = decodeURIComponent($.urlParam('id'));
+      fillClinicItem(id);
+    }
+
+  </script>
   <style>
     html {
       /*height: 100%;*/
@@ -63,11 +91,10 @@
       <div class="row">
         <div class="col s9">
           <div class="row">
-            <h4 class="grey-text left-align" >Harley Street Dental Clinic</h4>
+            <h4 class="grey-text left-align" id="c-name"></h4>
           </div>
           <div class="row">
-            <p class="black-text flow-text">The clinic from its simple humble beginnings almost forty years ago, has developed into a large multidisciplinary dental clinic, as I am very fortunate to have exceptional practitioners and staff working with me. The concept of the clinic is to offer treatment of a very high standard in every aspect of dentistry. What I hope makes this clinic special is that this is done in a very caring way, where patients needs are met. We all have different fears and needs. If you are in pain, someone will see you, if you are scared stiff, someone will be able to treat your needs. This I hope creates the right environment that is such an important part of your treatment. As you would expect this clinic has state of the art equipment. All the surgeries are fully equipped with the latest dental units and x-rays. CT scanner, cameras, lasers and microscopes in the specialists units. We have a dedicated decontamination room where all instruments are cleaned and sterilised following the HTM 01-05 document from the department of health. The clinics specialists cover every aspect of clinical dentistry. We have a specialist children's dentist, who will treat most cases at the clinic with the help of his dental therapists.
-            </p>
+            <p class="black-text flow-text" id="c-description"></p>
           </div>
           <div class="row">
             <div class="col s12">
@@ -77,13 +104,13 @@
         </div>
         <div class="col s3 ">
           <div class='row'>
-            <h4 class="center black-text">4.4 miles</h4>
+            <h4 class="center black-text" id="c-distance"></h4>
             <!-- <h5 class="center grey-text " >miles</h5> -->
         <!-- <br>
         <br> -->
         <div class='row'>
           <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
-          <h4 class="center grey-text " >5</h4>
+          <h4 class="center grey-text" id="c-rating">5</h4>
         </div>
       </div>
 
