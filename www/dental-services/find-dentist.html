@@ -64,26 +64,33 @@
 	</style>
 	<script type="text/javascript">
         var map;
-        document.addEventListener("deviceready", function() {
-        	// alert("1/4: Device is ready");
-            fillClinicsList();
-            var div = document.getElementById("map_canvas");
-            // alert("2/4: Got div");
+        $(document).ready(function () {
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            } else {
+                onDeviceReady();
+            }
+        });
+        function onDeviceReady() {
+    		// alert("1/4: Device is ready");
+    	    fillClinicsList();
+    	    var div = document.getElementById("map_canvas");
+    	    // alert("2/4: Got div");
 
-            // Initialize the map view
-            var mapOptions = {
-                center: { lat: 51.516738, lng: -0.079474 },
-                zoom: 8
-            };
-            map = plugin.google.maps.Map.getMap(div, mapOptions);
-            // alert("3/4: map plugin set");
+    	    // Initialize the map view
+    	    var mapOptions = {
+    	        center: { lat: 51.516738, lng: -0.079474 },
+    	        zoom: 8
+    	    };
+    	    map = plugin.google.maps.Map.getMap(div, mapOptions);
+    	    // alert("3/4: map plugin set");
 
-            // Wait until the map is ready status.
-            map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-            // google.maps.event.addDomListener(window, 'load', initialize);
-            
-            // alert("4/4: Everything worked");
-        }, false);
+    	    // Wait until the map is ready status.
+    	    map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+    	    // google.maps.event.addDomListener(window, 'load', initialize);
+    	    
+    	    // alert("4/4: Everything worked");
+        }
 
         function initialize() {
         	var firstMapOptions = {

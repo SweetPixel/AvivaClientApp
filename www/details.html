@@ -11,6 +11,7 @@
 
   <!--  Scripts-->
   <script src="js/jquery.min.js"></script>
+  <script src="js/underscore.js"></script>
   <script src="js/materialize.js"></script>
   <script src="cordova.js"></script>
   <script src="js/init.js"></script>
@@ -18,7 +19,14 @@
 
 
   <script type="text/javascript">
-    document.addEventListener("deviceready", function() {
+    $(document).ready(function () {
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        } else {
+            onDeviceReady();
+        }
+    });
+    function onDeviceReady() {
       $.urlParam = function(name){
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
         if (results==null){
@@ -31,8 +39,7 @@
 
       var id = decodeURIComponent($.urlParam('id'));
       fillClinicItem(id);
-      
-    }, false);
+    }
 
   </script>
   <style>
@@ -103,7 +110,7 @@
         <br> -->
         <div class='row'>
           <h4 class="center orange-text"><i class="mdi-action-grade"></i></h4>
-          <h4 class="center grey-text">5</h4>
+          <h4 class="center grey-text" id="c-rating">5</h4>
         </div>
       </div>
 
