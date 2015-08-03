@@ -1,5 +1,6 @@
 var fillClinicsList = function() {
 	$('#clinics-list').empty();
+	console.log("beginning");
 	var image;
 	$.each(clinics, function (index, item) {
 		image = _.sample(images);
