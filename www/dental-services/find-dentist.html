@@ -63,124 +63,166 @@
 		}
 	</style>
 	<script type="text/javascript">
-		// var map;
-		// document.addEventListener("deviceready", function() {
-		// 	var div = document.getElementById("map_canvas");
+	// Note: This example requires that you consent to location sharing when
+	// prompted by your browser. If you see a blank space instead of the map, this
+	// is probably because you have denied permission for location sharing.
 
-  //           // Initialize the map view
-  //           var mapOptions = {
-  //           	center: { lat: 51.516738, lng: -0.079474 },
-  //           	zoom: 8
-        var map;
-        $(document).ready(function () {
-            if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
-                document.addEventListener("deviceready", onDeviceReady, false);
-            } else {
-                onDeviceReady();
-            }
-        });
-        function onDeviceReady() {
-    		// alert("1/4: Device is ready");
-    	    fillClinicsList();
-    	    var div = document.getElementById("map_canvas");
-    	    // alert("2/4: Got div");
 
-    	    // Initialize the map view
-    	    var mapOptions = {
-    	        center: { lat: 51.516738, lng: -0.079474 },
-    	        zoom: 8
-    	    };
-    	    map = plugin.google.maps.Map.getMap(div, mapOptions);
-    	    // alert("3/4: map plugin set");
+	var map;
 
-    	    // Wait until the map is ready status.
-    	    map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-    	    // google.maps.event.addDomListener(window, 'load', initialize);
-    	    
-    	    // alert("4/4: Everything worked");
-        }
+	function initialize() {
+		var mapOptions = {
+			zoom: 6
+		};
+		map = new google.maps.Map(document.getElementById('first_map_canvas'),
+			mapOptions);
 
-		function initialize() {
-			var firstMapOptions = {
-				zoom: 8
-			};
-			var firstMap = new google.maps.Map(document.getElementById('first_map_canvas'), firstMapOptions);
-			var option = {
-        	    enableHighAccuracy: true      // Force GPS
-        	};
-        	firstMap.getMyLocation(option, onLocationSuccess, onLocationError);
+	  // Try HTML5 geolocation
+	  if(navigator.geolocation) {
+	  	navigator.geolocation.getCurrentPosition(function(position) {
+	  		var pos = new google.maps.LatLng(position.coords.latitude,
+	  			position.coords.longitude);
 
-        	function onLocationSuccess( result ) {
-        		var lat = result.latLng.lat;
-        		var lng = result.latLng.lng;
-        		var center = new plugin.google.maps.LatLng(lat, lng);
-        		firstMap.setCenter(center);
-        	}
-        	function onLocationError( error_msg ) {
-        		alert( error_msg );
-        	}
-        }
+	  		var infowindow = new google.maps.InfoWindow({
+	  			map: map,
+	  			position: pos,
+	  			content: 'Location found.'
+	  		});
 
-        function onMapReady() {
+	  		map.setCenter(pos);
+	  	}, function() {
+	  		handleNoGeolocation(true);
+	  	});
+	  } else {
+	    // Browser doesn't support Geolocation
+	    handleNoGeolocation(false);
+	}
+	}
 
-            //markers
-            const clinic1 = new plugin.google.maps.LatLng(51.516738, -0.079474);
-            const clinic2 = new plugin.google.maps.LatLng(51.518351, -0.087370);
-            const clinic3 = new plugin.google.maps.LatLng(51.518228, -0.078485);
-            const clinic4 = new plugin.google.maps.LatLng(51.521185, -0.148060);
-            const clinic5 = new plugin.google.maps.LatLng(51.521857, -0.149687);
-            const clinic6 = new plugin.google.maps.LatLng(51.520091, -0.147240);
+	function handleNoGeolocation(errorFlag) {
+		if (errorFlag) {
+			var content = 'Error: The Geolocation service failed.';
+		} else {
+			var content = 'Error: Your browser doesn\'t support geolocation.';
+		}
 
-            var button = document.getElementById("map-button");
-            button.addEventListener("click", onBtnClicked, false);
-            /*map.setCenter(clinic1);*/
-            map.addMarker({
-            	'position': clinic1,
-            	'title': 'Devonshire Square Dental Studios'
-            }, function(marker) {
+		var options = {
+			map: map,
+			position: new google.maps.LatLng(60, 105),
+			content: content
+		};
 
-            });
-            map.addMarker({
-            	'position': clinic2,
-            	'title': 'City Perio'
-            }, function(marker) {
+		var infowindow = new google.maps.InfoWindow(options);
+		map.setCenter(options.position);
+	}
 
-            });
-            map.addMarker({
-            	'position': clinic3,
-            	'title': 'Vitaldent Wellbeing Studio'
-            }, function(marker) {
+	google.maps.event.addDomListener(window, 'load', initialize);
 
-            });
-            map.addMarker({
-            	'position': clinic4,
-            	'title': 'Harley Street Dental Clinic'
-            }, function(marker) {
+  //       var map;
+  //       $(document).ready(function () {
+  //           if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+  //               document.addEventListener("deviceready", onDeviceReady, false);
+  //           } else {
+  //               onDeviceReady();
+  //           }
+  //       });
+  //       function onDeviceReady() {
+  //   	    fillClinicsList();
+  //   	    var div = document.getElementById("map_canvas");
+  //   	    var mapOptions = {
+  //   	        center: { lat: 51.516738, lng: -0.079474 },
+  //   	        zoom: 8
+  //   	    };
+  //   	    map = plugin.google.maps.Map.getMap(div, mapOptions);
 
-            });
-            map.addMarker({
-            	'position': clinic5,
-            	'title': 'Zenith Dentistry'
-            }, function(marker) {
+  //   	    // Wait until the map is ready status.
+  //   	    map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+  //   	    // google.maps.event.addDomListener(window, 'load', initialize);
 
-            });
-            map.addMarker({
-            	'position': clinic6,
-            	'title': '76 harley Street'
-            }, function(marker) {
+  //   	    // alert("4/4: Everything worked");
+  //       }
 
-            });
-        }
+		// function initialize() {
+		// 	var firstMapOptions = {
+		// 		zoom: 8
+		// 	};
+		// 	var firstMap = new google.maps.Map(document.getElementById('first_map_canvas'), firstMapOptions);
+		// 	var option = {
+  //       	    enableHighAccuracy: true      // Force GPS
+  //       	};
+  //       	firstMap.getMyLocation(option, onLocationSuccess, onLocationError);
 
-        function onBtnClicked() {
-        	map.showDialog();
-        }
+  //       	function onLocationSuccess( result ) {
+  //       		var lat = result.latLng.lat;
+  //       		var lng = result.latLng.lng;
+  //       		var center = new plugin.google.maps.LatLng(lat, lng);
+  //       		firstMap.setCenter(center);
+  //       	}
+  //       	function onLocationError( error_msg ) {
+  //       		alert( error_msg );
+  //       	}
+  //       }
 
-        $(document).ready(function(){
-        	$('.modal-trigger').leanModal();
-        });
-        
-    </script>
+  //       function onMapReady() {
+
+  //           //markers
+  //           const clinic1 = new plugin.google.maps.LatLng(51.516738, -0.079474);
+  //           const clinic2 = new plugin.google.maps.LatLng(51.518351, -0.087370);
+  //           const clinic3 = new plugin.google.maps.LatLng(51.518228, -0.078485);
+  //           const clinic4 = new plugin.google.maps.LatLng(51.521185, -0.148060);
+  //           const clinic5 = new plugin.google.maps.LatLng(51.521857, -0.149687);
+  //           const clinic6 = new plugin.google.maps.LatLng(51.520091, -0.147240);
+
+  //           var button = document.getElementById("map-button");
+  //           button.addEventListener("click", onBtnClicked, false);
+  //           /*map.setCenter(clinic1);*/
+  //           map.addMarker({
+  //           	'position': clinic1,
+  //           	'title': 'Devonshire Square Dental Studios'
+  //           }, function(marker) {
+
+  //           });
+  //           map.addMarker({
+  //           	'position': clinic2,
+  //           	'title': 'City Perio'
+  //           }, function(marker) {
+
+  //           });
+  //           map.addMarker({
+  //           	'position': clinic3,
+  //           	'title': 'Vitaldent Wellbeing Studio'
+  //           }, function(marker) {
+
+  //           });
+  //           map.addMarker({
+  //           	'position': clinic4,
+  //           	'title': 'Harley Street Dental Clinic'
+  //           }, function(marker) {
+
+  //           });
+  //           map.addMarker({
+  //           	'position': clinic5,
+  //           	'title': 'Zenith Dentistry'
+  //           }, function(marker) {
+
+  //           });
+  //           map.addMarker({
+  //           	'position': clinic6,
+  //           	'title': '76 harley Street'
+  //           }, function(marker) {
+
+  //           });
+  //       }
+
+  //       function onBtnClicked() {
+  //       	map.showDialog();
+  //       }
+
+  //       $(document).ready(function(){
+  //       	$('.modal-trigger').leanModal();
+  //       });
+
+</script>
 </head>
 
 <body>
@@ -457,34 +499,34 @@
 	    			</li>
 	    		</ul>
 	    	</div> -->
-	        <div class="col s12">
-	            <ul class="tabs">
-	                <li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
-	                <li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger"  href="#list">Browse</a></li>
-	            </ul>
-	        </div>
-	        <div id="first-map" class="col s12">
-			    <div style="width:100%;height:400px" id="first_map_canvas"></div>
-			    <!-- <button id="button">Full Screen</button> -->
-			</div>
-	        <div id="list" class="blue-text text-darken-2 col s12">
-	            <ul class="collection" id="clinics-list">
-	                <li class="collection-item">
-	                    <a href="../details.html">
-	                        <div class="row">
-	                            <p class="grey-text left-align">
-	                                <div class="list-heading">Devonshire Square Dental Studios</div>
-	                                <div>
-	                                    <img style="width: 100%" src="../images/fb.jpg"/>
-	                                </div>
-	                                <span style="float: left;">1.2 miles</span>
-	                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-	                            </p>
-	                        </div>
-	                    </a>
-	                </li>
-	            </ul>
-	        </div>
+	    	<div class="col s12">
+	    		<ul class="tabs">
+	    			<li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
+	    			<li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger"  href="#list">Browse</a></li>
+	    		</ul>
+	    	</div>
+	    	<div id="first-map" class="col s12">
+	    		<div style="width:100%;height:400px" id="first_map_canvas"></div>
+	    		<!-- <button id="button">Full Screen</button> -->
+	    	</div>
+	    	<div id="list" class="blue-text text-darken-2 col s12">
+	    		<ul class="collection" id="clinics-list">
+	    			<li class="collection-item">
+	    				<a href="../details.html">
+	    					<div class="row">
+	    						<p class="grey-text left-align">
+	    							<div class="list-heading">Devonshire Square Dental Studios</div>
+	    							<div>
+	    								<img style="width: 100%" src="../images/fb.jpg"/>
+	    							</div>
+	    							<span style="float: left;">1.2 miles</span>
+	    							<span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
+	    						</p>
+	    					</div>
+	    				</a>
+	    			</li>
+	    		</ul>
+	    	</div>
 	    </div>
 	</div>
 
@@ -583,29 +625,29 @@
 			<a href="#!" class="modal-action modal-close modal-cancel waves-effect btn-flat ">Cancel</a>
 		</div>
 	</div>
-	<script type="text/javascript">
-		$('#search-map-trigger').on('click', function() {
-			toggleStuff();
-			$('#search').focus();
-			$('#map').css('display', 'block');
-			$('#first-map').css('display', 'none');
-		});
-		$('.search-nav-cancel').on('click', function() {
-			toggleStuff();
-			$('#list').css('display', 'none');
-			$('#map').css('display', 'none');
-			$('.indicator').css({'left': '0', 'right': '150px'});
-			$('#first-map').css('display', 'block');
-		});
-		$('#browse-trigger').on('click', function() {
-			$(this).addClass('active');
-			$('#first-map').css('display', 'none');
-		})
-		function toggleStuff() {
-			$('.common-nav').toggle();
-			$('.search-map').toggle();
-			$('#search-tabs').toggle();
-		}
-	</script>
+	// <script type="text/javascript">
+	// 	$('#search-map-trigger').on('click', function() {
+	// 		toggleStuff();
+	// 		$('#search').focus();
+	// 		$('#map').css('display', 'block');
+	// 		$('#first-map').css('display', 'none');
+	// 	});
+	// 	$('.search-nav-cancel').on('click', function() {
+	// 		toggleStuff();
+	// 		$('#list').css('display', 'none');
+	// 		$('#map').css('display', 'none');
+	// 		$('.indicator').css({'left': '0', 'right': '150px'});
+	// 		$('#first-map').css('display', 'block');
+	// 	});
+	// 	$('#browse-trigger').on('click', function() {
+	// 		$(this).addClass('active');
+	// 		$('#first-map').css('display', 'none');
+	// 	})
+	// 	function toggleStuff() {
+	// 		$('.common-nav').toggle();
+	// 		$('.search-map').toggle();
+	// 		$('#search-tabs').toggle();
+	// 	}
+	// </script>
 </body>
 </html>
