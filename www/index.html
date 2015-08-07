@@ -32,19 +32,27 @@
 </head>
 <body>
  <div data-role="page" id="index">
-  <nav class="orange" role="navigation">
+  <!-- <nav class="orange" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="left white-text" >Login</h6> </a>
-    <!--   <a href="#"><i class="left white-text mdi-navigation-arrow-back"></i></a>-->
    </div>
-  </nav>
+  </nav> -->
+
+  <div class="row">
+    <div class="col s12 center">
+      <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
+    </div>
+  </div>
 
  <div class="row">
     <form class="col s12">
+    <div>
+      <p style="color: white;" class="col s12 center">SIGN IN WITH YOUR USERNAME AND PASSWORD</p>
+    </div>
       <div class="row">
         <div class="input-field col s12">
           <!-- <i class="mdi-action-account-circle prefix"></i> -->
           <input id="name" type="text" class="validate">
-          <label for="name">User Name</label>
+          <label for="name">Username</label>
         </div>
 		 </div>
 		  <div class="row">
@@ -57,12 +65,18 @@
 
 
 	    <div class="row">
-        <div class="input-field col s12">
-		        <a class="orange waves-effect waves-light btn" id="btn"><i class="mdi-communication-vpn-key left"></i>Login</a>
+        <div class="input-field col s12 center">
+		        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn"><!-- <i class="mdi-communication-vpn-key center"></i> -->Sign in</a>
         </div>
 
 		</div>
     </form>
+  </div>
+
+  <div class="row">
+    <div class="col s12 center">
+      <p><a href="" style="color: white;"><u>Forgotten log in details</u></a></p>
+    </div>
   </div>
   </div>
 

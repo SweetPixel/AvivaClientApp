@@ -6,6 +6,27 @@
  * Made By MaterializeCSS.com
  */
 
+ input[type="text"], input[type="password"], input[type="email"], 
+ input[type="url"], input[type="time"], input[type="date"], 
+ input[type="datetime-local"], input[type="tel"], input[type="number"], 
+ input[type="search"], textarea.materialize-textarea {
+ 	border-color: -moz-use-text-color -moz-use-text-color #ffffff;
+ }
+
+ html {
+      min-height: 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+       background: -webkit-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* IE10 */
+  background:      -o-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* Opera 11.10+ */
+  background:         linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* W3C */
+      background-repeat: no-repeat;
+    }
+
  .modal.bottom-sheet {
  	top: 0px;
  	bottom: -100%;
@@ -15,6 +36,23 @@
  	border-radius: 0px;
  	will-change: bottom, opacity;
  	/*height: 349px;*/
+ }
+ .input-field label {
+ 	color: #ecf0f1;
+ }
+
+ .colorofbutton {
+background: -webkit-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #136a8a 10%, #267871 90%); /* W3C */
+        
+ }
+
+ #healthpicklogo {
+ 	width: 80%;
+ 	margin-top: 15%;
  }
 
  @import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
@@ -162,11 +200,11 @@
  	background-color: #FF9800 !important;
  }
  input[type="password"]:focus:not([readonly]) {
- 	border-bottom: 1px solid #FF9800;
- 	box-shadow: 0px 1px 0px 0px #FF9800;
+ 	border-bottom: 1px solid #3f4c6b;
+ 	box-shadow: 0px 1px 0px 0px #3f4c6b;
  }
  input[type="password"]:focus:not([readonly]) + label {
- 	color: #FF9800 !important;
+ 	color: #3f4c6b !important;
  }
  .collection a.collection-item {
  	color: #FF9800;
@@ -175,11 +213,11 @@
  	border-color: transparent #FF9800 #FF9800 transparent;
  }
  input[type="text"]:focus:not([readonly]), input[type="email"]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
- 	border-bottom: 1px solid #FF9800;
- 	box-shadow: 0px 1px 0px 0px #FF9800;
+ 	border-bottom: 1px solid #3f4c6b;
+ 	box-shadow: 0px 1px 0px 0px #3f4c6b;
  }
  input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
- 	color: #FF9800;
+ 	color: #3f4c6b;
  }
  [type="radio"]:checked + label::after {
  	border: 2px solid #FF9800;
@@ -271,7 +309,7 @@
  }
  @media only screen and (min-width: 600px) {
  	.flow-text {
-		line-height: 1.6;
+ 		line-height: 1.6;
  	}
  	.clinic-list span {
  		float: auto;
@@ -288,14 +326,14 @@
  	.title {
  		font-size: 1.3rem;
  	}
-}
-@media screen and (max-width: 599px) {
+ }
+ @media screen and (max-width: 599px) {
  	.clinic-list span:nth-child(n+2) {
  		float: right;
  	}
-}
-@media only screen and (min-width: 960px) {
-	.flow-text {
-		font-size: 1.3rem;
-	}
-}
+ }
+ @media only screen and (min-width: 960px) {
+ 	.flow-text {
+ 		font-size: 1.3rem;
+ 	}
+ }
