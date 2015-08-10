@@ -189,9 +189,6 @@
 	</nav>
 
 	<div id="search-tabs">
-		<div class="row">
-			
-		</div>
 	    <!-- <div class="row">
 	        <div class="col s9 center-align white-text">
 	            <p> The following 216 practices are within 30km of EC3P 3DQ, London</p>
@@ -201,19 +198,19 @@
 	        </div>
 	    </div> -->
 
-	    <div class="row">
+	    <div class="row" style="margin-top: 1rem">
 	    	
 	    	<div class="col s12">
 	    		<ul class="tabs">
 	    			<li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
-	    			<li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger"  href="#list">Browse</a></li>
+	    			<li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger" href="#list">Browse</a></li>
 	    		</ul>
 	    	</div>
-	    	<div id="first-map" class="col s12">
+	    	<!-- <div id="first-map" class="col s12">
 	    		<div id="first_map_canvas" style="overflow: hidden;">
 	    			<img src="../images/sheffield-1.png" style="min-width: 100%; height=auto; overflow: hidden;">
 	    		</div>
-	    	</div>
+	    	</div> -->
 	    	<div id="list" class="blue-text text-darken-2 col s12">
 	    		<ul class="collection" id="clinics-list">
 	    			<li class="collection-item">
@@ -231,6 +228,14 @@
 	    				</a>
 	    			</li>
 	    		</ul>
+	    	</div>
+	    	<div id="map" class="col s12">
+	    		<div style="width:100%;height:400px" id="map_canvas">
+	    			<!-- <div id="second_map_canvas" style="overflow: hidden;">
+	    				<img src="../images/sheffield-1.png" style="min-width: 100%; height=auto;">
+	    			</div> -->
+	    		</div>
+	    		<!-- <button id="button">Full Screen</button> -->
 	    	</div>
 	    </div>
 	</div>
@@ -295,14 +300,7 @@
 			</div>
 		</div>
 	</div> -->
-	<div id="map" class="col s12">
-		<div style="width:100%;height:400px" id="map_canvas">
-			<!-- <div id="second_map_canvas" style="overflow: hidden;">
-				<img src="../images/sheffield-1.png" style="min-width: 100%; height=auto;">
-			</div> -->
-		</div>
-		<!-- <button id="button">Full Screen</button> -->
-	</div>
+	
 	<div id="modal-advanced-search" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<form action="#">
@@ -339,14 +337,14 @@
 			toggleStuff();
 			$('#search').focus();
 			$('#map').css('display', 'block');
-			$('#first-map').css('display', 'none');
+			// $('#first-map').css('display', 'none');
 		});
 		$('.search-nav-cancel').on('click', function() {
 			toggleStuff();
-			$('#list').css('display', 'none');
+			$('#list').css('display', 'block');
 			$('#map').css('display', 'none');
-			$('.indicator').css({'left': '0', 'right': '150px'});
-			$('#first-map').css('display', 'block');
+			// $('.indicator').css({'left': '0', 'right': '150px'});
+			// $('#first-map').css('display', 'block');
 		});
 		$('#browse-trigger').on('click', function() {
 			$(this).addClass('active');
