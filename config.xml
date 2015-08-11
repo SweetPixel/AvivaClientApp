@@ -84,4 +84,5 @@
     <access origin="*" />
     <access origin="http://animation-republic.com/CorporaCompleteCarePlan.pdf"/>
     <access origin="https://maps.googleapis.com" />
+    <access origin="https://maps.gstatic.com" />
 </widget>
