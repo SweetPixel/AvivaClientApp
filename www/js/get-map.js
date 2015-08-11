@@ -18,6 +18,11 @@ var app = {
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
         alert("map created");
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            title:"Hello World!"
+        });
+
     },
     onError: function (error) {
         alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
