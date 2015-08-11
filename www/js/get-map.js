@@ -20,7 +20,7 @@ var app = {
             zoom: 16
         };
         alert("set position");
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var map = new google.maps.Map(document.getElementById("map"));
         alert("map created");
     },
     onError: function (error) {
