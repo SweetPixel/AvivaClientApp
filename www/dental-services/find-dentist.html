@@ -6,14 +6,12 @@
 	<title>Healthpick</title>
 
 	<!-- CSS -->
-	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 	
 	<!-- Scripts-->
 	<script>console.log("Starting");</script>
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/underscore.js"></script>
-	<script src="../js/materialize.js"></script>
 	<script src="../cordova.js"></script>
 	<script src="../js/init.js"></script>
 	
@@ -200,18 +198,18 @@
 
 	    <div class="row" style="margin-top: 1rem">
 	    	
-	    	<div class="col s12">
+	    	<!-- <div class="col s12">
 	    		<ul class="tabs">
 	    			<li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
 	    			<li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger" href="#list">Browse</a></li>
 	    		</ul>
-	    	</div>
+	    	</div> -->
 	    	<!-- <div id="first-map" class="col s12">
 	    		<div id="first_map_canvas" style="overflow: hidden;">
 	    			<img src="../images/sheffield-1.png" style="min-width: 100%; height=auto; overflow: hidden;">
 	    		</div>
 	    	</div> -->
-	    	<div id="list" class="blue-text text-darken-2 col s12">
+	    	<!-- <div id="list" class="blue-text text-darken-2 col s12">
 	    		<ul class="collection" id="clinics-list">
 	    			<li class="collection-item">
 	    				<a href="../details.html">
@@ -228,7 +226,7 @@
 	    				</a>
 	    			</li>
 	    		</ul>
-	    	</div>
+	    	</div> -->
 	    	<div id="map" class="col s12">
 	    		<div style="width:100%;height:400px" id="map_canvas">
 	    			<!-- <div id="second_map_canvas" style="overflow: hidden;">
@@ -301,7 +299,7 @@
 		</div>
 	</div> -->
 	
-	<div id="modal-advanced-search" class="modal modal-fixed-footer">
+	<!-- <div id="modal-advanced-search" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<form action="#">
 				<div class="input-field col s12">
@@ -331,9 +329,9 @@
 			<a href="#!" class="modal-action modal-close waves-effect btn-flat ">Search</a>
 			<a href="#!" class="modal-action modal-close modal-cancel waves-effect btn-flat ">Cancel</a>
 		</div>
-	</div>
+	</div> -->
 	<script type="text/javascript">
-		$('#search-map-trigger').on('click', function() {
+		/*$('#search-map-trigger').on('click', function() {
 			toggleStuff();
 			$('#search').focus();
 			$('#map').css('display', 'block');
@@ -354,9 +352,8 @@
 			$('.common-nav').toggle();
 			$('.search-map').toggle();
 			$('#search-tabs').toggle();
-		}
+		}*/
 	</script>
-	<script src="../js/clinics.js"></script>
-	<script>fillClinicsList();</script>
+	
 </body>
 </html>
