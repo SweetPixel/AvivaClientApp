@@ -12,7 +12,7 @@ var app = {
     onSuccess: function (position) {
         var longitude = position.coords.longitude;
         var latitude = position.coords.latitude;
-        /*var latLng = new google.maps.LatLng(latitude, longitude);*/
+        var latLng = new google.maps.LatLng(latitude, longitude);
         var latLng1 = new google.maps.LatLng(53.3788635,-1.4703039);
         var latLng2 = new google.maps.LatLng(53.3898514,-1.4807747);
         var latLng3 = new google.maps.LatLng(53.372874,-1.481475);
@@ -29,7 +29,7 @@ var app = {
         var latLng15 = new google.maps.LatLng(53.5267952,-1.1054701);
         var latLng16 = new google.maps.LatLng(53.6414957,-1.5297282);
         var mapOptions = {
-            center: latLng1,
+            center: latLng,
             zoom: 8
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
