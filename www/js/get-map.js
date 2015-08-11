@@ -29,7 +29,7 @@ var app = {
         var latLng16 = new google.maps.LatLng(53.6414957,-1.5297282);
         var mapOptions = {
             center: latLng1,
-            zoom: 16
+            zoom: 8
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
         alert("map created");
