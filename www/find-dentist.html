@@ -114,8 +114,8 @@
                     </li>
                 </ul>
             </div>
-            <div id="map" style="width: 100%; height: 400px; background-color: #DDD;"></div>
         </div>
+        <div id="map" style="width: 100%; height: 400px; background-color: #DDD; margin-top: .5rem;"></div>
         
 
         <script src="cordova.js"></script>
@@ -131,28 +131,28 @@
             fillClinicsList();
         </script>
         <script type="text/javascript">
-            /*$('#search-map-trigger').on('click', function() {
+            $('#search-map-trigger').on('click', function() {
                 toggleStuff();
                 $('#search').focus();
                 $('#map').css('display', 'block');
-                // $('#first-map').css('display', 'none');
+                $('#map').css('margin-top', '2.4rem');
             });
             $('.search-nav-cancel').on('click', function() {
                 toggleStuff();
                 $('#list').css('display', 'block');
                 $('#map').css('display', 'none');
-                // $('.indicator').css({'left': '0', 'right': '150px'});
-                // $('#first-map').css('display', 'block');
+                $('#map').css('margin-top', '.5rem');
+                $('.indicator').css({'left': '0', 'right': '150px'});
             });
             $('#browse-trigger').on('click', function() {
                 $(this).addClass('active');
-                $('#first-map').css('display', 'none');
+                $('#map').css('margin-top', '.5rem');
             })
             function toggleStuff() {
                 $('.common-nav').toggle();
                 $('.search-map').toggle();
                 $('#search-tabs').toggle();
-            }*/
+            }
         </script>
     </body>
 </html>
