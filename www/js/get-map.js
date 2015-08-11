@@ -6,6 +6,7 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     onDeviceReady: function () {
+        $('.modal-trigger').leanModal();
         navigator.geolocation.getCurrentPosition(app.onSuccess, app.onError);
     },
     onSuccess: function (position) {
