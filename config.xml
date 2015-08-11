@@ -49,7 +49,9 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="*" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="data:*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -84,6 +86,6 @@
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     <access origin="http://animation-republic.com/CorporaCompleteCarePlan.pdf"/>
-    <access origin="https://maps.googleapis.com" />
-    <access origin="https://maps.gstatic.com" />
+    <access origin="https://*.googleapis.com/*/*"/>
+    <access origin="https://*.gstatic.com/*/*"/>
 </widget>
