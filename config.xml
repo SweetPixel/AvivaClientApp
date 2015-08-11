@@ -83,4 +83,5 @@
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     <access origin="http://animation-republic.com/CorporaCompleteCarePlan.pdf"/>
+    <access origin="https://maps.googleapis.com" />
 </widget>
