@@ -9,17 +9,150 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" href="./css/materialize.min.css" />
         <title>Hello World</title>
+        <style>
+            
+            #search:focus ~ .search-nav-cancel{
+                color: #000;
+            }
+            .search-nav-cancel {
+                position: absolute;
+                top: 0;
+                right: 1rem;
+                color: #FFF;
+                cursor: pointer;
+            }
+            #list p {
+                font-size: 1.4rem;
+            }
+            .list-heading {
+                font-size: 1.3rem;
+            }
+            .collection-item div, .collection-item span {
+                color: #EE6E73;
+                padding-bottom: .4rem;
+            }
+            .search-advance {
+                line-height: 1rem;
+                background-color: #2980B9;
+                color: #FFF;
+                font-size: 1rem;
+                padding: .6rem;
+                text-align: right;
+                margin-bottom: .4rem;
+            }
+        </style>
     </head>
     <body>
-        <div id="map" style="width: 100%; height: 500px; background-color: #DDD;"></div>
+        <nav class="navbarColor" role="navigation">
+            <div class="common-nav">
+                <div class="nav-wrapper container">
+                    <div class="col s4">
+                        <a href="../dentalservices.html">
+                            <i class="left white-text mdi-navigation-arrow-back"></i>
+                        </a>
+                    </div>
+                    <div class="col s4">
+                        <a id="logo-container" class="brand-logo fonts center">
+                            <h6 class="center-align white-text lighten-2 fonts">  Find Dentist  </h6>
+                        </a>
+                    </div>
+                    <div class="col s4 right">        
+                        <ul id="nav-mobile" class="side-nav right">
+                            <li><a href="services2.html">Home</a></li>
+                            <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
+                            <li><a href="settings.html">Settings</a></li>
+                            <li><a href="notifications.html">Notifications<span class="new badge">2</span></a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse">
+                            <i class="mdi-navigation-menu"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: none;" class="search-map">
+                <div class="nav-wrapper">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" required style="margin-bottom: 0">
+                            <label for="search">
+                                <i style="display: inline-block" class="mdi-action-search"></i>
+                            </label>
+                            <span class="search-nav-cancel">Cancel</span>
+                        </div>
+                    </form>
+                    <div class="search-advance">
+                        <a href="#modal-advanced-search" class="modal-trigger">Advanced Search</a>
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
+        <div id="search-tabs">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
+                    <li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger" href="#list">Browse</a></li>
+                </ul>
+            </div>
+            <div id="list" class="blue-text text-darken-2 col s12">
+                <ul class="collection" id="clinics-list">
+                    <li class="collection-item">
+                        <a href="../details.html">
+                            <div class="row">
+                                <p class="grey-text left-align">
+                                    <div class="list-heading">Devonshire Square Dental Studios</div>
+                                    <div>
+                                        <img style="width: 100%" src="../images/fb.jpg"/>
+                                    </div>
+                                    <span style="float: left;">1.2 miles</span>
+                                    <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="map" style="width: 100%; height: 400px; background-color: #DDD;"></div>
+        </div>
+        
 
         <script src="cordova.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false">
         </script>
         <script src="js/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/clinics.js"></script>
         <script src="js/get-map.js"></script>
         <script>
             app.initialize();
+            fillClinicsList();
+        </script>
+        <script type="text/javascript">
+            /*$('#search-map-trigger').on('click', function() {
+                toggleStuff();
+                $('#search').focus();
+                $('#map').css('display', 'block');
+                // $('#first-map').css('display', 'none');
+            });
+            $('.search-nav-cancel').on('click', function() {
+                toggleStuff();
+                $('#list').css('display', 'block');
+                $('#map').css('display', 'none');
+                // $('.indicator').css({'left': '0', 'right': '150px'});
+                // $('#first-map').css('display', 'block');
+            });
+            $('#browse-trigger').on('click', function() {
+                $(this).addClass('active');
+                $('#first-map').css('display', 'none');
+            })
+            function toggleStuff() {
+                $('.common-nav').toggle();
+                $('.search-map').toggle();
+                $('#search-tabs').toggle();
+            }*/
         </script>
     </body>
 </html>

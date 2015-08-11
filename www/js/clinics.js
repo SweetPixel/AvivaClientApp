@@ -6,11 +6,11 @@ var fillClinicsList = function() {
 		image = _.sample(images);
 		
 	    $("#clinics-list").append('<li class="collection-item">'
-	    	+ '<a href="../details.html?id=' + item.id + '">'
+	    	+ '<a href="details.html?id=' + item.id + '">'
 	    	+ '<div class="row">'
 	    	+ '<p class="grey-text left-align">'
 	    	+ '<div class="list-heading">' + item.name + '</div>'
-	    	+ '<div><img style="width: 100%" src="../images/' + image + '"/>'
+	    	+ '<div><img style="width: 100%" src="images/' + image + '"/>'
 	    	+ '</div>'
 	    	+ '<span style="float: left;">' + item.distance + '</span>'
 	    	+ '<span style="float: right"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
