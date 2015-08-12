@@ -9,11 +9,11 @@ var fillClinicsList = function() {
 	    	+ '<a href="details.html?id=' + item.id + '">'
 	    	+ '<div class="row">'
 	    	+ '<p class="grey-text left-align">'
-	    	+ '<div class="list-heading">' + item.name + '</div>'
+	    	+ '<div class="list-heading grey-text">' + item.name + '</div>'
 	    	+ '<div><img style="width: 100%" src="images/' + image + '"/>'
 	    	+ '</div>'
-	    	+ '<span style="float: left;">' + item.distance + '</span>'
-	    	+ '<span style="float: right"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
+	    	+ '<span style="float: left;" class="grey-text">' + item.distance + '</span>'
+	    	+ '<span style="float: right;" class="grey-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
 	    	+ '</p></div></a></li>'
 	    );
 	});
@@ -31,6 +31,69 @@ var fillClinicItem = function(theID) {
 	$('#c-distance').text(object.distance);
 	$('#c-rating').text(object.rating);
 };
+
+$('#search').on('paste keyup', function() {
+	searchClinics();
+})
+
+var searchClinics = function () {
+    var typed = $('#search').val();
+    console.log("Typed: " + typed);
+    if (typed === "") {
+    	console.log("Empty");
+        $('#search-result').empty();
+    }
+    else if ($.trim(typed).length > 0) {
+    	console.log("doing search");
+        $('#map').css('display', 'none');
+        $('#search-result').css('display', 'block');
+        doSearch(typed, "#search-result");
+    }
+}
+var doSearch = function (typed, container) {
+	var image;
+    if (typed == "") {
+        $(container).empty();
+    } else {
+        var object = clinics;
+        var results = [];
+        var typed = typed.toLowerCase();
+        if (object.length > 0) {
+            $(container).empty();
+            for (var i = 0; i < object.length; i++) {
+                var clinic = object[i];
+                if (clinic.name.toLowerCase().indexOf(typed) == 0) {
+                    results.push(clinic);
+                }
+            }
+        }
+        else {
+            $(container).empty();
+            $(container).append('<li style="padding-left: 10px">No results found.</li>');
+        }
+        if (results.length > 0) {
+            for (var i = 0; i < 50; i++) {
+                var item = results[i];
+                image = _.sample(images);
+                $(container).append('<li class="collection-item">'
+                	    	+ '<a href="details.html?id=' + item.id + '">'
+                	    	+ '<div class="row">'
+                	    	+ '<p class="grey-text left-align">'
+                	    	+ '<div class="list-heading grey-text">' + item.name + '</div>'
+                	    	+ '<div><img style="width: 100%" src="images/' + image + '"/>'
+                	    	+ '</div>'
+                	    	+ '<span style="float: left;" class="grey-text">' + item.distance + '</span>'
+                	    	+ '<span style="float: right" class="grey-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
+                	    	+ '</p></div></a></li>'
+                	    );
+            }
+        }
+        else {
+            $(container).empty();
+            $(container).append('<li style="padding-left: 10px">No results found.</li>');
+        }
+    }
+}
 var images = ['fb.jpg', 'fb2.jpg', 'slide03.jpg'];
 var ratings = ['4.6', '3', '3.2', '3.5', '5'];
 var clinics = [

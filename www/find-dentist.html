@@ -49,6 +49,11 @@
                 background-color: #DDD; 
                 margin-top: .5rem;
             }
+            #result-text {
+                margin-top: 2.4rem;
+                padding: 0 .4rem;
+                color: #FFF;
+            }
         </style>
     </head>
     <body>
@@ -99,8 +104,8 @@
         <div id="search-tabs">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
-                    <li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger" href="#list">Nearby</a></li>
+                    <li class="tab col s6 fonts"><a class="mdi-action-search grey-text" id="search-map-trigger" href="#map">Search</a></li>
+                    <li class="tab col s6 fonts"><a class="mdi-action-toc grey-text" id="browse-trigger" href="#list">Nearby</a></li>
                 </ul>
             </div>
             <div id="list" class="blue-text text-darken-2 col s12">
@@ -122,7 +127,11 @@
                 </ul>
             </div>
         </div>
+        <div id="result-text" style="display: none;"><p>The following 17 practices were found within 30 KM of Sheffield, England.</p></div>
         <div id="map"></div>
+        <div id="search-result-div">
+            <ul class="collection" id="search-result" style="margin-top: 42px; display: none;"></ul>
+        </div>
         
         <div id="modal-advanced-search" class="modal modal-fixed-footer">
             <div class="modal-content">
@@ -144,8 +153,11 @@
                     <div class="input-field col s12">
                         <select class="browser-default">
                             <option value="" disabled selected>Choose your Treatment</option>
-                            <option value="1">Root Canal</option>
-                            <option value="2">Extraction</option>
+                            <option value="1">Examination</option>
+                            <option value="2">Hygiene</option>
+                            <option value="3">Fillings</option>
+                            <option value="4">Whitening</option>
+                            <option value="5">Implants</option>
                         </select>
                     </div>
                 </div>
@@ -174,7 +186,8 @@
                 $('#search').focus();
                 $('#map').css('display', 'block');
                 $('#map').css('margin-top', '2.4rem');
-                $('#map').css('top', '70px');
+                $('#map').css('top', '105px');
+                $('#result-text').css('display', 'block');
             });
             $('.search-nav-cancel').on('click', function() {
                 toggleStuff();
@@ -183,6 +196,9 @@
                 $('#map').css('margin-top', '.5rem');
                 $('.indicator').css({'left': '0', 'right': '150px'});
                 $('#map').css('top', '110px');
+                $('#search-result').css('display', 'none');
+                $('#search').val('');
+                $('#result-text').css('display', 'none');
             });
             $('#browse-trigger').on('click', function() {
                 $(this).addClass('active');

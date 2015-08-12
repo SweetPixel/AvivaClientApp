@@ -22,8 +22,8 @@
 }
 
 .settingpageicons {
-  width: 50%; 
-  margin-top: 25%;
+  width: 70%;
+  margin-top: 15%;
 }
 
 html {
@@ -146,6 +146,10 @@ html {
 }
 
 .colors {
+  background-color: #ecf0f1;
+}
+a.colors {
+  /* background: transparent; */
   background-color: #ecf0f1;
 }
 .colors:hover {
@@ -353,4 +357,7 @@ input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not(
   .flow-text {
    font-size: 1.3rem;
  }
+}
+.tabs .indicator {
+  background-color: #A6A6A6 !important;
 }

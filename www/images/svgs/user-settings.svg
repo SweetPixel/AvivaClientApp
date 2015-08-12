@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px"
+	 height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+<g id="Layer_3" display="none">
+	<rect x="-192.668" y="-298.366" display="inline" width="654" height="382"/>
+</g>
+<g id="Layer_4">
+	<ellipse fill="#FFFFFF" cx="33.184" cy="20.734" rx="9.026" ry="11.424"/>
+	<polygon fill="#F1F0F1" points="22.31,37.189 16.521,41.731 11.632,49.175 9.667,55.934 19.501,56.635 40.001,56.635 
+		49.751,55.934 56.667,55.934 52.005,44.406 46.854,39.052 39.581,35.293 30.841,34.773 23.418,36.164 	"/>
+</g>
+<g id="Layer_1">
+	<polyline fill="none" stroke="#DD573E" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="28.7,34.773 
+		30.897,41.148 34.391,41.148 	"/>
+	
+		<line fill="none" stroke="#DD573E" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="30.841" y1="41.148" x2="28.135" y2="55.934"/>
+	<polyline fill="none" stroke="#DD573E" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="37.636,34.773 
+		35.437,41.148 31.944,41.148 	"/>
+	
+		<line fill="none" stroke="#DD573E" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="35.495" y1="41.148" x2="38.2" y2="55.934"/>
+	
+		<ellipse fill="none" stroke="#F39A20" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="33.167" cy="20.441" rx="9.064" ry="11.717"/>
+	<path fill="none" stroke="#B3B0B2" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M33.167,34.342
+		c-11.793,0-21.579,9.334-23.5,21.592h47C54.746,43.676,44.96,34.342,33.167,34.342z"/>
+	<path fill="none" stroke="#DD573E" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M30.306,13.699
+		c0,0-4.652,5.061-1.409,12.17"/>
+	<g id="Layer_2">
+	</g>
+</g>
+</svg>
