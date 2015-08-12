@@ -8,12 +8,12 @@ var fillClinicsList = function() {
 	    $("#clinics-list").append('<li class="collection-item">'
 	    	+ '<a href="details.html?id=' + item.id + '">'
 	    	+ '<div class="row">'
-	    	+ '<p class="grey-text left-align">'
-	    	+ '<div class="list-heading grey-text">' + item.name + '</div>'
+	    	+ '<p class="purple-text left-align">'
+	    	+ '<div class="list-heading purple-text">' + item.name + '</div>'
 	    	+ '<div><img style="width: 100%" src="images/' + image + '"/>'
 	    	+ '</div>'
-	    	+ '<span style="float: left;" class="grey-text">' + item.distance + '</span>'
-	    	+ '<span style="float: right;" class="grey-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
+	    	+ '<span style="float: left;" class="purple-text">' + item.distance + '</span>'
+	    	+ '<span style="float: right;" class="purple-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
 	    	+ '</p></div></a></li>'
 	    );
 	});
@@ -78,12 +78,12 @@ var doSearch = function (typed, container) {
                 $(container).append('<li class="collection-item">'
                 	    	+ '<a href="details.html?id=' + item.id + '">'
                 	    	+ '<div class="row">'
-                	    	+ '<p class="grey-text left-align">'
-                	    	+ '<div class="list-heading grey-text">' + item.name + '</div>'
+                	    	+ '<p class="purple-text left-align">'
+                	    	+ '<div class="list-heading purple-text">' + item.name + '</div>'
                 	    	+ '<div><img style="width: 100%" src="images/' + image + '"/>'
                 	    	+ '</div>'
-                	    	+ '<span style="float: left;" class="grey-text">' + item.distance + '</span>'
-                	    	+ '<span style="float: right" class="grey-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
+                	    	+ '<span style="float: left;" class="purple-text">' + item.distance + '</span>'
+                	    	+ '<span style="float: right" class="purple-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
                 	    	+ '</p></div></a></li>'
                 	    );
             }

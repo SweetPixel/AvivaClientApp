@@ -32,11 +32,12 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background: -webkit-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* IE10 */
-  background:      -o-linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* Opera 11.10+ */
-  background:         linear-gradient(180deg, #085078 10%, #85D8CE 90%); /* W3C */
+  background-color: #ececec;
+  /* background: -webkit-linear-gradient(180deg, #085078 10%, #85D8CE 90%); Chrome 10+, Saf5.1+
+  background:    -moz-linear-gradient(180deg, #085078 10%, #85D8CE 90%); FF3.6+
+  background:     -ms-linear-gradient(180deg, #085078 10%, #85D8CE 90%); IE10
+  background:      -o-linear-gradient(180deg, #085078 10%, #85D8CE 90%); Opera 11.10+
+  background:         linear-gradient(180deg, #085078 10%, #85D8CE 90%); W3C */
   background-repeat: no-repeat;
 }
 
@@ -51,15 +52,16 @@ html {
   /*height: 349px;*/
 }
 .input-field label {
-  color: #ecf0f1;
+  color: #681950;
 }
 
 .colorofbutton {
-  background: -webkit-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #136a8a 10%, #267871 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #136a8a 10%, #267871 90%); /* W3C */
+  background-color: #2980B9;
+  /* background: -webkit-linear-gradient(90deg, #136a8a 10%, #267871 90%); Chrome 10+, Saf5.1+
+  background:    -moz-linear-gradient(90deg, #136a8a 10%, #267871 90%); FF3.6+
+  background:     -ms-linear-gradient(90deg, #136a8a 10%, #267871 90%); IE10
+  background:      -o-linear-gradient(90deg, #136a8a 10%, #267871 90%); Opera 11.10+
+  background:         linear-gradient(90deg, #136a8a 10%, #267871 90%); W3C */
 
 }
 
@@ -102,7 +104,10 @@ html {
 }
 
 .white-text {
-  color: #fff;
+  color: #681950 !important;
+}
+nav .white-text {
+  color: #FFF !important;
 }
 .gradient {
 
@@ -360,4 +365,7 @@ input[type="text"]:focus:not([readonly]) + label, input[type="email"]:focus:not(
 }
 .tabs .indicator {
   background-color: #A6A6A6 !important;
+}
+.purple-text {
+  color: #681950
 }
