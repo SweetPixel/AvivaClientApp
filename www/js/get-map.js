@@ -33,7 +33,7 @@ var app = {
             zoom: 8
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        alert("map created");
+        // alert("map created");
         var marker1 = new google.maps.Marker({
             position: latLng1,
             title:""

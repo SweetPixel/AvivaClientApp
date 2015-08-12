@@ -12,6 +12,7 @@
     "backbone.routemanager": "0.1.0",
     "underscore": "1.7.0",
     "underscore.string": "~2.3.3",
-    "polymer": "~1.0.3"
+    "polymer": "~1.0.3",
+    "moment": "~2.10.6"
   }
 }

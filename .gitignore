@@ -35,3 +35,6 @@ CordovaSource/platforms/wp8/*.csproj.user
 
 # res
 resources/signin
+
+# dist
+dist/
