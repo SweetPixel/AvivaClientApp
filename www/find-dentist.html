@@ -40,6 +40,15 @@
                 text-align: right;
                 margin-bottom: .4rem;
             }
+            #map {
+                left: 6px;
+                right: 6px;
+                position: absolute;
+                bottom: 6px;
+                top: 110px;
+                background-color: #DDD; 
+                margin-top: .5rem;
+            }
         </style>
     </head>
     <body>
@@ -91,7 +100,7 @@
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s6 fonts"><a class="mdi-action-search" id="search-map-trigger" href="#map">Search</a></li>
-                    <li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger" href="#list">Browse</a></li>
+                    <li class="tab col s6 fonts"><a class="mdi-action-toc" id="browse-trigger" href="#list">Nearby</a></li>
                 </ul>
             </div>
             <div id="list" class="blue-text text-darken-2 col s12">
@@ -113,7 +122,7 @@
                 </ul>
             </div>
         </div>
-        <div id="map" style="width: 100%; height: 400px; background-color: #DDD; margin-top: .5rem;"></div>
+        <div id="map"></div>
         
         <div id="modal-advanced-search" class="modal modal-fixed-footer">
             <div class="modal-content">
@@ -165,6 +174,7 @@
                 $('#search').focus();
                 $('#map').css('display', 'block');
                 $('#map').css('margin-top', '2.4rem');
+                $('#map').css('top', '70px');
             });
             $('.search-nav-cancel').on('click', function() {
                 toggleStuff();
@@ -172,10 +182,12 @@
                 $('#map').css('display', 'none');
                 $('#map').css('margin-top', '.5rem');
                 $('.indicator').css({'left': '0', 'right': '150px'});
+                $('#map').css('top', '110px');
             });
             $('#browse-trigger').on('click', function() {
                 $(this).addClass('active');
                 $('#map').css('margin-top', '.5rem');
+                $('#map').css('top', '110px');
             })
             function toggleStuff() {
                 $('.common-nav').toggle();
