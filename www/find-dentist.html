@@ -1,287 +1,296 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com; img-src *">
-    <meta name="format-detection" content="telephone=no">
-    <meta charset="utf-8">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="./css/materialize.min.css" />
-    <link rel="stylesheet" href="./css/fontawesome/css/font-awesome.min.css" />
-    <title>Find Dentist</title>
-    <style>
-
-        #search:focus ~ .search-nav-cancel{
-            color: #000;
-        }
-        .search-nav-cancel {
-            position: absolute;
-            top: 0;
-            right: 1rem;
-            color: #FFF;
-            cursor: pointer;
-        }
-        .search-nav-cancel .fa {
-            padding-top: 0.84rem;
-            opacity: 0.3;
-        }
-        #list p {
-            font-size: 1.4rem;
-        }
-        .list-heading {
-            font-size: 1.3rem;
-        }
-        .collection-item div, .collection-item span {
-            color: #EE6E73;
-            padding-bottom: .4rem;
-        }
-        .search-advance {
-            line-height: 1rem;
-            background-color: #2980B9;
-            color: #FFF;
-            font-size: 1rem;
-            padding: .6rem;
-            margin-bottom: .4rem;
-        }
-        #map {
-            left: 6px;
-            right: 6px;
-            position: absolute;
-            bottom: 6px;
-            top: 110px;
-            background-color: #DDD; 
-            margin-top: .5rem;
-        }
-        #result-text {
-            margin-top: 3.4rem;
-            padding: 0 .4rem;
-            color: #681950;
-        }
-        .modal-trigger.btn {
-            padding: 0px 1.4rem;
-            background-color: #459BD4;
-        }
-        .advanced-search {
-            width: 100%;
-            display: inline-block;
-            font-size: 1.2rem;
-            line-height: 1.4;
-            /*border-right: 1px solid #ddd;*/
-            vertical-align: top;
-        }
-        .sort-options.button-collapse {
-            width: 49%;
-            display: inline-block;
-            font-size: 1.2rem;
-            line-height: 1.4;
-            text-align: center;
-            vertical-align: top;
-        }
-        nav .button-collapse.sort-options {
-            float: right;
-            height: 30px;
-        }
-        .modal-trigger .fa {
-            font-size: 1rem;
-            display: inline;
-            padding-left: .4rem;
-            padding-top: .3rem;
-        }
-        #sort-options-menu li:hover {
-            background: transparent;
-        }
-        #sort-options-menu h5 {
-            color: #808080;
-        }
-    </style>
-    <script>
-
-    </script>
-</head>
-<body>
-    <nav class="navbarColor" role="navigation">
-        <div class="common-nav">
-            <div class="nav-wrapper container">
-                <div class="col s4">
-                    <a href="dentalservices.html">
-                        <i class="left white-text mdi-navigation-arrow-back"></i>
-                    </a>
-                </div>
-                <div class="col s4">
-                    <a id="logo-container" class="brand-logo fonts center"><h6 class="white-text" ></h6> Find Dentist </a>
-                </div>
-                <div class="col s4 right">        
-                    <ul id="nav-mobile" class="side-nav right">
-                        <li><a href="services2.html">Home</a></li>
-                        <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
-                        <li><a href="settings.html">Settings</a></li>
-                        <li><a href="notifications.html">Notifications<span class="new badge">2</span></a></li>
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                    <a href="#" data-activates="nav-mobile" class="button-collapse">
-                        <i class="mdi-navigation-menu"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div style="display: none;" class="search-map">
-            <div class="nav-wrapper">
-                <form>
-                    <div class="input-field">
-                        <input id="search" type="search" required style="margin-bottom: 0">
-                        <label for="search">
-                            <i style="display: inline-block; opacity: 0.4;" class="mdi-action-search"></i>
-                        </label>
-                        <span class="search-nav-cancel"><i class="fa fa-times"></i></span>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com; img-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="utf-8">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="./css/materialize.min.css" />
+        <link rel="stylesheet" href="./css/fontawesome/css/font-awesome.min.css" />
+        <title>Find Dentist</title>
+        <style>
+            
+            #search:focus ~ .search-nav-cancel{
+                color: #000;
+            }
+            .search-nav-cancel {
+                position: absolute;
+                top: 0;
+                right: 1rem;
+                color: #FFF;
+                cursor: pointer;
+            }
+            .search-nav-cancel .fa {
+                padding-top: 0.84rem;
+                opacity: 0.3;
+            }
+            #list p {
+                font-size: 1.4rem;
+            }
+            .list-heading {
+                font-size: 1.3rem;
+            }
+            .collection-item div, .collection-item span {
+                color: #EE6E73;
+                padding-bottom: .4rem;
+            }
+            .search-advance {
+                line-height: 1rem;
+                background-color: #2980B9;
+                color: #FFF;
+                font-size: 1rem;
+                padding: .6rem;
+                margin-bottom: .4rem;
+            }
+            #map {
+                left: 6px;
+                right: 6px;
+                position: absolute;
+                bottom: 6px;
+                top: 110px;
+                background-color: #DDD; 
+                margin-top: .5rem;
+            }
+            #result-text {
+                margin-top: 3.4rem;
+                padding: 0 .4rem;
+                color: #681950;
+            }
+            .modal-trigger.btn {
+                padding: 0px 1.4rem;
+                background-color: #459BD4;
+            }
+            .advanced-search {
+                width: 49%;
+                display: inline-block;
+                font-size: 1.2rem;
+                line-height: 1.4;
+                border-right: 1px solid #ddd;
+                vertical-align: top;
+            }
+            .sort-options.button-collapse {
+                width: 49%;
+                display: inline-block;
+                font-size: 1.2rem;
+                line-height: 1.4;
+                text-align: center;
+                vertical-align: top;
+            }
+            nav .button-collapse.sort-options {
+                float: right;
+                height: 30px;
+            }
+            .modal-trigger .fa {
+                font-size: 1rem;
+                display: inline;
+                padding-left: .4rem;
+                padding-top: .3rem;
+            }
+            #sort-options-menu li:hover {
+                background: transparent;
+            }
+            #sort-options-menu h5 {
+                color: #808080;
+            }
+        </style>
+        <script>
+        
+        </script>
+    </head>
+    <body>
+        <nav class="orange" role="navigation">
+            <div class="common-nav">
+                <div class="nav-wrapper container">
+                    <div class="col s4">
+                        <a href="dentalservices.html">
+                            <i class="left white-text mdi-navigation-arrow-back"></i>
+                        </a>
                     </div>
-                </form>
-                <div class="search-advance">
-                    <a href="#modal-advanced-search" class="center modal-trigger advanced-search" style="">Advanced Search </a>
-                    <!-- <a href="#" data-activates="sort-options-menu" class="button-collapse sort-options">Sort Options</a> -->
-                    <ul id="sort-options-menu" class="side-nav">
-                        <li>
-                            <h5>By Distance</h5>
-                            <p>
-                                <input name="sort" type="radio" id="distance-a" value="0" checked="checked" />
-                                <label for="distance-a">Ascending</label>
-                            </p>
-                            <p>
-                                <input name="sort" type="radio" id="distance-d" value="1" />
-                                <label for="distance-d">Descending</label>
-                            </p>
-                            <h5>By Rating</h5>
-                            <p>
-                                <input name="sort" type="radio" id="rating-a" value="2"  />
-                                <label for="rating-a">Ascending</label>
-                            </p>
-                            <p>
-                                <input name="sort" type="radio" id="rating-d" value="3" />
-                                <label for="rating-d">Descending</label>
-                            </p>
-                        </li>
-                    </ul>
+                    <div class="col s4">
+                        <a id="logo-container" class="brand-logo fonts center"><h6 class="white-text" ></h6> Find Dentist </a>
+                    </div>
+                    <div class="col s4 right">        
+                        <ul id="nav-mobile" class="side-nav right">
+                            <li><a href="services2.html">Home</a></li>
+                            <li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
+                            <li><a href="settings.html">Settings</a></li>
+                            <li><a href="notifications.html">Notifications<span class="new badge">2</span></a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse">
+                            <i class="mdi-navigation-menu"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-        </div>
-    </nav>
-    <div id="search-tabs">
-        <div class="col s12">
-            <ul class="tabs">
-                <li class="tab col s6 fonts"><a class="mdi-action-search purple-text" id="search-map-trigger" href="#map">Search</a></li>
-                <li class="tab col s6 fonts"><a class="mdi-action-toc purple-text" id="browse-trigger" href="#list">Nearby</a></li>
-            </ul>
-        </div>
-        <div id="list" class="blue-text text-darken-2 col s12">
-            <ul class="collection" id="clinics-list">
-                <li class="collection-item">
-                    <a href="../details.html">
-                        <div class="row">
-                            <p class="purple-text left-align">
-                                <div class="list-heading">Devonshire Square Dental Studios</div>
-                                <div>
-                                    <img style="width: 100%" src="../images/fb.jpg"/>
-                                </div>
-                                <span style="float: left;">1.2 miles</span>
-                                <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
-                            </p>
+            <div style="display: none;" class="search-map">
+                <div class="nav-wrapper">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" required style="margin-bottom: 0">
+                            <label for="search">
+                                <i style="display: inline-block; opacity: 0.4;" class="mdi-action-search"></i>
+                            </label>
+                            <span class="search-nav-cancel"><i class="fa fa-times"></i></span>
                         </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="map"></div>
-    <div id="search-result-div">
-        <div id="result-text" style="display: none;"><p>The following 17 practices were found within 30 KM of Sheffield, England.</p></div>
-        <ul class="collection" id="search-result" style="display: none;"></ul>
-    </div>
-
-    <div id="modal-advanced-search" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <form action="#">
-                <div class="input-field col s12">
-                    <input id="post-code" type="text" class="validate">
-                    <label for="post-code">Post Code</label>
+                    </form>
+                    <div class="search-advance">
+                        <a href="#modal-advanced-search" class="modal-trigger advanced-search" style="">Advanced Search </a>
+                        <a href="#" data-activates="sort-options-menu" class="button-collapse sort-options">Sort Options</a>
+                        <ul id="sort-options-menu" class="side-nav">
+                            <li>
+                                <h5>By Distance</h5>
+                                <p>
+                                    <input name="sort" type="radio" id="distance-a" value="0" checked="checked" />
+                                    <label for="distance-a">Ascending</label>
+                                </p>
+                                <p>
+                                    <input name="sort" type="radio" id="distance-d" value="1" />
+                                    <label for="distance-d">Descending</label>
+                                </p>
+                                <h5>By Rating</h5>
+                                <p>
+                                    <input name="sort" type="radio" id="rating-a" value="2"  />
+                                    <label for="rating-a">Ascending</label>
+                                </p>
+                                <p>
+                                    <input name="sort" type="radio" id="rating-d" value="3" />
+                                    <label for="rating-d">Descending</label>
+                                </p>
+                                <!-- <h5>By Treatment Price</h5>
+                                <p>
+                                    <input name="sort" type="radio" id="treatment-a" value="4"  />
+                                    <label for="treatment-a">Ascending</label>
+                                </p>
+                                <p>
+                                    <input name="sort" type="radio" id="treatment-d" value="5" />
+                                    <label for="treatment-d">Descending</label>
+                                </p> -->
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <p>
-                    <input name="dentist-gender" type="radio" id="dentist-male" />
-                    <label for="dentist-male">Male Dentist</label>
-                </p>
-                <p>
-                    <input name="dentist-gender" type="radio" id="dentist-female" />
-                    <label for="dentist-female">Female Dentist</label>
-                </p>
-            </form>
-            <div class="row">
-                <div class="input-field col s12">
-                    <select class="browser-default">
-                        <option value="" disabled selected>Choose your Treatment</option>
-                        <option value="1">Examination</option>
-                        <option value="2">Hygiene</option>
-                        <option value="3">Fillings</option>
-                        <option value="4">Whitening</option>
-                        <option value="5">Implants</option>
-                    </select>
-                </div>
+                
+            </div>
+        </nav>
+        <div id="search-tabs">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6 fonts"><a class="mdi-action-search purple-text" id="search-map-trigger" href="#map">Search</a></li>
+                    <li class="tab col s6 fonts"><a class="mdi-action-toc purple-text" id="browse-trigger" href="#list">Nearby</a></li>
+                </ul>
+            </div>
+            <div id="list" class="blue-text text-darken-2 col s12">
+                <ul class="collection" id="clinics-list">
+                    <li class="collection-item">
+                        <a href="../details.html">
+                            <div class="row">
+                                <p class="purple-text left-align">
+                                    <div class="list-heading">Devonshire Square Dental Studios</div>
+                                    <div>
+                                        <img style="width: 100%" src="../images/fb.jpg"/>
+                                    </div>
+                                    <span style="float: left;">1.2 miles</span>
+                                    <span style="float: right"><i class="mdi-action-grade"></i> 3.2</span>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect btn-flat ">Search</a>
-            <a href="#!" class="modal-action modal-close modal-cancel waves-effect btn-flat ">Cancel</a>
+        
+        <div id="map"></div>
+        <div id="search-result-div">
+            <div id="result-text" style="display: none;"><p>The following 17 practices were found within 30 KM of Sheffield, England.</p></div>
+            <ul class="collection" id="search-result" style="display: none;"></ul>
         </div>
-    </div>
-    <script src="cordova.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false">
-    </script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/underscore.js"></script>
-    <script src="js/clinics.js"></script>
-    <script src="js/get-map.js"></script>
-    <script src="js/init.js"></script>
-    <script>
-        app.initialize();
-        fillClinicsList();
-    </script>
-    <script type="text/javascript">
-        $('#search-map-trigger').on('click', function() {
-            toggleStuff();
-            $('#search').focus();
-            $('#map').css('display', 'block');
-            $('#map').css('top', '108px');
+        
+        <div id="modal-advanced-search" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <form action="#">
+                    <div class="input-field col s12">
+                        <input id="post-code" type="text" class="validate">
+                        <label for="post-code">Post Code</label>
+                    </div>
+                    <p>
+                        <input name="dentist-gender" type="radio" id="dentist-male" />
+                        <label for="dentist-male">Male Dentist</label>
+                    </p>
+                    <p>
+                        <input name="dentist-gender" type="radio" id="dentist-female" />
+                        <label for="dentist-female">Female Dentist</label>
+                    </p>
+                </form>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select class="browser-default">
+                            <option value="" disabled selected>Choose your Treatment</option>
+                            <option value="1">Examination</option>
+                            <option value="2">Hygiene</option>
+                            <option value="3">Fillings</option>
+                            <option value="4">Whitening</option>
+                            <option value="5">Implants</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect btn-flat ">Search</a>
+                <a href="#!" class="modal-action modal-close modal-cancel waves-effect btn-flat ">Cancel</a>
+            </div>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false">
+        </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/clinics.js"></script>
+        <script src="js/get-map.js"></script>
+        <script src="js/init.js"></script>
+        <script>
+            app.initialize();
+            fillClinicsList();
+        </script>
+        <script type="text/javascript">
+            $('#search-map-trigger').on('click', function() {
+                toggleStuff();
+                $('#search').focus();
+                $('#map').css('display', 'block');
+                $('#map').css('top', '108px');
+                
+            });
+            $('.search-nav-cancel').on('click', function() {
+                toggleStuff();
+                $('#list').css('display', 'block');
+                $('#map').css('display', 'none');
+                $('#map').css('margin-top', '.5rem');
+                $('.indicator').css({'left': '0', 'right': '150px'});
+                $('#map').css('top', '110px');
+                $('#search-result').css('display', 'none');
+                $('#search').val('');
+                $('#result-text').css('display', 'none');
+            });
+            $('#browse-trigger').on('click', function() {
+                $(this).addClass('active');
+                $('#map').css('margin-top', '.5rem');
+                $('#map').css('top', '110px');
+            })
+            function toggleStuff() {
+                $('.common-nav').toggle();
+                $('.search-map').toggle();
+                $('#search-tabs').toggle();
+            }
+            $('#sort-options-menu input').on('click', function() {
+                setTimeout(function () {
+                    $('.button-collapse.sort-options').sideNav('hide');
+                }, 200);
+            })
+        </script>
 
-        });
-        $('.search-nav-cancel').on('click', function() {
-            toggleStuff();
-            $('#list').css('display', 'block');
-            $('#map').css('display', 'none');
-            $('#map').css('margin-top', '.5rem');
-            $('.indicator').css({'left': '0', 'right': '150px'});
-            $('#map').css('top', '110px');
-            $('#search-result').css('display', 'none');
-            $('#search').val('');
-            $('#result-text').css('display', 'none');
-        });
-        $('#browse-trigger').on('click', function() {
-            $(this).addClass('active');
-            $('#map').css('margin-top', '.5rem');
-            $('#map').css('top', '110px');
-        })
-        function toggleStuff() {
-            $('.common-nav').toggle();
-            $('.search-map').toggle();
-            $('#search-tabs').toggle();
-        }
-        $('#sort-options-menu input').on('click', function() {
-            setTimeout(function () {
-                $('.button-collapse.sort-options').sideNav('hide');
-            }, 200);
-        })
-    </script>
-
-</body>
+    </body>
 </html>

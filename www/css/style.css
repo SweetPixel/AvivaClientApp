@@ -17,6 +17,22 @@
   color: #2980B9;
  }
 
+ .medicalnavbarColor {
+  background-color: #84AB8E !important;
+ }
+
+ .settingnavbarColor {
+  background-color: #DE5741 !important;
+ }
+
+ .opticalnavbarColor {
+  background-color: #E7D101 !important;
+ }
+
+ .notificationnavbarColor {
+  background-color: #681751 !important;
+ }
+
  .navbarColor {
   background-color: #2980b9 !important;
 }
