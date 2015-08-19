@@ -42,6 +42,9 @@ var searchClinics = function () {
     var typed = $('#search').val();
     if (typed === "") {
         $('#search-result').empty();
+        $('#result-text').text('');
+        $('#map').css('display', 'block');
+        $('#search-result').css('display', 'none');
     }
     else if ($.trim(typed).length > 0) {
         $('#map').css('display', 'none');
@@ -80,7 +83,7 @@ var doSearch = function (typed, container) {
         }
         else {
             $(container).empty();
-            $(container).append('<li style="padding-left: 10px">No results found.</li>');
+            $('#result-text').text("No practices were found.");
         }
         if (results.length > 0) {
         	$(container).empty();
@@ -116,27 +119,35 @@ $('input[name="sort"]').on('click', function() {
 });
 var fillSearchList = function (results, container) {
 	$(container).empty();
-	$('#result-text').css('display', 'block');
-	if( results.length == 1) {
-		$('#result-text').text("The following practice was found within 30 km of Sheffield, England.");
-	} else {
-		$('#result-text').text("The following " + results.length + " practices were found within 30 km of Sheffield, England.");
+	if (results.length > 0) {
+		$(container).show();
+		$('#result-text').css('display', 'block');
+		if (results.length == 1) {
+			$('#result-text').text("The following practice was found within 30 km of Sheffield, England.");
+		} else {
+			$('#result-text').text("The following " + results.length + " practices were found within 30 km of Sheffield, England.");
+		}
+	    for (var i = 0; i < results.length; i++) {
+	        var item = results[i];
+	        image = _.sample(images);
+	        $(container).append('<li class="collection-item">'
+		    	+ '<a href="details.html?id=' + item.id + '">'
+		    	+ '<div class="row">'
+		    	+ '<p class="purple-text left-align">'
+		    	+ '<div class="list-heading purple-text">' + item.name + '</div>'
+		    	+ '<div><img style="width: 100%" src="images/' + image + '"/>'
+		    	+ '</div>'
+		    	+ '<span style="float: left;" class="purple-text">' + item.distance + ' KM</span>'
+		    	+ '<span style="float: right" class="purple-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
+		    	+ '</p></div></a></li>'
+		    );
+	    }
 	}
-    for (var i = 0; i < results.length; i++) {
-        var item = results[i];
-        image = _.sample(images);
-        $(container).append('<li class="collection-item">'
-	    	+ '<a href="details.html?id=' + item.id + '">'
-	    	+ '<div class="row">'
-	    	+ '<p class="purple-text left-align">'
-	    	+ '<div class="list-heading purple-text">' + item.name + '</div>'
-	    	+ '<div><img style="width: 100%" src="images/' + image + '"/>'
-	    	+ '</div>'
-	    	+ '<span style="float: left;" class="purple-text">' + item.distance + ' KM</span>'
-	    	+ '<span style="float: right" class="purple-text"><i class="mdi-action-grade"></i> ' + item.rating + '</span>'
-	    	+ '</p></div></a></li>'
-	    );
-    }
+	else {
+		$('#map').show();
+		$('#result-text').hide();
+		$(container).hide();
+	}
 }
 var images = ['fb.jpg', 'fb2.jpg', 'slide03.jpg'];
 var ratings = [3, 3.2, 3.5, 4, 4.3, 4.7, 4.9, 3.8, 3.9, 5, 3.1, 4.2, 4.8];
