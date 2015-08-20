@@ -86,15 +86,15 @@ html {
   margin-top: 15%;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);
+/*@import url(http://fonts.googleapis.com/css?family=Lobster|Poiret+One);*/
 
 .fonts {
-  font-family: 'PoiretOne';
+  font-family: 'CenturyGothic';
   font-weight: bold;
 }
 @font-face {
-  font-family: 'PoiretOne';
-  src: url(../font/Poiret_One-normal-400.woff);
+  font-family: 'CenturyGothic';
+  src: url(../font/ufonts.com_century-gothic.ttf);
 }
 .list-item {
   background-color: #FFF;
@@ -112,7 +112,7 @@ html {
 }
 .btn-floating.btn-large i {
   line-height: 70.5px;
-  color: #2980B9;
+  color: #DE5741;
 }
 .btn-floating.btn-large {
   width: 70.5px;
