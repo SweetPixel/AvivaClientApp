@@ -1,71 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Healthpick</title>
-
-  <!-- CSS  -->
-  <!-- build:css css/combined.css -->
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <!-- endbuild -->
-
-   <!--  Scripts-->
-   <!-- build:js scripts/combined.js -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <!-- endbuild -->
-<script>
-
-	 $(document).ready(function() {
-		$("#btn").click(function(){
-
-		 $(location).attr('href',"services2.html?cid="+$('#name').val());
-		});
-	});
-
-
-</script>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<title>HealthPick</title>
 </head>
 <body>
- <div data-role="page" id="index">
-  <nav class="orange" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><h6 class="left white-text" >Login</h6> </a>
-    <!--   <a href="#"><i class="left white-text mdi-navigation-arrow-back"></i></a>-->
-   </div>
-  </nav>
 
- <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <!-- <i class="mdi-action-account-circle prefix"></i> -->
-          <input id="name" type="text" class="validate">
-          <label for="name">User Name</label>
-        </div>
-		 </div>
-		  <div class="row">
-        <div class="input-field col s12">
-          <!-- <i class="mdi-communication-phone prefix"></i> -->
-          <input id="icon_telephone" type="password" class="validate">
-          <label for="icon_telephone">Password</label>
-        </div>
-      </div>
-
-
-	    <div class="row">
-        <div class="input-field col s12">
-		        <a class="orange waves-effect waves-light btn" id="btn"><i class="mdi-communication-vpn-key left"></i>Login</a>
-        </div>
-
-		</div>
-    </form>
-  </div>
-  </div>
-
-
- </body>
+</body>
 </html>
