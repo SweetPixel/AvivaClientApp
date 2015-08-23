@@ -1,11 +1,1121 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com; img-src *">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 	<title>HealthPick</title>
+	<link rel="stylesheet" href="css/materialize.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="cordova.js"></script>
+	<script src="js/packages.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.button-collapse').sideNav({
+				closeOnClick: true
+			});
+		})
+	</script>
 </head>
-<body>
+<body ng-app="avivaApp" ng-cloak ng-strict>
+	<div>
+		<div ng-controller="mainCtrl">
+			<div ng-view autoscroll="true"></div>
+		</div>
+	</div>
+<script type="text/ng-template" id="dental-services.html">
+	<div class="view">
+	
+		<ng-include src="navbar"></ng-include>
+		
+		<!-- Modal Structure -->
+		<!-- <div id="pdfmodal" class="modal bottom-sheet">
+		<div class="row">
+		<div class="col s12">
+		<div class="modal-content">
+		<iframe src="https://drive.google.com/file/d/0B5IWG_1lX4QDcWMxVDAzeDN3ejQ/preview" width="auto" height="500px" class="pdf-modal-settings"></iframe>
+		</div>
+		<div class="modal-footer">
+		<a onclick="$('#pdfmodal').hide();" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+		</div>
+		</div>
+		</div>
+		</div> -->
+		
+		
+		<div class="row">
+			<h3 class="center-align white-text lighten-2 fonts">  Dental Services  </h3>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/find-dentist" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Dental-Services.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Find Dentist</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Claims.png" class="settingpageicons" style="margin-left: 5%;">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Claims</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/dental-advice" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Get-Dental-Medical-Optical-Advice.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Get Dental Advice</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/support" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Help-and-Support.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Help & Support</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Wellbeing.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Wellbeing</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Policy.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Policy</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 center-align">
+				<div class="row">
+					<a href="#/dental-services/feedback" class="btn btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Your-Feedback.png" alt="" class="settingpageicons" style="margin-left: 7%;" />
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Feedback</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="forgot.html">
+    <div class="view">
+        <div class="row">
+            <div class="col s12 center">
+                <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
+            </div>
+        </div>
+        
+        <div class="row">
+            <form class="col s12">
+                <div>
+                    <p style="color: #681950;" class="col s12 center">FILL IN TO RETRIEVE LOG IN DETAILS</p>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="icon_telephone" type="password" class="validate">
+                        <label for="icon_telephone">Username/ Policy number</label>
+                    </div>
+                </div>
+        
+        
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn">
+                            <img src="images/svgs/change-password.svg" style="width: 7%;">
+                            Send Email
+                        </a>
+                    </div>
+        
+                </div>
+            </form>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="login.html">
+    <div class="view">
+        <div class="row">
+            <div class="col s12 center">
+                <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
+            </div>
+        </div>
+        
+        <div class="row">
+            <form class="col s12">
+                <div>
+                    <p style="color: #681950;" class="col s12 center">SIGN IN WITH YOUR USERNAME AND PASSWORD</p>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <!-- <i class="mdi-communication-phone prefix"></i> -->
+                        <input id="icon_telephone" type="password" class="validate">
+                        <label for="icon_telephone">Password</label>
+                    </div>
+                </div>
+        
+        
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" href="#/services">
+                            <img src="images/svgs/change-password.svg" style="width: 7%;">
+                            Sign in
+                        </a>
+                    </div>
+        
+                </div>
+            </form>
+        </div>
+        
+        <div class="row">
+            <div class="col s12 center">
+                <p><a href="#/forgot-password" style="color: #681950;"><u>Forgot login details</u></a></p>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="navbar.html">
+	<div id="qrmodal" class="modal">
+	    <div class="modal-content center">
+	        <h4>My QR Code</h4>
+	        <img src="images/harley-qr.png" style="width: 100%"/>
+	    </div>
+	    <div class="modal-footer">
+	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+	    </div>
+	</div>
+	<nav class="settingnavbarColor" role="navigation">
+		<div class="nav-wrapper container">
+			<div class="col s4">
+				<a ng-click="back()"><i class="left white-text mdi-navigation-arrow-back"></i></a>
+			</div>
+			<div class="col s4 right">        
+				<ul id="nav-mobile" class="side-nav right">
+					<li><a href="#/services">Home</a></li>
+					<li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
+					<li><a href="#/settings">Settings</a></li>
+					<li><a href="notifications.html">Notifications<span class="new badge">2</span></a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<a data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+			</div>
+		</div>
+	</nav>
+</script>
+<script type="text/ng-template" id="notifications.html">
+	<div class="view">
 
+		<ng-include src="navbar"></ng-include>
+		
+		<div class="row" >
+		    <ul class="collection" style="border: 1px solid #ddd">
+		        <li class="list-item">Your treatment with P S B Dental Care Ltd has been approved by the insurer! <!-- <a href="#" class="secondary-content">@10:00</a> --></li>
+		        <li class="list-item">You have an appointment with Dr Flan on <span style="font-weight: bold;">03-08-2015</span> at <span style="font-weight: bold;">10:30am</span> at P S B Dental Care Ltd.  <!-- <a href="#" class="secondary-content">@10:00</a> --></li>
+		        <li class="list-item">Your feedback for your recent appointment at P S B Dental Care Ltd is pending.<!--   <a href="#" class="secondary-content">@10:00</a> --></li><!-- 
+		        <li class="collection-item">Lorem ipsum dolor sit amet.  <a href="#" class="secondary-content">@10:00</a></li> -->
+		    </ul>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="services.html">
+    <div class="view">
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col s6 left-align">
+                <div class="row">
+                    <a href="#/settings" class="btn-floating btn-large waves-effect waves-light colors">
+                        <img src="images/svgs/user-settings.svg" class="settingpageicons circle" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col s6 right-align">
+                <a href="#/notifications" class="btn-floating btn-large waves-effect waves-light colors">
+                    <img class="settingpageicons" src="images/svgs/notifications.svg">
+                </a>
+            </div>
+        </div>
+        <div class="row ipad-settings">
+            <div class="col s12 center">
+                <img src="images/healthpick_logo_1024.png" id="healthpicklogo" style="margin-top: 0;">
+            </div>
+        </div>
+        <div class="row">
+            <h6  class="center-align white-text lighten-2" style="line-height: 2.104rem;">  How can we help ?  </h6>
+        </div>
+        <div class="row ipad-settings" >
+            <div class="col s4 center-align">
+                <div class="row">
+                    <a href="#/dental-services"class="btn-floating btn-large waves-effect waves-light colors">
+                        <img class="settingpageicons" src="images/svgs/dental-services.svg">
+                    </a>
+                </div>
+                <div class="row">
+                    <p class="white-text center-align">Dental Services</p>
+                </div>
+            </div>
+            <div class="col s4 center-align">
+                <div class="row">
+                    <a href="#/medical-services" class="btn-floating btn-large waves-effect waves-light colors">
+                        <img class="settingpageicons" src="images/svgs/medical-services.svg">
+                    </a>
+                </div>
+                <div class="row">
+                    <p class="white-text center-align">Medical Services</p>
+                </div>
+            </div>
+            <div class="col s4 center-align">
+                <div class="row">
+                    <a href="#/optical-services"class="btn-floating btn-large waves-effect waves-light colors">
+                        <img class="settingpageicons" src="images/Optical-Services.png">
+                    </a>
+                </div>
+                <div class="row">
+                    <p class="white-text center-align">Optical Services</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="settings.html">
+	<div class="view">
+	
+		<ng-include src="navbar"></ng-include>
+
+		<div id="m" class="modal">
+			<div class="modal-content">
+				<h4 class="orange-text">Done!</h4>
+				<p>Settings Saved</p>
+			</div>
+			<div class="modal-footer">
+				<a href="list.html" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="row">
+				<div class="col s6 center-align top-margin">
+					<div class="row">
+						<a href="#/settings/personal-details" class="btn-floating btn-large waves-effect waves-light colors">
+							<img src="images/Personal-Details.png" class="settingpageicons">
+						</a>
+					</div>
+					<div class="row">
+						<p class="white-text center-align">Personal Details</p>
+					</div>
+				</div>
+		
+				<div class="col s6 center-align top-margin">
+					<div class="row">
+						<a href="#/settings/family-details" class="btn-floating btn-large waves-effect waves-light colors">
+							<img src="images/Family-Details.png" class="settingpageicons">
+						</a>
+					</div>
+					<div class="row">
+						<p class="white-text center-align">Family Details</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s6 center-align top-margin">
+					<div class="row">
+						<a data-target="qrmodal" href="#qrmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger">
+							<img src="images/My-QR-Code.png" class="settingpageicons" >
+						</a>
+					</div>
+					<div class="row">
+						<p class="white-text center-align">My QR Code</p>
+						<div id="qrmodal" class="modal">
+							<div class="modal-content center">
+								<img src="images/harley-qr.png" style="width: 100%;"/>
+							</div>
+							<div class="modal-footer">
+								<a class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+				<div class="col s6 center-align top-margin">
+					<div class="row">
+						<a data-target="qrmodal" href="#pwdqrmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger">
+							<img src="images/Change-Password.png" class="settingpageicons">
+						</a>
+					</div>
+					<div class="row">
+						<p class="white-text center-align">Change Password</p>
+						<div id="pwdqrmodal" class="modal">
+							<div style="margin-top: 5%;" class="switch">
+								<h5>Change Password</h5>
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="password" type="password" class="validate">
+										<label for="password">Old Password</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="password" type="password" class="validate">
+										<label for="password">New Password</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="password" type="password" class="validate">
+										<label for="password">Retype Password</label>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<a class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s6 center-align top-margin">
+					<div class="row">
+						<a class="btn-floating btn-large waves-effect waves-light colors">
+							<img src="images/Terms-and-Conditions.png" class="settingpageicons">
+						</a>
+					</div>
+					<div class="row">
+						<p class="white-text center-align">Terms & Conditions</p>
+					</div>
+				</div>
+				<div class="col s6 center-align top-margin">
+					<div class="row">
+						<a data-target="qrmodal" href="#notiqrmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger">
+							<img src="images/Notification.png" class="settingpageicons" >
+						</a>
+					</div>
+					<div class="row">
+						<p class="white-text center-align">Notifications</p>
+						<div id="notiqrmodal" class="modal" style="min-height: 17%;">
+							<p>
+								Turn on notifications to get alerts.
+							</p>
+							<div class="switch">
+								<label>
+									Off
+									<input type="checkbox">
+									<span class="lever"></span>
+									On
+								</label>
+							</div>
+							<div class="modal-footer">
+								<a class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="dental-advice.html">
+    <div class="view">
+
+        <ng-include src="navbar"></ng-include>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title grey-text text-darken-4">
+                                Submit your questions to get advice from our experts.
+                            </span>
+                            <div class="row"  style="padding: 0 .6rem">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <label for="textarea1">Ask a question</label>
+                                        </div>
+                                    </div>
+                                    <a id="q-submit" onclick="Materialize.toast('Your question has been received.', 4000)" class="orange waves-effect waves-light btn">Submit</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 class="title" style="margin-top: 2rem; line-height: 1.3rem;"></h5>
+        
+        </div>
+        <script type="text/javascript">
+            $('#q-submit').on('click', function() {
+                $('#textarea1').val('');
+            })
+        </script>
+    </div>
+</script>
+<script type="text/ng-template" id="feedback.html">
+	<ng-include src="navbar"></ng-include>
+	
+	<div class="container">
+		<div class="row">
+			<h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
+				Feedback for P S B Dental Care Ltd
+			</h4>
+		</div>
+		<div class="row">
+			<p style="color: #681950;margin-left: 2%;">
+				Please rank the following aspects of the service? (1 Very Poor) – (5 Excellent)
+			</p>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p style="margin-top: 10px;">Is the practice clean and comfortable ?</p>
+						<form action="#" style="margin-top: 9px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">1</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">2</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">3</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">4</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">5</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Is there sufficient entertainment / literature while you wait ?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">1</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">2</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">3</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">4</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">5</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Are necessary healthcare / sundry items available ?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">1</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">2</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">3</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">4</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">5</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Is your dental team friendly and approachable ?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">1</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">2</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">3</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">4</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">5</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>How much is your level of comfort and trust in your clinician and the practice team ?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">1</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">2</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">3</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">4</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">5</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>What can the practice improve (ideas, suggestions, comments) ?</p>
+						<div class="input-field col s12">
+							<textarea id="textarea1" class="materialize-textarea"></textarea>
+							<label for="textarea1">Textarea</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Are you happy with the dental products you are using (tooth paste, mouthwash etc.) ?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">Yes</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">No</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Name of Products:</p>
+						<div class="input-field col s12">
+							<textarea id="textarea1" class="materialize-textarea"></textarea>
+							<label for="textarea1">Textarea</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Reasons for satisfaction or unsatisfaction:</p>
+						<div class="input-field col s12">
+							<textarea id="textarea1" class="materialize-textarea"></textarea>
+							<label for="textarea1">Textarea</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>How likely is it that you would recommend our practice to a friend or colleague ?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">1</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">2</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">3</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">4</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">5</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>What do you like best about your practice ?</p>
+						<div class="input-field col s12">
+							<textarea id="textarea1" class="materialize-textarea"></textarea>
+							<label for="textarea1">Textarea</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>How would you rate your overall experience ?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">1</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">2</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">3</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">4</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">5</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Can we use your feedback as testimonial on the Practice website?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">Yes</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">No</label>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div class="card-content">
+						<p>Would you like to be informed special offers and exclusive deals from your practice?</p>
+						<form action="#" style="margin-top: 5px;">
+							<p>
+								<input name="group1" type="radio" id="test1" />
+								<label for="test1">Yes</label>
+								<input name="group1" type="radio" id="test2" />
+								<label for="test2">No</label>
+							</p>
+						</form>
+						<div style="padding-bottom: 9%;">                  
+							<a onclick="Materialize.toast('Feedback Submitted', 2000)" href="#" class="waves-effect waves-light btn colorofbutton right">Submit</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</script>
+<script type="text/ng-template" id="find-dentist.html">
+	<div class="view">
+		<ng-include src="navbar"></ng-include>
+		
+		<div ng-controller="findDentistCtrl">
+			<div class="custom-tabs">
+				<ul>
+					<li class="active">
+						<a href="">Search</a>
+					</li>
+					<li>
+						<a href="">Nearby</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div id="map"></div>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="my-claims.html">
+	<div class="view">
+		<ng-include src="navbar"></ng-include>
+		
+		<div class="row">
+		    <div class="col s12 m12">
+		        <div class="card">
+		            <div class="card-content">
+		                <ul class="collection claims-list">
+		                    <li class="collection-item">
+		                        <span class="title">Practice: P S B Dental Care Ltd</span>
+		                        <p>Dentist: Dr Alison Foster</p>
+		                        <p>Claim Date: 15/06/2015</p>
+		                        <p>Treatment cost: £753</p>
+		                        <p>Status: <span style="color: green;">Approved</span></p>
+		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
+		                    </li>
+		                    <li class="collection-item">
+		                        <span class="title">Practice: Western Bank Dental Care</span>
+		                        <p>Dentist: Dr Steve Mulligan</p>
+		                        <p>Claim Date: 26/03/2015</p>
+		                        <p>Treatment cost: £892</p>
+		                        <p>Status: <span style="color: green;">Approved</span></p>
+		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
+		                    </li>
+		                    <li class="collection-item">
+		                        <span class="title">Practice: Occudental Private Dental Care Ltd</span>
+		                        <p>Dentist: Dr Stephanie Clarke</p>
+		                        <p>Claim Date: 05/02/2015</p>
+		                        <p>Treatment cost: £118</p>
+		                        <p>Status: <span style="color: green;">Approved</span></p>
+		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
+		                    </li>
+		                </ul>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<div id="email-claim-modal" class="modal">
+		    <div class="modal-content">
+		        <h4>Enter Email</h4>
+		        <div class="row">
+		            <div class="input-field col s12">
+		                <input type="email" id="email" class="validate">
+		                <label for="email">Email of receiver</label>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="modal-footer">
+		        <a onclick="Materialize.toast('Email Sent', 2000)" href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Send</a>
+		    </div>
+		</div>
+		<script type="text/javascript">
+		    $('.email-claim').on('click', function () {
+		        $('#email-claim-modal').openModal();
+		    })
+		</script>
+	</div>
+</script>
+<script type="text/ng-template" id="my-policy.html">
+	<div class="view">
+		<ng-include src="navbar"></ng-include>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12">
+					<div class="card">
+						<div class="card-content">
+							<h4 class="center">My Policy</h4>
+							<p>Annual Allowance Renewal Date: <span style="font-weight: bold">15/03/2016</span></p>
+							<p>Annual Allowance Limit: <span style="font-weight: bold">£250</span></p>
+							<p>Allowance Used: <span style="font-weight: bold">£80</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="support.html">
+	<div class="view">
+		<ng-include src="navbar"></ng-include>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12">
+					<div class="card">
+						<div class="card-content">
+							<p style="font-weight: bold; font-size: 1.3rem; margin-bottom: 2rem;">For queries, contact us through the following media.</p>
+							<p>Phone: (0207) 269 9723</p>
+							<p>Email: support@dentalink.co.uk</p>
+		
+							<a class="btn btn-default orange" href="#" style="margin-top: 2rem;">Raise Support Ticket</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="well-being.html">
+    <div class="view">
+        <ng-include src="navbar"></ng-include>
+        <div class="container" ng-controller="wellbeingCtrl">
+            <div class="row">
+                <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
+                    My Wellbeing
+                </h4>
+            </div>
+            <div class="row" ng-repeat="article in articles">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title grey-text text-darken-4">{{article.title}}</span>
+                            <p>
+                                {{article.content}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="family.html">
+	<div class="view">
+		<ng-include src="navbar"></ng-include>
+		
+		<div id="m" class="modal">
+			<div class="modal-content">
+				<h4 class="orange-text">Done!</h4>
+				<p>Settings Saved</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><i></i></span>
+						<div id="right">
+							<div id="top">
+								<div class="row">
+									<div class="col s8">
+										<ul class="collection">
+											<li class="collection-item avatar">
+												<img src="images/765-default-avatar.png" alt="" class="circle">
+												<span class="title">Mr. White</span>
+												<p>
+													Marry Jones
+												</p>
+											</li>
+										</ul>
+									</div>
+									<div class="col s4 right-align">
+										<a class="btn-floating btn-large waves-effect waves-light white">
+											<i class="mdi-editor-border-color "></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">      
+			<div class="col s12 right-align">
+				<button class="btn-floating btn-large waves-effect waves-light pull-right white modal-trigger" type="submit" name="action" id="clickMe" data-target="detailmodal" href="#detailmodal">
+					<i class="mdi-content-add"></i>
+				</button>
+				<div id="detailmodal" class="modal">
+					<div class="modal-content center">
+						<h5>Add Family Details</h5>              
+						<div class="row thisrow">
+							<div class="testcontent">
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-action-account-circle prefix"></i>
+										<input id="first-name" type="text" class="validate">
+										<label for="first-name">First Name</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-action-account-circle prefix"></i>
+										<input id="last-name" type="text" class="validate">
+										<label for="last-name">Last Name</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-communication-email prefix"></i>
+										<input id="email" type="email" class="validate">
+										<label for="email" data-error="wrong" data-success="right">Email</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-editor-insert-invitation prefix"></i>
+										<input type="date" class="datepicker" placeholder="Pick a Date">
+									</div>
+								</div>
+								<DIV class="row">
+									<div class="input-field col s12">
+										<select class="browser-default">
+											<option value="" disabled selected>Select Gender</option>
+											<option value="1">Male</option>
+											<option value="2">Female</option>
+										</select>
+									</div>
+								</DIV>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			$('.datepicker').pickadate({
+				selectMonths: true, // Creates a dropdown to control month
+				selectYears: 15 // Creates a dropdown of 15 years to control year
+			});
+		</script>
+	</div>
+</script>
+<script type="text/ng-template" id="personal.html">
+	<div class="view">
+
+		<ng-include src="navbar"></ng-include>
+
+		<div class="row">
+			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
+		</div>
+		
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<div class="center">
+							<div class="row thisrow">
+								<div class="testcontent">
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="icon_prefix" type="text" class="validate">
+											<label for="icon_prefix">First Name</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="icon_prefix" type="text" class="validate">
+											<label for="icon_prefix">Last Name</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-communication-email prefix"></i>
+											<input id="email" type="email" class="validate">
+											<label for="email" data-error="wrong" data-success="right">Email</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-editor-insert-invitation prefix"></i>
+											<input type="date" class="datepicker" placeholder="Pick a Date">
+										</div>
+									</div>
+									<DIV class="row">
+										<div class="input-field col s12">
+											<select class="browser-default">
+												<option value="" disabled selected>Select Gender</option>
+												<option value="1">Male</option>
+												<option value="2">Female</option>
+											</select>
+										</div>
+									</DIV>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer side-alignment right-align">
+							<a onclick="Materialize.toast('Details Updated', 2000)" href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">
+								Update
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: 15 // Creates a dropdown of 15 years to control year
+		});
+	</script>
+
+</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false"></script>	
 </body>
 </html>
