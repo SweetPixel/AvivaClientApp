@@ -177,10 +177,6 @@
         "com.googlemaps.ios": {
             "PACKAGE_NAME": "com.dentalink.client"
         },
-        "plugin.google.maps": {
-            "API_KEY_FOR_IOS": "AIzaSyCiQhEWzDSBttiNQETeFU42_bCf6kj8-eY",
-            "PACKAGE_NAME": "com.dentalink.client"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.dentalink.client"
         },
@@ -194,9 +190,5 @@
             "PACKAGE_NAME": "com.dentalink.client"
         }
     },
-    "dependent_plugins": {
-        "plugin.http.request": {
-            "PACKAGE_NAME": "com.dentalink.client"
-        }
-    }
+    "dependent_plugins": {}
 }
