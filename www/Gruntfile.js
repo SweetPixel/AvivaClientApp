@@ -19,9 +19,9 @@ module.exports = function(grunt) {
 			my_target: {
 				files: {
 					'js/packages.min.js': [
-						'js/jquery.min.js',
+						'js/plugins/jquery.min.js',
 						'node_modules/angular/angular.min.js',
-						'js/angular-router/angular-router.min.js'
+						'js/plugins/angular-router/angular-router.min.js'
 					]
 				}
 			}

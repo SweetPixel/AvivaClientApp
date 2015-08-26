@@ -7,8 +7,7 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'forgot.html'
 		})
 		.when('/login', {
-			templateUrl: 'login.html',
-			controller: 'loginCtrl'
+			templateUrl: 'login.html'
 		})
 		//index end
 		//services start
@@ -54,6 +53,9 @@ avivaApp.config(function($routeProvider) {
 		})
 		.when('/dental-services/dental-advice', {
 			templateUrl: 'dental-advice.html'
+		})
+		.when('/dental-services/find-dentist/nearby', {
+			templateUrl: 'nearby.html'
 		})
 		//dentalservices end
 		.otherwise({

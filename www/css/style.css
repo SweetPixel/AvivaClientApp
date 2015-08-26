@@ -394,6 +394,20 @@ a:hover {
   margin: 0px;
   line-height: 3rem;
 }
+.search-options {
+  padding: 0px;
+  background-color: rgb(255, 255, 255);
+  margin: 0px;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.search-options a {
+  color: #000;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 .custom-tabs li {
   display: inline-block;
   width: 49%;
@@ -418,4 +432,20 @@ a:hover {
   background-color: #DDD; 
   margin-top: .5rem;
   z-index: -1;
+}
+.sort-options {
+  padding: 0.5rem 1rem;
+  background-color: #FFF;
+}
+.sort-options h6{
+  font-weight: bold;
+}
+.sort-options label {
+  width: 40%;
+  margin-left: 1rem;
+}
+@media screen and (min-width: 600px) {
+  .sort-options label {
+    width: 100%;
+  }
 }
