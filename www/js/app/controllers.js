@@ -4,25 +4,38 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.$routeParams = $routeParams;
 	$scope.$location = $location;
 	$scope.navbar = 'navbar.html';
+	$scope.mapView = true;
 	$scope.$on('$routeChangeSuccess', function () {
 		history.push($location.$$path);
 	});
 	$scope.$on('$viewContentLoaded', function () {
 		$(".modal-trigger").leanModal();
-	})
+	});
+	$scope.falsify = function () {
+		$scope.mapView = false;
+	}
 	$scope.back = function () {
-		var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-		$location.path(prevUrl);
+		if($route.current.templateUrl === 'find-dentist.html') {
+			if($scope.mapView == true) {
+				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+				$location.path(prevUrl);
+			}
+			else {
+				$scope.mapView = true;
+			}
+		}
+		else {
+			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+			$location.path(prevUrl);
+		}
 	}
 	$scope.clinics = [];
-	$scope.promiseFulfilled = false;
 	//Async get clinics detail
 	$scope.getClinicsInfo = function () {
 		$scope.promise = clinicService.getClinic();
 		$scope.promise.then(function (payload) {
 			console.log("Got Payload");
 			$scope.clinics = payload.data;
-			$scope.promiseFulfilled = true;
 		},
 		function (errorPayload) {
 			alert("You're not connected to the internet.");
@@ -33,17 +46,34 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 })
 
 avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log){
+	$scope.clinics = [];
+	$scope.sortBy = '+distance';
 	$scope.$parent.promise.then(function (payload) {
-		mapService.makeMap.map($scope.$parent.clinics);
+		$scope.getPositionPromise = mapService.getPosition();
+		$scope.getPositionPromise.then(function (positionPayload) {
+			$scope.position = positionPayload.position;
+
+			$scope.createMapPromise = mapService.createMap($scope.position);
+			$scope.createMapPromise.then(function (mapPayload) {
+				$scope.map = mapPayload.map;
+				$scope.latLng = mapPayload.latLng;
+
+				$scope.getBoundsPromise = mapService.getBounds($scope.latLng, $scope.map);
+				$scope.getBoundsPromise.then(function (boundsPayload) {
+					$scope.bounds = boundsPayload.bounds;
+					$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
+					$scope.drawMarkersPromise.then(function (markersPayload) {
+						$scope.clinics = markersPayload.nearbyClinics;
+					})
+				})
+			})
+		})
 	},
 	function (errorPayload) {
 		alert("Failed to get information of clinics. Please check your connection and try again.");
 		$log.error("Failure getting clinics info", errorPayload);
 	});
 });
-avivaApp.controller('nearbyCtrl', ['$scope', function($scope){
-	$scope.sortBy = '+distance';
-}])
 avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 	$scope.articles = [
 		{

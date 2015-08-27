@@ -34,7 +34,8 @@ avivaApp.config(function($routeProvider) {
 		//settings end
 		//dentalservices start
 		.when('/dental-services/find-dentist', {
-			templateUrl: 'find-dentist.html'
+			templateUrl: 'find-dentist.html',
+			controller: 'findDentistCtrl'
 		})
 		.when('/dental-services/my-claims', {
 			templateUrl: 'my-claims.html'
@@ -53,9 +54,6 @@ avivaApp.config(function($routeProvider) {
 		})
 		.when('/dental-services/dental-advice', {
 			templateUrl: 'dental-advice.html'
-		})
-		.when('/dental-services/find-dentist/nearby', {
-			templateUrl: 'nearby.html'
 		})
 		//dentalservices end
 		.otherwise({
