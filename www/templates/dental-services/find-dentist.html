@@ -1,20 +1,61 @@
 <script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
-		<ng-include src="navbar"></ng-include>
-		
-		<div ng-controller="findDentistCtrl">
-			<div class="custom-tabs">
-				<ul>
-					<li class="active">
-						<a href="">Search</a>
-					</li>
-					<li>
-						<a href="">Nearby</a>
+			
+			<ng-include src="navbar"></ng-include>
+
+			<div id="map-view" ng-show="mapView">
+				<div class="custom-tabs">
+					<ul>
+						<li class="active">
+							<a href="">Search</a>
+						</li>
+						<li>
+							<a ng-click="falsify()">Nearby</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="map"></div>
+			</div>
+
+			<div id="nearby-view" ng-hide="mapView">
+				<div class="search-options">
+					<a href="" ng-click="showSort = showSort == true ? false : true;">Sort</a>
+				</div>
+				<div class="sort-options" ng-show="showSort">
+					<form action="">
+						<div class="row">
+							<div class="col m4">
+								<h6>By Distance</h6>
+								<input ng-model="sortBy" value="+distance" name="sort" type="radio" id="distance-a" />
+								<label for="distance-a">Ascending</label>
+								<input ng-model="sortBy" value="-distance" name="sort" type="radio" id="distance-d" />
+								<label for="distance-d">Descending</label>
+							</div>
+							<div class="col m4">
+								<h6>By Rating</h6>
+								<input ng-model="sortBy" value="+rating" name="sort" type="radio" id="rating-a" />
+								<label for="rating-a">Ascending</label>
+								<input ng-model="sortBy" value="-rating" name="sort" type="radio" id="rating-d" />
+								<label for="rating-d">Descending</label>
+							</div>
+							<div class="col m4">
+								<h6>By Treatment Rate</h6>
+								<input ng-model="sortBy" value="+treatment" name="sort" type="radio" id="treatment-a" />
+								<label for="treatment-a">Ascending</label>
+								<input ng-model="sortBy" value="-treatment" name="sort" type="radio" id="treatment-d" />
+								<label for="treatment-d">Descending</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<ul class="collection">
+					<li ng-repeat="clinic in clinics" class="collection-item">
+						<h6>{{clinic.PracticeName}}</h6>
 					</li>
 				</ul>
 			</div>
-			
-			<div id="map"></div>
+
 		</div>
 	</div>
 </script>

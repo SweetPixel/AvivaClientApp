@@ -1,91 +1,78 @@
-avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location) {
-
+avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log) {
 	var history = [];
 	$scope.$route = $route;
 	$scope.$routeParams = $routeParams;
 	$scope.$location = $location;
 	$scope.navbar = 'navbar.html';
+	$scope.mapView = true;
 	$scope.$on('$routeChangeSuccess', function () {
 		history.push($location.$$path);
 	});
 	$scope.$on('$viewContentLoaded', function () {
 		$(".modal-trigger").leanModal();
-	})
-	$scope.back = function () {
-		var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-		$location.path(prevUrl);
-	}
-});
-avivaApp.controller('findDentistCtrl', function($scope, $http, $templateCache, $routeParams){
-	$scope.url = 'http://healthpickapi.azurewebsites.net/api/practice';
-	alert("In controller");
-	$http.get($scope.url).then(function (response) {
-		alert("Length: " + response.data.length);
-		$scope.clinics = response.data;
-		$scope.getMap.initialize();
-	}, function (response) {
-		alert("Data: " + response.data || "Requet failed");
-		alert("Status: " + response.status);
 	});
-	
-	
-	$scope.getMap = {
-	    initialize: function () {
-	    	alert("Navigating");
-	        this.doNavigate();
-	    },
-	    doNavigate: function () {
-	        // $('.modal-trigger').leanModal();
-	        navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError);
-	    },
-	    onSuccess: function (position) {
-	        var longitude = position.coords.longitude;
-	        var latitude = position.coords.latitude;
-	        var geocoder = new google.maps.Geocoder();
-	        var latLng = new google.maps.LatLng(latitude, longitude);
-	        var latLng1 = new google.maps.LatLng(53.3788635,-1.4703039);
-	        var mapOptions = {
-	            center: latLng1,
-	            zoom: 8
-	        };
-	        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-	        // alert("map created");
-	        var markers = [];
-	        var i = 0;
-	        
-	        $.each($scope.clinics, function (index, item) {
-	            markers[i] = new google.maps.Marker({
-	                position: new google.maps.LatLng(item.Latitude, item.Longitude),
-	                url: 'details.html?id=' + item.practiceId
-	            });
-	            markers[i].setMap(map);
-	            i++;
-	        });
-	        var circle = new google.maps.Circle({
-	                center: latLng1,
-	                map: map,
-	                radius: 30000,
-	                strokeColor: "#FF0000",
-	                strokeOpacity: 0.4,
-	                strokeWeight: 2,
-	                fillColor: "#FF0000",
-	                fillOpacity: 0.1
-	        });
-	        var myBounds = circle.getBounds();
-
-	        $.each(markers, function(index, item) {
-	        	if (!myBounds.contains( item.getPosition() )) {
-	        		item.setMap(null);
-	        	}
-	            item.addListener('click', function() {
-	                window.location.href = item.url;
-	            })
-	        })
-	    },
-	    onError: function (error) {
-	        alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
-	    }
+	$scope.falsify = function () {
+		$scope.mapView = false;
+	}
+	$scope.back = function () {
+		if($route.current.templateUrl === 'find-dentist.html') {
+			if($scope.mapView == true) {
+				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+				$location.path(prevUrl);
+			}
+			else {
+				$scope.mapView = true;
+			}
+		}
+		else {
+			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+			$location.path(prevUrl);
+		}
+	}
+	$scope.clinics = [];
+	//Async get clinics detail
+	$scope.getClinicsInfo = function () {
+		$scope.promise = clinicService.getClinic();
+		$scope.promise.then(function (payload) {
+			console.log("Got Payload");
+			$scope.clinics = payload.data;
+		},
+		function (errorPayload) {
+			alert("You're not connected to the internet.");
+			$log.error("Failure getting clinics info", errorPayload);
+		});
 	};
+	$scope.getClinicsInfo();
+})
+
+avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log){
+	$scope.clinics = [];
+	$scope.sortBy = '+distance';
+	$scope.$parent.promise.then(function (payload) {
+		$scope.getPositionPromise = mapService.getPosition();
+		$scope.getPositionPromise.then(function (positionPayload) {
+			$scope.position = positionPayload.position;
+
+			$scope.createMapPromise = mapService.createMap($scope.position);
+			$scope.createMapPromise.then(function (mapPayload) {
+				$scope.map = mapPayload.map;
+				$scope.latLng = mapPayload.latLng;
+
+				$scope.getBoundsPromise = mapService.getBounds($scope.latLng, $scope.map);
+				$scope.getBoundsPromise.then(function (boundsPayload) {
+					$scope.bounds = boundsPayload.bounds;
+					$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
+					$scope.drawMarkersPromise.then(function (markersPayload) {
+						$scope.clinics = markersPayload.nearbyClinics;
+					})
+				})
+			})
+		})
+	},
+	function (errorPayload) {
+		alert("Failed to get information of clinics. Please check your connection and try again.");
+		$log.error("Failure getting clinics info", errorPayload);
+	});
 });
 avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 	$scope.articles = [
