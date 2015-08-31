@@ -414,9 +414,7 @@ a:hover {
   text-align: center;
   font-size: 1.2rem;
 }
-.custom-tabs li.active {
-  border-bottom: 2px solid rgb(222, 87, 65);
-}
+
 .custom-tabs a {
   color: #000;
   width: 100%;
@@ -448,4 +446,18 @@ a:hover {
   .sort-options label {
     width: 100%;
   }
+}
+#search-view input[type="search"] {
+  background-color: #DE5741;
+  padding-left: 1rem;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+#search-view input[type="search"]:focus {
+  background-color: #FFF;
+  border-bottom: none;
+  box-shadow: none;
+}
+#nearby-view p {
+  padding: 0 10px;
 }

@@ -4,24 +4,27 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.$routeParams = $routeParams;
 	$scope.$location = $location;
 	$scope.navbar = 'navbar.html';
-	$scope.mapView = true;
+	$scope.mapView = 1;
 	$scope.$on('$routeChangeSuccess', function () {
 		history.push($location.$$path);
 	});
 	$scope.$on('$viewContentLoaded', function () {
 		$(".modal-trigger").leanModal();
 	});
-	$scope.falsify = function () {
-		$scope.mapView = false;
+	$scope.showNearby = function () {
+		$scope.mapView = 0;
+	}
+	$scope.showSearch = function () {
+		$scope.mapView = 2;
 	}
 	$scope.back = function () {
 		if($route.current.templateUrl === 'find-dentist.html') {
-			if($scope.mapView == true) {
+			if($scope.mapView == 1) {
 				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 				$location.path(prevUrl);
 			}
 			else {
-				$scope.mapView = true;
+				$scope.mapView = 1;
 			}
 		}
 		else {
@@ -48,6 +51,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log){
 	$scope.clinics = [];
 	$scope.sortBy = '+distance';
+	$scope.countMessage = "Searching for practices";
 	$scope.$parent.promise.then(function (payload) {
 		$scope.getPositionPromise = mapService.getPosition();
 		$scope.getPositionPromise.then(function (positionPayload) {
@@ -64,6 +68,13 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log)
 					$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
 					$scope.drawMarkersPromise.then(function (markersPayload) {
 						$scope.clinics = markersPayload.nearbyClinics;
+						var clinicsCount = $scope.clinics.length;
+						if (clinicsCount > 0) {
+							$scope.countMessage = "The following " + clinicsCount + " practices were found within 30 kms of your location.";
+						}
+						else {
+							$scope.countMessage = "No practices were found within 30 kms of your location";
+						}
 					})
 				})
 			})
