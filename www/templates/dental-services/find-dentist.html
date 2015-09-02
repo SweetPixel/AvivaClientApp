@@ -1,4 +1,4 @@
-<script type="text/ng-template" id="find-dentist.html">
+<script type="text/ng-template" id="find-dentist.html"> 
 	<div class="view">
 			
 			<ng-include src="navbar"></ng-include>
@@ -55,32 +55,39 @@
 
 			<div id="search-view" ng-show="mapView == 2">
 				<div>
-					<input type="search" placeholder="Search"/>
+					<input type="search" placeholder="Search" ng-click="advancedSearch = false;" ng-model="value"/>
 				</div>
-				<div class="search-options">
-					<a href="" ng-click="advancedSearch = advancedSearch == true ? false : true">Advanced Search</a>
+				<div id="search-result" ng-show="gotSearchResult">
+					<ul class="collection" ng-repeat="clinic in searchResult">
+						<li ng-click="drawSearchMarker(clinic)" class="collection-item">{{clinic.Postcode}} - {{clinic.PracticeName}}</li>
+					</ul>
 				</div>
-				<div ng-show="advancedSearch" id="advance-search-block" align="center">
-				    <form action="#">
-				        <input name="dentist-gender" type="radio" id="dentist-male" />
-				        <label for="dentist-male">Male Dentist</label>
-				        <input name="dentist-gender" type="radio" id="dentist-female" />
-				        <label style="margin-left: 2rem;" for="dentist-female">Female Dentist</label>
-				    </form>
-				    <div class="row" style="margin-bottom: 0">
-				        <div class="input-field col s12">
-				            <select class="browser-default" style="color: #000">
-				                <option value="" disabled selected>Choose your Treatment</option>
-				                <option value="1">Examination</option>
-				                <option value="2">Hygiene</option>
-				                <option value="3">Fillings</option>
-				                <option value="4">Whitening</option>
-				                <option value="5">Implants</option>
-				            </select>
-				        </div>
-				    </div>
-				    <a href="" class="waves-effect btn-flat" id="advance-cancel">Cancel</a>
-				    <a href="" class="waves-effect btn-flat" id="advance-search">Search</a>
+				<div id="advance-search-container">
+					<div class="search-options">
+						<a id="advance-search-trigger" href="" ng-click="advancedSearch = advancedSearch == true ? false : true">Advanced Search</a>
+					</div>
+					<div ng-show="advancedSearch" id="advance-search-block" align="center">
+					    <form action="#">
+					        <input name="dentist-gender" type="radio" id="dentist-male" />
+					        <label for="dentist-male">Male Dentist</label>
+					        <input name="dentist-gender" type="radio" id="dentist-female" />
+					        <label style="margin-left: 2rem;" for="dentist-female">Female Dentist</label>
+					    </form>
+					    <div class="row" style="margin-bottom: 0">
+					        <div class="input-field col s12">
+					            <select class="browser-default" style="color: #000">
+					                <option value="" disabled selected>Choose your Treatment</option>
+					                <option value="1">Examination</option>
+					                <option value="2">Hygiene</option>
+					                <option value="3">Fillings</option>
+					                <option value="4">Whitening</option>
+					                <option value="5">Implants</option>
+					            </select>
+					        </div>
+					    </div>
+					    <a href="" ng-click="advancedSearch = false" class="waves-effect btn-flat" id="advance-cancel">Cancel</a>
+					    <a href="" ng-click="advancedSearch = false" class="waves-effect btn-flat" id="advance-search">Search</a>
+					</div>
 				</div>
 			</div>
 

@@ -52,6 +52,8 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log)
 	$scope.clinics = [];
 	$scope.sortBy = '+distance';
 	$scope.countMessage = "Searching for practices";
+	$scope.advancedSearch = false;
+
 	$scope.$parent.promise.then(function (payload) {
 		$scope.getPositionPromise = mapService.getPosition();
 		$scope.getPositionPromise.then(function (positionPayload) {
@@ -65,9 +67,11 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log)
 				$scope.getBoundsPromise = mapService.getBounds($scope.latLng, $scope.map);
 				$scope.getBoundsPromise.then(function (boundsPayload) {
 					$scope.bounds = boundsPayload.bounds;
+					$scope.circle = boundsPayload.circle;
 					$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
 					$scope.drawMarkersPromise.then(function (markersPayload) {
 						$scope.clinics = markersPayload.nearbyClinics;
+						$scope.markers = markersPayload.markers;
 						var clinicsCount = $scope.clinics.length;
 						if (clinicsCount > 0) {
 							$scope.countMessage = "The following " + clinicsCount + " practices were found within 30 kms of your location.";
@@ -75,15 +79,44 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log)
 						else {
 							$scope.countMessage = "No practices were found within 30 kms of your location";
 						}
-					})
-				})
-			})
-		})
+					});
+				});
+			});
+		});
 	},
 	function (errorPayload) {
 		alert("Failed to get information of clinics. Please check your connection and try again.");
 		$log.error("Failure getting clinics info", errorPayload);
 	});
+	$scope.searchResult = [];
+	$scope.$watch('value', function (changed) {
+		if (changed) {
+			$scope.searchResult = [];
+			$scope.$parent.promise.then(function () {
+				$.each($scope.$parent.clinics, function (index, item) {
+					if (item.Postcode.toLowerCase().indexOf(changed) > 0) {
+						$scope.gotSearchResult = true;
+						if ($scope.searchResult.length < 5) {
+							$scope.searchResult.push(item);
+						}
+					}
+				});
+			});
+		}
+		else {
+			$scope.gotSearchResult = false;
+		}
+	});
+	$scope.drawSearchMarker = function (clinic) {
+		console.log(clinic.Postcode);
+		$scope.gotSearchResult = false;
+		$scope.createMapPromise.then(function () {
+			mapService.drawSearchMarker($scope.map, clinic);
+		});
+		$scope.drawMarkersPromise.then(function () {
+			mapService.removeDrawings($scope.markers, $scope.circle);
+		});
+	}
 });
 avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 	$scope.articles = [

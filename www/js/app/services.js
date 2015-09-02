@@ -65,7 +65,8 @@ avivaApp.factory('mapService', function ($q, $log) {
 			var deferred = $q.defer();
 			var myBounds = circle.getBounds();
 			deferred.resolve({
-				bounds: myBounds
+				bounds: myBounds,
+				circle: circle
 			});
 			return deferred.promise;
 		},
@@ -90,9 +91,28 @@ avivaApp.factory('mapService', function ($q, $log) {
 			});
 			
 			deferred.resolve({
-				nearbyClinics: nearbyClinics
+				nearbyClinics: nearbyClinics,
+				markers: markers
 			});
 			return deferred.promise;
+		},
+		removeDrawings: function (markers, circle) {
+			if (markers) {
+				$.each(markers, function (index, item) {
+					item.setMap(null);
+				});
+			}
+			if (circle) {
+				circle.setMap(null);
+			}
+		},
+		drawSearchMarker: function (map, clinic) {
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(clinic.Latitude, clinic.Longitude)
+			});
+			map.setCenter(new google.maps.LatLng(clinic.Latitude, clinic.Longitude));
+			map.setZoom(10);
+			marker.setMap(map);
 		}
 	}
 });
