@@ -1,4 +1,4 @@
-<script type="text/ng-template" id="find-dentist.html"> 
+<script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
 			
 			<ng-include src="navbar"></ng-include>
@@ -93,6 +93,9 @@
 
 			<div id="map-view" ng-show="mapView == 1 || mapView == 2">
 				<div id="map" ng-class="{smallerMap: mapView == 2}"></div>
+				<a href="" class="btn-floating waves-effect waves-light" ng-click="resetPosition()" id="current-location">
+					<i class="fa fa-dot-circle-o"></i>
+				</a>
 			</div>
 
 		</div>

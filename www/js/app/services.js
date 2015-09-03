@@ -40,7 +40,6 @@ avivaApp.factory('mapService', function ($q, $log) {
 			var latLng = new google.maps.LatLng(latitude, longitude);
 			var latLng1 = new google.maps.LatLng(53.3788635,-1.4703039);
 			var mapOptions = {
-			    center: latLng1,
 			    zoom: 8
 			};
 			var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -62,6 +61,8 @@ avivaApp.factory('mapService', function ($q, $log) {
 			        fillColor: "#FF0000",
 			        fillOpacity: 0.1
 			});
+			map.setCenter(latLng1);
+			map.setZoom(8);
 			var deferred = $q.defer();
 			var myBounds = circle.getBounds();
 			deferred.resolve({
@@ -106,13 +107,15 @@ avivaApp.factory('mapService', function ($q, $log) {
 				circle.setMap(null);
 			}
 		},
-		drawSearchMarker: function (map, clinic) {
+		drawSearchMarker: function (map, markers, clinic) {
 			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(clinic.Latitude, clinic.Longitude)
 			});
 			map.setCenter(new google.maps.LatLng(clinic.Latitude, clinic.Longitude));
 			map.setZoom(10);
 			marker.setMap(map);
+			markers.push(marker);
+			return markers;
 		}
 	}
 });

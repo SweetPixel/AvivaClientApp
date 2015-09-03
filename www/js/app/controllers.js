@@ -53,6 +53,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log)
 	$scope.sortBy = '+distance';
 	$scope.countMessage = "Searching for practices";
 	$scope.advancedSearch = false;
+	var setNearbyClinics;
 
 	$scope.$parent.promise.then(function (payload) {
 		$scope.getPositionPromise = mapService.getPosition();
@@ -63,24 +64,26 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log)
 			$scope.createMapPromise.then(function (mapPayload) {
 				$scope.map = mapPayload.map;
 				$scope.latLng = mapPayload.latLng;
-
-				$scope.getBoundsPromise = mapService.getBounds($scope.latLng, $scope.map);
-				$scope.getBoundsPromise.then(function (boundsPayload) {
-					$scope.bounds = boundsPayload.bounds;
-					$scope.circle = boundsPayload.circle;
-					$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
-					$scope.drawMarkersPromise.then(function (markersPayload) {
-						$scope.clinics = markersPayload.nearbyClinics;
-						$scope.markers = markersPayload.markers;
-						var clinicsCount = $scope.clinics.length;
-						if (clinicsCount > 0) {
-							$scope.countMessage = "The following " + clinicsCount + " practices were found within 30 kms of your location.";
-						}
-						else {
-							$scope.countMessage = "No practices were found within 30 kms of your location";
-						}
+				setNearbyClinics = function () {
+					$scope.getBoundsPromise = mapService.getBounds($scope.latLng, $scope.map);
+					$scope.getBoundsPromise.then(function (boundsPayload) {
+						$scope.bounds = boundsPayload.bounds;
+						$scope.circle = boundsPayload.circle;
+						$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
+						$scope.drawMarkersPromise.then(function (markersPayload) {
+							$scope.clinics = markersPayload.nearbyClinics;
+							$scope.markers = markersPayload.markers;
+							var clinicsCount = $scope.clinics.length;
+							if (clinicsCount > 0) {
+								$scope.countMessage = "The following " + clinicsCount + " practices were found within 30 kms of your location.";
+							}
+							else {
+								$scope.countMessage = "No practices were found within 30 kms of your location";
+							}
+						});
 					});
-				});
+				};
+				setNearbyClinics();
 			});
 		});
 	},
@@ -111,10 +114,18 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log)
 		console.log(clinic.Postcode);
 		$scope.gotSearchResult = false;
 		$scope.createMapPromise.then(function () {
-			mapService.drawSearchMarker($scope.map, clinic);
+			$scope.drawMarkersPromise.then(function () {
+				mapService.removeDrawings($scope.markers, $scope.circle);
+				$scope.markers = mapService.drawSearchMarker($scope.map, $scope.markers, clinic);
+			});
 		});
-		$scope.drawMarkersPromise.then(function () {
-			mapService.removeDrawings($scope.markers, $scope.circle);
+	};
+	$scope.resetPosition = function () {
+		$scope.createMapPromise.then(function () {
+			$scope.drawMarkersPromise.then(function () {
+				mapService.removeDrawings($scope.markers, $scope.circle);
+				setNearbyClinics();
+			});
 		});
 	}
 });

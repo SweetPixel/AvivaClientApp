@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 	<title>HealthPick</title>
 	<link rel="stylesheet" href="css/materialize.min.css" />
+	<link rel="stylesheet" href="font/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="css/style.css" />
 	<script src="cordova.js"></script>
 	<script src="js/packages.min.js"></script>
@@ -789,7 +790,7 @@
 	
 	</div>
 </script>
-<script type="text/ng-template" id="find-dentist.html"> 
+<script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
 			
 			<ng-include src="navbar"></ng-include>
@@ -884,6 +885,9 @@
 
 			<div id="map-view" ng-show="mapView == 1 || mapView == 2">
 				<div id="map" ng-class="{smallerMap: mapView == 2}"></div>
+				<a href="" class="btn-floating waves-effect waves-light" ng-click="resetPosition()" id="current-location">
+					<i class="fa fa-dot-circle-o"></i>
+				</a>
 			</div>
 
 		</div>

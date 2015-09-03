@@ -465,6 +465,20 @@ a:hover {
 #advance-search-block [type="radio"]:not(:checked) + label::before, #sort-options [type="radio"]:not(:checked) + label::before {
     border: 2px solid #000;
 }
+#current-location {
+	background-color: #FFF;
+	position: absolute;
+	bottom: 1rem;
+	right: 14px;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+}
+#current-location i {
+	color: #000;
+	font-size: 1rem;
+	line-height: 28px;
+}
 @media screen and (max-width: 599px) {
 	.clinic-list span:nth-child(n+2) {
 		float: right;
