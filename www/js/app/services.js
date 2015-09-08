@@ -17,7 +17,7 @@ avivaApp.factory('clinicService', function ($http, $q, $log) {
 		}
 	}
 });
-avivaApp.factory('mapService', function ($q, $log) {
+avivaApp.factory('mapService', function ($q, $log, $location) {
 	return {
 		getPosition: function () {
 			var deferred = $q.defer();
@@ -79,13 +79,14 @@ avivaApp.factory('mapService', function ($q, $log) {
 			$.each(clinics, function (index, item) {
 			    markers[i] = new google.maps.Marker({
 			        position: new google.maps.LatLng(item.Latitude, item.Longitude),
-			        url: 'details.html?id=' + item.practiceId
 			    });
+			    var url = '#/dental-services/clinic-detail/' + item.practiceId;
 			    if (bounds.contains(markers[i].getPosition() )) {
 			    	nearbyClinics.push(item);
 			    	markers[i].setMap(map);
 			    	markers[i].addListener('click', function() {
-			    	    window.location.href = markers[i].url;
+			    	    console.log(url);
+			    	    window.location.href = url;
 			    	});
 			    }
 			    i++;

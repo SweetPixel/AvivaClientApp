@@ -48,7 +48,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.getClinicsInfo();
 })
 
-avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log){
+avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log, $location){
 	$scope.clinics = [];
 	$scope.sortBy = '+distance';
 	$scope.countMessage = "Searching for practices";
@@ -153,3 +153,23 @@ avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 		}
 	];
 })
+avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams){
+	$scope.practiceId = $routeParams.param;
+	$scope.$parent.promise.then(function () {
+		$.each($scope.$parent.clinics, function (index, item) {
+			if (item.practiceId == $scope.practiceId) {
+				$scope.clinic = item;
+				$scope.address = $scope.clinic.Address1;
+				if ($scope.clinic.Address2) {
+					$scope.address += ", " + $scope.clinic.Address2;
+				}
+				if ($scope.clinic.Address3) {
+					$scope.address += ", " +  $scope.clinic.Address3;
+				}
+				if ($scope.clinic.Address4) {
+					$scope.address += ", " +  $scope.clinic.Address4;
+				}
+			}
+		});
+	})
+});

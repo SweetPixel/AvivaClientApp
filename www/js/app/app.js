@@ -55,6 +55,10 @@ avivaApp.config(function($routeProvider) {
 		.when('/dental-services/dental-advice', {
 			templateUrl: 'dental-advice.html'
 		})
+		.when('/dental-services/clinic-detail/:param', {
+			templateUrl: 'clinic-detail.html',
+			controller: 'clinicDetailCtrl'
+		})
 		//dentalservices end
 		.otherwise({
 			redirectTo: '/login'

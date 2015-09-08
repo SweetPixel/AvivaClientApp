@@ -47,9 +47,12 @@
 				</div>
 				<p>{{countMessage}}</p>
 				<ul class="collection">
-					<li ng-repeat="clinic in clinics" class="collection-item">
-						<h6>{{clinic.PracticeName}}</h6>
-					</li>
+					<a ng-repeat="clinic in clinics" href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
+						<li class="collection-item">
+							<img style="width: 100%" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" alt="" />
+							<h6>{{clinic.PracticeName}}</h6>
+						</li>
+					</a>
 				</ul>
 			</div>
 
