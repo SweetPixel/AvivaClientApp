@@ -196,6 +196,9 @@ a.colors {
 .collection {
 	border: none;
 }
+.collection-item a {
+	color: #000;
+}
 
 .icon-block {
 	padding: 0 15px;
@@ -385,7 +388,9 @@ a:hover {
 	width: 40%;
 	margin-left: 1rem;
 }
-
+nav .button-collapse i {
+	font-size: 1.7rem;
+}
 #search-view input[type="search"] {
 	background-color: #DE5741;
 	padding-left: 1rem;
@@ -507,4 +512,7 @@ a:hover {
 	.top-margin {
 		margin-top: 10%;
 	}
+}
+.collection .collection-item {
+    padding: 1rem 1rem 1rem;
 }
