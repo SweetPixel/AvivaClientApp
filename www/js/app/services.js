@@ -117,6 +117,33 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			marker.setMap(map);
 			markers.push(marker);
 			return markers;
+		},
+		getDistance: function (destination) {
+			var deferred = $q.defer();
+			var origin = new google.maps.LatLng(53.3788635,-1.4703039);;
+			var service = new google.maps.DistanceMatrixService();
+			service.getDistanceMatrix({
+				origins: [origin],
+				destinations: [destination],
+				travelMode: google.maps.TravelMode.DRIVING,
+				unitSystem: google.maps.UnitSystem.METRIC,
+				avoidHighways: false,
+				avoidTolls: false
+			}, function (response, status) {
+				if (status == google.maps.DistanceMatrixStatus.OK) {
+					var origins = response.originAddresses;
+					var destinations = response.destinationAddresses;
+
+					var distance = response.rows[0].elements[0].distance.text;
+
+					deferred.resolve({
+						distance: distance
+					});
+					console.log(distance);
+				}
+
+			});
+			return deferred.promise;
 		}
 	}
 });

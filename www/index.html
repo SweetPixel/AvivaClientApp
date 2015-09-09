@@ -471,7 +471,7 @@
 <script type="text/ng-template" id="clinic-detail.html">
 	<ng-include src="navbar"></ng-include>
 
-	<div class="container">
+	<div class="container" ng-controller="clinicDetailCtrl">
 
 			<div class="row">
 				<div class="col s12 m12">
@@ -484,6 +484,7 @@
 							<p>Address: {{address}}</p>
 							<p>Phone: {{clinic.Telephone}}</p>
 							<p>Doctor: {{clinic.DentistFirstName}} {{clinic.DentistSurname}}</p>
+							<p>Distance: {{distance}}</p>
 						</div>
 					</div>
 				</div>

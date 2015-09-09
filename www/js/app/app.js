@@ -56,8 +56,7 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'dental-advice.html'
 		})
 		.when('/dental-services/clinic-detail/:param', {
-			templateUrl: 'clinic-detail.html',
-			controller: 'clinicDetailCtrl'
+			templateUrl: 'clinic-detail.html'
 		})
 		//dentalservices end
 		.otherwise({
