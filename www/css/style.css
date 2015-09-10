@@ -247,7 +247,7 @@ input[type="password"]:focus:not([readonly]) + label {
 	color: #3f4c6b !important;
 }
 .collection a.collection-item {
-	color: #FF9800;
+	color: #DE5741;
 }
 [type="checkbox"]:checked + label::before {
 	border-color: transparent #FF9800 #FF9800 transparent;
