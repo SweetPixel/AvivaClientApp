@@ -49,7 +49,8 @@
 				<ul class="collection">
 					<li ng-repeat="clinic in clinics" class="collection-item">
 						<a href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
-							<img style="width: 100%" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" alt="" />
+							<img style="width: 100%" ng-show="clinic.PracticeImageLoc" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" />
+							<img style="width: 100%" ng-hide="clinic.PracticeImageLoc" src="images/dental-practice-default.jpg" />
 							<h6>{{clinic.PracticeName}}</h6>
 						</a>
 					</li>
