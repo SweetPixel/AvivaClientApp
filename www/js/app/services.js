@@ -21,9 +21,9 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 	return {
 		getPosition: function () {
 			var deferred = $q.defer();
-			
-			navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			
+
+			// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 			function onSuccess (position) {
 				deferred.resolve({
 					position: position
@@ -36,7 +36,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 		},
 		createMap: function (position) {
 			var deferred = $q.defer();
-			
+
 			var longitude = position.coords.longitude;
 			var latitude = position.coords.latitude;
 			var latLng = new google.maps.LatLng(latitude, longitude);
@@ -82,7 +82,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			var distances = [];
 			$.each(clinics, function (index, item) {
 				var position = new google.maps.LatLng(item.Latitude, item.Longitude);
-				
+
 			    markers[i] = new google.maps.Marker({
 			        position: position
 			    });
@@ -112,7 +112,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 					var origins = response.originAddresses;
 					var destinations = response.destinationAddresses;
 					var elements = response.rows[0].elements;
-					
+
 					for (var i = 0; i < elements.length; i++) {
 						var distance = elements[i].distance.text;
 						console.log(distance);
@@ -127,7 +127,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 						nearbyClinics: nearbyClinics,
 						markers: markers
 					});
-					
+
 				}
 				else if (status == google.maps.DistanceMatrixStatus.NOT_FOUND) {
 					console.log("Not found");

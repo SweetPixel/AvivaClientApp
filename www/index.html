@@ -20,10 +20,33 @@
 			$('.button-collapse').sideNav({
 				closeOnClick: true
 			});
-		})
+		});
+
+		function onLoad() {
+
+			if (typeof navigator.device == "undefined"){
+		document.addEventListener('deviceready', function onDeviceReady() {
+            // angular.bootstrap(document, ['YourAppName']);
+						navigator.geolocation.getCurrentPosition(onSuccess, onError);
+					}, false);
+				}
+				else {
+					navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				}
+
+		}
+
+		function onSuccess (position) {
+			deferred.resolve({
+				position: position
+			});
+		}
+		function onError (error) {
+				alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+		}
 	</script>
 </head>
-<body ng-app="avivaApp" ng-cloak ng-strict>
+<body ng-app="avivaApp" ng-cloak ng-strict onload="onLoad();">
 	<div>
 		<div ng-controller="mainCtrl">
 			<div ng-view autoscroll="true"></div>
@@ -31,9 +54,9 @@
 	</div>
 <script type="text/ng-template" id="dental-services.html">
 	<div class="view">
-	
+
 		<ng-include src="navbar"></ng-include>
-		
+
 		<!-- Modal Structure -->
 		<!-- <div id="pdfmodal" class="modal bottom-sheet">
 		<div class="row">
@@ -47,12 +70,12 @@
 		</div>
 		</div>
 		</div> -->
-		
-		
+
+
 		<div class="row">
 			<h3 class="center-align white-text lighten-2 fonts">  Dental Services  </h3>
 		</div>
-		
+
 		<div class="row" >
 			<div class="col s6 center-align">
 				<div class="row">
@@ -64,7 +87,7 @@
 					<p class="white-text center-align">Find Dentist</p>
 				</div>
 			</div>
-		
+
 			<div class="col s6 center-align">
 				<div class="row">
 					<a href="#/dental-services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
@@ -76,7 +99,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="row" >
 			<div class="col s6 center-align">
 				<div class="row">
@@ -88,7 +111,7 @@
 					<p class="white-text center-align">Get Dental Advice</p>
 				</div>
 			</div>
-		
+
 			<div class="col s6 center-align">
 				<div class="row">
 					<a href="#/dental-services/support" class="btn-floating btn-large waves-effect waves-light colors">
@@ -100,7 +123,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="row" >
 			<div class="col s6 center-align">
 				<div class="row">
@@ -112,7 +135,7 @@
 					<p class="white-text center-align">My Wellbeing</p>
 				</div>
 			</div>
-		
+
 			<div class="col s6 center-align">
 				<div class="row">
 					<a href="#/dental-services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
@@ -145,7 +168,7 @@
                 <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
             </div>
         </div>
-        
+
         <div class="row">
             <form class="col s12">
                 <div>
@@ -163,8 +186,8 @@
                         <label for="icon_telephone">Username/ Policy number</label>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="row">
                     <div class="input-field col s12 center">
                         <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn">
@@ -172,7 +195,7 @@
                             Send Email
                         </a>
                     </div>
-        
+
                 </div>
             </form>
         </div>
@@ -185,7 +208,7 @@
                 <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
             </div>
         </div>
-        
+
         <div class="row">
             <form class="col s12">
                 <div>
@@ -205,8 +228,8 @@
                         <label for="icon_telephone">Password</label>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="row">
                     <div class="input-field col s12 center">
                         <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" href="#/services">
@@ -214,11 +237,11 @@
                             Sign in
                         </a>
                     </div>
-        
+
                 </div>
             </form>
         </div>
-        
+
         <div class="row">
             <div class="col s12 center">
                 <p><a href="#/forgot-password" style="color: #681950;"><u>Forgot login details</u></a></p>
@@ -241,7 +264,7 @@
 			<div class="col s4">
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
-			<div class="col s4 right">        
+			<div class="col s4 right">
 				<ul id="nav-mobile" class="side-nav right">
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" href="#qrmodal">My QR Code</a></li>
@@ -258,12 +281,12 @@
 	<div class="view">
 
 		<ng-include src="navbar"></ng-include>
-		
+
 		<div class="row" >
 		    <ul class="collection" style="border: 1px solid #ddd">
 		        <li class="list-item">Your treatment with P S B Dental Care Ltd has been approved by the insurer! <!-- <a href="#" class="secondary-content">@10:00</a> --></li>
 		        <li class="list-item">You have an appointment with Dr Flan on <span style="font-weight: bold;">03-08-2015</span> at <span style="font-weight: bold;">10:30am</span> at P S B Dental Care Ltd.  <!-- <a href="#" class="secondary-content">@10:00</a> --></li>
-		        <li class="list-item">Your feedback for your recent appointment at P S B Dental Care Ltd is pending.<!--   <a href="#" class="secondary-content">@10:00</a> --></li><!-- 
+		        <li class="list-item">Your feedback for your recent appointment at P S B Dental Care Ltd is pending.<!--   <a href="#" class="secondary-content">@10:00</a> --></li><!--
 		        <li class="collection-item">Lorem ipsum dolor sit amet.  <a href="#" class="secondary-content">@10:00</a></li> -->
 		    </ul>
 		</div>
@@ -332,7 +355,7 @@
 </script>
 <script type="text/ng-template" id="settings.html">
 	<div class="view">
-	
+
 		<ng-include src="navbar"></ng-include>
 
 		<div id="m" class="modal">
@@ -358,7 +381,7 @@
 						<p class="white-text center-align">Personal Details</p>
 					</div>
 				</div>
-		
+
 				<div class="col s6 center-align top-margin">
 					<div class="row">
 						<a href="#/settings/family-details" class="btn-floating btn-large waves-effect waves-light colors">
@@ -389,7 +412,7 @@
 						</div>
 					</div>
 				</div>
-		
+
 				<div class="col s6 center-align top-margin">
 					<div class="row">
 						<a data-target="qrmodal" href="#pwdqrmodal" class="btn-floating btn-large waves-effect waves-light colors modal-trigger">
@@ -489,7 +512,7 @@
 						<p>Doctor: {{clinic.DentistFirstName}} {{clinic.DentistSurname}}</p>
 						<p>Distance: {{distance}}</p>
 
-						
+
 							<ul class="collection">
 								<a href="#/dental-clinic-detail/treatment" class="collection-item">
 									Treatment Details
@@ -522,7 +545,7 @@
 						        	</div>
 						        </a>
 							</ul>
-						
+
 					</div>
 				</div>
 			</div>
@@ -534,7 +557,7 @@
     <div class="view">
 
         <ng-include src="navbar"></ng-include>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col s12 m12">
@@ -559,7 +582,7 @@
                 </div>
             </div>
             <h5 class="title" style="margin-top: 2rem; line-height: 1.3rem;"></h5>
-        
+
         </div>
         <script type="text/javascript">
             $('#q-submit').on('click', function() {
@@ -570,7 +593,7 @@
 </script>
 <script type="text/ng-template" id="feedback.html">
 	<ng-include src="navbar"></ng-include>
-	
+
 	<div class="container">
 		<div class="row">
 			<h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
@@ -842,19 +865,19 @@
 								<label for="test2">No</label>
 							</p>
 						</form>
-						<div style="padding-bottom: 9%;">                  
+						<div style="padding-bottom: 9%;">
 							<a onclick="Materialize.toast('Feedback Submitted', 2000)" href="#" class="waves-effect waves-light btn colorofbutton right">Submit</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	
+
 	</div>
 </script>
 <script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
-			
+
 			<ng-include src="navbar"></ng-include>
 
 			<div class="custom-tabs" ng-show="mapView == 1">
@@ -909,7 +932,7 @@
 							<p>{{clinic.distance}}</p>
 						</a>
 					</li>
-					
+
 				</ul>
 			</div>
 
@@ -964,7 +987,7 @@
 <script type="text/ng-template" id="my-claims.html">
 	<div class="view">
 		<ng-include src="navbar"></ng-include>
-		
+
 		<div class="row">
 		    <div class="col s12 m12">
 		        <div class="card">
@@ -999,7 +1022,7 @@
 		        </div>
 		    </div>
 		</div>
-		
+
 		<div id="email-claim-modal" class="modal">
 		    <div class="modal-content">
 		        <h4>Enter Email</h4>
@@ -1024,7 +1047,7 @@
 <script type="text/ng-template" id="my-policy.html">
 	<div class="view">
 		<ng-include src="navbar"></ng-include>
-		
+
 		<div class="container">
 			<div class="row">
 				<div class="col s12 m12">
@@ -1044,7 +1067,7 @@
 <script type="text/ng-template" id="support.html">
 	<div class="view">
 		<ng-include src="navbar"></ng-include>
-		
+
 		<div class="container">
 			<div class="row">
 				<div class="col s12 m12">
@@ -1053,7 +1076,7 @@
 							<p style="font-weight: bold; font-size: 1.3rem; margin-bottom: 2rem;">For queries, contact us through the following media.</p>
 							<p>Phone: (0207) 269 9723</p>
 							<p>Email: support@dentalink.co.uk</p>
-		
+
 							<a class="btn btn-default orange" href="#" style="margin-top: 2rem;">Raise Support Ticket</a>
 						</div>
 					</div>
@@ -1089,7 +1112,7 @@
 <script type="text/ng-template" id="family.html">
 	<div class="view">
 		<ng-include src="navbar"></ng-include>
-		
+
 		<div id="m" class="modal">
 			<div class="modal-content">
 				<h4 class="orange-text">Done!</h4>
@@ -1099,7 +1122,7 @@
 				<a href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
@@ -1131,15 +1154,15 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="row">      
+
+		<div class="row">
 			<div class="col s12 right-align">
 				<button class="btn-floating btn-large waves-effect waves-light pull-right white modal-trigger" type="submit" name="action" id="clickMe" data-target="detailmodal" href="#detailmodal">
 					<i class="mdi-content-add"></i>
 				</button>
 				<div id="detailmodal" class="modal">
 					<div class="modal-content center">
-						<h5>Add Family Details</h5>              
+						<h5>Add Family Details</h5>
 						<div class="row thisrow">
 							<div class="testcontent">
 								<div class="row">
@@ -1187,7 +1210,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<script>
 			$('.datepicker').pickadate({
 				selectMonths: true, // Creates a dropdown to control month
@@ -1204,7 +1227,7 @@
 		<div class="row">
 			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
 		</div>
-		
+
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
@@ -1279,14 +1302,14 @@
 					<h5 class="black-text " >Address</h5>
 					<span class="grey-text">
 						139 Harley Street, LONDON, W1G 6BG<br>
-	
+
 					</span>
 				</div>
-	
+
 			</li>
 		</ul>
 	</div>
-	
+
 	<div class="card-panel grey lighten-5 z-depth-1">
 		<ul  class="collection">
 			<li class="collection-item avatar">
@@ -1297,11 +1320,11 @@
 						020 7486 1059
 					</span>
 				</div>
-	
+
 			</li>
 		</ul>
 	</div>
-	
+
 	<div class="card-panel grey lighten-5 z-depth-1">
 		<ul  class="collection">
 			<li class="collection-item avatar">
@@ -1314,9 +1337,9 @@
 				</div>
 			</li>
 		</ul>
-	
+
 	</div>
-	
+
 	<div class="card-panel grey lighten-5 z-depth-1">
 		<ul  class="collection">
 			<li class="collection-item avatar">
@@ -1329,7 +1352,7 @@
 				</div>
 			</li>
 		</ul>
-	
+
 	</div>
 </script>
 <script type="text/ng-template" id="rating.html">
@@ -1342,17 +1365,17 @@
 						<td>
 							<li class="collection-item avatar">
 								<i class="mdi-social-person circle orange"></i>
-	
+
 							</li>
 						</td>
-	
+
 						<td>
 							<h5>awaf al moteb</h5>
 							<!-- <p class="grey-text left-align">alice@example.com </p> -->
 						</td>
-	
-	
-	
+
+
+
 						<td>
 							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
 							<h4 class="center black-text " >5.0</h4>
@@ -1363,17 +1386,17 @@
 			<tbody>
 				<tr>
 					<td colspan = "3">
-						<p class="grey-text left-align"> 
+						<p class="grey-text left-align">
 							He explained to me every thing about my teeth and he showed me what is the plan of therapy and he did very well.
 						</p>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-	
+
 	</ul>
-	
-	
+
+
 	<ul class="collection">
 		<table>
 			<thead>
@@ -1382,18 +1405,18 @@
 						<td>
 							<li class="collection-item avatar">
 								<i class="mdi-social-person circle orange"></i>
-	
+
 							</li>
 						</td>
-	
+
 						<td>
 							<h5>FAHAD AL MUTAIRI
 							</h5>
 							<!-- <p class="grey-text left-align">John@example.com </p> -->
 						</td>
-	
-	
-	
+
+
+
 						<td>
 							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
 							<h4 class="center black-text " >5.0</h4>
@@ -1409,98 +1432,98 @@
 				</tr>
 			</tbody>
 		</table>
-	
+
 	</ul>
 </script>
 <script type="text/ng-template" id="staff.html">
 	<ng-include src="navbar"></ng-include>
 	<ul class="collection">
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/stanley kay.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr Stanley Kay</h5></span>
 			<p class="grey-text">GDC Number: 36744
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/SarahNeale-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr Sarah Neale</h5></span>
 			<p class="grey-text">GDC Number: 65581
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/PedjaPavlovic-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr. Pedja Pavlovic</h5></span>
 			<p class="grey-text">GDC Number: 72547
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/NectariaPolycarpou-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr. Nectaria Polycarpou</h5></span>
 			<p class="grey-text">GDC Number: 71067
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/MaryShenouda-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr. Mary Shenouda</h5></span>
 			<p class="grey-text">GDC Number: 133585
 			</p>
 		</li>
-	
-	
+
+
 		<li class="collection-item avatar">
 			<img src="images/staff/CharlotteStilwell-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr. Charlotte Stilwell</h5></span>
 			<p class="grey-text">GDC Number: 59233
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/JeanClaude-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr. Jean Claude Violides</h5></span>
 			<p class="grey-text">GDC Number: 133585
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/RamanBedi-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Prof. Raman Bedi</h5></span>
 			<p class="grey-text">GDC Number: 50292
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/StephenDover-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Mr. Stephen Dover</h5></span>
 			<p class="grey-text">GDC Number: 54751
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/EmmaLaing-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr. Emma Laing</h5></span>
 			<p class="grey-text">GDC Number: 80557
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/JasSharma-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Dr. Jas Sharma</h5></span>
-			<p class="grey-text">GDC Number: 71374 
+			<p class="grey-text">GDC Number: 71374
 			</p>
 		</li>
-	
+
 		<li class="collection-item avatar">
 			<img src="images/staff/PascalLarousse-profile.jpg" alt="" class="circle">
 			<span class="title"><h5>Mr. Pascal Larousse DchD</h5></span>
 			<p class="grey-text">GDC Number: 102262
 			</p>
 		</li>
-		
+
 	</ul>
 </script>
 <script type="text/ng-template" id="timing.html">
@@ -1514,7 +1537,7 @@
 					<th data-field="price">Closing</th>
 				</tr>
 			</thead>
-		
+
 			<tbody>
 				<tr>
 					<td>Mon</td>
@@ -1558,87 +1581,87 @@
 <script type="text/ng-template" id="treatment.html">
 	<ng-include src="navbar"></ng-include>
 	<ul class="collection">
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Intra-oral – Bite-wing per unit</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£10</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Intra-oral – Periapical per unit</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£10</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Topical Application of Fluoride </p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£200</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Sealant – per tooth</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£100</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>One Hour Hygiene</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£170</span></p>
 				</div>
 			</div>
@@ -1649,161 +1672,161 @@
 					<span class="title"><p>Amalgam – Small, primary or permanent</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£250</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Amalgam – Medium, primary or permanent</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£250</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Amalgam – Large, primary or permanent</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£250</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Composite – Small</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£250</span></p>
 				</div>
 			</div>
-	
+
 		</li>
-	
+
 		<li class="collection-item ">
-	
-	
+
+
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Composite – Medium</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£250</span></p>
 				</div>
 			</div>
-	
+
 		</li>
-	
+
 		<li class="collection-item ">
-	
+
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Composite – Large</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£250</span></p>
 				</div>
 			</div>
-	
+
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Inlay- Gold</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£1100</span></p>
 				</div>
 			</div>
-	
+
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Inlay- Ceramic</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£1100</span></p>
 				</div>
 			</div>
 		</li>
-	
+
 		<li class="collection-item ">
 			<div class="row ">
 				<div class="col s8 ">
 					<span class="title"><p>Routine Hygiene</p></span>
 				</div>
 				<div class="col s0 ">
-	
+
 					<img src="images/bar.jpg" alt="" class="circle">
 				</div>
-	
+
 				<div class="col s3 ">
-					
+
 					<p><span class="center" style="color: #2980B9">£215</span></p>
 				</div>
 			</div>
 		</li>
 	</ul>
 </script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false"></script>	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false"></script>
 </body>
 </html>

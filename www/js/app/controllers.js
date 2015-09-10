@@ -1,3 +1,4 @@
+// navigator.geolocation.getCurrentPosition(onSuccess, onError);
 avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log) {
 	var history = [];
 	$scope.$route = $route;
