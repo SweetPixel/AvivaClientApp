@@ -155,6 +155,7 @@ avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 });
 avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapService){
 	$scope.practiceId = $routeParams.param;
+	$scope.distance = "Calculating...";
 	$scope.$parent.promise.then(function () {
 		$.each($scope.$parent.clinics, function (index, item) {
 			if (item.practiceId == $scope.practiceId) {
