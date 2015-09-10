@@ -3,22 +3,57 @@
 
 	<div class="container" ng-controller="clinicDetailCtrl">
 
-			<div class="row">
-				<div class="col s12 m12">
-					<div class="card">
-						<div ng-show="clinic.PracticeImageLoc" class="card-image">
-							<img src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}">
-						</div>
-						<div class="card-content">
-							<span class="card-title grey-text">{{clinic.PracticeName}}</span>
-							<p>Address: {{address}}</p>
-							<p>Phone: {{clinic.Telephone}}</p>
-							<p>Doctor: {{clinic.DentistFirstName}} {{clinic.DentistSurname}}</p>
-							<p>Distance: {{distance}}</p>
-						</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div ng-show="clinic.PracticeImageLoc" class="card-image">
+						<img src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}">
+					</div>
+					<div class="card-content">
+						<span class="card-title grey-text">{{clinic.PracticeName}}</span>
+						<p>Address: {{address}}</p>
+						<p>Phone: {{clinic.Telephone}}</p>
+						<p>Doctor: {{clinic.DentistFirstName}} {{clinic.DentistSurname}}</p>
+						<p>Distance: {{distance}}</p>
+
+						
+							<ul class="collection">
+								<a href="#/dental-services/clinic-detail/treatment" class="collection-item">
+									Treatment Details
+									<div class="secondary-content">
+										<i class="mdi-image-navigate-next right"></i>
+									</div>
+								</a>
+						        <a href="#/dental-services/clinic-detail/staff" class="collection-item">
+						        	Our Staff
+						        	<div class="secondary-content">
+						        		<i class="mdi-image-navigate-next right"></i>
+						        	</div>
+						        </a>
+						        <a href="#/dental-services/clinic-detail/timing" class="collection-item">
+						        	Timings
+						        	<div class="secondary-content">
+						        		<i class="mdi-image-navigate-next right"></i>
+						        	</div>
+						        </a>
+						        <a href="#/dental-services/clinic-detail/contact" class="collection-item">
+						        	Contact Us
+						        	<div class="secondary-content">
+						        		<i class="mdi-image-navigate-next right"></i>
+						        	</div>
+						        </a>
+						        <a href="#/dental-services/clinic-detail/rating" class="collection-item">
+						        	Reviews & Ratings
+						        	<div class="secondary-content">
+						        		<i class="mdi-image-navigate-next right"></i>
+						        	</div>
+						        </a>
+							</ul>
+						
 					</div>
 				</div>
 			</div>
-
 		</div>
-	</script>
+
+	</div>
+</script>
