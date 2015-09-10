@@ -516,3 +516,6 @@ nav .button-collapse i {
 .collection .collection-item {
     padding: 1rem 1rem 1rem;
 }
+.collection-item .row {
+	margin-bottom: 0;
+}

@@ -58,19 +58,20 @@ avivaApp.config(function($routeProvider) {
 		.when('/dental-services/clinic-detail/:param', {
 			templateUrl: 'clinic-detail.html'
 		})
-		.when('/dental-services/clinic-detail/treatment', {
+
+		.when('/dental-clinic-detail/treatment', {
 			templateUrl: 'treatment.html'
 		})
-		.when('/dental-services/clinic-detail/staff', {
+		.when('/dental-clinic-detail/staff', {
 			templateUrl: 'staff.html'
 		})
-		.when('/dental-services/clinic-detail/timing', {
+		.when('/dental-clinic-detail/timing', {
 			templateUrl: 'timing.html'
 		})
-		.when('/dental-services/clinic-detail/contact', {
+		.when('/dental-clinic-detail/contact', {
 			templateUrl: 'contact.html'
 		})
-		.when('/dental-services/clinic-detail/rating', {
+		.when('/dental-clinic-detail/rating', {
 			templateUrl: 'rating.html'
 		})
 		//dentalservices end

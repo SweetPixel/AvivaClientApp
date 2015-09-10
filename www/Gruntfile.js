@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 		    dist: {
-		    	src: ['entry-point.html', 'templates/*.html', 'templates/*/*.html', 'entry-point-end.html'],
+		    	src: ['entry-point.html', 'templates/*.html', 'templates/*/*.html', 'templates/*/*/*.html' , 'entry-point-end.html'],
 		    	dest: 'index.html',
 		    },
 		 }

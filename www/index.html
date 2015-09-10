@@ -488,31 +488,31 @@
 
 						
 							<ul class="collection">
-								<a href="#/dental-services/clinic-detail/treatment" class="collection-item">
+								<a href="#/dental-clinic-detail/treatment" class="collection-item">
 									Treatment Details
 									<div class="secondary-content">
 										<i class="mdi-image-navigate-next right"></i>
 									</div>
 								</a>
-						        <a href="#/dental-services/clinic-detail/staff" class="collection-item">
+						        <a href="#/dental-clinic-detail/staff" class="collection-item">
 						        	Our Staff
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-services/clinic-detail/timing" class="collection-item">
+						        <a href="#/dental-clinic-detail/timing" class="collection-item">
 						        	Timings
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-services/clinic-detail/contact" class="collection-item">
+						        <a href="#/dental-clinic-detail/contact" class="collection-item">
 						        	Contact Us
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-services/clinic-detail/rating" class="collection-item">
+						        <a href="#/dental-clinic-detail/rating" class="collection-item">
 						        	Reviews & Ratings
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
@@ -1263,6 +1263,541 @@
 		});
 	</script>
 
+</script>
+<script type="text/ng-template" id="contact.html">
+	<ng-include src="navbar"></ng-include>
+	<div class="card-panel grey lighten-5 z-depth-1">
+		<ul  class="collection">
+			<li class="collection-item avatar">
+				<i class="mdi-communication-location-on circle orange"></i>
+				<div class="col s10 left-align">
+					<h5 class="black-text " >Address</h5>
+					<span class="grey-text">
+						139 Harley Street, LONDON, W1G 6BG<br>
+	
+					</span>
+				</div>
+	
+			</li>
+		</ul>
+	</div>
+	
+	<div class="card-panel grey lighten-5 z-depth-1">
+		<ul  class="collection">
+			<li class="collection-item avatar">
+				<i class="mdi-communication-phone circle orange"></i>
+				<div class="col s10 left-align">
+					<h5 class="black-text " >Phone</h5>
+					<span class="grey-text">
+						020 7486 1059
+					</span>
+				</div>
+	
+			</li>
+		</ul>
+	</div>
+	
+	<div class="card-panel grey lighten-5 z-depth-1">
+		<ul  class="collection">
+			<li class="collection-item avatar">
+				<i class="mdi-communication-email circle orange"></i>
+				<div class="col s10 left-align">
+					<h5 class="black-text" >Email</h5>
+					<span class="grey-text">
+						aviva@hsdc.com
+					</span>
+				</div>
+			</li>
+		</ul>
+	
+	</div>
+	
+	<div class="card-panel grey lighten-5 z-depth-1">
+		<ul  class="collection">
+			<li class="collection-item avatar">
+				<i class="mdi-communication-email circle orange"></i>
+				<div class="col s10 left-align">
+					<h5 class="black-text" >Web</h5>
+					<span class="grey-text">
+						http://www.harleystreetdentalclinic.co.uk
+					</span>
+				</div>
+			</li>
+		</ul>
+	
+	</div>
+</script>
+<script type="text/ng-template" id="rating.html">
+	<ng-include src="navbar"></ng-include>
+	<ul class="collection">
+		<table>
+			<thead>
+				<th>
+					<tr>
+						<td>
+							<li class="collection-item avatar">
+								<i class="mdi-social-person circle orange"></i>
+	
+							</li>
+						</td>
+	
+						<td>
+							<h5>awaf al moteb</h5>
+							<!-- <p class="grey-text left-align">alice@example.com </p> -->
+						</td>
+	
+	
+	
+						<td>
+							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
+							<h4 class="center black-text " >5.0</h4>
+						</td>
+					</tr>
+				</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan = "3">
+						<p class="grey-text left-align"> 
+							He explained to me every thing about my teeth and he showed me what is the plan of therapy and he did very well.
+						</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</ul>
+	
+	
+	<ul class="collection">
+		<table>
+			<thead>
+				<th>
+					<tr>
+						<td>
+							<li class="collection-item avatar">
+								<i class="mdi-social-person circle orange"></i>
+	
+							</li>
+						</td>
+	
+						<td>
+							<h5>FAHAD AL MUTAIRI
+							</h5>
+							<!-- <p class="grey-text left-align">John@example.com </p> -->
+						</td>
+	
+	
+	
+						<td>
+							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
+							<h4 class="center black-text " >5.0</h4>
+						</td>
+					</tr>
+				</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan = "3">
+						<p  class="grey-text left-align"> </p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</ul>
+</script>
+<script type="text/ng-template" id="staff.html">
+	<ng-include src="navbar"></ng-include>
+	<ul class="collection">
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/stanley kay.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr Stanley Kay</h5></span>
+			<p class="grey-text">GDC Number: 36744
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/SarahNeale-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr Sarah Neale</h5></span>
+			<p class="grey-text">GDC Number: 65581
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/PedjaPavlovic-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr. Pedja Pavlovic</h5></span>
+			<p class="grey-text">GDC Number: 72547
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/NectariaPolycarpou-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr. Nectaria Polycarpou</h5></span>
+			<p class="grey-text">GDC Number: 71067
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/MaryShenouda-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr. Mary Shenouda</h5></span>
+			<p class="grey-text">GDC Number: 133585
+			</p>
+		</li>
+	
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/CharlotteStilwell-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr. Charlotte Stilwell</h5></span>
+			<p class="grey-text">GDC Number: 59233
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/JeanClaude-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr. Jean Claude Violides</h5></span>
+			<p class="grey-text">GDC Number: 133585
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/RamanBedi-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Prof. Raman Bedi</h5></span>
+			<p class="grey-text">GDC Number: 50292
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/StephenDover-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Mr. Stephen Dover</h5></span>
+			<p class="grey-text">GDC Number: 54751
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/EmmaLaing-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr. Emma Laing</h5></span>
+			<p class="grey-text">GDC Number: 80557
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/JasSharma-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Dr. Jas Sharma</h5></span>
+			<p class="grey-text">GDC Number: 71374 
+			</p>
+		</li>
+	
+		<li class="collection-item avatar">
+			<img src="images/staff/PascalLarousse-profile.jpg" alt="" class="circle">
+			<span class="title"><h5>Mr. Pascal Larousse DchD</h5></span>
+			<p class="grey-text">GDC Number: 102262
+			</p>
+		</li>
+		
+	</ul>
+</script>
+<script type="text/ng-template" id="timing.html">
+	<ng-include src="navbar"></ng-include>
+	<div class="container">
+		<table class="bordered">
+			<thead>
+				<tr>
+					<th data-field="id">Day</th>
+					<th data-field="name">Opening</th>
+					<th data-field="price">Closing</th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				<tr>
+					<td>Mon</td>
+					<td>08:30 AM</td>
+					<td>06:30 PM</td>
+				</tr>
+				<tr>
+					<td>Tue</td>
+					<td>08:30 AM</td>
+					<td>06:30 PM</td>
+				</tr>
+				<tr>
+					<td>Wed</td>
+					<td>08:30 AM</td>
+					<td>06:30 PM</td>
+				</tr>
+				<tr>
+					<td>Thu</td>
+					<td>08:30 AM</td>
+					<td>06:30 PM</td>
+				</tr>
+				<tr>
+					<td>Fri</td>
+					<td>08:30 AM</td>
+					<td>06:30 PM</td>
+				</tr>
+				<tr>
+					<td>Sat</td>
+					<td>08:30 AM</td>
+					<td>06:30 PM</td>
+				</tr>
+				<tr>
+					<td>Sun</td>
+					<td>Closed</td>
+					<td>Closed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</script>
+<script type="text/ng-template" id="treatment.html">
+	<ng-include src="navbar"></ng-include>
+	<ul class="collection">
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Intra-oral – Bite-wing per unit</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£10</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Intra-oral – Periapical per unit</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£10</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Topical Application of Fluoride </p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£200</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Sealant – per tooth</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£100</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>One Hour Hygiene</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£170</span></p>
+				</div>
+			</div>
+		</li>
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Amalgam – Small, primary or permanent</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£250</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Amalgam – Medium, primary or permanent</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£250</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Amalgam – Large, primary or permanent</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£250</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Composite – Small</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£250</span></p>
+				</div>
+			</div>
+	
+		</li>
+	
+		<li class="collection-item ">
+	
+	
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Composite – Medium</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£250</span></p>
+				</div>
+			</div>
+	
+		</li>
+	
+		<li class="collection-item ">
+	
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Composite – Large</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£250</span></p>
+				</div>
+			</div>
+	
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Inlay- Gold</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£1100</span></p>
+				</div>
+			</div>
+	
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Inlay- Ceramic</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£1100</span></p>
+				</div>
+			</div>
+		</li>
+	
+		<li class="collection-item ">
+			<div class="row ">
+				<div class="col s8 ">
+					<span class="title"><p>Routine Hygiene</p></span>
+				</div>
+				<div class="col s0 ">
+	
+					<img src="images/bar.jpg" alt="" class="circle">
+				</div>
+	
+				<div class="col s3 ">
+					
+					<p><span class="center" style="color: #2980B9">£215</span></p>
+				</div>
+			</div>
+		</li>
+	</ul>
 </script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false"></script>	
 </body>
