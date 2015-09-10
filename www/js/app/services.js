@@ -21,7 +21,9 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 	return {
 		getPosition: function () {
 			var deferred = $q.defer();
+			
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			
 			function onSuccess (position) {
 				deferred.resolve({
 					position: position
@@ -76,12 +78,17 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			var nearbyClinics = [];
 			var i = 0;
 			var deferred = $q.defer();
+			var positions = [];
+			var distances = [];
 			$.each(clinics, function (index, item) {
+				var position = new google.maps.LatLng(item.Latitude, item.Longitude);
+				
 			    markers[i] = new google.maps.Marker({
-			        position: new google.maps.LatLng(item.Latitude, item.Longitude),
+			        position: position
 			    });
 			    var url = '#/dental-services/clinic-detail/' + item.practiceId;
 			    if (bounds.contains(markers[i].getPosition() )) {
+			    	positions.push(position);
 			    	nearbyClinics.push(item);
 			    	markers[i].setMap(map);
 			    	markers[i].addListener('click', function() {
@@ -91,10 +98,46 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			    }
 			    i++;
 			});
-			
-			deferred.resolve({
-				nearbyClinics: nearbyClinics,
-				markers: markers
+			var origin = new google.maps.LatLng(53.3788635,-1.4703039);;
+			var service = new google.maps.DistanceMatrixService();
+			service.getDistanceMatrix({
+				origins: [origin],
+				destinations: positions,
+				travelMode: google.maps.TravelMode.DRIVING,
+				unitSystem: google.maps.UnitSystem.METRIC,
+				avoidHighways: false,
+				avoidTolls: false
+			}, function (response, status) {
+				if (status == google.maps.DistanceMatrixStatus.OK) {
+					var origins = response.originAddresses;
+					var destinations = response.destinationAddresses;
+					var elements = response.rows[0].elements;
+					
+					for (var i = 0; i < elements.length; i++) {
+						var distance = elements[i].distance.text;
+						console.log(distance);
+						distances.push(distance);
+					}
+					console.log(distances.length);
+					for (var i = 0; i < nearbyClinics.length; i++) {
+						nearbyClinics[i].distance = distances[i];
+						console.log("practice " + i + ": " + distances[i]);
+					}
+					deferred.resolve({
+						nearbyClinics: nearbyClinics,
+						markers: markers
+					});
+					
+				}
+				else if (status == google.maps.DistanceMatrixStatus.NOT_FOUND) {
+					console.log("Not found");
+				}
+				else if (status == google.maps.DistanceMatrixStatus.ZERO_RESULTS) {
+					console.log("ZERO found");
+				}
+				else {
+					console.log("Nothing");
+				}
 			});
 			return deferred.promise;
 		},

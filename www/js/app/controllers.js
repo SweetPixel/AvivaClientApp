@@ -73,6 +73,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 						$scope.drawMarkersPromise.then(function (markersPayload) {
 							$scope.clinics = markersPayload.nearbyClinics;
 							$scope.markers = markersPayload.markers;
+							$scope.distances = markersPayload.distances;
 							var clinicsCount = $scope.clinics.length;
 							if (clinicsCount > 0) {
 								$scope.countMessage = "The following " + clinicsCount + " practices were found within 30 kms of your location.";
