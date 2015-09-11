@@ -79,7 +79,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 								$scope.countMessage = "The following " + clinicsCount + " practices were found within 30 kms of your location.";
 							}
 							else {
-								$scope.countMessage = "No practices were found within 30 kms of your location";
+								$scope.countMessage = "No practices were found within 30 kms of your location.";
 							}
 						});
 					});
