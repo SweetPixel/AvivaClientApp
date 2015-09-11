@@ -75,6 +75,12 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'rating.html'
 		})
 		//dentalservices end
+		.when('/optical-services', {
+			templateUrl: 'optical-services.html'
+		})
+		.when('/medical-services', {
+			templateUrl: 'medical-services.html'
+		})
 		.otherwise({
 			redirectTo: '/login'
 		})
