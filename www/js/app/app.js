@@ -7,7 +7,8 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'forgot.html'
 		})
 		.when('/login', {
-			templateUrl: 'login.html'
+			templateUrl: 'login.html',
+			controller: 'loginCtrl'
 		})
 		//index end
 		//services start
@@ -19,6 +20,12 @@ avivaApp.config(function($routeProvider) {
 		})
 		.when('/dental-services', {
 			templateUrl: 'dental-services.html'
+		})
+		.when('/medical-services', {
+			templateUrl: 'medical-services.html'
+		})
+		.when('/optical-services', {
+			templateUrl: 'optical-services.html'
 		})
 		.when('/notifications', {
 			templateUrl: 'notifications.html'
@@ -53,7 +60,8 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'well-being.html'
 		})
 		.when('/dental-services/dental-advice', {
-			templateUrl: 'dental-advice.html'
+			templateUrl: 'dental-advice.html',
+			controller: 'dentalAdviceCtrl'
 		})
 		.when('/dental-services/clinic-detail/:param', {
 			templateUrl: 'clinic-detail.html'
@@ -74,6 +82,9 @@ avivaApp.config(function($routeProvider) {
 		.when('/dental-clinic-detail/rating', {
 			templateUrl: 'rating.html'
 		})
+
+
+		
 		//dentalservices end
 		.otherwise({
 			redirectTo: '/login'

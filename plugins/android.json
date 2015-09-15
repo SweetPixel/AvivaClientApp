@@ -5,9 +5,29 @@
     },
     "config_munge": {
         "files": {
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest/application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />",
+                            "count": 2
+                        }
+                    ]
+                }
+            },
             "res/xml/config.xml": {
                 "parents": {
                     "/*": [
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
                         {
                             "xml": "<feature name=\"SitewaertsDocumentViewer\"><param name=\"android-package\" value=\"de.sitewaerts.cordova.documentviewer.DocumentViewerPlugin\" /></feature>",
                             "count": 1
@@ -19,30 +39,23 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
                         }
                     ]
-                }
-            },
-            "AndroidManifest.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />",
-                            "count": 2
-                        }
-                    ],
-                    "/manifest": [],
-                    "/manifest/application": []
                 }
             }
         }
     },
     "installed_plugins": {
+        "com.google.playservices": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
         "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.dentalink.client"
         },
         "de.sitewaerts.cordova.documentviewer": {
@@ -52,9 +65,6 @@
             "PACKAGE_NAME": "com.dentalink.client"
         },
         "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.dentalink.client"
-        },
-        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.dentalink.client"
         }
     },
