@@ -1,0 +1,38 @@
+<script type="text/ng-template" id="optical-navbar.html">
+	<div id="qrmodal" class="modal">
+	    <div class="modal-content center">
+	        <h5>My Unique Policy QR code</h5>
+	        <img src="images/harley-qr.png" style="width: 100%"/>
+	    </div>
+	    <div class="modal-footer">
+	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+	    </div>
+	</div>
+	<nav class="opticalnavbarColor" role="navigation">
+		<div class="nav-wrapper container">
+			<div class="col s4">
+				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
+			</div>
+			<div class="col s4 right">        
+				<ul id="nav-mobile" class="side-nav right">
+					<li><a href="#/services">Home</a></li>
+					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
+					<li><a href="#/settings">Settings</a></li>
+					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+			</div>
+		</div>
+	</nav>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.button-collapse').sideNav({
+				closeOnClick: true
+			});
+			$('#qrmodal').leanModal();
+			$('#sidenav-overlay').css('opacity', '0');
+			$('.button-collapse').sideNav('hide');
+		});
+	</script>
+</script>

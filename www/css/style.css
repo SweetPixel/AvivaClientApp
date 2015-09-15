@@ -16,20 +16,24 @@ input[type="search"], textarea.materialize-textarea {
 	color: #2980B9;
 }
 
-.medicalnavbarColor {
-	background-color: #84AB8E !important;
+.dentalnavbarColor {
+	background-color: #F69B19 !important; /*orange*/
 }
 
-.settingnavbarColor {
-	background-color: #DE5741 !important;
+.medicalnavbarColor {
+	background-color: #84AB8E !important; /*green*/
 }
 
 .opticalnavbarColor {
-	background-color: #E7D101 !important;
+	background-color: #E7D101 !important; /*yellow*/
+}
+
+.settingsnavbarColor {
+	background-color: #DE5741 !important; /*red*/
 }
 
 .notificationnavbarColor {
-	background-color: #681751 !important;
+	background-color: #681751 !important; /*purple*/
 }
 
 .navbarColor {

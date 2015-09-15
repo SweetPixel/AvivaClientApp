@@ -3,7 +3,11 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.$route = $route;
 	$scope.$routeParams = $routeParams;
 	$scope.$location = $location;
-	$scope.navbar = 'navbar.html';
+	$scope.dentalnavbar = 'dental-navbar.html';
+	$scope.medicalnavbar = 'medical-navbar.html';
+	$scope.opticalnavbar = 'optical-navbar.html';
+	$scope.settingsnavbar = 'settings-navbar.html';
+	$scope.notificationnavbar = 'notification-navbar.html';
 	$scope.mapView = 1;
 	$scope.$on('$routeChangeSuccess', function () {
 		history.push($location.$$path);
