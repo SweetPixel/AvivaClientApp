@@ -14,14 +14,14 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="name" type="text" class="validate">
+                        <input id="name" type="text" class="validate" ng-model="username">
                         <label for="name">Username</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <!-- <i class="mdi-communication-phone prefix"></i> -->
-                        <input id="icon_telephone" type="password" class="validate">
+                        <input id="icon_telephone" type="password" class="validate" ng-model="password">
                         <label for="icon_telephone">Password</label>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
         
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" href="#/services">
+                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" ng-click="login()">
                             <img src="images/svgs/change-password.svg" style="width: 7%;">
                             Sign in
                         </a>

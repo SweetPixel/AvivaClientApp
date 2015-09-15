@@ -180,3 +180,26 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 		})
 	});
 });
+avivaApp.controller('loginCtrl', function ($scope, $location) {
+	$scope.username;
+	$scope.password;
+	$scope.login = function () {
+		if ($scope.username == 'foo' && $scope.password == 'bar') {
+			$location.path('/services');
+		}
+		else {
+			Materialize.toast("Wrong username or password.", 4000);
+		}
+	}
+});
+avivaApp.controller('dentalAdviceCtrl', function ($scope, $location) {
+	$scope.question = "";
+	$scope.submitQuestion = function () {
+		if ($scope.question !== "") {
+			Materialize.toast('Your question has been received.', 4000)
+		}
+		else {
+			Materialize.toast('Please write something.', 4000)
+		}
+	}
+})
