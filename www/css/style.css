@@ -179,9 +179,6 @@ a.colors {
 .colors:hover {
 	background-color: orange;
 }
-.btn-services:hover {
-	background-color: #ECF0F1;
-}
 
 #chat-footer {
 	background-color: #ffffff;
@@ -354,7 +351,7 @@ a:hover {
 	line-height: 3rem;
 	text-align: center;
 	font-size: 1.2rem;
-	border-top: 1px solid #F69B19;
+	border-top: 1px solid #DE5741;
 }
 .search-options a {
 	color: #000;
@@ -404,7 +401,7 @@ nav .button-collapse i {
 	padding-left: 1rem;
 	margin-bottom: 0;
 	border-bottom: none;
-	color: #6C6C6C;
+	color: #FFF;
 }
 #search-view input[type="search"]:focus {
 	background-color: #FFF;
