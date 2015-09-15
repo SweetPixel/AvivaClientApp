@@ -102,7 +102,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 			$scope.searchResult = [];
 			$scope.$parent.promise.then(function () {
 				$.each($scope.$parent.clinics, function (index, item) {
-					if (item.Postcode.toLowerCase().indexOf(changed) > 0) {
+					if (item.Postcode.toLowerCase().indexOf(changed.toLowerCase()) > 0) {
 						$scope.gotSearchResult = true;
 						if ($scope.searchResult.length < 5) {
 							$scope.searchResult.push(item);
@@ -188,7 +188,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location) {
 	$scope.username;
 	$scope.password;
 	$scope.login = function () {
-		if ($scope.username == 'foo' && $scope.password == 'bar') {
+		if ($scope.username == 'eqo8ya1q' && $scope.password == 'eb2014') {
 			$location.path('/services');
 		}
 		else {
