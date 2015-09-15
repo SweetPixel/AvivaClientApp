@@ -189,14 +189,14 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="name" type="text" class="validate">
+                        <input id="name" type="text" class="validate" ng-model="username">
                         <label for="name">Username</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <!-- <i class="mdi-communication-phone prefix"></i> -->
-                        <input id="icon_telephone" type="password" class="validate">
+                        <input id="icon_telephone" type="password" class="validate" ng-model="password">
                         <label for="icon_telephone">Password</label>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
         
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" href="#/services">
+                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" ng-click="login()">
                             <img src="images/svgs/change-password.svg" style="width: 7%;">
                             Sign in
                         </a>
@@ -363,7 +363,9 @@
 				closeOnClick: true
 			});
 			$('#qrmodal').leanModal();
-		})
+			$('#sidenav-overlay').css('opacity', '0');
+			$('.button-collapse').sideNav('hide');
+		});
 	</script>
 </script>
 <script type="text/ng-template" id="notifications.html">
@@ -768,11 +770,11 @@
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <textarea id="textarea1" class="materialize-textarea" ng-model="question"></textarea>
                                             <label for="textarea1">Ask a question</label>
                                         </div>
                                     </div>
-                                    <a id="q-submit" onclick="Materialize.toast('Your question has been received.', 4000)" class="orange waves-effect waves-light btn">Submit</a>
+                                    <a id="q-submit" ng-click="submitQuestion()" class="orange waves-effect waves-light btn">Submit</a>
                                 </form>
                             </div>
                         </div>

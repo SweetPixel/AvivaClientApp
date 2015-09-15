@@ -7,7 +7,8 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'forgot.html'
 		})
 		.when('/login', {
-			templateUrl: 'login.html'
+			templateUrl: 'login.html',
+			controller: 'loginCtrl'
 		})
 		//index end
 		//services start
@@ -59,7 +60,8 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'well-being.html'
 		})
 		.when('/dental-services/dental-advice', {
-			templateUrl: 'dental-advice.html'
+			templateUrl: 'dental-advice.html',
+			controller: 'dentalAdviceCtrl'
 		})
 		.when('/dental-services/clinic-detail/:param', {
 			templateUrl: 'clinic-detail.html'
