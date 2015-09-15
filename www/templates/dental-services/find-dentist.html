@@ -16,7 +16,7 @@
 
 			<div id="nearby-view" ng-show="mapView == 0" style="background-color: #FFF" ng-init="distance = 'distance' ">
 				<div class="search-options">
-					<a href="" ng-click="showSort = showSort == true ? false : true;">Sort</a>
+					<a href="" ng-click="showSort = showSort == true ? false : true;">Sort Search Results</a>
 				</div>
 				<div class="sort-options" ng-show="showSort">
 					<form action="">
@@ -60,8 +60,9 @@
 			</div>
 
 			<div id="search-view" ng-show="mapView == 2">
-				<div>
-					<input type="search" placeholder="Search" ng-click="advancedSearch = false;" ng-model="value"/>
+				<div class="search-div">
+					<input type="search" placeholder="Enter a postcode to search practices" ng-click="advancedSearch = false;" ng-model="value"/>
+					<i class="fa fa-search" ng-click=""></i>
 				</div>
 				<div id="search-result" ng-show="gotSearchResult">
 					<ul class="collection" ng-repeat="clinic in searchResult">
