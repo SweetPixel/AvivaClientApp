@@ -15,11 +15,11 @@
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <textarea id="textarea1" class="materialize-textarea" ng-model="question"></textarea>
+                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
                                             <label for="textarea1">Ask a question</label>
                                         </div>
                                     </div>
-                                    <a id="q-submit" ng-click="submitQuestion()" class="orange waves-effect waves-light btn">Submit</a>
+                                    <a id="q-submit" onclick="Materialize.toast('Your question has been received.', 4000)" class="orange waves-effect waves-light btn">Submit</a>
                                 </form>
                             </div>
                         </div>

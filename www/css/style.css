@@ -347,7 +347,6 @@ a:hover {
 	line-height: 3rem;
 	text-align: center;
 	font-size: 1.2rem;
-	border-top: 1px solid #DE5741;
 }
 .search-options a {
 	color: #000;
@@ -393,7 +392,7 @@ nav .button-collapse i {
 	font-size: 1.7rem;
 }
 #search-view input[type="search"] {
-	background-color: rgb(255, 255, 255);
+	background-color: #DE5741;
 	padding-left: 1rem;
 	margin-bottom: 0;
 	border-bottom: none;
@@ -484,22 +483,6 @@ nav .button-collapse i {
 	color: #000;
 	font-size: 1rem;
 	line-height: 28px;
-}
-.search-div {
-	position: relative;
-}
-.search-div i {
-	position: absolute;
-	top: 0px;
-	right: 1rem;
-	color: rgb(108, 108, 108);
-	cursor: pointer;
-	font-size: 1.6rem;
-	transition: color 0.3s ease 0s;
-	padding-top: 0.6rem;
-}
-a.email-claim {
-	color: #fff;
 }
 @media screen and (max-width: 599px) {
 	.clinic-list span:nth-child(n+2) {
