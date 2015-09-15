@@ -22,7 +22,7 @@
                     "CoreLocation.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "CoreText.framework": [
@@ -79,12 +79,6 @@
                             "count": 1
                         }
                     ],
-                    "CoreGraphics.framework": [
-                        {
-                            "xml": false,
-                            "count": 2
-                        }
-                    ],
                     "UIKit.framework": [
                         {
                             "xml": false,
@@ -95,6 +89,12 @@
                         {
                             "xml": false,
                             "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 2
                         }
                     ],
                     "MessageUI.framework": [
@@ -109,27 +109,11 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"HttpRequest\"><param name=\"ios-package\" value=\"HttpRequest\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"GoogleMaps\"><param name=\"ios-package\" value=\"GoogleMaps\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"External\"><param name=\"ios-package\" value=\"External\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Geocoder\"><param name=\"ios-package\" value=\"Geocoder\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
                             "count": 1
                         },
                         {
@@ -139,33 +123,19 @@
                         {
                             "xml": "<feature name=\"FileOpener2\"><param name=\"ios-package\" value=\"FileOpener2\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
             },
             "*-Info.plist": {
                 "parents": {
-                    "Google Maps API Key": [
-                        {
-                            "xml": "<string>AIzaSyCiQhEWzDSBttiNQETeFU42_bCf6kj8-eY</string>",
-                            "count": 1
-                        }
-                    ],
                     "NSLocationWhenInUseUsageDescription": [
                         {
-                            "xml": "<string>Show your location on the map</string>",
-                            "count": 1
-                        }
-                    ],
-                    "NSLocationAlwaysUsageDescription": [
-                        {
-                            "xml": "<string>Trace your location on the map</string>",
-                            "count": 2
-                        }
-                    ],
-                    "CFBundleURLTypes": [
-                        {
-                            "xml": "<array><dict><key>CFBundleTypeRole</key><string>Editor</string><key>CFBundleURLName</key><string>com.dentalink.client</string><key>CFBundleURLSchemes</key><array><string>com.dentalink.client</string></array></dict></array>",
+                            "xml": "<string />",
                             "count": 1
                         }
                     ]
@@ -174,19 +144,28 @@
         }
     },
     "installed_plugins": {
+        "com.google.playservices": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
         "com.googlemaps.ios": {
             "PACKAGE_NAME": "com.dentalink.client"
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.dentalink.client"
         },
-        "org.apache.cordova.inappbrowser": {
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.dentalink.client"
         },
         "de.sitewaerts.cordova.documentviewer": {
             "PACKAGE_NAME": "com.dentalink.client"
         },
         "io.github.pwlin.cordova.plugins.fileopener2": {
+            "PACKAGE_NAME": "com.dentalink.client"
+        },
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.dentalink.client"
         }
     },

@@ -15,7 +15,16 @@
 	<script src="js/app/app.js"></script>
 	<script src="js/app/services.js"></script>
 	<script src="js/app/controllers.js"></script>
+<<<<<<< HEAD
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.button-collapse').sideNav({});
+		}, false);
+            
+    </script>
+=======
 	
+>>>>>>> master
 </head>
 <body ng-app="avivaApp" ng-cloak ng-strict>
 	<div>
@@ -222,6 +231,93 @@
     </div>
 </script>
 <script type="text/ng-template" id="medical-services.html">
+<<<<<<< HEAD
+	<ng-include src="navbar"></ng-include>
+	<div class="row">
+		<h3  class="center-align white-text lighten-2 fonts">  Medical Services  </h3>
+	</div>
+	
+	<div class="row" >
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Medical-Services.png" class="settingpageicons" alt="" style="margin-left: 5%;" />
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Find Doctor</p>
+			</div>
+		</div>
+	
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/My-Claims.png" class="settingpageicons" style="margin-left: 5%;">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">My Claims</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" >
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Get-Dental-Medical-Optical-Advice.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Get Medical Advice</p>
+			</div>
+		</div>
+	
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Help-and-Support.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Help & Support</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" >
+		<div class="col s6 center-align">
+			<div class="row">
+			<a class="btn-floating btn-large waves-effect waves-light colors">
+				<img src="images/My-Wellbeing.png" class="settingpageicons">
+			</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">My Wellbeing</p>
+			</div>
+		</div>
+	
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/My-Policy.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">My Policy</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12 center-align">
+			<div class="row">
+				<a class="btn btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Your-Feedback.png" alt="" class="settingpageicons" />
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Feedback</p>
+=======
 	<div class="view">
 	
 		<ng-include src="navbar"></ng-include>
@@ -326,6 +422,7 @@
 				<div class="row">
 					<p class="white-text center-align">Feedback</p>
 				</div>
+>>>>>>> master
 			</div>
 		</div>
 	</div>
@@ -337,7 +434,7 @@
 	        <img src="images/harley-qr.png" style="width: 100%"/>
 	    </div>
 	    <div class="modal-footer">
-	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+	        <a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="$('.button-collapse').sideNav('hide');">Close</a>
 	    </div>
 	</div>
 	<nav class="settingnavbarColor" role="navigation">
@@ -345,13 +442,21 @@
 			<div class="col s4">
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
-			<div class="col s4 right">        
+			<div class="col s4 right">
 				<ul id="nav-mobile" class="side-nav right">
+<<<<<<< HEAD
+					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/services">Home</a></li>
+					<li><a onclick="$('.button-collapse').sideNav('hide')" data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
+					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/settings">Settings</a></li>
+					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/notifications">Notifications<span class="new badge">2</span></a></li>
+					<li><a onclick="$('.button-collapse').sideNav('hide')">Help</a></li>
+=======
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
+>>>>>>> master
 				</ul>
 				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
@@ -362,11 +467,19 @@
 			$('.button-collapse').sideNav({
 				closeOnClick: true
 			});
+<<<<<<< HEAD
+			$('.button-collapse').sideNav('hide');
+			$('.modal-trigger').leanModal();
+		}, false);
+            
+    </script>
+=======
 			$('#qrmodal').leanModal();
 			$('#sidenav-overlay').css('opacity', '0');
 			$('.button-collapse').sideNav('hide');
 		});
 	</script>
+>>>>>>> master
 </script>
 <script type="text/ng-template" id="notifications.html">
 	<div class="view">
@@ -384,6 +497,93 @@
 	</div>
 </script>
 <script type="text/ng-template" id="optical-services.html">
+<<<<<<< HEAD
+	<ng-include src="navbar"></ng-include>
+	<div class="row">
+		<h3  class="center-align white-text lighten-2 fonts">  Optical Services  </h3>
+	</div>
+	
+	<div class="row" >
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Optical-Services.png" class="settingpageicons" alt="" />
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Find Optician</p>
+			</div>
+		</div>
+	
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/My-Claims.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">My Claims</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" >
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Get-Dental-Medical-Optical-Advice.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Get Optical Advice</p>
+			</div>
+		</div>
+	
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Help-and-Support.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Help & Support</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" >
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/My-Wellbeing.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">My Wellbeing</p>
+			</div>
+		</div>
+	
+		<div class="col s6 center-align">
+			<div class="row">
+				<a class="btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/My-Policy.png" class="settingpageicons">
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">My Policy</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12 center-align">
+			<div class="row">
+				<a class="btn btn-floating btn-large waves-effect waves-light colors">
+					<img src="images/Your-Feedback.png" alt="" class="settingpageicons" />
+				</a>
+			</div>
+			<div class="row">
+				<p class="white-text center-align">Feedback</p>
+=======
 	<div class="view">
 	
 		<ng-include src="navbar"></ng-include>
@@ -488,6 +688,7 @@
 				<div class="row">
 					<p class="white-text center-align">Feedback</p>
 				</div>
+>>>>>>> master
 			</div>
 		</div>
 	</div>
@@ -552,6 +753,15 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.button-collapse').sideNav({
+                closeOnClick: true
+            });
+            $('.button-collapse').sideNav('hide');
+        }, false);
+            
+    </script>
 </script>
 <script type="text/ng-template" id="settings.html">
 	<div class="view">
