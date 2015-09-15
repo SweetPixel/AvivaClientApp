@@ -58,9 +58,15 @@
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            $('p').blur();
-        }, false);
+            $('.button-collapse').sideNav({
+                closeOnClick: true
+            });
+            $('#qrmodal').leanModal();
+            $('#sidenav-overlay').css('opacity', '0');
+            $('.button-collapse').sideNav('hide');
+            $('a').blur();
+        });
     </script>
 </script>

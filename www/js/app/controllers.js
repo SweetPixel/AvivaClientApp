@@ -90,49 +90,49 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 				};
 				setNearbyClinics();
 			});
-});
-},
-function (errorPayload) {
-	alert("Failed to get information of clinics. Please check your connection and try again.");
-	$log.error("Failure getting clinics info", errorPayload);
-});
-$scope.searchResult = [];
-$scope.$watch('value', function (changed) {
-	if (changed) {
-		$scope.searchResult = [];
-		$scope.$parent.promise.then(function () {
-			$.each($scope.$parent.clinics, function (index, item) {
-				if (item.Postcode.toLowerCase().indexOf(changed) > 0) {
-					$scope.gotSearchResult = true;
-					if ($scope.searchResult.length < 5) {
-						$scope.searchResult.push(item);
+		});
+	},
+	function (errorPayload) {
+		alert("Failed to get information of clinics. Please check your connection and try again.");
+		$log.error("Failure getting clinics info", errorPayload);
+	});
+	$scope.searchResult = [];
+	$scope.$watch('value', function (changed) {
+		if (changed) {
+			$scope.searchResult = [];
+			$scope.$parent.promise.then(function () {
+				$.each($scope.$parent.clinics, function (index, item) {
+					if (item.Postcode.toLowerCase().indexOf(changed) > 0) {
+						$scope.gotSearchResult = true;
+						if ($scope.searchResult.length < 5) {
+							$scope.searchResult.push(item);
+						}
 					}
-				}
+				});
+			});
+		}
+		else {
+			$scope.gotSearchResult = false;
+		}
+	});
+	$scope.drawSearchMarker = function (clinic) {
+		console.log(clinic.Postcode);
+		$scope.gotSearchResult = false;
+		$scope.createMapPromise.then(function () {
+			$scope.drawMarkersPromise.then(function () {
+				mapService.removeDrawings($scope.markers, $scope.circle);
+				$scope.markers = mapService.drawSearchMarker($scope.map, $scope.markers, clinic);
+			});
+		});
+	};
+	$scope.resetPosition = function () {
+		$scope.createMapPromise.then(function () {
+			$scope.drawMarkersPromise.then(function () {
+				mapService.removeDrawings($scope.markers, $scope.circle);
+				setNearbyClinics();
 			});
 		});
 	}
-	else {
-		$scope.gotSearchResult = false;
-	}
-});
-$scope.drawSearchMarker = function (clinic) {
-	console.log(clinic.Postcode);
-	$scope.gotSearchResult = false;
-	$scope.createMapPromise.then(function () {
-		$scope.drawMarkersPromise.then(function () {
-			mapService.removeDrawings($scope.markers, $scope.circle);
-			$scope.markers = mapService.drawSearchMarker($scope.map, $scope.markers, clinic);
-		});
-	});
-};
-$scope.resetPosition = function () {
-	$scope.createMapPromise.then(function () {
-		$scope.drawMarkersPromise.then(function () {
-			mapService.removeDrawings($scope.markers, $scope.circle);
-			setNearbyClinics();
-		});
-	});
-}
 });
 avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 	$scope.articles = [

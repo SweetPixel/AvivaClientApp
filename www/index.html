@@ -134,7 +134,7 @@
 </script>
 <script type="text/ng-template" id="forgot.html">
     <div class="view">
-    <ng-include src="navbar"></ng-include>
+    <ng-include src="medicalnavbar"></ng-include>
         <div class="row">
             <div class="col s12 center">
                 <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
@@ -514,10 +514,15 @@
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            $('p').blur();
-        }, false);
+            $('.button-collapse').sideNav({
+                closeOnClick: true
+            });
+            $('#qrmodal').leanModal();
+            $('#sidenav-overlay').css('opacity', '0');
+            $('.button-collapse').sideNav('hide');
+        });
     </script>
 </script>
 <script type="text/ng-template" id="settings.html">
@@ -1151,6 +1156,11 @@
 
 		</div>
 	</div>
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        $('.button-collapse').sideNav('hide');
+	    });
+	</script>
 </script>
 <script type="text/ng-template" id="my-claims.html">
 	<div class="view">
