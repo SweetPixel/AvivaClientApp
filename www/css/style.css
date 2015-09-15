@@ -179,6 +179,9 @@ a.colors {
 .colors:hover {
 	background-color: orange;
 }
+.btn-services:hover {
+	background-color: #ECF0F1;
+}
 
 #chat-footer {
 	background-color: #ffffff;
@@ -401,7 +404,7 @@ nav .button-collapse i {
 	padding-left: 1rem;
 	margin-bottom: 0;
 	border-bottom: none;
-	color: #FFF;
+	color: #6C6C6C;
 }
 #search-view input[type="search"]:focus {
 	background-color: #FFF;
