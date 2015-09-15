@@ -98,51 +98,59 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			    }
 			    i++;
 			});
-			var origin = new google.maps.LatLng(53.3788635,-1.4703039);;
-			var service = new google.maps.DistanceMatrixService();
-			service.getDistanceMatrix({
-				origins: [origin],
-				destinations: positions,
-				travelMode: google.maps.TravelMode.DRIVING,
-				unitSystem: google.maps.UnitSystem.METRIC,
-				avoidHighways: false,
-				avoidTolls: false
-			}, function (response, status) {
-				if (status == google.maps.DistanceMatrixStatus.OK) {
-					var origins = response.originAddresses;
-					var destinations = response.destinationAddresses;
-					var elements = response.rows[0].elements;
-					
-					for (var i = 0; i < elements.length; i++) {
-						var distance = elements[i].distance.text;
-						console.log(distance);
-						distances.push(distance);
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			
+			function onSuccess (position) {
+				var origin = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+				var service = new google.maps.DistanceMatrixService();
+				service.getDistanceMatrix({
+					origins: [origin],
+					destinations: positions,
+					travelMode: google.maps.TravelMode.DRIVING,
+					unitSystem: google.maps.UnitSystem.METRIC,
+					avoidHighways: false,
+					avoidTolls: false
+				}, function (response, status) {
+					if (status == google.maps.DistanceMatrixStatus.OK) {
+						var origins = response.originAddresses;
+						var destinations = response.destinationAddresses;
+						var elements = response.rows[0].elements;
+						
+						for (var i = 0; i < elements.length; i++) {
+							var distance = elements[i].distance.text;
+							console.log(distance);
+							distances.push(distance);
+						}
+						console.log(distances.length);
+						for (var i = 0; i < nearbyClinics.length; i++) {
+							nearbyClinics[i].distance = distances[i];
+							console.log("practice " + i + ": " + distances[i]);
+						}
+						deferred.resolve({
+							nearbyClinics: nearbyClinics,
+							markers: markers
+						});
+						
 					}
-					console.log(distances.length);
-					for (var i = 0; i < nearbyClinics.length; i++) {
-						nearbyClinics[i].distance = distances[i];
-						console.log("practice " + i + ": " + distances[i]);
+					else if (status == google.maps.DistanceMatrixStatus.NOT_FOUND) {
+						console.log("Not found");
 					}
-					deferred.resolve({
-						nearbyClinics: nearbyClinics,
-						markers: markers
-					});
-					
-				}
-				else if (status == google.maps.DistanceMatrixStatus.NOT_FOUND) {
-					console.log("Not found");
-				}
-				else if (status == google.maps.DistanceMatrixStatus.ZERO_RESULTS) {
-					console.log("ZERO found");
-				}
-				else {
-					console.log("Nothing");
-					deferred.resolve({
-						nearbyClinics: nearbyClinics,
-						markers: markers
-					});
-				}
-			});
+					else if (status == google.maps.DistanceMatrixStatus.ZERO_RESULTS) {
+						console.log("ZERO found");
+					}
+					else {
+						console.log("Nothing");
+						deferred.resolve({
+							nearbyClinics: nearbyClinics,
+							markers: markers
+						});
+					}
+				});
+			}
+			function onError (error) {
+			    alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+			}
+			
 			return deferred.promise;
 		},
 		removeDrawings: function (markers, circle) {
