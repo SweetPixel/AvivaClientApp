@@ -188,7 +188,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location) {
 	$scope.username;
 	$scope.password;
 	$scope.login = function () {
-		if ($scope.username == 'foo' && $scope.password == 'bar') {
+		if ($scope.username == 'eqo8ya1q' && $scope.password == 'eb2014') {
 			$location.path('/services');
 		}
 		else {
