@@ -1,5 +1,6 @@
 <script type="text/ng-template" id="forgot.html">
     <div class="view">
+    <ng-include src="navbar"></ng-include>
         <div class="row">
             <div class="col s12 center">
                 <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
@@ -20,16 +21,16 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="icon_telephone" type="password" class="validate">
-                        <label for="icon_telephone">Username/ Policy number</label>
+                        <label for="icon_telephone">Username or policy number(if known)</label>
                     </div>
                 </div>
         
         
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn">
+                        <a onclick="Materialize.toast('Email has been sent to you', 2000)" href="#/login" class="colorofbutton waves-effect waves-light btn btn-large" id="btn">
                             <img src="images/svgs/change-password.svg" style="width: 7%;">
-                            Send Email
+                            Recover password
                         </a>
                     </div>
         

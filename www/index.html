@@ -15,12 +15,16 @@
 	<script src="js/app/app.js"></script>
 	<script src="js/app/services.js"></script>
 	<script src="js/app/controllers.js"></script>
+<<<<<<< HEAD
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({});
 		}, false);
             
     </script>
+=======
+	
+>>>>>>> master
 </head>
 <body ng-app="avivaApp" ng-cloak ng-strict>
 	<div>
@@ -139,6 +143,7 @@
 </script>
 <script type="text/ng-template" id="forgot.html">
     <div class="view">
+    <ng-include src="navbar"></ng-include>
         <div class="row">
             <div class="col s12 center">
                 <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
@@ -159,16 +164,16 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="icon_telephone" type="password" class="validate">
-                        <label for="icon_telephone">Username/ Policy number</label>
+                        <label for="icon_telephone">Username or policy number(if known)</label>
                     </div>
                 </div>
         
         
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn">
+                        <a onclick="Materialize.toast('Email has been sent to you', 2000)" href="#/login" class="colorofbutton waves-effect waves-light btn btn-large" id="btn">
                             <img src="images/svgs/change-password.svg" style="width: 7%;">
-                            Send Email
+                            Recover password
                         </a>
                     </div>
         
@@ -193,14 +198,14 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="name" type="text" class="validate">
+                        <input id="name" type="text" class="validate" ng-model="username">
                         <label for="name">Username</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <!-- <i class="mdi-communication-phone prefix"></i> -->
-                        <input id="icon_telephone" type="password" class="validate">
+                        <input id="icon_telephone" type="password" class="validate" ng-model="password">
                         <label for="icon_telephone">Password</label>
                     </div>
                 </div>
@@ -208,7 +213,7 @@
         
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" href="#/services">
+                        <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" ng-click="login()">
                             <img src="images/svgs/change-password.svg" style="width: 7%;">
                             Sign in
                         </a>
@@ -226,6 +231,7 @@
     </div>
 </script>
 <script type="text/ng-template" id="medical-services.html">
+<<<<<<< HEAD
 	<ng-include src="navbar"></ng-include>
 	<div class="row">
 		<h3  class="center-align white-text lighten-2 fonts">  Medical Services  </h3>
@@ -311,6 +317,112 @@
 			</div>
 			<div class="row">
 				<p class="white-text center-align">Feedback</p>
+=======
+	<div class="view">
+	
+		<ng-include src="navbar"></ng-include>
+		
+		<!-- Modal Structure -->
+		<!-- <div id="pdfmodal" class="modal bottom-sheet">
+		<div class="row">
+		<div class="col s12">
+		<div class="modal-content">
+		<iframe src="https://drive.google.com/file/d/0B5IWG_1lX4QDcWMxVDAzeDN3ejQ/preview" width="auto" height="500px" class="pdf-modal-settings"></iframe>
+		</div>
+		<div class="modal-footer">
+		<a onclick="$('#pdfmodal').hide();" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+		</div>
+		</div>
+		</div>
+		</div> -->
+		
+		
+		<div class="row">
+			<h3 class="center-align white-text lighten-2 fonts">  Medical Services  </h3>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/find-dentist" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Medical-Services.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Find Clinic</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Claims.png" class="settingpageicons" style="margin-left: 5%;">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Claims</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/dental-advice" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Get-Dental-Medical-Optical-Advice.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Get Dental Advice</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/support" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Help-and-Support.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Help & Support</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Wellbeing.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Wellbeing</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Policy.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Policy</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 center-align">
+				<div class="row">
+					<a href="#/dental-services/feedback" class="btn btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Your-Feedback.png" alt="" class="settingpageicons" style="margin-left: 7%;" />
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Feedback</p>
+				</div>
+>>>>>>> master
 			</div>
 		</div>
 	</div>
@@ -318,7 +430,7 @@
 <script type="text/ng-template" id="navbar.html">
 	<div id="qrmodal" class="modal">
 	    <div class="modal-content center">
-	        <h4>My QR Code</h4>
+	        <h5>My Unique Policy QR code</h5>
 	        <img src="images/harley-qr.png" style="width: 100%"/>
 	    </div>
 	    <div class="modal-footer">
@@ -332,11 +444,19 @@
 			</div>
 			<div class="col s4 right">
 				<ul id="nav-mobile" class="side-nav right">
+<<<<<<< HEAD
 					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/services">Home</a></li>
 					<li><a onclick="$('.button-collapse').sideNav('hide')" data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/settings">Settings</a></li>
 					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a onclick="$('.button-collapse').sideNav('hide')">Help</a></li>
+=======
+					<li><a href="#/services">Home</a></li>
+					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
+					<li><a href="#/settings">Settings</a></li>
+					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
+					<li><a href="#">Help</a></li>
+>>>>>>> master
 				</ul>
 				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
@@ -347,11 +467,19 @@
 			$('.button-collapse').sideNav({
 				closeOnClick: true
 			});
+<<<<<<< HEAD
 			$('.button-collapse').sideNav('hide');
 			$('.modal-trigger').leanModal();
 		}, false);
             
     </script>
+=======
+			$('#qrmodal').leanModal();
+			$('#sidenav-overlay').css('opacity', '0');
+			$('.button-collapse').sideNav('hide');
+		});
+	</script>
+>>>>>>> master
 </script>
 <script type="text/ng-template" id="notifications.html">
 	<div class="view">
@@ -369,6 +497,7 @@
 	</div>
 </script>
 <script type="text/ng-template" id="optical-services.html">
+<<<<<<< HEAD
 	<ng-include src="navbar"></ng-include>
 	<div class="row">
 		<h3  class="center-align white-text lighten-2 fonts">  Optical Services  </h3>
@@ -454,6 +583,112 @@
 			</div>
 			<div class="row">
 				<p class="white-text center-align">Feedback</p>
+=======
+	<div class="view">
+	
+		<ng-include src="navbar"></ng-include>
+		
+		<!-- Modal Structure -->
+		<!-- <div id="pdfmodal" class="modal bottom-sheet">
+		<div class="row">
+		<div class="col s12">
+		<div class="modal-content">
+		<iframe src="https://drive.google.com/file/d/0B5IWG_1lX4QDcWMxVDAzeDN3ejQ/preview" width="auto" height="500px" class="pdf-modal-settings"></iframe>
+		</div>
+		<div class="modal-footer">
+		<a onclick="$('#pdfmodal').hide();" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+		</div>
+		</div>
+		</div>
+		</div> -->
+		
+		
+		<div class="row">
+			<h3 class="center-align white-text lighten-2 fonts">  Optical Services  </h3>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/find-dentist" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Optical-Services.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Find Clinic</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Claims.png" class="settingpageicons" style="margin-left: 5%;">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Claims</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/dental-advice" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Get-Dental-Medical-Optical-Advice.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Get Dental Advice</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/support" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Help-and-Support.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Help & Support</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Wellbeing.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Wellbeing</p>
+				</div>
+			</div>
+		
+			<div class="col s6 center-align">
+				<div class="row">
+					<a href="#/dental-services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/My-Policy.png" class="settingpageicons">
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">My Policy</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 center-align">
+				<div class="row">
+					<a href="#/dental-services/feedback" class="btn btn-floating btn-large waves-effect waves-light colors">
+						<img src="images/Your-Feedback.png" alt="" class="settingpageicons" style="margin-left: 7%;" />
+					</a>
+				</div>
+				<div class="row">
+					<p class="white-text center-align">Feedback</p>
+				</div>
+>>>>>>> master
 			</div>
 		</div>
 	</div>
@@ -601,25 +836,25 @@
 								<h5>Change Password</h5>
 								<div class="row">
 									<div class="input-field col s12">
-										<input id="password" type="password" class="validate">
-										<label for="password">Old Password</label>
+										<input id="old-password" type="password" class="validate">
+										<label for="old-password">Old Password</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<input id="password" type="password" class="validate">
-										<label for="password">New Password</label>
+										<input id="new-password" type="password" class="validate">
+										<label for="new-password">New Password</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<input id="password" type="password" class="validate">
-										<label for="password">Retype Password</label>
+										<input id="confirm-password" type="password" class="validate">
+										<label for="confirm-password">Retype Password</label>
 									</div>
 								</div>
 							</div>
 							<div class="modal-footer">
-								<a class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+								<a class=" modal-action modal-close waves-effect waves-green btn-flat" onclick="Materialize.toast('Password has been changed', 2000)">Save</a>
 							</div>
 						</div>
 					</div>
@@ -745,11 +980,11 @@
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <textarea id="textarea1" class="materialize-textarea" ng-model="question"></textarea>
                                             <label for="textarea1">Ask a question</label>
                                         </div>
                                     </div>
-                                    <a id="q-submit" onclick="Materialize.toast('Your question has been received.', 4000)" class="orange waves-effect waves-light btn">Submit</a>
+                                    <a id="q-submit" ng-click="submitQuestion()" class="orange waves-effect waves-light btn">Submit</a>
                                 </form>
                             </div>
                         </div>
@@ -1068,14 +1303,14 @@
 
 			<div id="nearby-view" ng-show="mapView == 0" style="background-color: #FFF" ng-init="distance = 'distance' ">
 				<div class="search-options">
-					<a href="" ng-click="showSort = showSort == true ? false : true;">Sort</a>
+					<a href="" ng-click="showSort = showSort == true ? false : true;">Sort Search Results</a>
 				</div>
 				<div class="sort-options" ng-show="showSort">
 					<form action="">
 						<div class="row">
 							<div class="col m4">
 								<h6>By Distance</h6>
-								<input ng-model="sortBy" value="+distance" name="sort" type="radio" id="distance-a" ng-click="distance='distance'"/>
+								<input ng-model="sortBy" value="+distance" name="sort" type="radio" id="distance-a" ng-click="distance='+distance'"/>
 								<label for="distance-a">Ascending</label>
 								<input ng-model="sortBy" value="-distance" name="sort" type="radio" id="distance-d" ng-click="distance='-distance'"/>
 								<label for="distance-d">Descending</label>
@@ -1112,8 +1347,9 @@
 			</div>
 
 			<div id="search-view" ng-show="mapView == 2">
-				<div>
-					<input type="search" placeholder="Search" ng-click="advancedSearch = false;" ng-model="value"/>
+				<div class="search-div">
+					<input type="search" placeholder="Enter a postcode to search practices" ng-click="advancedSearch = false;" ng-model="value"/>
+					<i class="fa fa-search" ng-click=""></i>
 				</div>
 				<div id="search-result" ng-show="gotSearchResult">
 					<ul class="collection" ng-repeat="clinic in searchResult">
@@ -1209,7 +1445,7 @@
 		        </div>
 		    </div>
 		    <div class="modal-footer">
-		        <a onclick="Materialize.toast('Email Sent', 2000)" href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Send</a>
+		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">Send</a>
 		    </div>
 		</div>
 		<script type="text/javascript">
@@ -1318,7 +1554,7 @@
 										</ul>
 									</div>
 									<div class="col s4 right-align">
-										<a class="btn-floating btn-large waves-effect waves-light white">
+										<a class="btn-floating btn-large waves-effect waves-light white modal-trigger" data-target="detailmodal" href="#detailmodal">
 											<i class="mdi-editor-border-color "></i>
 										</a>
 									</div>
@@ -1335,7 +1571,7 @@
 				<button class="btn-floating btn-large waves-effect waves-light pull-right white modal-trigger" type="submit" name="action" id="clickMe" data-target="detailmodal" href="#detailmodal">
 					<i class="mdi-content-add"></i>
 				</button>
-				<div id="detailmodal" class="modal">
+				<div id="detailmodal" class="modal" style="width: 100%;">
 					<div class="modal-content center">
 						<h5>Add Family Details</h5>              
 						<div class="row thisrow">
@@ -1364,7 +1600,7 @@
 								<div class="row">
 									<div class="input-field col s12">
 										<i class="mdi-editor-insert-invitation prefix"></i>
-										<input type="date" class="datepicker" placeholder="Pick a Date">
+										<input type="date" class="datepicker" placeholder="Date of Birth">
 									</div>
 								</div>
 								<DIV class="row">
@@ -1380,7 +1616,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<a href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+						<a class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
 					</div>
 				</div>
 			</div>
@@ -1434,7 +1670,7 @@
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-editor-insert-invitation prefix"></i>
-											<input type="date" class="datepicker" placeholder="Pick a Date">
+											<input type="date" class="datepicker" placeholder="Date of Birth">
 										</div>
 									</div>
 									<DIV class="row">
