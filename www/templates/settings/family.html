@@ -1,0 +1,110 @@
+<script type="text/ng-template" id="family.html">
+	<div class="view">
+		<ng-include src="dentalnavbar"></ng-include>
+		
+		<div id="m" class="modal">
+			<div class="modal-content">
+				<h4 class="orange-text">Done!</h4>
+				<p>Settings Saved</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><i></i></span>
+						<div id="right">
+							<div id="top">
+								<div class="row">
+									<div class="col s8">
+										<ul class="collection">
+											<li class="collection-item avatar">
+												<img src="images/765-default-avatar.png" alt="" class="circle">
+												<span class="title">Mr. White</span>
+												<p>
+													Marry Jones
+												</p>
+											</li>
+										</ul>
+									</div>
+									<div class="col s4 right-align">
+										<a class="btn-floating btn-large waves-effect waves-light white modal-trigger" data-target="detailmodal" href="#detailmodal">
+											<i class="mdi-editor-border-color "></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">      
+			<div class="col s12 right-align">
+				<button class="btn-floating btn-large waves-effect waves-light pull-right white modal-trigger" type="submit" name="action" id="clickMe" data-target="detailmodal" href="#detailmodal">
+					<i class="mdi-content-add"></i>
+				</button>
+				<div id="detailmodal" class="modal" style="width: 100%;">
+					<div class="modal-content center">
+						<h5>Add Family Details</h5>              
+						<div class="row thisrow">
+							<div class="testcontent">
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-action-account-circle prefix"></i>
+										<input id="first-name" type="text" class="validate">
+										<label for="first-name">First Name</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-action-account-circle prefix"></i>
+										<input id="last-name" type="text" class="validate">
+										<label for="last-name">Last Name</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-communication-email prefix"></i>
+										<input id="email" type="email" class="validate">
+										<label for="email" data-error="wrong" data-success="right">Email</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="mdi-editor-insert-invitation prefix"></i>
+										<input type="date" class="datepicker" placeholder="Date of Birth">
+									</div>
+								</div>
+								<DIV class="row">
+									<div class="input-field col s12">
+										<select class="browser-default">
+											<option value="" disabled selected>Select Gender</option>
+											<option value="1">Male</option>
+											<option value="2">Female</option>
+										</select>
+									</div>
+								</DIV>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			$('.datepicker').pickadate({
+				selectMonths: true, // Creates a dropdown to control month
+				selectYears: 15 // Creates a dropdown of 15 years to control year
+			});
+		</script>
+	</div>
+</script>
