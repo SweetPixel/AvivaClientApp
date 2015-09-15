@@ -5,7 +5,7 @@
 	        <img src="images/harley-qr.png" style="width: 100%"/>
 	    </div>
 	    <div class="modal-footer">
-	        <a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="$('.button-collapse').sideNav('hide');">Close</a>
+	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
 	    </div>
 	</div>
 	<nav class="settingnavbarColor" role="navigation">
@@ -13,21 +13,13 @@
 			<div class="col s4">
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
-			<div class="col s4 right">
+			<div class="col s4 right">        
 				<ul id="nav-mobile" class="side-nav right">
-<<<<<<< HEAD
-					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/services">Home</a></li>
-					<li><a onclick="$('.button-collapse').sideNav('hide')" data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
-					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/settings">Settings</a></li>
-					<li><a onclick="$('.button-collapse').sideNav('hide')" href="#/notifications">Notifications<span class="new badge">2</span></a></li>
-					<li><a onclick="$('.button-collapse').sideNav('hide')">Help</a></li>
-=======
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
->>>>>>> master
 				</ul>
 				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
@@ -38,17 +30,9 @@
 			$('.button-collapse').sideNav({
 				closeOnClick: true
 			});
-<<<<<<< HEAD
-			$('.button-collapse').sideNav('hide');
-			$('.modal-trigger').leanModal();
-		}, false);
-            
-    </script>
-=======
 			$('#qrmodal').leanModal();
 			$('#sidenav-overlay').css('opacity', '0');
 			$('.button-collapse').sideNav('hide');
 		});
 	</script>
->>>>>>> master
 </script>

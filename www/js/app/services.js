@@ -40,14 +40,14 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			var longitude = position.coords.longitude;
 			var latitude = position.coords.latitude;
 			var latLng = new google.maps.LatLng(latitude, longitude);
-			// var latLng1 = new google.maps.LatLng(53.3788635,-1.4703039);
+			var latLng1 = new google.maps.LatLng(53.3788635,-1.4703039);
 			var mapOptions = {
 			    zoom: 8
 			};
 			var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 			deferred.resolve({
 				map: map,
-				latLng: latLng
+				latLng: latLng1
 			});
 
 			return deferred.promise; //return map
@@ -137,10 +137,6 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 				}
 				else {
 					console.log("Nothing");
-					deferred.resolve({
-						nearbyClinics: nearbyClinics,
-						markers: markers
-					});
 				}
 			});
 			return deferred.promise;
@@ -159,50 +155,37 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(clinic.Latitude, clinic.Longitude)
 			});
-			var url = '#/dental-services/clinic-detail/' + clinic.practiceId;
 			map.setCenter(new google.maps.LatLng(clinic.Latitude, clinic.Longitude));
 			map.setZoom(10);
 			marker.setMap(map);
-			marker.addListener('click', function() {
-			    	    console.log(url);
-			    	    window.location.href = url;
-			    	});
 			markers.push(marker);
 			return markers;
 		},
 		getDistance: function (destination) {
 			var deferred = $q.defer();
-			navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			function onSuccess (position) {
-				var longitude = position.coords.longitude;
-				var latitude = position.coords.latitude;
-				var origin = new google.maps.LatLng(latitude, longitude);
-				var service = new google.maps.DistanceMatrixService();
-				service.getDistanceMatrix({
-					origins: [origin],
-					destinations: [destination],
-					travelMode: google.maps.TravelMode.DRIVING,
-					unitSystem: google.maps.UnitSystem.METRIC,
-					avoidHighways: false,
-					avoidTolls: false
-				}, function (response, status) {
-					if (status == google.maps.DistanceMatrixStatus.OK) {
-						var origins = response.originAddresses;
-						var destinations = response.destinationAddresses;
+			var origin = new google.maps.LatLng(53.3788635,-1.4703039);;
+			var service = new google.maps.DistanceMatrixService();
+			service.getDistanceMatrix({
+				origins: [origin],
+				destinations: [destination],
+				travelMode: google.maps.TravelMode.DRIVING,
+				unitSystem: google.maps.UnitSystem.METRIC,
+				avoidHighways: false,
+				avoidTolls: false
+			}, function (response, status) {
+				if (status == google.maps.DistanceMatrixStatus.OK) {
+					var origins = response.originAddresses;
+					var destinations = response.destinationAddresses;
 
-						var distance = response.rows[0].elements[0].distance.text;
+					var distance = response.rows[0].elements[0].distance.text;
 
-						deferred.resolve({
-							distance: distance
-						});
-						console.log(distance);
-					}
+					deferred.resolve({
+						distance: distance
+					});
+					console.log(distance);
+				}
 
-				});
-			}
-			function onError (error) {
-			    alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
-			}
+			});
 			return deferred.promise;
 		}
 	}
