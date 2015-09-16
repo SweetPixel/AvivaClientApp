@@ -1,7 +1,7 @@
 <script type="text/ng-template" id="family.html">
 	<div class="view">
 		<ng-include src="settingsnavbar"></ng-include>
-		
+
 		<div id="m" class="modal">
 			<div class="modal-content">
 				<h4 class="orange-text">Done!</h4>
@@ -11,7 +11,7 @@
 				<a href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
@@ -43,15 +43,15 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="row">      
+
+		<div class="row">
 			<div class="col s12 right-align">
 				<button class="btn-floating btn-large waves-effect waves-light pull-right white modal-trigger" type="submit" name="action" id="clickMe" data-target="detailmodal" href="#detailmodal">
 					<i class="mdi-content-add"></i>
 				</button>
 				<div id="detailmodal" class="modal" style="width: 100%;">
 					<div class="modal-content center">
-						<h5>Add Family Details</h5>              
+						<h5>Add Family Details</h5>
 						<div class="row thisrow">
 							<div class="testcontent">
 								<div class="row">
@@ -78,7 +78,7 @@
 								<div class="row">
 									<div class="input-field col s12">
 										<i class="mdi-editor-insert-invitation prefix"></i>
-										<input type="date" class="datepicker" placeholder="Date of Birth">
+										<input type="date" id="bdayPicker" class="" placeholder="Date of Birth">
 									</div>
 								</div>
 								<DIV class="row">
@@ -99,11 +99,28 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<script>
-			$('.datepicker').pickadate({
-				selectMonths: true, // Creates a dropdown to control month
-				selectYears: 15 // Creates a dropdown of 15 years to control year
+			// $('.datepicker').pickadate({
+			// 	selectMonths: true, // Creates a dropdown to control month
+			// 	selectYears: 15 // Creates a dropdown of 15 years to control year
+			// });
+
+			var options = {
+				date: new Date(),
+				mode: 'date'
+			};
+
+			function onSuccess(date) {
+				alert('Selected date: ' + date);
+			}
+
+			function onError(error) { // Android only
+				alert('Error: ' + error);
+			}
+
+			$( "#bdayPicker" ).click(function() {
+				datePicker.show(options, onSuccess, onError);
 			});
 		</script>
 	</div>
