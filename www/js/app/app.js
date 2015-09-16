@@ -10,6 +10,9 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'login.html',
 			controller: 'loginCtrl'
 		})
+		.when('/change-password', {
+			templateUrl: 'change-password.html'
+		})
 		//index end
 		//services start
 		.when('/services', {
