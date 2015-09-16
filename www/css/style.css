@@ -5,11 +5,17 @@
 *
 * Made By MaterializeCSS.com
 */
-input[type="text"], input[type="password"], input[type="email"], 
-input[type="url"], input[type="time"], input[type="date"], 
-input[type="datetime-local"], input[type="tel"], input[type="number"], 
+input[type="text"], input[type="password"], input[type="email"],
+input[type="url"], input[type="time"], input[type="date"],
+input[type="datetime-local"], input[type="tel"], input[type="number"],
 input[type="search"], textarea.materialize-textarea {
 	border-color: -moz-use-text-color -moz-use-text-color #ffffff;
+}
+
+
+input[type="password"]
+{
+	-webkit-user-select: text;
 }
 
 .grey.lighten-4{
@@ -141,7 +147,7 @@ nav .white-text {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;      
+	background-size: cover;
 
 	background: -webkit-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* Chrome 10+, Saf5.1+ */
 	background:    -moz-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* FF3.6+ */
@@ -381,7 +387,7 @@ a:hover {
 	position: absolute;
 	bottom: 6px;
 	top: 110px;
-	background-color: #DDD; 
+	background-color: #DDD;
 	margin-top: .5rem;
 	z-index: -1;
 }
