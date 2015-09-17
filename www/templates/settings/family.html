@@ -77,8 +77,8 @@
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<i class="mdi-editor-insert-invitation prefix"></i>
-										<input type="date" id="bdayPicker" class="" placeholder="Date of Birth">
+										<!-- <input type="date" id="bdayPicker" class="dob" placeholder="Date of Birth"> -->
+										<button class="btn waves-effect waves-light orange"  id="bdayPicker"><i class="fa fa-calendar"> </i> Date of Birth</button>
 									</div>
 								</div>
 								<DIV class="row">
@@ -106,20 +106,27 @@
 			// 	selectYears: 15 // Creates a dropdown of 15 years to control year
 			// });
 
-			var options = {
-				date: new Date(),
-				mode: 'date'
-			};
+
 
 			function onSuccess(date) {
-				alert('Selected date: ' + date);
-			}
+				// $('#bdayPicker').text()
+				// to do : change date format to more readable
+				var m = moment(date.toString());
+
+				$('#bdayPicker').html('<i class="fa fa-calendar"> </i> ' + m.format('DD/MM/YYYY'));
+			};
 
 			function onError(error) { // Android only
 				alert('Error: ' + error);
-			}
+			};
 
 			$( "#bdayPicker" ).click(function() {
+				var options = {
+					date: new Date(),
+					mode: 'date',
+					x : '100',
+					y : '300'
+				};
 				datePicker.show(options, onSuccess, onError);
 			});
 		</script>
