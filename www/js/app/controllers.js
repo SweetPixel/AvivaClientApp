@@ -188,12 +188,13 @@ avivaApp.controller('loginCtrl', function ($scope, $location) {
 	$scope.username;
 	$scope.password;
 	$scope.login = function () {
-		if ($scope.username == 'eqo8ya1q' && $scope.password == 'eb2014') {
-			$location.path('/services');
+		$location.path('/services');
+		/*if ($scope.username == '' && $scope.password == '') {
+			
 		}
 		else {
 			Materialize.toast("Wrong username or password.", 4000);
-		}
+		}*/
 	}
 });
 avivaApp.controller('dentalAdviceCtrl', function ($scope, $location) {
