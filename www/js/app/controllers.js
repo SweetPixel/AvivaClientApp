@@ -1,57 +1,40 @@
-avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log) {
-	var history = [];
-	$scope.$route = $route;
-	$scope.$routeParams = $routeParams;
-	$scope.$location = $location;
-	$scope.dentalnavbar = 'dental-navbar.html';
-	$scope.medicalnavbar = 'medical-navbar.html';
-	$scope.opticalnavbar = 'optical-navbar.html';
-	$scope.settingsnavbar = 'settings-navbar.html';
-	$scope.notificationnavbar = 'notification-navbar.html';
-	$scope.mapView = 1;
-	$scope.$on('$routeChangeSuccess', function () {
-		history.push($location.$$path);
-	});
-	$scope.$on('$viewContentLoaded', function () {
-		$(".modal-trigger").leanModal();
-	});
-	$scope.showNearby = function () {
-		$scope.mapView = 0;
-	}
-	$scope.showSearch = function () {
-		$scope.mapView = 2;
-	}
-	$scope.back = function () {
-		if($route.current.templateUrl === 'find-dentist.html') {
-			if($scope.mapView == 1) {
-				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-				$location.path(prevUrl);
+avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapService){
+	$scope.practiceId = $routeParams.param;
+	$scope.distance = "Calculating...";
+	$scope.$parent.promise.then(function () {
+		$.each($scope.$parent.clinics, function (index, item) {
+			if (item.practiceId == $scope.practiceId) {
+				$scope.clinic = item;
+				$scope.address = $scope.clinic.Address1;
+				if ($scope.clinic.Address2) {
+					$scope.address += ", " + $scope.clinic.Address2;
+				}
+				if ($scope.clinic.Address3) {
+					$scope.address += ", " +  $scope.clinic.Address3;
+				}
+				if ($scope.clinic.Address4) {
+					$scope.address += ", " +  $scope.clinic.Address4;
+				}
 			}
-			else {
-				$scope.mapView = 1;
-			}
+		});
+		var destination = $scope.address;
+		$scope.getDistancePromise = mapService.getDistance(destination);
+		$scope.getDistancePromise.then(function (distancePayload) {
+			$scope.distance = distancePayload.distance;
+		})
+	});
+});
+avivaApp.controller('dentalAdviceCtrl', function ($scope, $location) {
+	$scope.question = "";
+	$scope.submitQuestion = function () {
+		if ($scope.question !== "") {
+			Materialize.toast('Your question has been received.', 4000)
 		}
 		else {
-			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-			$location.path(prevUrl);
+			Materialize.toast('Please write something.', 4000)
 		}
 	}
-	$scope.clinics = [];
-	//Async get clinics detail
-	$scope.getClinicsInfo = function () {
-		$scope.promise = clinicService.getClinic();
-		$scope.promise.then(function (payload) {
-			console.log("Got Payload");
-			$scope.clinics = payload.data;
-		},
-		function (errorPayload) {
-			alert("You're not connected to the internet.");
-			$log.error("Failure getting clinics info", errorPayload);
-		});
-	};
-	$scope.getClinicsInfo();
-})
-
+});
 avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log, $location){
 	$scope.clinics = [];
 	$scope.sortBy = '+distance';
@@ -134,6 +117,72 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 		});
 	}
 });
+avivaApp.controller('loginCtrl', function ($scope, $location) {
+	$scope.username;
+	$scope.password;
+	$scope.login = function () {
+		$location.path('/services');
+		/*if ($scope.username == '' && $scope.password == '') {
+			
+		}
+		else {
+			Materialize.toast("Wrong username or password.", 4000);
+		}*/
+	}
+});
+avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log) {
+	var history = [];
+	$scope.$route = $route;
+	$scope.$routeParams = $routeParams;
+	$scope.$location = $location;
+	$scope.dentalnavbar = 'dental-navbar.html';
+	$scope.medicalnavbar = 'medical-navbar.html';
+	$scope.opticalnavbar = 'optical-navbar.html';
+	$scope.settingsnavbar = 'settings-navbar.html';
+	$scope.notificationnavbar = 'notification-navbar.html';
+	$scope.mapView = 1;
+	$scope.$on('$routeChangeSuccess', function () {
+		history.push($location.$$path);
+	});
+	$scope.$on('$viewContentLoaded', function () {
+		$(".modal-trigger").leanModal();
+	});
+	$scope.showNearby = function () {
+		$scope.mapView = 0;
+	}
+	$scope.showSearch = function () {
+		$scope.mapView = 2;
+	}
+	$scope.back = function () {
+		if($route.current.templateUrl === 'find-dentist.html') {
+			if($scope.mapView == 1) {
+				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+				$location.path(prevUrl);
+			}
+			else {
+				$scope.mapView = 1;
+			}
+		}
+		else {
+			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+			$location.path(prevUrl);
+		}
+	}
+	$scope.clinics = [];
+	//Async get clinics detail
+	$scope.getClinicsInfo = function () {
+		$scope.promise = clinicService.getClinic();
+		$scope.promise.then(function (payload) {
+			console.log("Got Payload");
+			$scope.clinics = payload.data;
+		},
+		function (errorPayload) {
+			alert("You're not connected to the internet.");
+			$log.error("Failure getting clinics info", errorPayload);
+		});
+	};
+	$scope.getClinicsInfo();
+});
 avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 	$scope.articles = [
 	{
@@ -158,53 +207,3 @@ avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 	}
 	];
 });
-avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapService){
-	$scope.practiceId = $routeParams.param;
-	$scope.distance = "Calculating...";
-	$scope.$parent.promise.then(function () {
-		$.each($scope.$parent.clinics, function (index, item) {
-			if (item.practiceId == $scope.practiceId) {
-				$scope.clinic = item;
-				$scope.address = $scope.clinic.Address1;
-				if ($scope.clinic.Address2) {
-					$scope.address += ", " + $scope.clinic.Address2;
-				}
-				if ($scope.clinic.Address3) {
-					$scope.address += ", " +  $scope.clinic.Address3;
-				}
-				if ($scope.clinic.Address4) {
-					$scope.address += ", " +  $scope.clinic.Address4;
-				}
-			}
-		});
-		var destination = $scope.address;
-		$scope.getDistancePromise = mapService.getDistance(destination);
-		$scope.getDistancePromise.then(function (distancePayload) {
-			$scope.distance = distancePayload.distance;
-		})
-	});
-});
-avivaApp.controller('loginCtrl', function ($scope, $location) {
-	$scope.username;
-	$scope.password;
-	$scope.login = function () {
-		$location.path('/services');
-		/*if ($scope.username == '' && $scope.password == '') {
-			
-		}
-		else {
-			Materialize.toast("Wrong username or password.", 4000);
-		}*/
-	}
-});
-avivaApp.controller('dentalAdviceCtrl', function ($scope, $location) {
-	$scope.question = "";
-	$scope.submitQuestion = function () {
-		if ($scope.question !== "") {
-			Materialize.toast('Your question has been received.', 4000)
-		}
-		else {
-			Materialize.toast('Please write something.', 4000)
-		}
-	}
-})
