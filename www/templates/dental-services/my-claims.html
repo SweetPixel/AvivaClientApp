@@ -7,29 +7,13 @@
 		        <div class="card">
 		            <div class="card-content">
 		                <ul class="collection claims-list">
-		                    <li class="collection-item">
-		                        <span class="title">Practice: P S B Dental Care Ltd</span>
-		                        <p>Dentist: Dr Alison Foster</p>
-		                        <p>Claim Date: 15/06/2015</p>
-		                        <p>Treatment cost: £753</p>
-		                        <p>Status: <span style="color: green;">Approved</span></p>
-		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
-		                    </li>
-		                    <li class="collection-item">
-		                        <span class="title">Practice: Western Bank Dental Care</span>
-		                        <p>Dentist: Dr Steve Mulligan</p>
-		                        <p>Claim Date: 26/03/2015</p>
-		                        <p>Treatment cost: £892</p>
-		                        <p>Status: <span style="color: green;">Approved</span></p>
-		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
-		                    </li>
-		                    <li class="collection-item">
-		                        <span class="title">Practice: Occudental Private Dental Care Ltd</span>
-		                        <p>Dentist: Dr Stephanie Clarke</p>
-		                        <p>Claim Date: 05/02/2015</p>
-		                        <p>Treatment cost: £118</p>
-		                        <p>Status: <span style="color: green;">Approved</span></p>
-		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
+		                    <li class="collection-item" ng-repeat="claim in claims">
+		                        <span class="title">{{claim.title}}</span>
+		                        <p>Dentist: {{claim.doctor}}</p>
+		                        <p>Claim Date: {{claim.date}}</p>
+		                        <p>Treatment cost: {{claim.cost}}</p>
+		                        <p>Status: <span style="color: green;">{{claim.status}}</span></p>
+		                        <a class="orange email-claim btn btn-default" ng-click="emailClaim(claim.id)">Email Claims Form</a>
 		                    </li>
 		                </ul>
 		            </div>
@@ -48,7 +32,7 @@
 		        </div>
 		    </div>
 		    <div class="modal-footer">
-		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">Send</a>
+		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">SendtermsService</a>
 		    </div>
 		</div>
 		<script type="text/javascript">

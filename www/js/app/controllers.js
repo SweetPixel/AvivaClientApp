@@ -183,6 +183,46 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	};
 	$scope.getClinicsInfo();
 });
+avivaApp.controller('myClaimsCtrl', function ($http, $scope, myClaimsService) {
+	$scope.claims = {};
+	$scope.promise = myClaimsService.getClaims();
+	$scope.promise.then(function (payload) {
+		$scope.claims = payload.claims;
+	})
+})
+avivaApp.controller('personalDetailsCtrl', function ($http, $scope) {
+	$scope.user = {
+		UserId: '',
+		FirstName: '',
+		LastName : '',
+		Email: '',
+		Dob: '',
+		Gender: ''
+	};
+	var url = 'https://dentalink.co.uk/healthpickapi/api/Profile/Personal';
+	$http.put(url, $scope.user)
+		.success(function (response) {
+			$location.path('/settings');
+			Materialize.toast("Personal Details Updated.", 4000);
+		})
+		.fail(function () {
+
+		});
+
+});
+avivaApp.controller('supportCtrl', function ($scope, supportService) {
+	$scope.phone = "";
+	$scope.email = "";
+	
+});
+avivaApp('termsConditionsCtrl', function ($http, $scope, termsService) {
+	$scope.terms = "Getting terms and conditions...";
+
+	$scope.promise = termsService.getTerms();
+	$scope.promise.then(function (payload) {
+		$scope.terms = payload.terms;
+	})
+});
 avivaApp.controller('wellbeingCtrl', function($scope, $routeParams){
 	$scope.articles = [
 	{

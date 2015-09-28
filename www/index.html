@@ -637,7 +637,7 @@
 			<div class="row">
 				<div class="col s6 center-align top-margin">
 					<div class="row">
-						<a class="btn-floating btn-large waves-effect waves-light colors">
+						<a href="#/terms-conditions" class="btn-floating btn-large waves-effect waves-light colors">
 							<img src="images/Terms-and-Conditions.png" class="settingpageicons">
 						</a>
 					</div>
@@ -675,6 +675,15 @@
 		</div>
 	</div>
 </script>
+<script type="text/ng-template" id="terms-conditions.html">
+	<ng-include src="dentalnavbar"></ng-include>
+	<div class="container">
+		{{terms}}
+	</div>
+
+</script>
+
+
 <script type="text/ng-template" id="clinic-detail.html">
 	<ng-include src="dentalnavbar"></ng-include>
 
@@ -1183,29 +1192,13 @@
 		        <div class="card">
 		            <div class="card-content">
 		                <ul class="collection claims-list">
-		                    <li class="collection-item">
-		                        <span class="title">Practice: P S B Dental Care Ltd</span>
-		                        <p>Dentist: Dr Alison Foster</p>
-		                        <p>Claim Date: 15/06/2015</p>
-		                        <p>Treatment cost: £753</p>
-		                        <p>Status: <span style="color: green;">Approved</span></p>
-		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
-		                    </li>
-		                    <li class="collection-item">
-		                        <span class="title">Practice: Western Bank Dental Care</span>
-		                        <p>Dentist: Dr Steve Mulligan</p>
-		                        <p>Claim Date: 26/03/2015</p>
-		                        <p>Treatment cost: £892</p>
-		                        <p>Status: <span style="color: green;">Approved</span></p>
-		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
-		                    </li>
-		                    <li class="collection-item">
-		                        <span class="title">Practice: Occudental Private Dental Care Ltd</span>
-		                        <p>Dentist: Dr Stephanie Clarke</p>
-		                        <p>Claim Date: 05/02/2015</p>
-		                        <p>Treatment cost: £118</p>
-		                        <p>Status: <span style="color: green;">Approved</span></p>
-		                        <a class="orange email-claim btn btn-default">Email Claims Form</a>
+		                    <li class="collection-item" ng-repeat="claim in claims">
+		                        <span class="title">{{claim.title}}</span>
+		                        <p>Dentist: {{claim.doctor}}</p>
+		                        <p>Claim Date: {{claim.date}}</p>
+		                        <p>Treatment cost: {{claim.cost}}</p>
+		                        <p>Status: <span style="color: green;">{{claim.status}}</span></p>
+		                        <a class="orange email-claim btn btn-default" ng-click="emailClaim(claim.id)">Email Claims Form</a>
 		                    </li>
 		                </ul>
 		            </div>
@@ -1224,7 +1217,7 @@
 		        </div>
 		    </div>
 		    <div class="modal-footer">
-		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">Send</a>
+		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">SendtermsService</a>
 		    </div>
 		</div>
 		<script type="text/javascript">
@@ -1264,8 +1257,8 @@
 					<div class="card">
 						<div class="card-content">
 							<p style="font-weight: bold; font-size: 1.3rem; margin-bottom: 2rem;">For queries, contact us through the following media.</p>
-							<p>Phone: (0207) 269 9723</p>
-							<p>Email: support@dentalink.co.uk</p>
+							<p>Phone: {{phone}}</p>
+							<p>Email: {{email}}</p>
 		
 							<a class="btn btn-default orange" href="" style="margin-top: 2rem;">Raise Support Ticket</a>
 						</div>
@@ -1523,8 +1516,8 @@
 										</ul>
 									</div>
 									<div class="col s4 right-align">
-										<a class="btn-floating btn-large waves-effect waves-light white modal-trigger" data-target="detailmodal" href="#detailmodal">
-											<i class="mdi-editor-border-color "></i>
+										<a class="btn-floating waves-effect waves-light white modal-trigger" data-target="detailmodal" href="#detailmodal">
+											<i class="mdi-editor-border-color"></i>
 										</a>
 									</div>
 								</div>
@@ -1644,33 +1637,33 @@
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-action-account-circle prefix"></i>
-											<input id="icon_prefix" type="text" class="validate">
-											<label for="icon_prefix">First Name</label>
+											<input id="first-name" ng-model="user.FirstName" type="text" class="validate">
+											<label for="first-name">First Name</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-action-account-circle prefix"></i>
-											<input id="icon_prefix" type="text" class="validate">
-											<label for="icon_prefix">Last Name</label>
+											<input id="last-name" ng-model="user.LastName" type="text" class="validate">
+											<label for="last-name">Last Name</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-communication-email prefix"></i>
-											<input id="email" type="email" class="validate">
+											<input id="email" type="email" ng-model="user.Email" class="validate">
 											<label for="email" data-error="wrong" data-success="right">Email</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-editor-insert-invitation prefix"></i>
-											<input type="date" class="datepicker" placeholder="Date of Birth">
+											<input type="date" ng-model="user.Dob" class="datepicker" placeholder="Date of Birth">
 										</div>
 									</div>
 									<DIV class="row">
 										<div class="input-field col s12">
-											<select class="browser-default">
+											<select class="browser-default" ng-model="user.Gender">
 												<option value="" disabled selected>Select Gender</option>
 												<option value="1">Male</option>
 												<option value="2">Female</option>

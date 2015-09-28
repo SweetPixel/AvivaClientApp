@@ -4,14 +4,16 @@ avivaApp.config(function($routeProvider) {
 	$routeProvider
 		//index start
 		.when('/forgot-password', {
-			templateUrl: 'forgot.html'
+			templateUrl: 'forgot.html',
+			controller: 'forgotCtrl'
 		})
 		.when('/login', {
 			templateUrl: 'login.html',
 			controller: 'loginCtrl'
 		})
 		.when('/change-password', {
-			templateUrl: 'change-password.html'
+			templateUrl: 'change-password.html',
+			controller: 'changePasswordCtrl'
 		})
 		//index end
 		//services start
@@ -31,15 +33,22 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'optical-services.html'
 		})
 		.when('/notifications', {
-			templateUrl: 'notifications.html'
+			templateUrl: 'notifications.html',
+			controller: 'notificationsCtrl'
 		})
 		//services end
 		//settings start
 		.when('/settings/personal-details', {
-			templateUrl: 'personal.html'
+			templateUrl: 'personal.html',
+			controller: 'personalDetailsCtrl'
 		})
 		.when('/settings/family-details', {
-			templateUrl: 'family.html'
+			templateUrl: 'family.html',
+			controller: 'familyDetailsCtrl'
+		})
+		.when('/terms-conditions', {
+			templateUrl: 'terms-conditions.html',
+			controller: 'termsConditionsCtrl'
 		})
 		//settings end
 		//dentalservices start
@@ -48,19 +57,24 @@ avivaApp.config(function($routeProvider) {
 			controller: 'findDentistCtrl'
 		})
 		.when('/dental-services/my-claims', {
-			templateUrl: 'my-claims.html'
+			templateUrl: 'my-claims.html',
+			controller: 'myClaimsCtrl'
 		})
 		.when('/dental-services/feedback', {
-			templateUrl: 'feedback.html'
+			templateUrl: 'feedback.html',
+			controller: 'feedbackCtrl'
 		})
 		.when('/dental-services/my-policy', {
-			templateUrl: 'my-policy.html'
+			templateUrl: 'my-policy.html',
+			controller: 'myPolicyCtrl'
 		})
 		.when('/dental-services/support', {
-			templateUrl: 'support.html'
+			templateUrl: 'support.html',
+			controller: 'supportCtrl'
 		})
 		.when('/dental-services/well-being', {
-			templateUrl: 'well-being.html'
+			templateUrl: 'well-being.html',
+			controller: 'wellbeingCtrl'
 		})
 		.when('/dental-services/dental-advice', {
 			templateUrl: 'dental-advice.html',
