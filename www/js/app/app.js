@@ -24,13 +24,16 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'settings.html'
 		})
 		.when('/dental-services', {
-			templateUrl: 'dental-services.html'
+			templateUrl: 'dental-services.html',
+			controller: 'dentalServicesCtrl'
 		})
 		.when('/medical-services', {
-			templateUrl: 'medical-services.html'
+			templateUrl: 'medical-services.html',
+			controller: 'medicalServicesCtrl'
 		})
 		.when('/optical-services', {
-			templateUrl: 'optical-services.html'
+			templateUrl: 'optical-services.html',
+			controller: 'opticalServicesCtrl'
 		})
 		.when('/notifications', {
 			templateUrl: 'notifications.html',
@@ -42,9 +45,21 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'personal.html',
 			controller: 'personalDetailsCtrl'
 		})
+		.when('/settings/update-personal', {
+			templateUrl: 'update-personal.html',
+			controller: 'personalDetailsCtrl'
+		})
 		.when('/settings/family-details', {
 			templateUrl: 'family.html',
 			controller: 'familyDetailsCtrl'
+		})
+		.when('/settings/family/update-family', {
+			templateUrl: 'update-family.html',
+			controller: 'updateFamilyCtrl'
+		})
+		.when('/settings/family/add-family', {
+			templateUrl: 'add-family.html',
+			controller: 'addFamilyCtrl'
 		})
 		.when('/terms-conditions', {
 			templateUrl: 'terms-conditions.html',
@@ -56,7 +71,7 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'find-dentist.html',
 			controller: 'findDentistCtrl'
 		})
-		.when('/dental-services/my-claims', {
+		.when('/services/my-claims', {
 			templateUrl: 'my-claims.html',
 			controller: 'myClaimsCtrl'
 		})
@@ -64,7 +79,7 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'feedback.html',
 			controller: 'feedbackCtrl'
 		})
-		.when('/dental-services/my-policy', {
+		.when('/services/my-policy', {
 			templateUrl: 'my-policy.html',
 			controller: 'myPolicyCtrl'
 		})
@@ -72,7 +87,7 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'support.html',
 			controller: 'supportCtrl'
 		})
-		.when('/dental-services/well-being', {
+		.when('/services/well-being', {
 			templateUrl: 'well-being.html',
 			controller: 'wellbeingCtrl'
 		})
@@ -85,10 +100,12 @@ avivaApp.config(function($routeProvider) {
 		})
 
 		.when('/dental-clinic-detail/treatment', {
-			templateUrl: 'treatment.html'
+			templateUrl: 'treatment.html',
+			controller: 'treatmentCtrl'
 		})
 		.when('/dental-clinic-detail/staff', {
-			templateUrl: 'staff.html'
+			templateUrl: 'staff.html',
+			controller: 'staffCtrl'
 		})
 		.when('/dental-clinic-detail/timing', {
 			templateUrl: 'timing.html'

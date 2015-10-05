@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com; img-src *; connect-src http://healthpickapi.azurewebsites.net:*">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://maps.googleapis.com https://dentalink.co.uk/healthpickapi/api/ https://maps.gstatic.com data: gap: https://ssl.gstatic.com https://dentalink.co.uk/healthpickapi/api/ 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com https://dentalink.co.uk/healthpickapi/api/; img-src *; connect-src http://healthpickapi.azurewebsites.net:* https://dentalink.co.uk/healthpickapi/api/*">
 	<meta http-equiv="Access-Control-Allow-Origin" content="*"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -98,7 +98,7 @@
 		
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Claims.png" class="settingpageicons" style="margin-left: 5%;">
 					</a>
 				</div>
@@ -135,7 +135,7 @@
 		<div class="row" >
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Wellbeing.png" class="settingpageicons">
 					</a>
 				</div>
@@ -146,7 +146,7 @@
 		
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Policy.png" class="settingpageicons">
 					</a>
 				</div>
@@ -296,7 +296,7 @@
 		
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Claims.png" class="settingpageicons" style="margin-left: 5%;">
 					</a>
 				</div>
@@ -333,7 +333,7 @@
 		<div class="row" >
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Wellbeing.png" class="settingpageicons">
 					</a>
 				</div>
@@ -344,7 +344,7 @@
 		
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Policy.png" class="settingpageicons">
 					</a>
 				</div>
@@ -362,6 +362,79 @@
 				</div>
 				<div class="row">
 					<p class="white-text center-align">Feedback</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/ng-template" id="my-claims.html">
+	<div class="view">
+		<ng-include src="navbar"></ng-include>
+		
+		<div class="row">
+		    <div class="col s12 m12">
+		        <div class="card">
+		            <div class="card-content">
+		                <ul class="collection claims-list">
+		                    <li class="collection-item" ng-repeat="claim in claims">
+		                        <p>Dentist: {{claim.Dentist}}</p>
+		                        <p>Practice: {{claim.Practicename}}</p>
+		                        <p>Claim Date: {{claim.ClaimsDate}}</p>
+		                        <p>Treatment cost: {{claim.TreatmentCost}}</p>
+		                        <p>Status: <span style="color: green;">{{claim.Status}}</span></p>
+		                        <a class="orange email-claim btn btn-default" ng-click="emailClaim(claim.id)">Email Claims Form</a>
+		                    </li>
+		                </ul>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<pre>{{claims | json}}</pre>
+		<div id="email-claim-modal" class="modal">
+		    <div class="modal-content">
+		        <h4>Enter Email</h4>
+		        <div class="row">
+		            <div class="input-field col s12">
+		                <input type="email" id="email" class="validate">
+		                <label for="email">Email of receiver</label>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="modal-footer">
+		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">SendtermsService</a>
+		    </div>
+		</div>
+		<script type="text/javascript">
+		    $('.email-claim').on('click', function () {
+		        $('#email-claim-modal').openModal();
+		    })
+		</script>
+	</div>
+</script>
+<script type="text/ng-template" id="my-policy.html">
+	<div class="view">
+		<ng-include src="navbar"></ng-include>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12">
+					<div class="card">
+						<div class="card-content">
+							<h4 class="center">My Policy</h4>
+							<p>
+								Annual Allowance Renewal Date:
+								<span style="font-weight: bold">{{policy.allowancedate}}</span>
+							</p>
+							<p>
+								Annual Allowance Limit: 
+								<span style="font-weight: bold">{{policy.allowancelimit | currency:"£":2}}</span>
+							</p>
+							<p>
+								Allowance Used:
+								<span style="font-weight: bold">{{policy.allowanceused | currency:"£":2}}</span>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -409,7 +482,7 @@
 		<div class="row" >
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/find-dentist" class="btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/Optical-Services.png" class="settingpageicons">
 					</a>
 				</div>
@@ -420,7 +493,7 @@
 		
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/my-claims" class="btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Claims.png" class="settingpageicons" style="margin-left: 5%;">
 					</a>
 				</div>
@@ -457,7 +530,7 @@
 		<div class="row" >
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/well-being" class="btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Wellbeing.png" class="settingpageicons">
 					</a>
 				</div>
@@ -468,7 +541,7 @@
 		
 			<div class="col s6 center-align">
 				<div class="row">
-					<a href="#/dental-services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
+					<a href="#/services/my-policy" id="policyBtn" class="modal-trigger btn-floating btn-large waves-effect waves-light colors">
 						<img src="images/My-Policy.png" class="settingpageicons">
 					</a>
 				</div>
@@ -677,13 +750,46 @@
 </script>
 <script type="text/ng-template" id="terms-conditions.html">
 	<ng-include src="dentalnavbar"></ng-include>
+	<div class="row">
+			<h3  class="center-align white-text lighten-2 fonts">  Terms & Conditions </h3>
+		</div>
 	<div class="container">
-		{{terms}}
+		<div class="row">
+				<div class="card">
+					<div class="card-content">
+						{{terms}}
+					</div>
+				</div>
+			</div>	
 	</div>
 
 </script>
 
 
+<script type="text/ng-template" id="well-being.html">
+    <div class="view">
+        <ng-include src="navbar"></ng-include>
+        <div class="container" ng-controller="wellbeingCtrl">
+            <div class="row">
+                <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
+                    My Wellbeing
+                </h4>
+            </div>
+            <div class="row" ng-repeat="article in articles">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title grey-text text-darken-4">{{article.title}}</span>
+                            <p>
+                                {{article.Description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
 <script type="text/ng-template" id="clinic-detail.html">
 	<ng-include src="dentalnavbar"></ng-include>
 
@@ -1183,70 +1289,6 @@
 	    });
 	</script>
 </script>
-<script type="text/ng-template" id="my-claims.html">
-	<div class="view">
-		<ng-include src="dentalnavbar"></ng-include>
-		
-		<div class="row">
-		    <div class="col s12 m12">
-		        <div class="card">
-		            <div class="card-content">
-		                <ul class="collection claims-list">
-		                    <li class="collection-item" ng-repeat="claim in claims">
-		                        <span class="title">{{claim.title}}</span>
-		                        <p>Dentist: {{claim.doctor}}</p>
-		                        <p>Claim Date: {{claim.date}}</p>
-		                        <p>Treatment cost: {{claim.cost}}</p>
-		                        <p>Status: <span style="color: green;">{{claim.status}}</span></p>
-		                        <a class="orange email-claim btn btn-default" ng-click="emailClaim(claim.id)">Email Claims Form</a>
-		                    </li>
-		                </ul>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		
-		<div id="email-claim-modal" class="modal">
-		    <div class="modal-content">
-		        <h4>Enter Email</h4>
-		        <div class="row">
-		            <div class="input-field col s12">
-		                <input type="email" id="email" class="validate">
-		                <label for="email">Email of receiver</label>
-		            </div>
-		        </div>
-		    </div>
-		    <div class="modal-footer">
-		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">SendtermsService</a>
-		    </div>
-		</div>
-		<script type="text/javascript">
-		    $('.email-claim').on('click', function () {
-		        $('#email-claim-modal').openModal();
-		    })
-		</script>
-	</div>
-</script>
-<script type="text/ng-template" id="my-policy.html">
-	<div class="view">
-		<ng-include src="dentalnavbar"></ng-include>
-		
-		<div class="container">
-			<div class="row">
-				<div class="col s12 m12">
-					<div class="card">
-						<div class="card-content">
-							<h4 class="center">My Policy</h4>
-							<p>Annual Allowance Renewal Date: <span style="font-weight: bold">15/03/2016</span></p>
-							<p>Annual Allowance Limit: <span style="font-weight: bold">£250</span></p>
-							<p>Allowance Used: <span style="font-weight: bold">£80</span></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</script>
 <script type="text/ng-template" id="support.html">
 	<div class="view">
 		<ng-include src="dentalnavbar"></ng-include>
@@ -1268,32 +1310,9 @@
 		</div>
 	</div>
 </script>
-<script type="text/ng-template" id="well-being.html">
-    <div class="view">
-        <ng-include src="dentalnavbar"></ng-include>
-        <div class="container" ng-controller="wellbeingCtrl">
-            <div class="row">
-                <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
-                    My Wellbeing
-                </h4>
-            </div>
-            <div class="row" ng-repeat="article in articles">
-                <div class="col s12 m12">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title grey-text text-darken-4">{{article.title}}</span>
-                            <p>
-                                {{article.content}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
 <script type="text/ng-template" id="dental-navbar.html">
-	<div id="qrmodal" class="modal">
+	<div id="qrmodal" class="modal" ng-controller="qrCtrl">
+		<pre>{{qr | json}}</pre>
 	    <div class="modal-content center">
 	        <h5>My Unique Policy QR code</h5>
 	        <img src="images/harley-qr.png" style="width: 100%"/>
@@ -1482,47 +1501,101 @@
 		});
 	</script>
 </script>
-<script type="text/ng-template" id="family.html">
+<script type="text/ng-template" id="add-family.html">
 	<div class="view">
 		<ng-include src="settingsnavbar"></ng-include>
-
-		<div id="m" class="modal">
-			<div class="modal-content">
-				<h4 class="orange-text">Done!</h4>
-				<p>Settings Saved</p>
-			</div>
-			<div class="modal-footer">
-				<a href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
-			</div>
+		
+		<div class="row">
+			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
 		</div>
-
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
 					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4"><i></i></span>
-						<div id="right">
-							<div id="top">
-								<div class="row">
-									<div class="col s8">
-										<ul class="collection">
-											<li class="collection-item avatar" style="height: 115px">
-												<img src="images/765-default-avatar.png" alt="" class="circle">
-												<span class="title">Mr. White</span>
-												<p>
-													Marry Jones
-												</p>
-											</li>
-										</ul>
+						<div class="center">
+							<div class="row thisrow">
+								<div class="testcontent">
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="first-name" ng-model="member.FirstName" type="text" class="validate" placeholder="First Name">
+										</div>
 									</div>
-									<div class="col s4 right-align">
-										<a class="btn-floating waves-effect waves-light white modal-trigger" data-target="detailmodal" href="#detailmodal">
-											<i class="mdi-editor-border-color"></i>
-										</a>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="last-name" ng-model="member.LastName" type="text" class="validate" placeholder="Last Name">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="relation" ng-model="member.Relation" type="text" class="validate" placeholder="Relation">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-communication-email prefix"></i>
+											<input id="email" type="email" ng-model="member.Email" class="validate" placeholder="Email">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-editor-insert-invitation prefix"></i>
+											<input type="text" ng-model="member.Dob" class="datepicker" placeholder="Date of Birth">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<select class="browser-default" ng-model="member.Gender">
+												<option value="" disabled selected>Select Gender</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+											</select>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="side-alignment right-align">
+							<a ng-click="addMember()" class="waves-effect waves-green btn-flat">
+								Add
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: 15 // Creates a dropdown of 15 years to control year
+		});
+	</script>
+</script>
+<script type="text/ng-template" id="family.html">
+	<div class="view family-view">
+		<ng-include src="settingsnavbar"></ng-include>
+
+		<div class="row">
+			<h3  class="center-align white-text lighten-2 fonts">  Personal Details  </h3>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<ul class="collection family-list">
+							<li ng-repeat="member in family" class="collection-item avatar" style="height: 115px">
+								<span class="title">{{member.FirstName}} {{member.LastName}}</span>
+								<p>
+									{{member.Relation}}
+								</p>
+								<a href="" ng-click="updateMember(member.FamilyID)" class="secondary-content btn-floating white">
+									<i class="mdi-editor-border-color"></i>
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -1530,94 +1603,142 @@
 
 		<div class="row">
 			<div class="col s12 right-align">
-				<button class="btn-floating btn-large waves-effect waves-light pull-right white modal-trigger" type="submit" name="action" id="clickMe" data-target="detailmodal" href="#detailmodal">
+				<a href="#/settings/family/add-family" class="btn-floating waves-effect waves-light pull-right white">
 					<i class="mdi-content-add"></i>
-				</button>
-				<div id="detailmodal" class="modal" style="width: 100%;">
-					<div class="modal-content center">
-						<h5>Add Family Details</h5>
-						<div class="row thisrow">
-							<div class="testcontent">
-								<div class="row">
-									<div class="input-field col s12">
-										<i class="mdi-action-account-circle prefix"></i>
-										<input id="first-name" type="text" class="validate">
-										<label for="first-name">First Name</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<i class="mdi-action-account-circle prefix"></i>
-										<input id="last-name" type="text" class="validate">
-										<label for="last-name">Last Name</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<i class="mdi-communication-email prefix"></i>
-										<input id="email" type="email" class="validate">
-										<label for="email" data-error="wrong" data-success="right">Email</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<!-- <input type="date" id="bdayPicker" class="dob" placeholder="Date of Birth"> -->
-										<button class="btn waves-effect waves-light orange"  id="bdayPicker"><i class="fa fa-calendar"> </i> Date of Birth</button>
-									</div>
-								</div>
-								<DIV class="row">
-									<div class="input-field col s12">
-										<select class="browser-default">
-											<option value="" disabled selected>Select Gender</option>
-											<option value="1">Male</option>
-											<option value="2">Female</option>
-										</select>
-									</div>
-								</DIV>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<a class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
-					</div>
-				</div>
+				</a>
 			</div>
 		</div>
-
-		<script>
-			// $('.datepicker').pickadate({
-			// 	selectMonths: true, // Creates a dropdown to control month
-			// 	selectYears: 15 // Creates a dropdown of 15 years to control year
-			// });
-
-
-
-			function onSuccess(date) {
-				// $('#bdayPicker').text()
-				// to do : change date format to more readable
-				var m = moment(date.toString());
-
-				$('#bdayPicker').html('<i class="fa fa-calendar"> </i> ' + m.format('DD/MM/YYYY'));
-			};
-
-			function onError(error) { // Android only
-				alert('Error: ' + error);
-			};
-
-			$( "#bdayPicker" ).click(function() {
-				var options = {
-					date: new Date(),
-					mode: 'date',
-					x : '100',
-					y : '300'
-				};
-				datePicker.show(options, onSuccess, onError);
-			});
-		</script>
 	</div>
 </script>
 
 <script type="text/ng-template" id="personal.html">
+<div class="view">
+
+
+	<ng-include src="settingsnavbar"></ng-include>
+
+	<div class="row">
+		<h3  class="center-align white-text lighten-2 fonts">  Personal Details  </h3>
+	</div>
+
+	<div class="row">
+		<div class="col s12">
+			<div class="card">
+				<div class="card-content">
+					<div>
+
+						<ul class="collection">
+							<li class="collection-item">
+								<span class="title">Name</span>
+								<p>{{user.FirstName}} {{user.LastName}}</p>
+							</li>
+							<li class="collection-item">
+								<span class="title">Email</span>
+								<p>{{user.Email}}</p>
+							</li>
+							<li class="collection-item">
+								<span class="title">Date of Birth</span>
+								<p>{{user.Dob}}</p>
+							</li>
+							<li class="collection-item">
+								<span class="title">Gender</span>
+								<p>{{user.Gender}}</p>
+							</li>
+						</ul>
+
+					</div>
+					<div class="side-alignment right-align">
+						<a href="#/settings/update-personal" class="waves-effect waves-green btn-flat">
+							Update
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: 15 // Creates a dropdown of 15 years to control year
+		});
+</script>
+
+</script>
+<script type="text/ng-template" id="update-family.html">
+	<div class="view">
+		<ng-include src="settingsnavbar"></ng-include>
+		
+		<div class="row">
+			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<div class="center">
+							<div class="row thisrow">
+								<div class="testcontent">
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="first-name" ng-model="member.FirstName" type="text" class="validate" placeholder="First Name">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="last-name" ng-model="member.LastName" type="text" class="validate" placeholder="Last Name">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-action-account-circle prefix"></i>
+											<input id="relation" ng-model="member.Relation" type="text" class="validate" placeholder="Relation">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-communication-email prefix"></i>
+											<input id="email" type="email" ng-model="member.Email" class="validate" placeholder="Email">
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<i class="mdi-editor-insert-invitation prefix"></i>
+											<input type="text" ng-model="member.Dob" class="datepicker" placeholder="Date of Birth">
+										</div>
+									</div>
+									<DIV class="row">
+										<div class="input-field col s12">
+											<select class="browser-default" ng-model="member.Gender">
+												<option value="" disabled selected>Select Gender</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+											</select>
+										</div>
+									</DIV>
+								</div>
+							</div>
+						</div>
+						<div class="side-alignment right-align">
+							<a ng-click="updateDetails()" class="waves-effect waves-green btn-flat">
+								Update
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: 15 // Creates a dropdown of 15 years to control year
+		});
+	</script>
+</script>
+<script type="text/ng-template" id="update-personal.html">
 	<div class="view">
 
 
@@ -1637,36 +1758,33 @@
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-action-account-circle prefix"></i>
-											<input id="first-name" ng-model="user.FirstName" type="text" class="validate">
-											<label for="first-name">First Name</label>
+											<input id="first-name" ng-model="user.FirstName" type="text" class="validate" placeholder="First Name">
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-action-account-circle prefix"></i>
-											<input id="last-name" ng-model="user.LastName" type="text" class="validate">
-											<label for="last-name">Last Name</label>
+											<input id="last-name" ng-model="user.LastName" type="text" class="validate" placeholder="Last Name">
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-communication-email prefix"></i>
-											<input id="email" type="email" ng-model="user.Email" class="validate">
-											<label for="email" data-error="wrong" data-success="right">Email</label>
+											<input id="email" type="email" ng-model="user.Email" class="validate" placeholder="Email">
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
 											<i class="mdi-editor-insert-invitation prefix"></i>
-											<input type="date" ng-model="user.Dob" class="datepicker" placeholder="Date of Birth">
+											<input type="text" ng-model="user.Dob" class="datepicker" placeholder="Date of Birth">
 										</div>
 									</div>
 									<DIV class="row">
 										<div class="input-field col s12">
 											<select class="browser-default" ng-model="user.Gender">
 												<option value="" disabled selected>Select Gender</option>
-												<option value="1">Male</option>
-												<option value="2">Female</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
 											</select>
 										</div>
 									</DIV>
@@ -1674,7 +1792,7 @@
 							</div>
 						</div>
 						<div class="modal-footer side-alignment right-align">
-							<a onclick="Materialize.toast('Details Updated', 2000)" href="#/settings" class=" modal-action modal-close waves-effect waves-green btn-flat">
+							<a onclick="Materialize.toast('Details Updated', 2000)" ng-click="updateDetails()" class=" modal-action modal-close waves-effect waves-green btn-flat">
 								Update
 							</a>
 						</div>
@@ -1836,94 +1954,21 @@
 </script>
 <script type="text/ng-template" id="staff.html">
 	<ng-include src="dentalnavbar"></ng-include>
-	<ul class="collection">
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/stanley kay.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr Stanley Kay</h5></span>
-			<p class="grey-text">GDC Number: 36744
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/SarahNeale-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr Sarah Neale</h5></span>
-			<p class="grey-text">GDC Number: 65581
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/PedjaPavlovic-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr. Pedja Pavlovic</h5></span>
-			<p class="grey-text">GDC Number: 72547
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/NectariaPolycarpou-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr. Nectaria Polycarpou</h5></span>
-			<p class="grey-text">GDC Number: 71067
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/MaryShenouda-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr. Mary Shenouda</h5></span>
-			<p class="grey-text">GDC Number: 133585
-			</p>
-		</li>
-	
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/CharlotteStilwell-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr. Charlotte Stilwell</h5></span>
-			<p class="grey-text">GDC Number: 59233
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/JeanClaude-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr. Jean Claude Violides</h5></span>
-			<p class="grey-text">GDC Number: 133585
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/RamanBedi-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Prof. Raman Bedi</h5></span>
-			<p class="grey-text">GDC Number: 50292
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/StephenDover-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Mr. Stephen Dover</h5></span>
-			<p class="grey-text">GDC Number: 54751
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/EmmaLaing-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr. Emma Laing</h5></span>
-			<p class="grey-text">GDC Number: 80557
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/JasSharma-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Dr. Jas Sharma</h5></span>
-			<p class="grey-text">GDC Number: 71374 
-			</p>
-		</li>
-	
-		<li class="collection-item avatar">
-			<img src="images/staff/PascalLarousse-profile.jpg" alt="" class="circle">
-			<span class="title"><h5>Mr. Pascal Larousse DchD</h5></span>
-			<p class="grey-text">GDC Number: 102262
-			</p>
-		</li>
+	<div class="row">
+		<h3 class="center-align white-text lighten-2 fonts">Our Staff</h3>
+	</div>
+	<div class="container">
+		<ul class="collection staff-list">
 		
-	</ul>
+			<li class="collection-item avatar" ng-repeat="doctor in staff">
+				<!--<img src="images/staff/stanley kay.jpg" alt="" class="circle">-->
+				<span class="title"><h5>{{doctor.FirstName}} {{doctor.Surname}}</h5></span>
+				<p class="grey-text">Occupation: {{doctor.JobTitle}}</p>
+				<p class="grey-text">GDC Number: {{doctor.GDCNumber}}</p>
+			</li>
+			
+		</ul>
+	</div>
 </script>
 <script type="text/ng-template" id="timing.html">
 	<ng-include src="dentalnavbar"></ng-include>
@@ -1978,253 +2023,33 @@
 	</div>
 </script>
 <script type="text/ng-template" id="treatment.html">
-	<ng-include src="dentalnavbar"></ng-include>
-	<ul class="collection">
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Intra-oral – Bite-wing per unit</p></span>
+	<ng-include src="navbar"></ng-include>
+	<div class="row">
+		<h3 class="center-align white-text lighten-2 fonts">Treatments</h3>
+	</div>
+	<div class="container">
+		<ul class="collection">
+		
+			<li class="collection-item " ng-repeat="treatment in treatments">
+				<div class="row ">
+					<div class="col s8 ">
+						<span class="title"><p>{{treatment.TreatmentName}}</p></span>
+					</div>
+					<div class="col s0 ">
+						<img src="images/bar.jpg" alt="" class="circle">
+					</div>
+		
+					<div class="col s3 ">
+						<p>
+							<span class="center" style="color: #2980B9">
+								{{treatment.TreatmentPricePayout | currency:"£":2}}
+							</span>
+						</p>
+					</div>
 				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£10</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Intra-oral – Periapical per unit</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£10</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Topical Application of Fluoride </p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£200</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Sealant – per tooth</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£100</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>One Hour Hygiene</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£170</span></p>
-				</div>
-			</div>
-		</li>
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Amalgam – Small, primary or permanent</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£250</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Amalgam – Medium, primary or permanent</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£250</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Amalgam – Large, primary or permanent</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£250</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Composite – Small</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£250</span></p>
-				</div>
-			</div>
-	
-		</li>
-	
-		<li class="collection-item ">
-	
-	
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Composite – Medium</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£250</span></p>
-				</div>
-			</div>
-	
-		</li>
-	
-		<li class="collection-item ">
-	
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Composite – Large</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£250</span></p>
-				</div>
-			</div>
-	
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Inlay- Gold</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£1100</span></p>
-				</div>
-			</div>
-	
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Inlay- Ceramic</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£1100</span></p>
-				</div>
-			</div>
-		</li>
-	
-		<li class="collection-item ">
-			<div class="row ">
-				<div class="col s8 ">
-					<span class="title"><p>Routine Hygiene</p></span>
-				</div>
-				<div class="col s0 ">
-	
-					<img src="images/bar.jpg" alt="" class="circle">
-				</div>
-	
-				<div class="col s3 ">
-					
-					<p><span class="center" style="color: #2980B9">£215</span></p>
-				</div>
-			</div>
-		</li>
-	</ul>
+			</li>
+		</ul>
+	</div>
 </script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATv4hUjdND9NZIZukq9g5WlIFkgf76rcw&sensor=false"></script>	
 </body>

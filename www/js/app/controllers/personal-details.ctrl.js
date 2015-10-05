@@ -1,20 +1,28 @@
-avivaApp.controller('personalDetailsCtrl', function ($http, $scope) {
+avivaApp.controller('personalDetailsCtrl', function ($http, $scope, $location, getPersonalService, updatePersonalService) {
 	$scope.user = {
-		UserId: '',
-		FirstName: '',
+		UserID: '',
+		FirstName: '...',
 		LastName : '',
-		Email: '',
-		Dob: '',
-		Gender: ''
+		Email: '...',
+		Dob: '...',
+		Gender: '...'
 	};
-	var url = 'https://dentalink.co.uk/healthpickapi/api/Profile/Personal';
-	$http.put(url, $scope.user)
-		.success(function (response) {
+	$scope.promise = getPersonalService.getDetails($scope.user);
+	$scope.promise.then(function (payload) {
+		console.log("Should be done");
+		$scope.user = payload.data;
+		console.log($scope.user.ID);
+		console.log($scope.user.UserID);
+		$scope.user.Dob = new Date($scope.user.Dob);
+	});
+	$scope.updateDetails = function () {
+		$scope.user.Dob = $scope.user.Dob.toString();
+		$scope.promise = updatePersonalService.updateDetails($scope.user);
+		$scope.promise.then(function (payload) {
+			console.log("should be updated");
+			console.log(payload.data);
 			$location.path('/settings');
-			Materialize.toast("Personal Details Updated.", 4000);
-		})
-		.fail(function () {
-
 		});
+	}
 
 });

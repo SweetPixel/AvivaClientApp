@@ -5,8 +5,8 @@ module.exports = function(grunt) {
 
 		watch: {
 			scripts: {
-				files: ['css/*.*', 'js/*.*', '!js/*.min.js', '!css/*.min.css', 'templates/*.html', 'templates/**/*.html', '*.html'],
-				tasks: ['concat', 'uglify'],
+				files: ['css/*.*', 'js/*.*', 'js/**/*.*', '!js/*.min.js', '!css/*.min.css', 'templates/*.html', 'templates/**/*.html', '*.html', '!js/app/services.js', '!js/app/controllers.js', '!index.html'],
+				tasks: ['concat'],
 				options: {
 					interrupt: true,
 					livereload: {

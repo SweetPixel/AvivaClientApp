@@ -26,6 +26,7 @@
 
     <access origin="*" />
     <access origin="http://healthpickapi.azurewebsites.net/api/practice" />
+    <access origin="https://dentalink.co.uk/healthpickapi/api/" />
     <access origin="http://animation-republic.com/CorporaCompleteCarePlan.pdf"/>
     <allow-navigation href="http://*/*" />
 

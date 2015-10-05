@@ -1,5 +1,6 @@
 <script type="text/ng-template" id="dental-navbar.html">
-	<div id="qrmodal" class="modal">
+	<div id="qrmodal" class="modal" ng-controller="qrCtrl">
+		<pre>{{qr | json}}</pre>
 	    <div class="modal-content center">
 	        <h5>My Unique Policy QR code</h5>
 	        <img src="images/harley-qr.png" style="width: 100%"/>

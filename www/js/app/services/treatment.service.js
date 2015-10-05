@@ -1,12 +1,13 @@
-avivaApp.factory('termsService', function ($q, $http) {
+avivaApp.factory('treatmentService', function ($http, $q) {
 	return {
-		getTerms: function () {
+		getTreatments: function (userId) {
 			var deferred = $q.defer();
-			var url = 'https://dentalink.co.uk/healthpickapi/api/Terms';
+			var url = 'https://dentalink.co.uk/healthpickapi/api/Treatment?username=' + userId;
+			
 			$http.get(url)
 				.success(function (response) {
 					deferred.resolve({
-						terms: response
+						treatments: response
 					})
 				})
 				.error(function (msg, code) {

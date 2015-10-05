@@ -1,12 +1,13 @@
-avivaApp.factory('myClaimsService', function ($http, $q) {
+avivaApp.factory('qrService', function ($http, $q) {
 	return {
-		getClaims: function () {
+		getQR: function (userId) {
 			var deferred = $q.defer();
-			var url = 'http://dentalink.co.uk/api/DentalService/GetClaimsList';
+			var url = 'https://dentalink.co.uk/healthpickapi/api/Profile/QRCode?username=' + userId;
+			
 			$http.get(url)
 				.success(function (response) {
 					deferred.resolve({
-						claims: response.claims
+						qr: response
 					})
 				})
 				.error(function (msg, code) {

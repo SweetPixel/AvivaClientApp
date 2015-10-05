@@ -514,6 +514,14 @@ nav .button-collapse i {
 a.email-claim {
 	color: #fff;
 }
+.family-list .collection-item.avatar {
+	padding-left: 0.8rem;
+	padding-right: 0.8rem;
+}
+.family-view .btn-floating i {
+	color: #DE5741;
+	font-size: 1rem;
+}
 @media screen and (max-width: 599px) {
 	.clinic-list span:nth-child(n+2) {
 		float: right;
@@ -548,4 +556,8 @@ a.email-claim {
 }
 .collection-item .row {
 	margin-bottom: 0;
+}
+
+.collection.staff-list .collection-item.avatar {
+	height: 120px;
 }

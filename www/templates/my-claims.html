@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="my-claims.html">
 	<div class="view">
-		<ng-include src="dentalnavbar"></ng-include>
+		<ng-include src="navbar"></ng-include>
 		
 		<div class="row">
 		    <div class="col s12 m12">
@@ -8,11 +8,11 @@
 		            <div class="card-content">
 		                <ul class="collection claims-list">
 		                    <li class="collection-item" ng-repeat="claim in claims">
-		                        <span class="title">{{claim.title}}</span>
-		                        <p>Dentist: {{claim.doctor}}</p>
-		                        <p>Claim Date: {{claim.date}}</p>
-		                        <p>Treatment cost: {{claim.cost}}</p>
-		                        <p>Status: <span style="color: green;">{{claim.status}}</span></p>
+		                        <p>Dentist: {{claim.Dentist}}</p>
+		                        <p>Practice: {{claim.Practicename}}</p>
+		                        <p>Claim Date: {{claim.ClaimsDate}}</p>
+		                        <p>Treatment cost: {{claim.TreatmentCost}}</p>
+		                        <p>Status: <span style="color: green;">{{claim.Status}}</span></p>
 		                        <a class="orange email-claim btn btn-default" ng-click="emailClaim(claim.id)">Email Claims Form</a>
 		                    </li>
 		                </ul>
@@ -20,7 +20,7 @@
 		        </div>
 		    </div>
 		</div>
-		
+		<pre>{{claims | json}}</pre>
 		<div id="email-claim-modal" class="modal">
 		    <div class="modal-content">
 		        <h4>Enter Email</h4>
