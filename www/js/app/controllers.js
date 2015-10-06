@@ -171,17 +171,19 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 		});
 	}
 });
-avivaApp.controller('loginCtrl', function ($scope, $location) {
-	$scope.username;
-	$scope.password;
+avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
+	$scope.credentials = {
+		username: '',
+		password: ''
+	}
+	$scope.status = '';
 	$scope.login = function () {
-		$location.path('/services');
-		/*if ($scope.username == '' && $scope.password == '') {
-			
-		}
-		else {
-			Materialize.toast("Wrong username or password.", 4000);
-		}*/
+		$scope.promise = loginService.login($scope.credentials);
+		$scope.promise.then(function (payload) {
+			$scope.status = payload.status;
+			console.log("logged in as: " + $scope.credentials.username + " status: " + $scope.status);
+			/*$location.path('/services');*/
+		})
 	}
 });
 avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log) {
