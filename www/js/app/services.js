@@ -1,3 +1,34 @@
+avivaApp.factory('adviceService', function ($http, $q, $log) {
+	return {
+		submitQuestion: function (question, service) {
+			var deferred = $q.defer();
+			var url = '';
+			switch (service) {
+				case 1:
+					url = 'https://dentalink.co.uk/healthpickapi/api/DentalService/Dental';
+					break;
+				case 2:
+					url = 'https://dentalink.co.uk/healthpickapi/api/MedicalService/Medical';
+					break;
+				case 3:
+					url = 'https://dentalink.co.uk/healthpickapi/api/OpticalService/Optical';
+					break;
+			}
+			
+			$http.post(url, question)
+				.success(function (response) {
+					deferred.resolve({
+						status: response
+					})
+				})
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
+			return deferred.promise;
+		}
+	}
+})
 avivaApp.factory('clinicService', function ($http, $q, $log) {
 	return {
 		getClinic: function () {
@@ -380,9 +411,20 @@ avivaApp.factory('myClaimsService', function ($http, $q) {
 })
 avivaApp.factory('myPolicyService', function ($http, $q) {
 	return {
-		getPolicy: function (userId) {
+		getPolicy: function (userId, service) {
 			var deferred = $q.defer();
-			var url = 'https://dentalink.co.uk/healthpickapi/api/MyPolicy?username=' + userId;
+			var url = '';
+			switch (service) {
+				case 1:
+					url = 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Dental?username=' + userId;
+					break;
+				case 2:
+					url = 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Optical?username=' + userId;
+					break;
+				case 3:
+					url = 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Medical?username=' + userId;
+					break;
+			}
 			
 			$http.get(url)
 				.success(function (response) {
@@ -459,9 +501,20 @@ avivaApp.factory('termsService', function ($q, $http) {
 })
 avivaApp.factory('treatmentService', function ($http, $q) {
 	return {
-		getTreatments: function (userId) {
+		getTreatments: function (userId, service) {
 			var deferred = $q.defer();
-			var url = 'https://dentalink.co.uk/healthpickapi/api/Treatment?username=' + userId;
+			var url = '';
+			switch (service) {
+				case 1:
+					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/dental?username=' + userId;
+					break;
+				case 2:
+					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/Medical?username=' + userId;
+					break;
+				case 3:
+					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/optical?username=' + userId;
+					break;
+			}
 			
 			$http.get(url)
 				.success(function (response) {
@@ -499,21 +552,20 @@ avivaApp.factory('updatePersonalService', function ($http, $q, $log) {
 })
 avivaApp.factory('wellBeingService', function ($http, $q) {
 	return {
-		getArticles: function (service) {
+		getArticles: function (userId, service) {
 			var deferred = $q.defer();
-			var serviceNumber = '';
+			var url = '';
 			switch (service) {
 				case 1:
-					serviceNumber = 'first';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing/dental?username=' + userId;
 					break;
 				case 2:
-					serviceNumber = 'second';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing/Medical?username=' + userId;
 					break;
 				case 3:
-					serviceNumber = 'third';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing/Optical?username=' + userId;
 					break;
 			}
-			url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing?service=' + serviceNumber;
 			
 			$http.get(url)
 				.success(function (response) {

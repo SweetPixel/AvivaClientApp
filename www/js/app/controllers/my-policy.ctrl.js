@@ -5,7 +5,7 @@ avivaApp.controller('myPolicyCtrl', function ($scope, myPolicyService) {
 		allowanceused: '...'
 	};
 	
-	$scope.promise = myPolicyService.getPolicy($scope.$parent.userId);
+	$scope.promise = myPolicyService.getPolicy($scope.$parent.userId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		console.log("Got claim");
 		$scope.policy = payload.policy;

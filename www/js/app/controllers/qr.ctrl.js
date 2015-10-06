@@ -1,4 +1,4 @@
-avivaApp.controller('treatmentCtrl', function ($scope, qrService) {
+avivaApp.controller('qrCtrl', function ($scope, qrService) {
 	$scope.qr = [{
 			allowancedate: '...',
 			allowancelimit: '...',

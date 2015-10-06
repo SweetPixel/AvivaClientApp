@@ -46,14 +46,24 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 		})
 	});
 });
-avivaApp.controller('dentalAdviceCtrl', function ($scope, $location) {
-	$scope.question = "";
+avivaApp.controller('dentalAdviceCtrl', function ($scope, $location, adviceService) {
+	$scope.question = {
+		'username': $scope.$parent.userId,
+		'advice': ''
+	};
 	$scope.submitQuestion = function () {
-		if ($scope.question !== "") {
-			Materialize.toast('Your question has been received.', 4000)
+
+		if ($scope.question.advice !== "") {
+			$scope.promise = adviceService.submitQuestion($scope.question, $scope.$parent.service);
+			$scope.promise.then(function (payload) {
+				Materialize.toast('Your question has been received.', 4000);
+				$scope.status = payload.status;
+				console.log("status: " + $scope.status);
+			})
+			
 		}
 		else {
-			Materialize.toast('Please write something.', 4000)
+			Materialize.toast('Please write something.', 4000);
 		}
 	}
 });
@@ -274,7 +284,7 @@ avivaApp.controller('myPolicyCtrl', function ($scope, myPolicyService) {
 		allowanceused: '...'
 	};
 	
-	$scope.promise = myPolicyService.getPolicy($scope.$parent.userId);
+	$scope.promise = myPolicyService.getPolicy($scope.$parent.userId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		console.log("Got claim");
 		$scope.policy = payload.policy;
@@ -312,7 +322,7 @@ avivaApp.controller('personalDetailsCtrl', function ($http, $scope, $location, g
 	}
 
 });
-avivaApp.controller('treatmentCtrl', function ($scope, qrService) {
+avivaApp.controller('qrCtrl', function ($scope, qrService) {
 	$scope.qr = [{
 			allowancedate: '...',
 			allowancelimit: '...',
@@ -358,7 +368,7 @@ avivaApp.controller('treatmentCtrl', function ($scope, treatmentService) {
 			allowanceused: '...'
 		}];
 	
-	$scope.promise = treatmentService.getTreatments($scope.$parent.userId);
+	$scope.promise = treatmentService.getTreatments($scope.$parent.userId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		console.log("Got claim");
 		$scope.treatments = payload.treatments;
@@ -407,7 +417,7 @@ avivaApp.controller('wellbeingCtrl', function($scope, $routeParams, wellBeingSer
 		title: 'Getting articles...'
 	}];
 	
-	$scope.promise = wellBeingService.getArticles($scope.$parent.service);
+	$scope.promise = wellBeingService.getArticles($scope.$parent.userId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		console.log("Got claim");
 		$scope.articles = payload.articles;

@@ -1,20 +1,19 @@
 avivaApp.factory('wellBeingService', function ($http, $q) {
 	return {
-		getArticles: function (service) {
+		getArticles: function (userId, service) {
 			var deferred = $q.defer();
-			var serviceNumber = '';
+			var url = '';
 			switch (service) {
 				case 1:
-					serviceNumber = 'first';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing/dental?username=' + userId;
 					break;
 				case 2:
-					serviceNumber = 'second';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing/Medical?username=' + userId;
 					break;
 				case 3:
-					serviceNumber = 'third';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing/Optical?username=' + userId;
 					break;
 			}
-			url = 'https://dentalink.co.uk/healthpickapi/api/Wellbeing?service=' + serviceNumber;
 			
 			$http.get(url)
 				.success(function (response) {

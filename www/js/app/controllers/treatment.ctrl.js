@@ -5,7 +5,7 @@ avivaApp.controller('treatmentCtrl', function ($scope, treatmentService) {
 			allowanceused: '...'
 		}];
 	
-	$scope.promise = treatmentService.getTreatments($scope.$parent.userId);
+	$scope.promise = treatmentService.getTreatments($scope.$parent.userId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		console.log("Got claim");
 		$scope.treatments = payload.treatments;

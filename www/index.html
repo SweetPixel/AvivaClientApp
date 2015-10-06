@@ -770,7 +770,7 @@
 <script type="text/ng-template" id="well-being.html">
     <div class="view">
         <ng-include src="navbar"></ng-include>
-        <div class="container" ng-controller="wellbeingCtrl">
+        <div class="container">
             <div class="row">
                 <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
                     My Wellbeing
@@ -870,7 +870,7 @@
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <textarea id="textarea1" class="materialize-textarea" ng-model="question"></textarea>
+                                            <textarea id="textarea1" class="materialize-textarea" ng-model="question.advice"></textarea>
                                             <label for="textarea1">Ask a question</label>
                                         </div>
                                     </div>
@@ -892,7 +892,7 @@
     </div>
 </script>
 <script type="text/ng-template" id="feedback.html">
-	<ng-include src="dentalnavbar"></ng-include>
+	<ng-include src="navbar"></ng-include>
 	
 	<div class="container">
 		<div class="row">
