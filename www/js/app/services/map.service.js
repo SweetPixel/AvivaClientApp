@@ -20,8 +20,8 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			
 			var longitude = position.coords.longitude;
 			var latitude = position.coords.latitude;
-			var latLng = new google.maps.LatLng(latitude, longitude);
-			// var latLng1 = new google.maps.LatLng(53.3788635,-1.4703039);
+			/*var latLng = new google.maps.LatLng(latitude, longitude);*/
+			var latLng = new google.maps.LatLng(53.3788635,-1.4703039);
 			var mapOptions = {
 			    zoom: 8
 			};
@@ -33,9 +33,9 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 
 			return deferred.promise; //return map
 		},
-		getBounds: function (latLng1, map) {
+		getBounds: function (latLng, map) {
 			var circle = new google.maps.Circle({
-			        center: latLng1,
+			        center: latLng,
 			        map: map,
 			        radius: 30000,
 			        strokeColor: "#FF0000",
@@ -44,7 +44,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			        fillColor: "#FF0000",
 			        fillOpacity: 0.1
 			});
-			map.setCenter(latLng1);
+			map.setCenter(latLng);
 			map.setZoom(8);
 			var deferred = $q.defer();
 			var myBounds = circle.getBounds();

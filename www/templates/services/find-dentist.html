@@ -23,36 +23,37 @@
 						<div class="row">
 							<div class="col m4">
 								<h6>By Distance</h6>
-								<input ng-model="sortBy" value="+distance" name="sort" type="radio" id="distance-a" ng-click="distance='+distance'"/>
+								<input ng-click="showSort = false" ng-model="sortBy" value="+distance" name="sort" type="radio" id="distance-a"/>
 								<label for="distance-a">Ascending</label>
-								<input ng-model="sortBy" value="-distance" name="sort" type="radio" id="distance-d" ng-click="distance='-distance'"/>
+								<input ng-click="showSort = false" ng-model="sortBy" value="-distance" name="sort" type="radio" id="distance-d"/>
 								<label for="distance-d">Descending</label>
 							</div>
 							<div class="col m4">
 								<h6>By Rating</h6>
-								<input ng-model="sortBy" value="+rating" name="sort" type="radio" id="rating-a" />
+								<input ng-click="showSort = false" ng-model="sortBy" value="+feedback" name="sort" type="radio" id="rating-a"/>
 								<label for="rating-a">Ascending</label>
-								<input ng-model="sortBy" value="-rating" name="sort" type="radio" id="rating-d" />
+								<input ng-click="showSort = false" ng-model="sortBy" value="-feedback" name="sort" type="radio" id="rating-d"/>
 								<label for="rating-d">Descending</label>
 							</div>
 							<div class="col m4">
 								<h6>By Treatment Rate</h6>
-								<input ng-model="sortBy" value="+treatment" name="sort" type="radio" id="treatment-a" />
+								<input ng-click="showSort = false" ng-model="sortBy" value="+treatment" name="sort" type="radio" id="treatment-a" />
 								<label for="treatment-a">Ascending</label>
-								<input ng-model="sortBy" value="-treatment" name="sort" type="radio" id="treatment-d" />
-								<label for="t	reatment-d">Descending</label>
+								<input ng-click="showSort = false" ng-model="sortBy" value="-treatment" name="sort" type="radio" id="treatment-d" />
+								<label for="treatment-d">Descending</label>
 							</div>
 						</div>
 					</form>
 				</div>
 				<p>{{countMessage}}</p>
 				<ul class="collection">
-					<li ng-repeat="clinic in clinics | orderBy : distance" class="collection-item">
+					<li ng-repeat="clinic in clinics | orderBy : sortBy" class="collection-item">
 						<a href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
 							<img style="width: 100%" ng-show="clinic.PracticeImageLoc" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" />
 							<img style="width: 100%" ng-hide="clinic.PracticeImageLoc" src="images/dental-practice-default.jpg" />
 							<h6>{{clinic.PracticeName}}</h6>
-							<p>{{clinic.distance}}</p>
+							<p>Distance: {{clinic.distance}}</p>
+							<div star-rating rating-value="clinic.feedback" max="5" ></div>
 						</a>
 					</li>
 					
