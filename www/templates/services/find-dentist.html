@@ -1,8 +1,9 @@
 <script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
 			
-			<ng-include src="dentalnavbar"></ng-include>
+		<ng-include src="dentalnavbar"></ng-include>
 
+		<div ng-show="loadingDone">
 			<div class="custom-tabs" ng-show="mapView == 1">
 				<ul>
 					<li class="active">
@@ -13,8 +14,8 @@
 					</li>
 				</ul>
 			</div>
-
-			<div id="nearby-view" ng-show="mapView == 0" style="background-color: #FFF" ng-init="distance = 'distance' ">
+			
+			<div id="nearby-view" ng-show="mapView == 0" ng-init="distance = 'distance' ">
 				<div class="search-options">
 					<a href="" ng-click="showSort = showSort == true ? false : true;">Sort Search Results</a>
 				</div>
@@ -45,25 +46,30 @@
 						</div>
 					</form>
 				</div>
-				<p>{{countMessage}}</p>
-				<ul class="collection">
-					<li ng-repeat="clinic in clinics | orderBy : sortBy" class="collection-item">
-						<a href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
-							<img style="width: 100%" ng-show="clinic.PracticeImageLoc" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" />
-							<img style="width: 100%" ng-hide="clinic.PracticeImageLoc" src="images/dental-practice-default.jpg" />
-							<h6>{{clinic.PracticeName}}</h6>
-							<p>Distance: {{clinic.distance}}</p>
-							<div star-rating rating-value="clinic.feedback" max="5" ></div>
-						</a>
-					</li>
-					
-				</ul>
+				<div class="loader-container" ng-hide="loadNearbyDone">
+					<div class="loader-inner ball-clip-rotate-multiple"></div>
+				</div>
+				<div style="background-color: #FFF">
+					<p style="margin-top: 0; padding-top: 10px;" ng-show="loadNearbyDone">{{countMessage}}</p>
+					<ul class="collection" ng-show="loadNearbyDone">
+						<li ng-repeat="clinic in clinics | orderBy : sortBy" class="collection-item">
+							<a href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
+								<img style="width: 100%" ng-show="clinic.PracticeImageLoc" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" />
+								<img style="width: 100%" ng-hide="clinic.PracticeImageLoc" src="images/dental-practice-default.jpg" />
+								<h6>{{clinic.PracticeName}}</h6>
+								<p>Distance: {{clinic.distance}}</p>
+								<div star-rating rating-value="clinic.feedback" max="5" ></div>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
 			</div>
-
+			
 			<div id="search-view" ng-show="mapView == 2">
 				<div class="search-div">
 					<input type="search" placeholder="Enter a postcode to search practices" ng-click="advancedSearch = false;" ng-model="value"/>
-					<i class="fa fa-search" ng-click=""></i>
+					<i class="fa fa-search"></i>
 				</div>
 				<div id="search-result" ng-show="gotSearchResult">
 					<ul class="collection" ng-repeat="clinic in searchResult">
@@ -98,14 +104,13 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div id="map-view" ng-show="mapView == 1 || mapView == 2">
 				<div id="map" ng-class="{smallerMap: mapView == 2}"></div>
 				<a href="" class="btn-floating waves-effect waves-light" ng-click="resetPosition()" id="current-location">
 					<i class="fa fa-dot-circle-o"></i>
 				</a>
 			</div>
-
 		</div>
 	</div>
 	<script type="text/javascript">

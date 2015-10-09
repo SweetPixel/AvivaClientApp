@@ -8,6 +8,7 @@
 	<title>HealthPick</title>
 	<link rel="stylesheet" href="css/materialize.min.css" />
 	<link rel="stylesheet" href="font/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="node_modules/loaders.css/loaders.min.css">
 	<link rel="stylesheet" href="css/style.css" />
 	<script src="cordova.js"></script>
 	<script src="js/packages.min.js"></script>
@@ -25,41 +26,6 @@
 			<div class="ng-cloak" ng-view autoscroll="true"></div>
 		</div>
 	</div>
-
-<script type="text/ng-template" id="change-password.html">
-	<div class="view">
-
-		<ng-include src="settingsnavbar"></ng-include>
-
-		<div style="margin-top: 5%;" class="switch">
-			<h5 class="center">Change Password</h5>
-			<div class="row">
-				<div class="input-field col s12">
-					<input id="old-password" type="password" class="validate">
-					<label for="old-password">Old Password</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<input id="new-password" type="password" class="validate">
-					<label for="new-password">New Password</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<input id="confirm-password" type="password" class="validate">
-					<label for="confirm-password">Retype Password</label>
-				</div>
-			</div>
-		</div>
-
-		<div class="col s12 right-align">
-			<a href="#/settings" class="waves-effect waves-green btn-flat" onclick="Materialize.toast('Password has been changed', 2000)">Save</a>
-		</div>
-
-
-	</div>
-</script>
 
 <script type="text/ng-template" id="forgot.html">
     <div class="view">
@@ -135,12 +101,18 @@
         		        <div class=""></div>
         		    </div>
         		</div>
-
+        		
                 <div class="row">
                     <div class="input-field col s12 center">
+                    	
                         <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" ng-click="login()">
-                            <img src="images/svgs/change-password.svg" style="width: 7%;">
-                            Sign in
+                        	<div class="loader-container" ng-show="ASyncStarted">
+                        		<div class="loader-inner ball-clip-rotate-multiple"></div>
+                        	</div>
+                            <div ng-hide="ASyncStarted">
+                            	<img src="images/svgs/change-password.svg" style="width: 7%;">
+                            	Sign in
+                            </div>
                         </a>
                     </div>
         
@@ -154,6 +126,7 @@
             </div>
         </div>
     </div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 </script>
 <script type="text/ng-template" id="dental-navbar.html">
 	<div id="qrmodal" class="modal" ng-controller="qrCtrl">
@@ -172,17 +145,21 @@
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
 			<div class="col s4 right">        
-				<ul id="nav-mobile" class="side-nav right">
+				<ul id="dental-nav-mobile" class="side-nav right">
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
-				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+				<a data-activates="dental-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
 		</div>
 	</nav>
+	<div class="loader-container" ng-hide="loadingDone">
+		<div class="loader-inner ball-clip-rotate-multiple"></div>
+	</div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({
@@ -210,17 +187,21 @@
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
 			<div class="col s4 right">        
-				<ul id="nav-mobile" class="side-nav right">
+				<ul id="medical-nav-mobile" class="side-nav right">
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
-				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+				<a data-activates="medical-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
 		</div>
 	</nav>
+	<div class="loader-container" ng-hide="loadingDone">
+		<div class="loader-inner ball-clip-rotate-multiple"></div>
+	</div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({
@@ -248,17 +229,21 @@
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
 			<div class="col s4 right">        
-				<ul id="nav-mobile" class="side-nav right">
+				<ul id="notification-nav-mobile" class="side-nav right">
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
-				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+				<a data-activates="notification-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
 		</div>
 	</nav>
+	<div class="loader-container" ng-hide="loadingDone">
+		<div class="loader-inner ball-clip-rotate-multiple"></div>
+	</div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({
@@ -286,17 +271,21 @@
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
 			<div class="col s4 right">        
-				<ul id="nav-mobile" class="side-nav right">
+				<ul id="optical-nav-mobile" class="side-nav right">
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
-				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+				<a data-activates="optical-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
 		</div>
 	</nav>
+	<div class="loader-container" ng-hide="loadingDone">
+		<div class="loader-inner ball-clip-rotate-multiple"></div>
+	</div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({
@@ -324,17 +313,21 @@
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
 			<div class="col s4 right">        
-				<ul id="nav-mobile" class="side-nav right">
+				<ul id="settings-nav-mobile" class="side-nav right">
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
-				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+				<a data-activates="settings-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
 		</div>
 	</nav>
+	<div class="loader-container" ng-hide="loadingDone">
+		<div class="loader-inner ball-clip-rotate-multiple"></div>
+	</div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({
@@ -347,11 +340,14 @@
 	</script>
 </script>
 <script type="text/ng-template" id="dental-advice.html">
-    <div class="view">
-
-        <ng-include src="dentalnavbar"></ng-include>
-        
+	<ng-include src="navbar"></ng-include>
+    <div class="view" ng-init="loadingDone = true">        
         <div class="container">
+        	<div class="row">
+        	    <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
+        	        Advice
+        	    </h4>
+        	</div>
             <div class="row">
                 <div class="col s12 m12">
                     <div class="card">
@@ -367,7 +363,12 @@
                                             <label for="textarea1">Ask a question</label>
                                         </div>
                                     </div>
-                                    <a id="q-submit" ng-click="submitQuestion()" class="orange waves-effect waves-light btn">Submit</a>
+                                    <a id="q-submit" ng-click="submitQuestion()" class="orange waves-effect waves-light btn btn-large">
+                                    	<div class="loader-container" ng-show="ASyncStarted">
+                                    		<div class="loader-inner ball-clip-rotate-multiple"></div>
+                                    	</div>
+                                    	<div ng-hide="ASyncStarted">Submit</div>
+                                    </a>
                                 </form>
                             </div>
                         </div>
@@ -387,7 +388,7 @@
 <script type="text/ng-template" id="clinic-detail.html">
 	<ng-include src="dentalnavbar"></ng-include>
 
-	<div class="container" ng-controller="clinicDetailCtrl">
+	<div class="container" ng-show="loadingDone">
 
 		<div class="row">
 			<div class="col s12 m12">
@@ -557,6 +558,7 @@
 </script>
 <script type="text/ng-template" id="feedback.html">
 	<ng-include src="navbar"></ng-include>
+	
 	
 	<div class="container">
 		<div class="row">
@@ -842,8 +844,9 @@
 <script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
 			
-			<ng-include src="dentalnavbar"></ng-include>
+		<ng-include src="dentalnavbar"></ng-include>
 
+		<div ng-show="loadingDone">
 			<div class="custom-tabs" ng-show="mapView == 1">
 				<ul>
 					<li class="active">
@@ -854,8 +857,8 @@
 					</li>
 				</ul>
 			</div>
-
-			<div id="nearby-view" ng-show="mapView == 0" style="background-color: #FFF" ng-init="distance = 'distance' ">
+			
+			<div id="nearby-view" ng-show="mapView == 0" ng-init="distance = 'distance' ">
 				<div class="search-options">
 					<a href="" ng-click="showSort = showSort == true ? false : true;">Sort Search Results</a>
 				</div>
@@ -886,25 +889,30 @@
 						</div>
 					</form>
 				</div>
-				<p>{{countMessage}}</p>
-				<ul class="collection">
-					<li ng-repeat="clinic in clinics | orderBy : sortBy" class="collection-item">
-						<a href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
-							<img style="width: 100%" ng-show="clinic.PracticeImageLoc" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" />
-							<img style="width: 100%" ng-hide="clinic.PracticeImageLoc" src="images/dental-practice-default.jpg" />
-							<h6>{{clinic.PracticeName}}</h6>
-							<p>Distance: {{clinic.distance}}</p>
-							<div star-rating rating-value="clinic.feedback" max="5" ></div>
-						</a>
-					</li>
-					
-				</ul>
+				<div class="loader-container" ng-hide="loadNearbyDone">
+					<div class="loader-inner ball-clip-rotate-multiple"></div>
+				</div>
+				<div style="background-color: #FFF">
+					<p style="margin-top: 0; padding-top: 10px;" ng-show="loadNearbyDone">{{countMessage}}</p>
+					<ul class="collection" ng-show="loadNearbyDone">
+						<li ng-repeat="clinic in clinics | orderBy : sortBy" class="collection-item">
+							<a href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
+								<img style="width: 100%" ng-show="clinic.PracticeImageLoc" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" />
+								<img style="width: 100%" ng-hide="clinic.PracticeImageLoc" src="images/dental-practice-default.jpg" />
+								<h6>{{clinic.PracticeName}}</h6>
+								<p>Distance: {{clinic.distance}}</p>
+								<div star-rating rating-value="clinic.feedback" max="5" ></div>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
 			</div>
-
+			
 			<div id="search-view" ng-show="mapView == 2">
 				<div class="search-div">
 					<input type="search" placeholder="Enter a postcode to search practices" ng-click="advancedSearch = false;" ng-model="value"/>
-					<i class="fa fa-search" ng-click=""></i>
+					<i class="fa fa-search"></i>
 				</div>
 				<div id="search-result" ng-show="gotSearchResult">
 					<ul class="collection" ng-repeat="clinic in searchResult">
@@ -939,14 +947,13 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div id="map-view" ng-show="mapView == 1 || mapView == 2">
 				<div id="map" ng-class="{smallerMap: mapView == 2}"></div>
 				<a href="" class="btn-floating waves-effect waves-light" ng-click="resetPosition()" id="current-location">
 					<i class="fa fa-dot-circle-o"></i>
 				</a>
 			</div>
-
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -1065,9 +1072,16 @@
 	</div>
 </script>
 <script type="text/ng-template" id="my-claims.html">
-	<div class="view">
-		<ng-include src="navbar"></ng-include>
-		
+	
+	<ng-include src="navbar"></ng-include>
+	
+
+	<div class="view" ng-show="loadingDone">
+		<div class="row">
+		    <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
+		        My Claims
+		    </h4>
+		</div>
 		<div class="row">
 		    <div class="col s12 m12">
 		        <div class="card">
@@ -1079,7 +1093,9 @@
 		                        <p>Claim Date: {{claim.ClaimsDate}}</p>
 		                        <p>Treatment cost: {{claim.TreatmentCost}}</p>
 		                        <p>Status: <span style="color: green;">{{claim.Status}}</span></p>
-		                        <a class="orange email-claim btn btn-default" ng-click="emailClaim(claim.id)">Email Claims Form</a>
+		                        <a class="orange email-claim btn btn-default" onclick="$('#email-claim-modal').openModal()">
+		                        	Email Claims Form
+		                        </a>
 		                    </li>
 		                </ul>
 		            </div>
@@ -1097,21 +1113,16 @@
 		        </div>
 		    </div>
 		    <div class="modal-footer">
-		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">SendtermsService</a>
+		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Terms Service</a>
 		    </div>
 		</div>
-		<script type="text/javascript">
-		    $('.email-claim').on('click', function () {
-		        $('#email-claim-modal').openModal();
-		    })
-		</script>
 	</div>
 </script>
 <script type="text/ng-template" id="my-policy.html">
 	<div class="view">
 		<ng-include src="navbar"></ng-include>
 		
-		<div class="container">
+		<div class="container" ng-show="loadingDone">
 			<div class="row">
 				<div class="col s12 m12">
 					<div class="card">
@@ -1318,8 +1329,9 @@
     </script>
 </script>
 <script type="text/ng-template" id="support.html">
-	<div class="view">
-		<ng-include src="dentalnavbar"></ng-include>
+	<ng-include src="navbar"></ng-include>
+	<div class="view" ng-init="loadingDone = true">
+		
 		
 		<div class="container">
 			<div class="row">
@@ -1338,63 +1350,48 @@
 		</div>
 	</div>
 </script>
-<script type="text/ng-template" id="terms-conditions.html">
-	<ng-include src="dentalnavbar"></ng-include>
-	<div class="row">
-			<h3  class="center-align white-text lighten-2 fonts">  Terms & Conditions </h3>
-		</div>
-	<div class="container">
-		<div class="row">
-				<div class="card">
-					<div class="card-content">
-						{{terms}}
-					</div>
-				</div>
-			</div>	
-	</div>
-
-</script>
-
-
 <script type="text/ng-template" id="treatment.html">
 	<ng-include src="navbar"></ng-include>
-	<div class="row">
-		<h3 class="center-align white-text lighten-2 fonts">Treatments</h3>
-	</div>
-	<div class="container">
-		<ul class="collection">
+	<div ng-show="loadingDone">
+		<div class="row">
+			<h3 class="center-align white-text lighten-2 fonts">Treatments</h3>
+		</div>
+		<div class="container">
+			<ul class="collection">
+			
+				<li class="collection-item " ng-repeat="treatment in treatments">
+					<div class="row ">
+						<div class="col s7 ">
+							<span class="title"><p>{{treatment.TreatmentName}}</p></span>
+						</div>
+						<div class="col s0 ">
+							<img src="images/bar.jpg" alt="" class="circle">
+						</div>
+			
+						<div class="col s3 ">
+							<p>
+								<span class="center" style="color: #2980B9">
+									{{treatment.TreatmentPricePayout | currency:"£":2}}
+								</span>
+							</p>
+						</div>
+					</div>
+				</li>
+			</ul>
 		
-			<li class="collection-item " ng-repeat="treatment in treatments">
-				<div class="row ">
-					<div class="col s8 ">
-						<span class="title"><p>{{treatment.TreatmentName}}</p></span>
-					</div>
-					<div class="col s0 ">
-						<img src="images/bar.jpg" alt="" class="circle">
-					</div>
-		
-					<div class="col s3 ">
-						<p>
-							<span class="center" style="color: #2980B9">
-								{{treatment.TreatmentPricePayout | currency:"£":2}}
-							</span>
-						</p>
-					</div>
-				</div>
-			</li>
-		</ul>
-
+		</div>
 	</div>
 </script>
 <script type="text/ng-template" id="well-being.html">
     <div class="view">
         <ng-include src="navbar"></ng-include>
-        <div class="container">
+        <div class="container" ng-show="loadingDone">
             <div class="row">
                 <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
                     My Wellbeing
                 </h4>
             </div>
+            
             <div class="row" ng-repeat="article in articles">
                 <div class="col s12 m12">
                     <div class="card">
@@ -1415,7 +1412,7 @@
 		<ng-include src="settingsnavbar"></ng-include>
 		
 		<div class="row">
-			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
+			<h3  class="center-align white-text lighten-2 fonts">  Add Family Member  </h3>
 		</div>
 		<div class="row">
 			<div class="col s12">
@@ -1467,8 +1464,11 @@
 							</div>
 						</div>
 						<div class="side-alignment right-align">
-							<a ng-click="addMember()" class="waves-effect waves-green btn-flat">
-								Add
+							<a ng-click="addMember()" class="waves-effect waves-green btn btn-large orange">
+								<div class="loader-container" ng-show="ASyncStarted">
+									<div class="loader-inner ball-clip-rotate-multiple"></div>
+								</div>
+								<div ng-hide="ASyncStarted">Add</div>
 							</a>
 						</div>
 					</div>
@@ -1483,12 +1483,52 @@
 		});
 	</script>
 </script>
+<script type="text/ng-template" id="change-password.html">
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view container" ng-init="loadingDone = true">
+
+
+		<div style="margin-top: 5%;" class="switch">
+			<h5 class="center">Change Password</h5>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="old-password" type="password" ng-model="data.oldpassword" class="validate">
+					<label for="old-password">Old Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="new-password" type="password" class="validate" ng-model="data.newpassword">
+					<label for="new-password">New Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="confirm-password" type="password" class="validate" ng-model="confirm">
+					<label for="confirm-password">Retype Password</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 right-align">
+			<a class="waves-effect waves-green btn btn-large orange" ng-click="submit()">
+				<div class="loader-container" ng-show="ASyncStarted">
+					<div class="loader-inner ball-clip-rotate-multiple"></div>
+				</div>
+				<div ng-hide="ASyncStarted">Save</div>
+			</a>
+		</div>
+
+
+	</div>
+</script>
+
 <script type="text/ng-template" id="family.html">
-	<div class="view family-view">
-		<ng-include src="settingsnavbar"></ng-include>
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view family-view" ng-show="loadingDone">
 
 		<div class="row">
-			<h3  class="center-align white-text lighten-2 fonts">  Personal Details  </h3>
+			<h3  class="center-align white-text lighten-2 fonts">  Family Details  </h3>
 		</div>
 		<div class="row">
 			<div class="col s12">
@@ -1536,10 +1576,9 @@
 	</div>
 </script>
 <script type="text/ng-template" id="personal.html">
-<div class="view">
+<ng-include src="settingsnavbar"></ng-include>
 
-
-	<ng-include src="settingsnavbar"></ng-include>
+<div class="view" ng-show="loadingDone">
 
 	<div class="row">
 		<h3  class="center-align white-text lighten-2 fonts">  Personal Details  </h3>
@@ -1569,7 +1608,6 @@
 								<p>{{user.Gender}}</p>
 							</li>
 						</ul>
-
 					</div>
 					<div class="side-alignment right-align">
 						<a href="#/settings/update-personal" class="waves-effect waves-green btn-flat">
@@ -1590,10 +1628,9 @@
 
 </script>
 <script type="text/ng-template" id="settings.html">
-	<div class="view">
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view" ng-init="loadingDone = true">
 	
-		<ng-include src="settingsnavbar"></ng-include>
-
 		<div id="m" class="modal">
 			<div class="modal-content">
 				<h4 class="orange-text">Done!</h4>
@@ -1701,9 +1738,29 @@
 		</div>
 	</div>
 </script>
+<script type="text/ng-template" id="terms-conditions.html">
+	<ng-include src="dentalnavbar"></ng-include>
+	<div class="view" ng-show="loadingDone">
+		<div class="row">
+				<h3  class="center-align white-text lighten-2 fonts">  Terms & Conditions </h3>
+			</div>
+		<div class="container">
+			<div class="row">
+					<div class="card">
+						<div class="card-content">
+							{{terms}}
+						</div>
+					</div>
+				</div>	
+		</div>
+	</div>
+
+</script>
+
+
 <script type="text/ng-template" id="update-family.html">
-	<div class="view">
-		<ng-include src="settingsnavbar"></ng-include>
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view" ng-init="loadingDone = true">
 		
 		<div class="row">
 			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
@@ -1758,8 +1815,11 @@
 							</div>
 						</div>
 						<div class="side-alignment right-align">
-							<a ng-click="updateDetails()" class="waves-effect waves-green btn-flat">
-								Update
+							<a ng-click="updateDetails()" class="waves-effect waves-green btn btn-large orange">
+								<div class="loader-container" ng-show="ASyncStarted">
+									<div class="loader-inner ball-clip-rotate-multiple"></div>
+								</div>
+								<div ng-hide="ASyncStarted">Update</div>
 							</a>
 						</div>
 					</div>
@@ -1775,11 +1835,11 @@
 	</script>
 </script>
 <script type="text/ng-template" id="update-personal.html">
-	<div class="view">
+	
 
 
-		<ng-include src="settingsnavbar"></ng-include>
-
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view" ng-show="loadingDone">
 		<div class="row">
 			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
 		</div>
@@ -1828,8 +1888,11 @@
 							</div>
 						</div>
 						<div class="modal-footer side-alignment right-align">
-							<a onclick="Materialize.toast('Details Updated', 2000)" ng-click="updateDetails()" class=" modal-action modal-close waves-effect waves-green btn-flat">
-								Update
+							<a ng-click="updateDetails()" class=" modal-action modal-close waves-effect waves-green btn orange btn-large">
+								<div class="loader-container" ng-show="ASyncStarted">
+									<div class="loader-inner ball-clip-rotate-multiple"></div>
+								</div>
+								<div ng-hide="ASyncStarted">Update</div>
 							</a>
 						</div>
 					</div>
@@ -1847,65 +1910,67 @@
 </script>
 <script type="text/ng-template" id="contact.html">
 	<ng-include src="dentalnavbar"></ng-include>
-	<div class="card-panel grey lighten-5 z-depth-1">
-		<ul  class="collection">
-			<li class="collection-item avatar">
-				<i class="mdi-communication-location-on circle orange"></i>
-				<div class="col s10 left-align">
-					<h5 class="black-text " >Address</h5>
-					<span class="grey-text">
-						139 Harley Street, LONDON, W1G 6BG<br>
-	
-					</span>
-				</div>
-	
-			</li>
-		</ul>
-	</div>
-	
-	<div class="card-panel grey lighten-5 z-depth-1">
-		<ul  class="collection">
-			<li class="collection-item avatar">
-				<i class="mdi-communication-phone circle orange"></i>
-				<div class="col s10 left-align">
-					<h5 class="black-text " >Phone</h5>
-					<span class="grey-text">
-						020 7486 1059
-					</span>
-				</div>
-	
-			</li>
-		</ul>
-	</div>
-	
-	<div class="card-panel grey lighten-5 z-depth-1">
-		<ul  class="collection">
-			<li class="collection-item avatar">
-				<i class="mdi-communication-email circle orange"></i>
-				<div class="col s10 left-align">
-					<h5 class="black-text" >Email</h5>
-					<span class="grey-text">
-						aviva@hsdc.com
-					</span>
-				</div>
-			</li>
-		</ul>
-	
-	</div>
-	
-	<div class="card-panel grey lighten-5 z-depth-1">
-		<ul  class="collection">
-			<li class="collection-item avatar">
-				<i class="mdi-communication-email circle orange"></i>
-				<div class="col s10 left-align">
-					<h5 class="black-text" >Web</h5>
-					<span class="grey-text">
-						http://www.harleystreetdentalclinic.co.uk
-					</span>
-				</div>
-			</li>
-		</ul>
-	
+	<div ng-init="loadingDone = true">
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<ul  class="collection">
+				<li class="collection-item avatar">
+					<i class="mdi-communication-location-on circle orange"></i>
+					<div class="col s10 left-align">
+						<h5 class="black-text " >Address</h5>
+						<span class="grey-text">
+							139 Harley Street, LONDON, W1G 6BG<br>
+		
+						</span>
+					</div>
+		
+				</li>
+			</ul>
+		</div>
+		
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<ul  class="collection">
+				<li class="collection-item avatar">
+					<i class="mdi-communication-phone circle orange"></i>
+					<div class="col s10 left-align">
+						<h5 class="black-text " >Phone</h5>
+						<span class="grey-text">
+							020 7486 1059
+						</span>
+					</div>
+		
+				</li>
+			</ul>
+		</div>
+		
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<ul  class="collection">
+				<li class="collection-item avatar">
+					<i class="mdi-communication-email circle orange"></i>
+					<div class="col s10 left-align">
+						<h5 class="black-text" >Email</h5>
+						<span class="grey-text">
+							aviva@hsdc.com
+						</span>
+					</div>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<ul  class="collection">
+				<li class="collection-item avatar">
+					<i class="mdi-communication-email circle orange"></i>
+					<div class="col s10 left-align">
+						<h5 class="black-text" >Web</h5>
+						<span class="grey-text">
+							http://www.harleystreetdentalclinic.co.uk
+						</span>
+					</div>
+				</li>
+			</ul>
+		
+		</div>
 	</div>
 </script>
 <script type="text/ng-template" id="rating.html">
@@ -1990,25 +2055,26 @@
 </script>
 <script type="text/ng-template" id="staff.html">
 	<ng-include src="dentalnavbar"></ng-include>
-	<div class="row">
-		<h3 class="center-align white-text lighten-2 fonts">Our Staff</h3>
-	</div>
-	<div class="container">
-		<ul class="collection staff-list">
-		
-			<li class="collection-item avatar" ng-repeat="doctor in staff">
-				<!--<img src="images/staff/stanley kay.jpg" alt="" class="circle">-->
-				<span class="title"><h5>{{doctor.FirstName}} {{doctor.Surname}}</h5></span>
-				<p class="grey-text">Occupation: {{doctor.JobTitle}}</p>
-				<p class="grey-text">GDC Number: {{doctor.GDCNumber}}</p>
-			</li>
+	<div ng-show="loadingDone">
+		<div class="row">
+			<h3 class="center-align white-text lighten-2 fonts">Our Staff</h3>
+		</div>
+		<div class="container">
+			<ul class="collection staff-list">
 			
-		</ul>
+				<li class="collection-item avatar" ng-repeat="doctor in staff">
+					<!--<img src="images/staff/stanley kay.jpg" alt="" class="circle">-->
+					<span class="title"><h5>{{doctor.FirstName}} {{doctor.Surname}}</h5></span>
+					<p class="grey-text">Occupation: {{doctor.JobTitle}}</p>
+					<p class="grey-text">GDC Number: {{doctor.GDCNumber}}</p>
+				</li>
+			</ul>
+		</div>
 	</div>
 </script>
 <script type="text/ng-template" id="timing.html">
 	<ng-include src="dentalnavbar"></ng-include>
-	<div class="container">
+	<div class="container" ng-init="loadingDone = true">
 		<table class="bordered">
 			<thead>
 				<tr>

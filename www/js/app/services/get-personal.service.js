@@ -3,7 +3,6 @@ avivaApp.factory('getPersonalService', function ($http, $q, $log) {
 		getDetails: function (userId) {
 			var deferred = $q.defer();
 			var url = 'https://dentalink.co.uk/healthpickapi/api/Profile/Personal?username=' + userId;
-			$log.log("Trying");
 			$http.get(url)
 				.success(function (data) {
 					// $location.path('/settings');

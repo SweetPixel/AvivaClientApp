@@ -14,17 +14,21 @@
 				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
 			</div>
 			<div class="col s4 right">        
-				<ul id="nav-mobile" class="side-nav right">
+				<ul id="notification-nav-mobile" class="side-nav right">
 					<li><a href="#/services">Home</a></li>
 					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
 					<li><a href="#/settings">Settings</a></li>
 					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
-				<a data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+				<a data-activates="notification-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
 			</div>
 		</div>
 	</nav>
+	<div class="loader-container" ng-hide="loadingDone">
+		<div class="loader-inner ball-clip-rotate-multiple"></div>
+	</div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({

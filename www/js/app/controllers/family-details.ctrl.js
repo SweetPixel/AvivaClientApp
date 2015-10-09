@@ -9,9 +9,10 @@ avivaApp.controller('familyDetailsCtrl', function ($log, $http, $scope, $locatio
 			Relation: '...'
 		}
 	];
+	$scope.loadingDone = false;
 	$scope.promise = familyDetailsService.getDetails($scope.$parent.userId);
 	$scope.promise.then(function (payload) {
-		console.log("Should be done");
+		$scope.loadingDone = true;
 		$scope.family = payload.data;
 
 	});

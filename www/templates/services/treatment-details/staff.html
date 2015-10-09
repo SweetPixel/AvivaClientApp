@@ -1,18 +1,19 @@
 <script type="text/ng-template" id="staff.html">
 	<ng-include src="dentalnavbar"></ng-include>
-	<div class="row">
-		<h3 class="center-align white-text lighten-2 fonts">Our Staff</h3>
-	</div>
-	<div class="container">
-		<ul class="collection staff-list">
-		
-			<li class="collection-item avatar" ng-repeat="doctor in staff">
-				<!--<img src="images/staff/stanley kay.jpg" alt="" class="circle">-->
-				<span class="title"><h5>{{doctor.FirstName}} {{doctor.Surname}}</h5></span>
-				<p class="grey-text">Occupation: {{doctor.JobTitle}}</p>
-				<p class="grey-text">GDC Number: {{doctor.GDCNumber}}</p>
-			</li>
+	<div ng-show="loadingDone">
+		<div class="row">
+			<h3 class="center-align white-text lighten-2 fonts">Our Staff</h3>
+		</div>
+		<div class="container">
+			<ul class="collection staff-list">
 			
-		</ul>
+				<li class="collection-item avatar" ng-repeat="doctor in staff">
+					<!--<img src="images/staff/stanley kay.jpg" alt="" class="circle">-->
+					<span class="title"><h5>{{doctor.FirstName}} {{doctor.Surname}}</h5></span>
+					<p class="grey-text">Occupation: {{doctor.JobTitle}}</p>
+					<p class="grey-text">GDC Number: {{doctor.GDCNumber}}</p>
+				</li>
+			</ul>
+		</div>
 	</div>
 </script>

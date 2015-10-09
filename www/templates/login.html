@@ -31,12 +31,18 @@
         		        <div class=""></div>
         		    </div>
         		</div>
-
+        		
                 <div class="row">
                     <div class="input-field col s12 center">
+                    	
                         <a class="colorofbutton waves-effect waves-light btn btn-large" id="btn" ng-click="login()">
-                            <img src="images/svgs/change-password.svg" style="width: 7%;">
-                            Sign in
+                        	<div class="loader-container" ng-show="ASyncStarted">
+                        		<div class="loader-inner ball-clip-rotate-multiple"></div>
+                        	</div>
+                            <div ng-hide="ASyncStarted">
+                            	<img src="images/svgs/change-password.svg" style="width: 7%;">
+                            	Sign in
+                            </div>
                         </a>
                     </div>
         
@@ -50,4 +56,5 @@
             </div>
         </div>
     </div>
+	<script src="node_modules/loaders.css/loaders.css.js"></script>
 </script>

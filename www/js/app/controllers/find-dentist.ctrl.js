@@ -2,6 +2,8 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 	$scope.clinics = [];
 	$scope.sortBy = '+distance';
 	$scope.countMessage = "Searching for practices";
+	$scope.loadingDone = false;
+	$scope.loadNearbyDone = false;
 	$scope.advancedSearch = false;
 	var setNearbyClinics;
 
@@ -12,6 +14,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 
 			$scope.createMapPromise = mapService.createMap($scope.position);
 			$scope.createMapPromise.then(function (mapPayload) {
+				$scope.loadingDone = true;
 				$scope.map = mapPayload.map;
 				$scope.latLng = mapPayload.latLng;
 				setNearbyClinics = function () {
@@ -21,6 +24,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 						$scope.circle = boundsPayload.circle;
 						$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
 						$scope.drawMarkersPromise.then(function (markersPayload) {
+							$scope.loadNearbyDone = true;
 							$scope.clinics = markersPayload.nearbyClinics;
 							$scope.markers = markersPayload.markers;
 							$scope.distances = markersPayload.distances;
@@ -64,6 +68,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 	$scope.drawSearchMarker = function (clinic) {
 		console.log(clinic.Postcode);
 		$scope.gotSearchResult = false;
+		$scope.value = clinic.Postcode + ' ' + clinic.PracticeName;
 		$scope.createMapPromise.then(function () {
 			$scope.drawMarkersPromise.then(function () {
 				mapService.removeDrawings($scope.markers, $scope.circle);

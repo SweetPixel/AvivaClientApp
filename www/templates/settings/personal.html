@@ -1,8 +1,7 @@
 <script type="text/ng-template" id="personal.html">
-<div class="view">
+<ng-include src="settingsnavbar"></ng-include>
 
-
-	<ng-include src="settingsnavbar"></ng-include>
+<div class="view" ng-show="loadingDone">
 
 	<div class="row">
 		<h3  class="center-align white-text lighten-2 fonts">  Personal Details  </h3>
@@ -32,7 +31,6 @@
 								<p>{{user.Gender}}</p>
 							</li>
 						</ul>
-
 					</div>
 					<div class="side-alignment right-align">
 						<a href="#/settings/update-personal" class="waves-effect waves-green btn-flat">

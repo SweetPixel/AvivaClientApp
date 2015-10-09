@@ -1,8 +1,7 @@
 <script type="text/ng-template" id="settings.html">
-	<div class="view">
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view" ng-init="loadingDone = true">
 	
-		<ng-include src="settingsnavbar"></ng-include>
-
 		<div id="m" class="modal">
 			<div class="modal-content">
 				<h4 class="orange-text">Done!</h4>

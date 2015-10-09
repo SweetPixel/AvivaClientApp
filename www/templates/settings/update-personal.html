@@ -1,9 +1,9 @@
 <script type="text/ng-template" id="update-personal.html">
-	<div class="view">
+	
 
 
-		<ng-include src="settingsnavbar"></ng-include>
-
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view" ng-show="loadingDone">
 		<div class="row">
 			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
 		</div>
@@ -52,8 +52,11 @@
 							</div>
 						</div>
 						<div class="modal-footer side-alignment right-align">
-							<a onclick="Materialize.toast('Details Updated', 2000)" ng-click="updateDetails()" class=" modal-action modal-close waves-effect waves-green btn-flat">
-								Update
+							<a ng-click="updateDetails()" class=" modal-action modal-close waves-effect waves-green btn orange btn-large">
+								<div class="loader-container" ng-show="ASyncStarted">
+									<div class="loader-inner ball-clip-rotate-multiple"></div>
+								</div>
+								<div ng-hide="ASyncStarted">Update</div>
 							</a>
 						</div>
 					</div>

@@ -93,10 +93,11 @@ avivaApp.config(function($routeProvider) {
 		})
 		.when('/dental-services/dental-advice', {
 			templateUrl: 'dental-advice.html',
-			controller: 'dentalAdviceCtrl'
+			controller: 'adviceCtrl'
 		})
 		.when('/dental-services/clinic-detail/:param', {
-			templateUrl: 'clinic-detail.html'
+			templateUrl: 'clinic-detail.html',
+			controller: 'clinicDetailCtrl'
 		})
 
 		.when('/dental-clinic-detail/treatment', {

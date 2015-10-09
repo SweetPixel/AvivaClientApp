@@ -12,6 +12,16 @@ input[type="search"], textarea.materialize-textarea {
 	border-color: -moz-use-text-color -moz-use-text-color #ffffff;
 }
 
+*:not(textarea):not(input) {
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+}
+
 
 input[type="password"]
 {
@@ -467,6 +477,10 @@ nav .button-collapse i {
 	box-shadow: 0px 8px 10px -3px #4B4B4B;
 	padding: 10px 0px;
 }
+#search-result .collection-item:hover {
+	cursor: pointer;
+	background-color: #FFE1B6;
+}
 #advance-search-block {
     background-color: #FFF;
     box-shadow: 0px 8px 10px -3px #4B4B4B;
@@ -563,7 +577,7 @@ a.email-claim {
 }
 
 .rating {
-    color: #a9a9a9;
+    color: #D7D7D7;
     margin: 0;
     padding: 0;
 }
@@ -581,4 +595,46 @@ ul.rating {
 }
 .rating .filled {
     color: #FF9600;
+}
+
+.ball-clip-rotate-multiple > div:last-child {
+	top: 10px;
+	left: 10px;
+	border-color: #DE5741 transparent;
+}
+.ball-clip-rotate-multiple > div {
+	left: 0px;
+	top: 0px;
+	border-color: transparent #DE5741;
+}
+.loader-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 1rem;
+}
+.loader-inner {
+	width: 35px;
+	height: 20px;
+}
+
+a .ball-clip-rotate-multiple > div:last-child {
+	top: 10px;
+	left: 10px;
+	border-color: #FFF transparent;
+}
+a .ball-clip-rotate-multiple > div {
+	left: 0px;
+	top: 0px;
+	border-color: transparent #FFF;
+}
+a .loader-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: .7rem;
+}
+a .loader-inner {
+	width: 35px;
+	height: 20px;
 }

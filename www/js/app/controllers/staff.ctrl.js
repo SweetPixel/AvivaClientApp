@@ -4,10 +4,10 @@ avivaApp.controller('staffCtrl', function ($scope, staffService) {
 			JobTitle: '...',
 			GDCNumber: '...'
 		}];
-	
+	$scope.loadingDone = false;
 	$scope.promise = staffService.getStaff($scope.$parent.userId);
 	$scope.promise.then(function (payload) {
-		console.log("Got claim");
 		$scope.staff = payload.staff;
+		$scope.loadingDone = true;
 	})
 })

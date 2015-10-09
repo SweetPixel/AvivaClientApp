@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="update-family.html">
-	<div class="view">
-		<ng-include src="settingsnavbar"></ng-include>
+	<ng-include src="settingsnavbar"></ng-include>
+	<div class="view" ng-init="loadingDone = true">
 		
 		<div class="row">
 			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
@@ -55,8 +55,11 @@
 							</div>
 						</div>
 						<div class="side-alignment right-align">
-							<a ng-click="updateDetails()" class="waves-effect waves-green btn-flat">
-								Update
+							<a ng-click="updateDetails()" class="waves-effect waves-green btn btn-large orange">
+								<div class="loader-container" ng-show="ASyncStarted">
+									<div class="loader-inner ball-clip-rotate-multiple"></div>
+								</div>
+								<div ng-hide="ASyncStarted">Update</div>
 							</a>
 						</div>
 					</div>

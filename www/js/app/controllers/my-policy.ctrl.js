@@ -4,10 +4,11 @@ avivaApp.controller('myPolicyCtrl', function ($scope, myPolicyService) {
 		allowancelimit: '...',
 		allowanceused: '...'
 	};
+	$scope.loadingDone = false;
 	
 	$scope.promise = myPolicyService.getPolicy($scope.$parent.userId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
-		console.log("Got claim");
+		$scope.loadingDone = true;
 		$scope.policy = payload.policy;
 	})
 })

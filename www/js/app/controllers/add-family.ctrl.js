@@ -9,10 +9,13 @@ avivaApp.controller('addFamilyCtrl', function ($http, $scope, $location, familyD
 		Gender: '',
 		Relation: ''
 	};
+	$scope.loadingDone = true;
 	$scope.addMember = function () {
+		$scope.ASyncStarted = true;
 		$scope.promise = familyDetailsService.addMember($scope.member, $scope.$parent.userId);
 		$scope.promise.then(function (payload) {
-			$location.path('/settings/family-details');
+			$scope.ASyncStarted = false;
+			$scope.$parent.back();
 			$scope.response = payload.data;
 		});
 	}

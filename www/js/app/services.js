@@ -29,6 +29,26 @@ avivaApp.factory('adviceService', function ($http, $q, $log) {
 		}
 	}
 })
+avivaApp.factory('changePasswordService', function ($http, $q) {
+	return {
+		changePassword: function (data) {
+			var deferred = $q.defer();
+			var url = 'https://dentalink.co.uk/healthpickapi/api/Login/Change';
+			
+			$http.post(url, data)
+				.success(function (response) {
+					deferred.resolve({
+						status: response
+					})
+				})
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
+			return deferred.promise;
+		}
+	}
+})
 avivaApp.factory('clinicService', function ($http, $q, $log) {
 	return {
 		getClinic: function () {
@@ -146,7 +166,6 @@ avivaApp.factory('getPersonalService', function ($http, $q, $log) {
 		getDetails: function (userId) {
 			var deferred = $q.defer();
 			var url = 'https://dentalink.co.uk/healthpickapi/api/Profile/Personal?username=' + userId;
-			$log.log("Trying");
 			$http.get(url)
 				.success(function (data) {
 					// $location.path('/settings');
@@ -204,8 +223,8 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			
 			var longitude = position.coords.longitude;
 			var latitude = position.coords.latitude;
-			/*var latLng = new google.maps.LatLng(latitude, longitude);*/
-			var latLng = new google.maps.LatLng(53.3788635,-1.4703039);
+			var latLng = new google.maps.LatLng(latitude, longitude);
+			/*var latLng = new google.maps.LatLng(53.3788635,-1.4703039);*/
 			var mapOptions = {
 			    zoom: 8
 			};

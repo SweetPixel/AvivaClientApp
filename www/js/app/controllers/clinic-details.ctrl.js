@@ -1,6 +1,7 @@
 avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapService){
 	$scope.practiceId = $routeParams.param;
 	$scope.distance = "Calculating...";
+	$scope.loadingDone = false;
 	$scope.$parent.promise.then(function () {
 		$.each($scope.$parent.clinics, function (index, item) {
 			if (item.practiceId == $scope.practiceId) {
@@ -21,6 +22,7 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 		$scope.getDistancePromise = mapService.getDistance(destination);
 		$scope.getDistancePromise.then(function (distancePayload) {
 			$scope.distance = distancePayload.distance;
+			$scope.loadingDone = true;
 		})
 	});
 });
