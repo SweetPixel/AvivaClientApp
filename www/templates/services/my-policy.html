@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="my-policy.html">
 	<div class="view">
-		<ng-include src="navbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 		
 		<div class="container" ng-show="loadingDone">
 			<div class="row">

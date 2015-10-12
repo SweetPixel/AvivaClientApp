@@ -29,7 +29,7 @@
 
 <script type="text/ng-template" id="forgot.html">
     <div class="view">
-    <ng-include src="medicalnavbar"></ng-include>
+    <div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
         <div class="row">
             <div class="col s12 center">
                 <img src="images/healthpick_logo_1024.png" id="healthpicklogo">
@@ -128,21 +128,20 @@
     </div>
 	<script src="node_modules/loaders.css/loaders.css.js"></script>
 </script>
-<script type="text/ng-template" id="dental-navbar.html">
+<script type="text/ng-template" id="navbar.html">
 	<div id="qrmodal" class="modal" ng-controller="qrCtrl">
-		<pre>{{qr | json}}</pre>
 	    <div class="modal-content center">
 	        <h5>My Unique Policy QR code</h5>
-	        <img src="images/harley-qr.png" style="width: 100%"/>
+	        <img src="{{qr}}" style="width: 100%"/>
 	    </div>
 	    <div class="modal-footer">
 	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
 	    </div>
 	</div>
-	<nav class="dentalnavbarColor" role="navigation">
+	<nav class="navbar-color" role="navigation">
 		<div class="nav-wrapper container">
 			<div class="col s4">
-				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
+				<a style="float: left; position: relative; z-index: 1; height: 56px;" ng-click="back()"><i style="font-size: 1.7rem; height: 56px; line-height: 56px;" class="left white-text fa fa-arrow-left"></i></a>
 			</div>
 			<div class="col s4 right">        
 				<ul id="dental-nav-mobile" class="side-nav right">
@@ -159,188 +158,19 @@
 	<div class="loader-container" ng-hide="loadingDone">
 		<div class="loader-inner ball-clip-rotate-multiple"></div>
 	</div>
-	<script src="node_modules/loaders.css/loaders.css.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.button-collapse').sideNav({
 				closeOnClick: true
 			});
 			$('#qrmodal').leanModal();
-			$('#sidenav-overlay').css('opacity', '0');
 			$('.button-collapse').sideNav('hide');
 		});
 	</script>
-</script>
-<script type="text/ng-template" id="medical-navbar.html">
-	<div id="qrmodal" class="modal">
-	    <div class="modal-content center">
-	        <h5>My Unique Policy QR code</h5>
-	        <img src="images/harley-qr.png" style="width: 100%"/>
-	    </div>
-	    <div class="modal-footer">
-	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-	    </div>
-	</div>
-	<nav class="medicalnavbarColor" role="navigation">
-		<div class="nav-wrapper container">
-			<div class="col s4">
-				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
-			</div>
-			<div class="col s4 right">        
-				<ul id="medical-nav-mobile" class="side-nav right">
-					<li><a href="#/services">Home</a></li>
-					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
-					<li><a href="#/settings">Settings</a></li>
-					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-				<a data-activates="medical-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
-			</div>
-		</div>
-	</nav>
-	<div class="loader-container" ng-hide="loadingDone">
-		<div class="loader-inner ball-clip-rotate-multiple"></div>
-	</div>
 	<script src="node_modules/loaders.css/loaders.css.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('.button-collapse').sideNav({
-				closeOnClick: true
-			});
-			$('#qrmodal').leanModal();
-			$('#sidenav-overlay').css('opacity', '0');
-			$('.button-collapse').sideNav('hide');
-		});
-	</script>
-</script>
-<script type="text/ng-template" id="notification-navbar.html">
-	<div id="qrmodal" class="modal">
-	    <div class="modal-content center">
-	        <h5>My Unique Policy QR code</h5>
-	        <img src="images/harley-qr.png" style="width: 100%"/>
-	    </div>
-	    <div class="modal-footer">
-	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-	    </div>
-	</div>
-	<nav class="notificationnavbarColor" role="navigation">
-		<div class="nav-wrapper container">
-			<div class="col s4">
-				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
-			</div>
-			<div class="col s4 right">        
-				<ul id="notification-nav-mobile" class="side-nav right">
-					<li><a href="#/services">Home</a></li>
-					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
-					<li><a href="#/settings">Settings</a></li>
-					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-				<a data-activates="notification-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
-			</div>
-		</div>
-	</nav>
-	<div class="loader-container" ng-hide="loadingDone">
-		<div class="loader-inner ball-clip-rotate-multiple"></div>
-	</div>
-	<script src="node_modules/loaders.css/loaders.css.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('.button-collapse').sideNav({
-				closeOnClick: true
-			});
-			$('#qrmodal').leanModal();
-			$('#sidenav-overlay').css('opacity', '0');
-			$('.button-collapse').sideNav('hide');
-		});
-	</script>
-</script>
-<script type="text/ng-template" id="optical-navbar.html">
-	<div id="qrmodal" class="modal">
-	    <div class="modal-content center">
-	        <h5>My Unique Policy QR code</h5>
-	        <img src="images/harley-qr.png" style="width: 100%"/>
-	    </div>
-	    <div class="modal-footer">
-	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-	    </div>
-	</div>
-	<nav class="opticalnavbarColor" role="navigation">
-		<div class="nav-wrapper container">
-			<div class="col s4">
-				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
-			</div>
-			<div class="col s4 right">        
-				<ul id="optical-nav-mobile" class="side-nav right">
-					<li><a href="#/services">Home</a></li>
-					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
-					<li><a href="#/settings">Settings</a></li>
-					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-				<a data-activates="optical-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
-			</div>
-		</div>
-	</nav>
-	<div class="loader-container" ng-hide="loadingDone">
-		<div class="loader-inner ball-clip-rotate-multiple"></div>
-	</div>
-	<script src="node_modules/loaders.css/loaders.css.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('.button-collapse').sideNav({
-				closeOnClick: true
-			});
-			$('#qrmodal').leanModal();
-			$('#sidenav-overlay').css('opacity', '0');
-			$('.button-collapse').sideNav('hide');
-		});
-	</script>
-</script>
-<script type="text/ng-template" id="settings-navbar.html">
-	<div id="qrmodal" class="modal">
-	    <div class="modal-content center">
-	        <h5>My Unique Policy QR code</h5>
-	        <img src="images/harley-qr.png" style="width: 100%"/>
-	    </div>
-	    <div class="modal-footer">
-	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-	    </div>
-	</div>
-	<nav class="settingsnavbarColor" role="navigation">
-		<div class="nav-wrapper container">
-			<div class="col s4">
-				<a class="button-collapse" ng-click="back()"><i class="left white-text fa fa-arrow-left"></i></a>
-			</div>
-			<div class="col s4 right">        
-				<ul id="settings-nav-mobile" class="side-nav right">
-					<li><a href="#/services">Home</a></li>
-					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
-					<li><a href="#/settings">Settings</a></li>
-					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-				<a data-activates="settings-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
-			</div>
-		</div>
-	</nav>
-	<div class="loader-container" ng-hide="loadingDone">
-		<div class="loader-inner ball-clip-rotate-multiple"></div>
-	</div>
-	<script src="node_modules/loaders.css/loaders.css.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('.button-collapse').sideNav({
-				closeOnClick: true
-			});
-			$('#qrmodal').leanModal();
-			$('#sidenav-overlay').css('opacity', '0');
-			$('.button-collapse').sideNav('hide');
-		});
-	</script>
 </script>
 <script type="text/ng-template" id="dental-advice.html">
-	<ng-include src="navbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
     <div class="view" ng-init="loadingDone = true">        
         <div class="container">
         	<div class="row">
@@ -386,7 +216,7 @@
     </div>
 </script>
 <script type="text/ng-template" id="clinic-detail.html">
-	<ng-include src="dentalnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 
 	<div class="container" ng-show="loadingDone">
 
@@ -408,31 +238,31 @@
 
 						
 							<ul class="collection">
-								<a href="#/dental-clinic-detail/treatment" class="collection-item">
+								<a href="#/clinic-detail/treatment" class="collection-item">
 									Treatment Details
 									<div class="secondary-content">
 										<i class="mdi-image-navigate-next right"></i>
 									</div>
 								</a>
-						        <a href="#/dental-clinic-detail/staff" class="collection-item">
+						        <a href="#/clinic-detail/staff" class="collection-item">
 						        	Our Staff
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-clinic-detail/timing" class="collection-item">
+						        <a href="#/clinic-detail/timing" class="collection-item">
 						        	Timings
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-clinic-detail/contact" class="collection-item">
+						        <a href="#/clinic-detail/contact" class="collection-item">
 						        	Contact Us
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-clinic-detail/rating" class="collection-item">
+						        <a href="#/clinic-detail/rating/{{practiceId}}" class="collection-item">
 						        	Reviews & Ratings
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
@@ -450,7 +280,7 @@
 <script type="text/ng-template" id="dental-services.html">
 	<div class="view">
 	
-		<ng-include src="dentalnavbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 		
 		<!-- Modal Structure -->
 		<!-- <div id="pdfmodal" class="modal bottom-sheet">
@@ -557,197 +387,188 @@
 	</div>
 </script>
 <script type="text/ng-template" id="feedback.html">
-	<ng-include src="navbar"></ng-include>
-	
-	
-	<div class="container">
-		<div class="row">
-			<h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
-				Feedback for P S B Dental Care Ltd
+    <div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
+    <div class="container" ng-show="loadingDone">
+        <div class="row">
+            <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px; text-transform: capitalize">
+				Feedback for {{clinic.PracticeName}}
 			</h4>
-		</div>
-		<div class="row">
-			<p style="color: #681950;margin-left: 2%;">
-				Please rank the following aspects of the service? (1 Very Poor) – (5 Excellent)
-			</p>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p style="margin-top: 10px;">Is the practice clean and comfortable ?</p>
-						<form action="#" style="margin-top: 9px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Is there sufficient entertainment / literature while you wait ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Are necessary healthcare / sundry items available ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Is your dental team friendly and approachable ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>How much is your level of comfort and trust in your clinician and the practice team ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>What can the practice improve (ideas, suggestions, comments) ?</p>
-						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
-							<label for="textarea1">Textarea</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Are you happy with the dental products you are using (tooth paste, mouthwash etc.) ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">Yes</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">No</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Name of Products:</p>
-						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
-							<label for="textarea1">Textarea</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Reasons for satisfaction or unsatisfaction:</p>
-						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
-							<label for="textarea1">Textarea</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
+        </div>
+        <div class="row">
+            <p style="color: #681950;margin-left: 2%;">
+                Please rank the following aspects of the service? (1 Very Poor) – (5 Excellent)
+            </p>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p style="margin-top: 10px;">Is the practice clean and comfortable ?</p>
+                        <form action="#" style="margin-top: 9px;">
+                            <p>
+                                <input name="practiceCC" value="1" ng-model="feedback.Practicecc" type="radio" id="practiceCC1" />
+                                <label for="practiceCC1">1</label>
+                                <input name="practiceCC" value="2" ng-model="feedback.Practicecc" type="radio" id="practiceCC2" />
+                                <label for="practiceCC2">2</label>
+                                <input name="practiceCC" value="3" ng-model="feedback.Practicecc" type="radio" id="practiceCC3" />
+                                <label for="practiceCC3">3</label>
+                                <input name="practiceCC" value="4" ng-model="feedback.Practicecc" type="radio" id="practiceCC4" />
+                                <label for="practiceCC4">4</label>
+                                <input name="practiceCC" value="5" ng-model="feedback.Practicecc" type="radio" id="practiceCC5" />
+                                <label for="practiceCC5">5</label>
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Is there sufficient entertainment / literature while you wait ?</p>
+                        <p>
+                            <input name="sentertainment" value="1" ng-model="feedback.sentertainment" type="radio" id="sentertainment1" />
+                            <label for="sentertainment1">1</label>
+                            <input name="sentertainment" value="2" ng-model="feedback.sentertainment" type="radio" id="sentertainment2" />
+                            <label for="sentertainment2">2</label>
+                            <input name="sentertainment" value="3" ng-model="feedback.sentertainment" type="radio" id="sentertainment3" />
+                            <label for="sentertainment3">3</label>
+                            <input name="sentertainment" value="4" ng-model="feedback.sentertainment" type="radio" id="sentertainment4" />
+                            <label for="sentertainment4">4</label>
+                            <input name="sentertainment" value="5" ng-model="feedback.sentertainment" type="radio" id="sentertainment5" />
+                            <label for="sentertainment5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Are necessary healthcare / sundry items available ?</p>
+                        <p>
+                            <input name="healthcareitem" value="1" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem1" />
+                            <label for="healthcareitem1">1</label>
+                            <input name="healthcareitem" value="2" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem2" />
+                            <label for="healthcareitem2">2</label>
+                            <input name="healthcareitem" value="3" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem3" />
+                            <label for="healthcareitem3">3</label>
+                            <input name="healthcareitem" value="4" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem4" />
+                            <label for="healthcareitem4">4</label>
+                            <input name="healthcareitem" value="5" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem5" />
+                            <label for="healthcareitem5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Is your team friendly and approachable ?</p>
+                        <p>
+                            <input name="friendlyapprochable" value="1" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable1" />
+                            <label for="friendlyapprochable1">1</label>
+                            <input name="friendlyapprochable" value="2" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable2" />
+                            <label for="friendlyapprochable2">2</label>
+                            <input name="friendlyapprochable" value="3" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable3" />
+                            <label for="friendlyapprochable3">3</label>
+                            <input name="friendlyapprochable" value="4" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable4" />
+                            <label for="friendlyapprochable4">4</label>
+                            <input name="friendlyapprochable" value="5" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable5" />
+                            <label for="friendlyapprochable5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>How much is your level of comfort and trust in your clinician and the practice team ?</p>
+                        <p>
+                            <input name="comfortlevel" value="1" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel1" />
+                            <label for="comfortlevel1">1</label>
+                            <input name="comfortlevel" value="2" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel2" />
+                            <label for="comfortlevel2">2</label>
+                            <input name="comfortlevel" value="3" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel3" />
+                            <label for="comfortlevel3">3</label>
+                            <input name="comfortlevel" value="4" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel4" />
+                            <label for="comfortlevel4">4</label>
+                            <input name="comfortlevel" value="5" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel5" />
+                            <label for="comfortlevel5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>What can the practice improve (ideas, suggestions, comments) ?</p>
+                        <div class="input-field col s12">
+                            <textarea id="ideas" ng-model="feedback.Ideas" class="materialize-textarea"></textarea>
+                            <label for="ideas">Textarea</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Are you happy with the dental products you are using?</p>
+                        <p>
+                            <input name="happywithproduct" value="true" ng-model="feedback.happywithproduct" type="radio" id="happywithproduct1" />
+                            <label for="happywithproduct1">Yes</label>
+                            <input name="happywithproduct" value="false" ng-model="feedback.happywithproduct" type="radio" id="happywithproduct2" />
+                            <label for="happywithproduct2">No</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Name of Products:</p>
+                        <div class="input-field col s12">
+                            <textarea id="Productname" ng-model="feedback.Productname" class="materialize-textarea"></textarea>
+                            <label for="Productname">Textarea</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Reasons for satisfaction or unsatisfaction:</p>
+                        <div class="input-field col s12">
+                            <textarea id="satisfaction" ng-model="feedback.satisfaction" class="materialize-textarea"></textarea>
+                            <label for="satisfaction">Textarea</label>
+                        </div>
+                        <div style="padding-bottom: 9%;">
+                            <a ng-click="submit()" class="waves-effect waves-light btn colorofbutton right">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pre>{{feedback | json}}
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>How likely is it that you would recommend our practice to a friend or colleague ?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">1</label>
@@ -760,12 +581,12 @@
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">5</label>
 							</p>
-						</form>
+						
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
@@ -777,13 +598,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>How would you rate your overall experience ?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">1</label>
@@ -796,55 +617,54 @@
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">5</label>
 							</p>
-						</form>
+						
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>Can we use your feedback as testimonial on the Practice website?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">Yes</label>
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">No</label>
 							</p>
-						</form>
+						
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>Would you like to be informed special offers and exclusive deals from your practice?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">Yes</label>
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">No</label>
 							</p>
-						</form>
-						<div style="padding-bottom: 9%;">                  
-							<a onclick="Materialize.toast('Feedback Submitted', 2000)" href="#/settings" class="waves-effect waves-light btn colorofbutton right">Submit</a>
-						</div>
+						
+						
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	
 	</div>
 </script>
+
 <script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
 			
-		<ng-include src="dentalnavbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 
 		<div ng-show="loadingDone">
 			<div class="custom-tabs" ng-show="mapView == 1">
@@ -965,7 +785,7 @@
 <script type="text/ng-template" id="medical-services.html">
 	<div class="view">
 	
-		<ng-include src="medicalnavbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 		
 		<!-- Modal Structure -->
 		<!-- <div id="pdfmodal" class="modal bottom-sheet">
@@ -1073,7 +893,7 @@
 </script>
 <script type="text/ng-template" id="my-claims.html">
 	
-	<ng-include src="navbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	
 
 	<div class="view" ng-show="loadingDone">
@@ -1120,7 +940,7 @@
 </script>
 <script type="text/ng-template" id="my-policy.html">
 	<div class="view">
-		<ng-include src="navbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 		
 		<div class="container" ng-show="loadingDone">
 			<div class="row">
@@ -1150,7 +970,7 @@
 <script type="text/ng-template" id="optical-services.html">
 	<div class="view">
 	
-		<ng-include src="opticalnavbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 		
 		<!-- Modal Structure -->
 		<!-- <div id="pdfmodal" class="modal bottom-sheet">
@@ -1329,7 +1149,7 @@
     </script>
 </script>
 <script type="text/ng-template" id="support.html">
-	<ng-include src="navbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view" ng-init="loadingDone = true">
 		
 		
@@ -1351,7 +1171,7 @@
 	</div>
 </script>
 <script type="text/ng-template" id="treatment.html">
-	<ng-include src="navbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div ng-show="loadingDone">
 		<div class="row">
 			<h3 class="center-align white-text lighten-2 fonts">Treatments</h3>
@@ -1384,7 +1204,7 @@
 </script>
 <script type="text/ng-template" id="well-being.html">
     <div class="view">
-        <ng-include src="navbar"></ng-include>
+        <div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
         <div class="container" ng-show="loadingDone">
             <div class="row">
                 <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
@@ -1409,7 +1229,7 @@
 </script>
 <script type="text/ng-template" id="add-family.html">
 	<div class="view">
-		<ng-include src="settingsnavbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 		
 		<div class="row">
 			<h3  class="center-align white-text lighten-2 fonts">  Add Family Member  </h3>
@@ -1484,7 +1304,7 @@
 	</script>
 </script>
 <script type="text/ng-template" id="change-password.html">
-	<ng-include src="settingsnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view container" ng-init="loadingDone = true">
 
 
@@ -1524,7 +1344,7 @@
 </script>
 
 <script type="text/ng-template" id="family.html">
-	<ng-include src="settingsnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view family-view" ng-show="loadingDone">
 
 		<div class="row">
@@ -1561,22 +1381,19 @@
 </script>
 
 <script type="text/ng-template" id="notifications.html">
-	<div class="view">
-
-		<ng-include src="notificationnavbar"></ng-include>
-		
-		<div class="row" >
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
+	<div class="view" ng-show="loadingDone">
+		<div class="row">
 		    <ul class="collection" style="border: 1px solid #ddd">
-		        <li class="list-item">Your treatment with P S B Dental Care Ltd has been approved by the insurer! <!-- <a href="#" class="secondary-content">@10:00</a> --></li>
-		        <li class="list-item">You have an appointment with Dr Flan on <span style="font-weight: bold;">03-08-2015</span> at <span style="font-weight: bold;">10:30am</span> at P S B Dental Care Ltd.  <!-- <a href="#" class="secondary-content">@10:00</a> --></li>
-		        <li class="list-item">Your feedback for your recent appointment at P S B Dental Care Ltd is pending.<!--   <a href="#" class="secondary-content">@10:00</a> --></li><!-- 
-		        <li class="collection-item">Lorem ipsum dolor sit amet.  <a href="#" class="secondary-content">@10:00</a></li> -->
+		        <li class="list-item" ng-repeat="item in notifications">{{item.Description}}
+		        	<!-- <a href="#" class="secondary-content">@10:00</a> -->
+		        </li>
 		    </ul>
 		</div>
 	</div>
 </script>
 <script type="text/ng-template" id="personal.html">
-<ng-include src="settingsnavbar"></ng-include>
+<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 
 <div class="view" ng-show="loadingDone">
 
@@ -1628,7 +1445,7 @@
 
 </script>
 <script type="text/ng-template" id="settings.html">
-	<ng-include src="settingsnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view" ng-init="loadingDone = true">
 	
 		<div id="m" class="modal">
@@ -1723,7 +1540,7 @@
 							<div class="switch">
 								<label>
 									Off
-									<input type="checkbox">
+									<input type="checkbox" value="1" ng-model="indicator" ng-click="setNotification()">
 									<span class="lever"></span>
 									On
 								</label>
@@ -1739,7 +1556,7 @@
 	</div>
 </script>
 <script type="text/ng-template" id="terms-conditions.html">
-	<ng-include src="dentalnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view" ng-show="loadingDone">
 		<div class="row">
 				<h3  class="center-align white-text lighten-2 fonts">  Terms & Conditions </h3>
@@ -1759,7 +1576,7 @@
 
 
 <script type="text/ng-template" id="update-family.html">
-	<ng-include src="settingsnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view" ng-init="loadingDone = true">
 		
 		<div class="row">
@@ -1838,7 +1655,7 @@
 	
 
 
-	<ng-include src="settingsnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view" ng-show="loadingDone">
 		<div class="row">
 			<h3  class="center-align white-text lighten-2 fonts">  Update Details  </h3>
@@ -1909,7 +1726,7 @@
 
 </script>
 <script type="text/ng-template" id="contact.html">
-	<ng-include src="dentalnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div ng-init="loadingDone = true">
 		<div class="card-panel grey lighten-5 z-depth-1">
 			<ul  class="collection">
@@ -1974,87 +1791,34 @@
 	</div>
 </script>
 <script type="text/ng-template" id="rating.html">
-	<ng-include src="dentalnavbar"></ng-include>
-	<ul class="collection">
-		<table>
-			<thead>
-				<th>
-					<tr>
-						<td>
-							<li class="collection-item avatar">
-								<i class="mdi-social-person circle orange"></i>
-	
-							</li>
-						</td>
-	
-						<td>
-							<h5>awaf al moteb</h5>
-							<!-- <p class="grey-text left-align">alice@example.com </p> -->
-						</td>
-	
-	
-	
-						<td>
-							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
-							<h4 class="center black-text " >5.0</h4>
-						</td>
-					</tr>
-				</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td colspan = "3">
-						<p class="grey-text left-align"> 
-							He explained to me every thing about my teeth and he showed me what is the plan of therapy and he did very well.
-						</p>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	
-	</ul>
-	
-	
-	<ul class="collection">
-		<table>
-			<thead>
-				<th>
-					<tr>
-						<td>
-							<li class="collection-item avatar">
-								<i class="mdi-social-person circle orange"></i>
-	
-							</li>
-						</td>
-	
-						<td>
-							<h5>FAHAD AL MUTAIRI
-							</h5>
-							<!-- <p class="grey-text left-align">John@example.com </p> -->
-						</td>
-	
-	
-	
-						<td>
-							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
-							<h4 class="center black-text " >5.0</h4>
-						</td>
-					</tr>
-				</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td colspan = "3">
-						<p  class="grey-text left-align"> </p>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	
-	</ul>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
+	<div class="container">
+
+		<a class="orange email-claim btn btn-default" href="#/clinic-detail/rating/rate/{{practiceId}}">
+			Give Feedback
+		</a>
+		<ul class="collection feedback-list">
+			<li class="collection-item">
+				<h5>awaf al moteb</h5>
+				<h2 class="orange-text"><i class="mdi-action-star-rate"></i></h2>
+				<p class="grey-text left-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven.</p>
+			</li>
+			<li class="collection-item">
+				<h5>awaf al moteb</h5>
+				<h2 class="orange-text"><i class="mdi-action-star-rate"></i></h2>
+				<p class="grey-text left-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+			</li>
+			<li class="collection-item">
+				<h5>awaf al moteb</h5>
+				<h2 class="orange-text"><i class="mdi-action-star-rate"></i></h2>
+				<p class="grey-text left-align">Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven.</p>
+			</li>
+		</ul>
+	</div>
 </script>
 <script type="text/ng-template" id="staff.html">
-	<ng-include src="dentalnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div ng-show="loadingDone">
 		<div class="row">
 			<h3 class="center-align white-text lighten-2 fonts">Our Staff</h3>
@@ -2073,7 +1837,7 @@
 	</div>
 </script>
 <script type="text/ng-template" id="timing.html">
-	<ng-include src="dentalnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="container" ng-init="loadingDone = true">
 		<table class="bordered">
 			<thead>

@@ -1,5 +1,5 @@
 <script type="text/ng-template" id="settings.html">
-	<ng-include src="settingsnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 	<div class="view" ng-init="loadingDone = true">
 	
 		<div id="m" class="modal">
@@ -94,7 +94,7 @@
 							<div class="switch">
 								<label>
 									Off
-									<input type="checkbox">
+									<input type="checkbox" value="1" ng-model="indicator" ng-click="setNotification()">
 									<span class="lever"></span>
 									On
 								</label>

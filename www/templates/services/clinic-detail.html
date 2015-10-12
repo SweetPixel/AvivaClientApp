@@ -1,5 +1,5 @@
 <script type="text/ng-template" id="clinic-detail.html">
-	<ng-include src="dentalnavbar"></ng-include>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 
 	<div class="container" ng-show="loadingDone">
 
@@ -21,31 +21,31 @@
 
 						
 							<ul class="collection">
-								<a href="#/dental-clinic-detail/treatment" class="collection-item">
+								<a href="#/clinic-detail/treatment" class="collection-item">
 									Treatment Details
 									<div class="secondary-content">
 										<i class="mdi-image-navigate-next right"></i>
 									</div>
 								</a>
-						        <a href="#/dental-clinic-detail/staff" class="collection-item">
+						        <a href="#/clinic-detail/staff" class="collection-item">
 						        	Our Staff
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-clinic-detail/timing" class="collection-item">
+						        <a href="#/clinic-detail/timing" class="collection-item">
 						        	Timings
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-clinic-detail/contact" class="collection-item">
+						        <a href="#/clinic-detail/contact" class="collection-item">
 						        	Contact Us
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/dental-clinic-detail/rating" class="collection-item">
+						        <a href="#/clinic-detail/rating/{{practiceId}}" class="collection-item">
 						        	Reviews & Ratings
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>

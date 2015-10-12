@@ -131,7 +131,7 @@ avivaApp.factory('familyDetailsService', function ($http, $q, $log) {
 		}
 	}
 })
-avivaApp.factory('feedbackService', function ($http, $q) {
+avivaApp.factory('feedbackService', function ($http, $q, $log) {
 	return {
 		getFeedbacks: function (userId, service) {
 			var deferred = $q.defer();
@@ -151,6 +151,33 @@ avivaApp.factory('feedbackService', function ($http, $q) {
 			.success(function (response) {
 				deferred.resolve({
 					feedback: response
+				})
+			})
+			.error(function (msg, code) {
+				deferred.reject(msg);
+				$log.error(msg, code);
+			});
+			return deferred.promise;
+		},
+		postFeedback: function (feedback, service) {
+			var deferred = $q.defer();
+			var url = '';
+			switch (service) {
+				case 1:
+				url = 'https://dentalink.co.uk/healthpickapi/api/DentalService/Feedback';
+				break;
+				case 2:
+				url = 'https://dentalink.co.uk/healthpickapi/api/MedicalService/Feedback';
+				break;
+				case 3:
+				url = 'https://dentalink.co.uk/healthpickapi/api/OpticalService/Feedback';
+				break;
+			}
+			console.log(feedback);
+			$http.post(url, feedback)
+			.success(function (response) {
+				deferred.resolve({
+					status: response
 				})
 			})
 			.error(function (msg, code) {
@@ -460,6 +487,25 @@ avivaApp.factory('myPolicyService', function ($http, $q) {
 		}
 	}
 })
+avivaApp.factory('notificationsService', function ($http, $q) {
+	return {
+		getNotifications: function (userId, service) {
+			var deferred = $q.defer();
+			var url = 'https://dentalink.co.uk/healthpickapi/api/Notification/List?username=' + userId;
+			$http.get(url)
+				.success(function (response) {
+					deferred.resolve({
+						notifications: response
+					})
+				})
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
+			return deferred.promise;
+		}
+	}
+})
 avivaApp.factory('qrService', function ($http, $q) {
 	return {
 		getQR: function (userId) {
@@ -470,6 +516,35 @@ avivaApp.factory('qrService', function ($http, $q) {
 				.success(function (response) {
 					deferred.resolve({
 						qr: response
+					})
+				})
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
+			return deferred.promise;
+		}
+	}
+})
+avivaApp.factory('settingsService', function ($http, $q, $log) {
+	return {
+		setNotifications: function (indicator, userId) {
+			var deferred = $q.defer();
+			var url = 'https://dentalink.co.uk/healthpickapi/api/Notification/indicate';
+			var set;
+			if (indicator == '1') {
+				console.log("Was 1");
+				set = true;
+			}
+			else {
+				console.log("Was 0");
+				set = false;
+			}
+			
+			$http.post(url, set)
+				.success(function (response) {
+					deferred.resolve({
+						status: response
 					})
 				})
 				.error(function (msg, code) {
@@ -570,7 +645,7 @@ avivaApp.factory('updatePersonalService', function ($http, $q, $log) {
 		}
 	}
 })
-avivaApp.factory('wellBeingService', function ($http, $q) {
+avivaApp.factory('wellBeingService', function ($http, $q, $log) {
 	return {
 		getArticles: function (userId, service) {
 			var deferred = $q.defer();

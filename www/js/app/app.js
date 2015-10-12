@@ -21,7 +21,8 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'services.html'
 		})
 		.when('/settings', {
-			templateUrl: 'settings.html'
+			templateUrl: 'settings.html',
+			controller: 'settingsCtrl'
 		})
 		.when('/dental-services', {
 			templateUrl: 'dental-services.html',
@@ -75,10 +76,7 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'my-claims.html',
 			controller: 'myClaimsCtrl'
 		})
-		.when('/dental-services/feedback', {
-			templateUrl: 'feedback.html',
-			controller: 'feedbackCtrl'
-		})
+		
 		.when('/services/my-policy', {
 			templateUrl: 'my-policy.html',
 			controller: 'myPolicyCtrl'
@@ -100,22 +98,27 @@ avivaApp.config(function($routeProvider) {
 			controller: 'clinicDetailCtrl'
 		})
 
-		.when('/dental-clinic-detail/treatment', {
+		.when('/clinic-detail/rating/rate/:param', {
+			templateUrl: 'feedback.html',
+			controller: 'feedbackCtrl'
+		})
+		.when('/clinic-detail/treatment', {
 			templateUrl: 'treatment.html',
 			controller: 'treatmentCtrl'
 		})
-		.when('/dental-clinic-detail/staff', {
+		.when('/clinic-detail/staff', {
 			templateUrl: 'staff.html',
 			controller: 'staffCtrl'
 		})
-		.when('/dental-clinic-detail/timing', {
+		.when('/clinic-detail/timing', {
 			templateUrl: 'timing.html'
 		})
-		.when('/dental-clinic-detail/contact', {
+		.when('/clinic-detail/contact', {
 			templateUrl: 'contact.html'
 		})
-		.when('/dental-clinic-detail/rating', {
-			templateUrl: 'rating.html'
+		.when('/clinic-detail/rating/:param', {
+			templateUrl: 'rating.html',
+			controller: 'getFeedbackCtrl'
 		})
 
 

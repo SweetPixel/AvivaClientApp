@@ -1,195 +1,186 @@
 <script type="text/ng-template" id="feedback.html">
-	<ng-include src="navbar"></ng-include>
-	
-	
-	<div class="container">
-		<div class="row">
-			<h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
-				Feedback for P S B Dental Care Ltd
+    <div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
+    <div class="container" ng-show="loadingDone">
+        <div class="row">
+            <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px; text-transform: capitalize">
+				Feedback for {{clinic.PracticeName}}
 			</h4>
-		</div>
-		<div class="row">
-			<p style="color: #681950;margin-left: 2%;">
-				Please rank the following aspects of the service? (1 Very Poor) – (5 Excellent)
-			</p>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p style="margin-top: 10px;">Is the practice clean and comfortable ?</p>
-						<form action="#" style="margin-top: 9px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Is there sufficient entertainment / literature while you wait ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Are necessary healthcare / sundry items available ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Is your dental team friendly and approachable ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>How much is your level of comfort and trust in your clinician and the practice team ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">1</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">2</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">3</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">4</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">5</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>What can the practice improve (ideas, suggestions, comments) ?</p>
-						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
-							<label for="textarea1">Textarea</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Are you happy with the dental products you are using (tooth paste, mouthwash etc.) ?</p>
-						<form action="#" style="margin-top: 5px;">
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1">Yes</label>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2">No</label>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Name of Products:</p>
-						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
-							<label for="textarea1">Textarea</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<p>Reasons for satisfaction or unsatisfaction:</p>
-						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
-							<label for="textarea1">Textarea</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
+        </div>
+        <div class="row">
+            <p style="color: #681950;margin-left: 2%;">
+                Please rank the following aspects of the service? (1 Very Poor) – (5 Excellent)
+            </p>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p style="margin-top: 10px;">Is the practice clean and comfortable ?</p>
+                        <form action="#" style="margin-top: 9px;">
+                            <p>
+                                <input name="practiceCC" value="1" ng-model="feedback.Practicecc" type="radio" id="practiceCC1" />
+                                <label for="practiceCC1">1</label>
+                                <input name="practiceCC" value="2" ng-model="feedback.Practicecc" type="radio" id="practiceCC2" />
+                                <label for="practiceCC2">2</label>
+                                <input name="practiceCC" value="3" ng-model="feedback.Practicecc" type="radio" id="practiceCC3" />
+                                <label for="practiceCC3">3</label>
+                                <input name="practiceCC" value="4" ng-model="feedback.Practicecc" type="radio" id="practiceCC4" />
+                                <label for="practiceCC4">4</label>
+                                <input name="practiceCC" value="5" ng-model="feedback.Practicecc" type="radio" id="practiceCC5" />
+                                <label for="practiceCC5">5</label>
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Is there sufficient entertainment / literature while you wait ?</p>
+                        <p>
+                            <input name="sentertainment" value="1" ng-model="feedback.sentertainment" type="radio" id="sentertainment1" />
+                            <label for="sentertainment1">1</label>
+                            <input name="sentertainment" value="2" ng-model="feedback.sentertainment" type="radio" id="sentertainment2" />
+                            <label for="sentertainment2">2</label>
+                            <input name="sentertainment" value="3" ng-model="feedback.sentertainment" type="radio" id="sentertainment3" />
+                            <label for="sentertainment3">3</label>
+                            <input name="sentertainment" value="4" ng-model="feedback.sentertainment" type="radio" id="sentertainment4" />
+                            <label for="sentertainment4">4</label>
+                            <input name="sentertainment" value="5" ng-model="feedback.sentertainment" type="radio" id="sentertainment5" />
+                            <label for="sentertainment5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Are necessary healthcare / sundry items available ?</p>
+                        <p>
+                            <input name="healthcareitem" value="1" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem1" />
+                            <label for="healthcareitem1">1</label>
+                            <input name="healthcareitem" value="2" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem2" />
+                            <label for="healthcareitem2">2</label>
+                            <input name="healthcareitem" value="3" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem3" />
+                            <label for="healthcareitem3">3</label>
+                            <input name="healthcareitem" value="4" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem4" />
+                            <label for="healthcareitem4">4</label>
+                            <input name="healthcareitem" value="5" ng-model="feedback.healthcareitem" type="radio" id="healthcareitem5" />
+                            <label for="healthcareitem5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Is your team friendly and approachable ?</p>
+                        <p>
+                            <input name="friendlyapprochable" value="1" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable1" />
+                            <label for="friendlyapprochable1">1</label>
+                            <input name="friendlyapprochable" value="2" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable2" />
+                            <label for="friendlyapprochable2">2</label>
+                            <input name="friendlyapprochable" value="3" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable3" />
+                            <label for="friendlyapprochable3">3</label>
+                            <input name="friendlyapprochable" value="4" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable4" />
+                            <label for="friendlyapprochable4">4</label>
+                            <input name="friendlyapprochable" value="5" ng-model="feedback.friendlyapprochable" type="radio" id="friendlyapprochable5" />
+                            <label for="friendlyapprochable5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>How much is your level of comfort and trust in your clinician and the practice team ?</p>
+                        <p>
+                            <input name="comfortlevel" value="1" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel1" />
+                            <label for="comfortlevel1">1</label>
+                            <input name="comfortlevel" value="2" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel2" />
+                            <label for="comfortlevel2">2</label>
+                            <input name="comfortlevel" value="3" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel3" />
+                            <label for="comfortlevel3">3</label>
+                            <input name="comfortlevel" value="4" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel4" />
+                            <label for="comfortlevel4">4</label>
+                            <input name="comfortlevel" value="5" ng-model="feedback.comfortlevel" type="radio" id="comfortlevel5" />
+                            <label for="comfortlevel5">5</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>What can the practice improve (ideas, suggestions, comments) ?</p>
+                        <div class="input-field col s12">
+                            <textarea id="ideas" ng-model="feedback.Ideas" class="materialize-textarea"></textarea>
+                            <label for="ideas">Textarea</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Are you happy with the dental products you are using?</p>
+                        <p>
+                            <input name="happywithproduct" value="true" ng-model="feedback.happywithproduct" type="radio" id="happywithproduct1" />
+                            <label for="happywithproduct1">Yes</label>
+                            <input name="happywithproduct" value="false" ng-model="feedback.happywithproduct" type="radio" id="happywithproduct2" />
+                            <label for="happywithproduct2">No</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Name of Products:</p>
+                        <div class="input-field col s12">
+                            <textarea id="Productname" ng-model="feedback.Productname" class="materialize-textarea"></textarea>
+                            <label for="Productname">Textarea</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Reasons for satisfaction or unsatisfaction:</p>
+                        <div class="input-field col s12">
+                            <textarea id="satisfaction" ng-model="feedback.satisfaction" class="materialize-textarea"></textarea>
+                            <label for="satisfaction">Textarea</label>
+                        </div>
+                        <div style="padding-bottom: 9%;">
+                            <a ng-click="submit()" class="waves-effect waves-light btn colorofbutton right">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pre>{{feedback | json}}
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>How likely is it that you would recommend our practice to a friend or colleague ?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">1</label>
@@ -202,12 +193,12 @@
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">5</label>
 							</p>
-						</form>
+						
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
@@ -219,13 +210,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>How would you rate your overall experience ?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">1</label>
@@ -238,48 +229,46 @@
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">5</label>
 							</p>
-						</form>
+						
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>Can we use your feedback as testimonial on the Practice website?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">Yes</label>
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">No</label>
 							</p>
-						</form>
+						
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div>-->
+		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
 					<div class="card-content">
 						<p>Would you like to be informed special offers and exclusive deals from your practice?</p>
-						<form action="#" style="margin-top: 5px;">
+						
 							<p>
 								<input name="group1" type="radio" id="test1" />
 								<label for="test1">Yes</label>
 								<input name="group1" type="radio" id="test2" />
 								<label for="test2">No</label>
 							</p>
-						</form>
-						<div style="padding-bottom: 9%;">                  
-							<a onclick="Materialize.toast('Feedback Submitted', 2000)" href="#/settings" class="waves-effect waves-light btn colorofbutton right">Submit</a>
-						</div>
+						
+						
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	
 	</div>
 </script>

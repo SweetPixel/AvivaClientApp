@@ -1,80 +1,27 @@
 <script type="text/ng-template" id="rating.html">
-	<ng-include src="dentalnavbar"></ng-include>
-	<ul class="collection">
-		<table>
-			<thead>
-				<th>
-					<tr>
-						<td>
-							<li class="collection-item avatar">
-								<i class="mdi-social-person circle orange"></i>
-	
-							</li>
-						</td>
-	
-						<td>
-							<h5>awaf al moteb</h5>
-							<!-- <p class="grey-text left-align">alice@example.com </p> -->
-						</td>
-	
-	
-	
-						<td>
-							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
-							<h4 class="center black-text " >5.0</h4>
-						</td>
-					</tr>
-				</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td colspan = "3">
-						<p class="grey-text left-align"> 
-							He explained to me every thing about my teeth and he showed me what is the plan of therapy and he did very well.
-						</p>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	
-	</ul>
-	
-	
-	<ul class="collection">
-		<table>
-			<thead>
-				<th>
-					<tr>
-						<td>
-							<li class="collection-item avatar">
-								<i class="mdi-social-person circle orange"></i>
-	
-							</li>
-						</td>
-	
-						<td>
-							<h5>FAHAD AL MUTAIRI
-							</h5>
-							<!-- <p class="grey-text left-align">John@example.com </p> -->
-						</td>
-	
-	
-	
-						<td>
-							<h2 class="center orange-text"><i class="mdi-action-star-rate"></i></h2>
-							<h4 class="center black-text " >5.0</h4>
-						</td>
-					</tr>
-				</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td colspan = "3">
-						<p  class="grey-text left-align"> </p>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	
-	</ul>
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
+	<div class="container">
+
+		<a class="orange email-claim btn btn-default" href="#/clinic-detail/rating/rate/{{practiceId}}">
+			Give Feedback
+		</a>
+		<ul class="collection feedback-list">
+			<li class="collection-item">
+				<h5>awaf al moteb</h5>
+				<h2 class="orange-text"><i class="mdi-action-star-rate"></i></h2>
+				<p class="grey-text left-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven.</p>
+			</li>
+			<li class="collection-item">
+				<h5>awaf al moteb</h5>
+				<h2 class="orange-text"><i class="mdi-action-star-rate"></i></h2>
+				<p class="grey-text left-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+			</li>
+			<li class="collection-item">
+				<h5>awaf al moteb</h5>
+				<h2 class="orange-text"><i class="mdi-action-star-rate"></i></h2>
+				<p class="grey-text left-align">Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven.</p>
+			</li>
+		</ul>
+	</div>
 </script>

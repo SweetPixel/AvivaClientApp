@@ -12,15 +12,15 @@ input[type="search"], textarea.materialize-textarea {
 	border-color: -moz-use-text-color -moz-use-text-color #ffffff;
 }
 
-*:not(textarea):not(input) {
-	-webkit-user-select: none; /* Chrome/Safari */        
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+ */
+/* *:not(textarea):not(input) {
+	-webkit-user-select: none; Chrome/Safari        
+	-moz-user-select: none; Firefox
+	-ms-user-select: none; IE10+
 
-	/* Rules below not implemented in browsers yet */
+	Rules below not implemented in browsers yet
 	-o-user-select: none;
 	user-select: none;
-}
+} */
 
 
 input[type="password"]
@@ -32,28 +32,28 @@ input[type="password"]
 	color: #2980B9;
 }
 
-.dentalnavbarColor {
+.navbar-color {
+	background-color: #F69B19 !important;
+}
+
+.dental-navbar .navbar-color {
 	background-color: #F69B19 !important; /*orange*/
 }
 
-.medicalnavbarColor {
+.medical-navbar .navbar-color {
 	background-color: #84AB8E !important; /*green*/
 }
 
-.opticalnavbarColor {
+.optical-navbar .navbar-color {
 	background-color: #E7D101 !important; /*yellow*/
 }
 
-.settingsnavbarColor {
+.settings-navbar .navbar-color {
 	background-color: #DE5741 !important; /*red*/
 }
 
-.notificationnavbarColor {
+.notifications-navbar .navbar-color {
 	background-color: #681751 !important; /*purple*/
-}
-
-.navbarColor {
-	background-color: #2980b9 !important;
 }
 
 .settingpageicons {

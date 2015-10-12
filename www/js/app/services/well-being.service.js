@@ -1,4 +1,4 @@
-avivaApp.factory('wellBeingService', function ($http, $q) {
+avivaApp.factory('wellBeingService', function ($http, $q, $log) {
 	return {
 		getArticles: function (userId, service) {
 			var deferred = $q.defer();

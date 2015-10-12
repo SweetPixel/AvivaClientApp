@@ -1,7 +1,7 @@
 <script type="text/ng-template" id="find-dentist.html">
 	<div class="view">
 			
-		<ng-include src="dentalnavbar"></ng-include>
+		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 
 		<div ng-show="loadingDone">
 			<div class="custom-tabs" ng-show="mapView == 1">

@@ -90,7 +90,7 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 });
 avivaApp.controller('dentalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 1;
-	$scope.$parent.navbar = 'dental-navbar.html';
+	$scope.$parent.navbarClass = "dental-navbar";
 	$scope.loadingDone = true;
 });
 avivaApp.controller('familyDetailsCtrl', function ($log, $http, $scope, $location, familyDetailsService) {
@@ -122,15 +122,56 @@ avivaApp.controller('familyDetailsCtrl', function ($log, $http, $scope, $locatio
 		
 	}
 })
-avivaApp.controller('feedbackCtrl', function($http, $scope, feedbackService) {
+avivaApp.controller('feedbackCtrl', function($http, $scope, feedbackService, $routeParams) {
 	$scope.feedback = {};
-	$scope.loadingDone = true;
+	$scope.practiceId = $routeParams.param;
 	console.log("getting feedback: " + $scope.$parent.service);
-	$scope.promise = feedbackService.getFeedbacks($scope.$parent.userId, $scope.$parent.service);
+	$scope.loadingDone = false;
+	$scope.$parent.promise.then(function () {
+		$.each($scope.$parent.clinics, function (index, item) {
+			if (item.practiceId == $scope.practiceId) {
+				$scope.clinic = item;
+			}
+		});
+		$scope.loadingDone = true;
+	});
+	$scope.submit = function () {
+		$scope.feedback.practiceid = $scope.clinic.practiceId;
+		$scope.feedback.username = $scope.$parent.userId;
+		switch ($scope.$parent.service) {
+			case 1:
+			$scope.feedback.serviceType = "Dental";
+			break;
+			case 2:
+			$scope.feedback.serviceType = "Medical";
+			break;
+			case 3:
+			$scope.feedback.serviceType = "Optical";
+			break;
+		}
+		
+		$scope.feedback.Practicecc = parseInt($scope.feedback.Practicecc, 10);
+		$scope.feedback.sentertainment = parseInt($scope.feedback.sentertainment, 10);
+		$scope.feedback.healthcareitem = parseInt($scope.feedback.healthcareitem, 10);
+		$scope.feedback.friendlyapprochable = parseInt($scope.feedback.friendlyapprochable, 10);
+		$scope.feedback.comfortlevel = parseInt($scope.feedback.comfortlevel, 10);
+		$scope.feedback.practiceid = parseInt($scope.feedback.practiceid, 10);
+		if ($scope.feedback.happywithproduct == "true") {
+			$scope.feedback.happywithproduct = true;
+		}
+		else {
+			$scope.feedback.happywithproduct = false;
+		}
+		$scope.promise = feedbackService.postFeedback($scope.feedback, $scope.$parent.service);
+		$scope.promise.then(function () {
+			$scope.$parent.back();
+		})
+	}
+	/*$scope.promise = feedbackService.getFeedbacks($scope.$parent.userId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		console.log("Got feedback");
 		$scope.feedback = payload.feedback;
-	})
+	})*/
 })
 avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log, $location){
 	$scope.clinics = [];
@@ -219,6 +260,24 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 		});
 	}
 });
+avivaApp.controller('getFeedbackCtrl', function($http, $scope, feedbackService, $routeParams) {
+	$scope.feedback = {};
+	$scope.loadingDone = false;
+	$scope.practiceId = $routeParams.param;
+	$scope.$parent.promise.then(function () {
+		$.each($scope.$parent.clinics, function (index, item) {
+			if (item.practiceId == $scope.practiceId) {
+				$scope.clinic = item;
+			}
+		});
+		$scope.loadingDone = true;
+	});
+	/*$scope.promise = feedbackService.getFeedbacks($scope.$parent.userId, $scope.$parent.service);
+	$scope.promise.then(function (payload) {
+		console.log("Got feedback");
+		$scope.feedback = payload.feedback;
+	})*/
+})
 avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 	$scope.credentials = {
 		username: '',
@@ -243,15 +302,14 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.$route = $route;
 	$scope.$routeParams = $routeParams;
 	$scope.$location = $location;
-	$scope.navbar = 'settings-navbar.html';
-	$scope.dentalnavbar = 'dental-navbar.html';
-	$scope.medicalnavbar = 'medical-navbar.html';
-	$scope.opticalnavbar = 'optical-navbar.html';
-	$scope.settingsnavbar = 'settings-navbar.html';
-	$scope.notificationnavbar = 'notification-navbar.html';
+	$scope.navbar = 'navbar.html';
+	/*$scope.dentalnavbar = 'dentalnavbarColor';
+	$scope.medicalnavbar = 'medicalnavbarColor';
+	$scope.opticalnavbar = 'opticalnavbarColor';
+	$scope.settingsnavbar = 'settingsnavbarColor';
+	$scope.notificationnavbar = 'notificationnavbarColor';*/
 	$scope.mapView = 1;
-	$scope.service = 0;
-
+	$scope.service = 1;
 
 	$scope.userId = "test@test.com";
 
@@ -299,7 +357,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 });
 avivaApp.controller('medicalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 2;
-	$scope.$parent.navbar = 'medical-navbar.html';
+	$scope.$parent.navbarClass = "medical-navbar";
 	$scope.loadingDone = true;
 });
 avivaApp.controller('myClaimsCtrl', function ($http, $scope, myClaimsService) {
@@ -327,9 +385,21 @@ avivaApp.controller('myPolicyCtrl', function ($scope, myPolicyService) {
 		$scope.policy = payload.policy;
 	})
 })
+avivaApp.controller('notificationsCtrl', function ($http, $scope, notificationsService) {
+	$scope.$parent.service = 5;
+	$scope.$parent.navbarClass = "notifications-navbar";
+	$scope.notifications = {};
+	$scope.loadingDone = false;
+	$scope.promise = notificationsService.getNotifications($scope.$parent.userId, $scope.$parent.service);
+	$scope.promise.then(function (payload) {
+		$scope.loadingDone = true;
+		console.log("Got notifications");
+		$scope.notifications = payload.notifications;
+	})
+})
 avivaApp.controller('opticalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 3;
-	$scope.$parent.navbar = 'optical-navbar.html';
+	$scope.$parent.navbarClass = "optical-navbar";
 	$scope.loadingDone = true;
 });
 avivaApp.controller('personalDetailsCtrl', function ($http, $scope, $location, getPersonalService, updatePersonalService) {
@@ -376,6 +446,18 @@ avivaApp.controller('qrCtrl', function ($scope, qrService) {
 		$scope.qr = payload.qr;
 	})
 })
+avivaApp.controller('settingsCtrl', function ($http, $scope, $location, settingsService) {
+	$scope.$parent.service = 4;
+	$scope.$parent.navbarClass = "settings-navbar";
+	$scope.setNotification = function () {
+		console.log("doing");
+		$scope.promise = settingsService.setNotifications($scope.indicator, $scope.$parent.userId);
+		$scope.promise.then(function (payload) {
+			$scope.status = payload.data;
+			console.log("Set notifications: " + $scope.status);
+		});
+	}
+});
 avivaApp.controller('staffCtrl', function ($scope, staffService) {
 	$scope.staff = [{
 			FirstName: '...',
