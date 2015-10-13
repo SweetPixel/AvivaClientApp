@@ -138,17 +138,6 @@ avivaApp.controller('feedbackCtrl', function($http, $scope, feedbackService, $ro
 	$scope.submit = function () {
 		$scope.feedback.practiceid = $scope.clinic.practiceId;
 		$scope.feedback.username = $scope.$parent.userId;
-		switch ($scope.$parent.service) {
-			case 1:
-			$scope.feedback.serviceType = "Dental";
-			break;
-			case 2:
-			$scope.feedback.serviceType = "Medical";
-			break;
-			case 3:
-			$scope.feedback.serviceType = "Optical";
-			break;
-		}
 		
 		$scope.feedback.Practicecc = parseInt($scope.feedback.Practicecc, 10);
 		$scope.feedback.sentertainment = parseInt($scope.feedback.sentertainment, 10);
@@ -163,7 +152,8 @@ avivaApp.controller('feedbackCtrl', function($http, $scope, feedbackService, $ro
 			$scope.feedback.happywithproduct = false;
 		}
 		$scope.promise = feedbackService.postFeedback($scope.feedback, $scope.$parent.service);
-		$scope.promise.then(function () {
+		$scope.promise.then(function (payload) {
+			console.log("Feedback status: " + payload.status);
 			$scope.$parent.back();
 		})
 	}
@@ -449,11 +439,18 @@ avivaApp.controller('qrCtrl', function ($scope, qrService) {
 avivaApp.controller('settingsCtrl', function ($http, $scope, $location, settingsService) {
 	$scope.$parent.service = 4;
 	$scope.$parent.navbarClass = "settings-navbar";
+	$scope.loadingDone = false;
+	$scope.getPromise = settingsService.getNotificationIndicator($scope.$parent.userId);
+	$scope.getPromise.then(function (payload) {
+		$scope.indicator = payload.indicator;
+		console.log("Got indicator: " + $scope.indicator);
+		$scope.loadingDone = true;
+	})
 	$scope.setNotification = function () {
 		console.log("doing");
 		$scope.promise = settingsService.setNotifications($scope.indicator, $scope.$parent.userId);
 		$scope.promise.then(function (payload) {
-			$scope.status = payload.data;
+			$scope.status = payload.status;
 			console.log("Set notifications: " + $scope.status);
 		});
 	}

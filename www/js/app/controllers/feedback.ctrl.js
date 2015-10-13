@@ -14,17 +14,6 @@ avivaApp.controller('feedbackCtrl', function($http, $scope, feedbackService, $ro
 	$scope.submit = function () {
 		$scope.feedback.practiceid = $scope.clinic.practiceId;
 		$scope.feedback.username = $scope.$parent.userId;
-		switch ($scope.$parent.service) {
-			case 1:
-			$scope.feedback.serviceType = "Dental";
-			break;
-			case 2:
-			$scope.feedback.serviceType = "Medical";
-			break;
-			case 3:
-			$scope.feedback.serviceType = "Optical";
-			break;
-		}
 		
 		$scope.feedback.Practicecc = parseInt($scope.feedback.Practicecc, 10);
 		$scope.feedback.sentertainment = parseInt($scope.feedback.sentertainment, 10);
@@ -39,7 +28,8 @@ avivaApp.controller('feedbackCtrl', function($http, $scope, feedbackService, $ro
 			$scope.feedback.happywithproduct = false;
 		}
 		$scope.promise = feedbackService.postFeedback($scope.feedback, $scope.$parent.service);
-		$scope.promise.then(function () {
+		$scope.promise.then(function (payload) {
+			console.log("Feedback status: " + payload.status);
 			$scope.$parent.back();
 		})
 	}
