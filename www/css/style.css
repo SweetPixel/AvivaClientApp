@@ -618,23 +618,23 @@ ul.rating {
 	height: 20px;
 }
 
-a .ball-clip-rotate-multiple > div:last-child {
+a .ball-clip-rotate-multiple > div:last-child, button .ball-clip-rotate-multiple > div:last-child {
 	top: 10px;
 	left: 10px;
 	border-color: #FFF transparent;
 }
-a .ball-clip-rotate-multiple > div {
+a .ball-clip-rotate-multiple > div, button .ball-clip-rotate-multiple > div {
 	left: 0px;
 	top: 0px;
 	border-color: transparent #FFF;
 }
-a .loader-container {
+a .loader-container, button .loader-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding-top: .7rem;
 }
-a .loader-inner {
+a .loader-inner, button .loader-inner {
 	width: 35px;
 	height: 20px;
 }
