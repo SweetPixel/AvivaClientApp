@@ -1,19 +1,8 @@
-avivaApp.factory('treatmentService', function ($http, $q) {
+avivaApp.factory('treatmentService', function ($http, $q, $log) {
 	return {
-		getTreatments: function (userId, service) {
+		getTreatments: function (practiceId) {
 			var deferred = $q.defer();
-			var url = '';
-			switch (service) {
-				case 1:
-					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/dental?username=' + userId;
-					break;
-				case 2:
-					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/Medical?username=' + userId;
-					break;
-				case 3:
-					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/optical?username=' + userId;
-					break;
-			}
+			var url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetTreatment?pracid=' + practiceId;
 			
 			$http.get(url)
 				.success(function (response) {

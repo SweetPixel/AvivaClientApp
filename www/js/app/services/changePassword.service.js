@@ -1,4 +1,4 @@
-avivaApp.factory('changePasswordService', function ($http, $q) {
+avivaApp.factory('changePasswordService', function ($http, $q, $log) {
 	return {
 		changePassword: function (data) {
 			var deferred = $q.defer();

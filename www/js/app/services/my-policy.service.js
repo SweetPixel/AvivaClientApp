@@ -1,4 +1,4 @@
-avivaApp.factory('myPolicyService', function ($http, $q) {
+avivaApp.factory('myPolicyService', function ($http, $q, $log) {
 	return {
 		getPolicy: function (userId, service) {
 			var deferred = $q.defer();

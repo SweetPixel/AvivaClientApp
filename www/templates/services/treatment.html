@@ -6,8 +6,8 @@
 		</div>
 		<div class="container">
 			<ul class="collection">
-			
-				<li class="collection-item " ng-repeat="treatment in treatments">
+				<div ng-show="message">{{message}}</div>
+				<li class="collection-item" ng-hide="message" ng-repeat="treatment in treatments">
 					<div class="row ">
 						<div class="col s7 ">
 							<span class="title"><p>{{treatment.TreatmentName}}</p></span>
@@ -19,7 +19,7 @@
 						<div class="col s3 ">
 							<p>
 								<span class="center" style="color: #2980B9">
-									{{treatment.TreatmentPricePayout | currency:"£":2}}
+									{{treatment.TreatmentCost | currency:"£":2}}
 								</span>
 							</p>
 						</div>

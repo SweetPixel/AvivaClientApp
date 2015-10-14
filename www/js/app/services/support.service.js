@@ -1,13 +1,12 @@
-avivaApp.factory('loginService', function ($http, $q, $log) {
+avivaApp.factory('supportService', function ($http, $q, $log) {
 	return {
-		login: function (credentials) {
+		raiseTicket: function (userId, service) {
 			var deferred = $q.defer();
-			var url = 'https://dentalink.co.uk/healthpickapi/api/Login/Login';
-			
-			$http.post(url, credentials)
+			var url = 'https://dentalink.co.uk/healthpickapi/api/terms';
+			$http.post(url)
 				.success(function (response) {
 					deferred.resolve({
-						status: response
+						claims: response
 					})
 				})
 				.error(function (msg, code) {

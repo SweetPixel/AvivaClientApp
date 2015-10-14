@@ -1,4 +1,4 @@
-avivaApp.factory('qrService', function ($http, $q) {
+avivaApp.factory('qrService', function ($http, $q, $log) {
 	return {
 		getQR: function (userId) {
 			var deferred = $q.defer();

@@ -268,6 +268,25 @@ avivaApp.controller('getFeedbackCtrl', function($http, $scope, feedbackService, 
 		$scope.feedback = payload.feedback;
 	})*/
 })
+avivaApp.controller('helpCtrl', function ($http, $scope, helpService) {
+	$scope.data = {
+		help: '',
+		username: $scope.$parent.userId
+	};
+	$scope.loadingDone = true;
+	$scope.submit = function () {
+		$scope.ASyncStarted = true;
+		$scope.promise = helpService.getHelp($scope.data);
+		$scope.data.help = '';
+		$scope.promise.then(function (payload) {
+			$scope.ASyncStarted = false;
+			$scope.status = payload.status;
+			Materialize.toast('Someone will get to you soon.', 2000);
+			$scope.$parent.back();
+			console.log($scope.status);
+		});
+	};
+})
 avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 	$scope.credentials = {
 		username: '',
@@ -287,7 +306,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 		})
 	}
 });
-avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log) {
+avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log, notificationsService) {
 	var history = [];
 	$scope.$route = $route;
 	$scope.$routeParams = $routeParams;
@@ -344,6 +363,15 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 		});
 	};
 	$scope.getClinicsInfo();
+
+	//Get Notifications
+	$scope.notificationCount = false;
+	$scope.notificationsPromise = notificationsService.getNotifications($scope.userId);
+	$scope.notificationsPromise.then(function (payload) {
+		$scope.notifications = payload.notifications;
+		$scope.notificationCount = $scope.notifications.length;
+		console.log("Got notifications: " + $scope.notificationCount);
+	});
 });
 avivaApp.controller('medicalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 2;
@@ -359,7 +387,24 @@ avivaApp.controller('myClaimsCtrl', function ($http, $scope, myClaimsService) {
 		$scope.loadingDone = true;
 		console.log("Got claim");
 		$scope.claims = payload.claims;
-	})
+	});
+	$scope.emailData = {
+		claimid: '',
+		email: ''
+	};
+	$scope.sendEmail = function () {
+		$scope.emailPromise = myClaimsService.emailClaims($scope.emailData, $scope.$parent.service);
+		$scope.emailPromise.then(function (payload) {
+			Materialize.toast('Email Sent', 2000);
+			$scope.$parent.back();
+			console.log(payload.status);
+		});
+	};
+	$scope.setClaimId = function (id) {
+		console.log("ID is: " + id);
+
+		$scope.emailData.claimid = id;
+	};
 })
 avivaApp.controller('myPolicyCtrl', function ($scope, myPolicyService) {
 	$scope.policy = {
@@ -375,17 +420,26 @@ avivaApp.controller('myPolicyCtrl', function ($scope, myPolicyService) {
 		$scope.policy = payload.policy;
 	})
 })
-avivaApp.controller('notificationsCtrl', function ($http, $scope, notificationsService) {
+avivaApp.controller('notificationsCtrl', function ($http, $scope, notificationsService, $timeout) {
 	$scope.$parent.service = 5;
 	$scope.$parent.navbarClass = "notifications-navbar";
-	$scope.notifications = {};
 	$scope.loadingDone = false;
-	$scope.promise = notificationsService.getNotifications($scope.$parent.userId, $scope.$parent.service);
-	$scope.promise.then(function (payload) {
+	$scope.$parent.notificationsPromise.then(function () {
 		$scope.loadingDone = true;
-		console.log("Got notifications");
-		$scope.notifications = payload.notifications;
-	})
+		$scope.notifications = $scope.$parent.notifications;
+		$scope.notificationCount = $scope.$parent.notificationCount;
+	});
+	$scope.seenNotifications = [{
+		'id': '',
+		'username': $scope.$parent.userId
+	}];
+	$timeout(function () {
+		$scope.makeSeenPromise = notificationsService.makeSeen();
+		$scope.makeSeenPromise.then(function (payload) {
+			console.log(payload.status);
+		});
+	}, 5000);
+	
 })
 avivaApp.controller('opticalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 3;
@@ -432,7 +486,7 @@ avivaApp.controller('qrCtrl', function ($scope, qrService) {
 	
 	$scope.promise = qrService.getQR($scope.$parent.userId);
 	$scope.promise.then(function (payload) {
-		console.log("Got claim");
+		console.log("Got QR");
 		$scope.qr = payload.qr;
 	})
 })
@@ -446,8 +500,9 @@ avivaApp.controller('settingsCtrl', function ($http, $scope, $location, settings
 		console.log("Got indicator: " + $scope.indicator);
 		$scope.loadingDone = true;
 	})
+
+	//Toggle notification indicator
 	$scope.setNotification = function () {
-		console.log("doing");
 		$scope.promise = settingsService.setNotifications($scope.indicator, $scope.$parent.userId);
 		$scope.promise.then(function (payload) {
 			$scope.status = payload.status;
@@ -468,7 +523,7 @@ avivaApp.controller('staffCtrl', function ($scope, staffService) {
 		$scope.loadingDone = true;
 	})
 })
-avivaApp.controller('supportCtrl', function ($scope) {
+avivaApp.controller('supportCtrl', function ($scope, supportService) {
 	$scope.phone = "";
 	$scope.email = "";
 	
@@ -482,19 +537,20 @@ avivaApp.controller('termsConditionsCtrl', function ($http, $scope, termsService
 		$scope.terms = payload.terms;
 	})
 });
-avivaApp.controller('treatmentCtrl', function ($scope, treatmentService) {
-	$scope.treatments = [{
-			allowancedate: '...',
-			allowancelimit: '...',
-			allowanceused: '...'
-		}];
-
+avivaApp.controller('treatmentCtrl', function ($scope, treatmentService, $routeParams) {
+	$scope.practiceId = $routeParams.param;
 	$scope.loadingDone = false;
-	
-	$scope.promise = treatmentService.getTreatments($scope.$parent.userId, $scope.$parent.service);
+	$scope.message = false;
+	$scope.promise = treatmentService.getTreatments($scope.practiceId);
 	$scope.promise.then(function (payload) {
 		$scope.loadingDone = true;
 		$scope.treatments = payload.treatments;
+		if ($scope.treatments.length == 0) {
+			$scope.message = "No treatments found for this practice.";
+		}
+		else {
+			$scope.message = false;
+		}
 	})
 })
 avivaApp.controller('updateFamilyCtrl', function ($http, $scope, $location, familyDetailsService) {

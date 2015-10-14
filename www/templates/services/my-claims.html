@@ -18,9 +18,9 @@
 		                        <p>Dentist: {{claim.Dentist}}</p>
 		                        <p>Practice: {{claim.Practicename}}</p>
 		                        <p>Claim Date: {{claim.ClaimsDate}}</p>
-		                        <p>Treatment cost: {{claim.TreatmentCost}}</p>
+		                        <p>Treatment cost: {{claim.TreatmentCost | currency:"£":2}}</p>
 		                        <p>Status: <span style="color: green;">{{claim.Status}}</span></p>
-		                        <a class="orange email-claim btn btn-default" onclick="$('#email-claim-modal').openModal()">
+		                        <a class="orange email-claim btn btn-default" ng-click="setClaimId(claim.ClaimsID)" onclick="$('#email-claim-modal').openModal()">
 		                        	Email Claims Form
 		                        </a>
 		                    </li>
@@ -34,13 +34,13 @@
 		        <h4>Enter Email</h4>
 		        <div class="row">
 		            <div class="input-field col s12">
-		                <input type="email" id="email" class="validate">
+		                <input ng-model="emailData.email" type="email" id="email" class="validate">
 		                <label for="email">Email of receiver</label>
 		            </div>
 		        </div>
 		    </div>
 		    <div class="modal-footer">
-		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Terms Service</a>
+		        <a ng-click="sendEmail()" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Terms Service</a>
 		    </div>
 		</div>
 	</div>

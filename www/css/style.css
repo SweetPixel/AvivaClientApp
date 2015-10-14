@@ -618,14 +618,24 @@ ul.rating {
 	height: 20px;
 }
 
-a .ball-clip-rotate-multiple > div:last-child, button .ball-clip-rotate-multiple > div:last-child {
+a .ball-clip-rotate-multiple > div:last-child {
 	top: 10px;
 	left: 10px;
 	border-color: #FFF transparent;
 }
-a .ball-clip-rotate-multiple > div, button .ball-clip-rotate-multiple > div {
+button .ball-clip-rotate-multiple > div:last-child {
+	top: 4px;
+	left: 10px;
+	border-color: #FFF transparent;
+}
+a .ball-clip-rotate-multiple > div {
 	left: 0px;
 	top: 0px;
+	border-color: transparent #FFF;
+}
+button .ball-clip-rotate-multiple > div {
+	left: 0px;
+	top: -6px;
 	border-color: transparent #FFF;
 }
 a .loader-container, button .loader-container {
@@ -634,7 +644,13 @@ a .loader-container, button .loader-container {
 	justify-content: center;
 	padding-top: .7rem;
 }
+button .loader-container {
+	padding-top: 0;
+}
 a .loader-inner, button .loader-inner {
 	width: 35px;
 	height: 20px;
+}
+.notification-unseen {
+	background-color: #F9DAAD;
 }

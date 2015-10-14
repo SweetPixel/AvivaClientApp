@@ -68,6 +68,41 @@
         </div>
     </div>
 </script>
+<script type="text/ng-template" id="help.html">
+	
+	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
+	
+
+	<div class="view" ng-show="loadingDone">
+		<div class="row">
+		    <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
+		        Help
+		    </h4>
+		</div>
+		<div class="row">
+		    <div class="col s12 m12">
+		        <div class="card">
+		            <div class="card-content">
+		                <div class="row">
+		                    <div class="input-field col s12">
+		                        <textarea id="help" class="materialize-textarea" ng-model="data.help"></textarea>
+		                        <label for="help">Ask a question</label>
+		                    </div>
+		                </div>
+		                <div class="side-alignment right-align">
+		                	<a ng-click="submit()" class="waves-effect waves-green btn btn-large orange">
+		                		<div class="loader-container" ng-show="ASyncStarted">
+		                			<div class="loader-inner ball-clip-rotate-multiple"></div>
+		                		</div>
+		                		<div ng-hide="ASyncStarted">Ask</div>
+		                	</a>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</script>
 <script type="text/ng-template" id="login.html">
     <div class="view">
         <div class="row">
@@ -129,46 +164,57 @@
 	<script src="node_modules/loaders.css/loaders.css.js"></script>
 </script>
 <script type="text/ng-template" id="navbar.html">
-	<div id="qrmodal" class="modal" ng-controller="qrCtrl">
-	    <div class="modal-content center">
-	        <h5>My Unique Policy QR code</h5>
-	        <img src="{{qr}}" style="width: 100%"/>
-	    </div>
-	    <div class="modal-footer">
-	        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-	    </div>
-	</div>
-	<nav class="navbar-color" role="navigation">
-		<div class="nav-wrapper container">
-			<div class="col s4">
-				<a style="float: left; position: relative; z-index: 1; height: 56px;" ng-click="back()"><i style="font-size: 1.7rem; height: 56px; line-height: 56px;" class="left white-text fa fa-arrow-left"></i></a>
-			</div>
-			<div class="col s4 right">        
-				<ul id="dental-nav-mobile" class="side-nav right">
-					<li><a href="#/services">Home</a></li>
-					<li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
-					<li><a href="#/settings">Settings</a></li>
-					<li><a href="#/notifications">Notifications<span class="new badge">2</span></a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-				<a data-activates="dental-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
-			</div>
-		</div>
-	</nav>
-	<div class="loader-container" ng-hide="loadingDone">
-		<div class="loader-inner ball-clip-rotate-multiple"></div>
-	</div>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('.button-collapse').sideNav({
-				closeOnClick: true
-			});
-			$('#qrmodal').leanModal();
-			$('.button-collapse').sideNav('hide');
-		});
-	</script>
-	<script src="node_modules/loaders.css/loaders.css.js"></script>
+    <div id="qrmodal" class="modal" ng-controller="qrCtrl">
+        <div class="modal-content center">
+            <h5>My Unique Policy QR code</h5>
+            <img src="{{qr}}" style="width: 100%" />
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+    <nav class="navbar-color" role="navigation">
+        <div class="nav-wrapper container">
+            <div class="col s4">
+                <a style="float: left; position: relative; z-index: 1; height: 56px;" ng-click="back()"><i style="font-size: 1.7rem; height: 56px; line-height: 56px;" class="left white-text fa fa-arrow-left"></i></a>
+            </div>
+            <div class="col s4 right">
+                <ul id="dental-nav-mobile" class="side-nav right">
+                    <li><a href="#/services">Home</a></li>
+                    <li><a data-target="qrmodal" class="modal-trigger" onclick="$('#qrmodal').openModal()">My QR Code</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/notifications">Notifications<span class="new badge" ng-show="notificationCount">{{notificationCount}}</span></a></li>
+                    <li><a href="#/help">Help</a></li>
+                </ul>
+                <a data-activates="dental-nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="loader-container" ng-hide="loadingDone">
+        <div class="loader-inner ball-clip-rotate-multiple"></div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.button-collapse').sideNav({
+            closeOnClick: true
+        });
+        $('#qrmodal').leanModal();
+        $('.button-collapse').sideNav('hide');
+
+
+        var addDivs = function(n) {
+            var arr = [];
+            for (i = 1; i <= n; i++) {
+                arr.push('<div></div>');
+            }
+            return arr;
+        };
+
+        $('.loader-inner.ball-clip-rotate-multiple').html(addDivs(2));
+    });
+    </script>
 </script>
+
 <script type="text/ng-template" id="dental-advice.html">
 	<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
     <div class="view" ng-init="loadingDone = true">        
@@ -238,7 +284,7 @@
 
 						
 							<ul class="collection">
-								<a href="#/clinic-detail/treatment" class="collection-item">
+								<a href="#/clinic-detail/treatment/{{practiceId}}" class="collection-item">
 									Treatment Details
 									<div class="secondary-content">
 										<i class="mdi-image-navigate-next right"></i>
@@ -369,18 +415,6 @@
 				</div>
 				<div class="row">
 					<p class="white-text center-align">My Policy</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 center-align">
-				<div class="row">
-					<a href="#/dental-services/feedback" class="btn btn-floating btn-large waves-effect waves-light colors">
-						<img src="images/Your-Feedback.png" alt="" class="settingpageicons" style="margin-left: 7%;" />
-					</a>
-				</div>
-				<div class="row">
-					<p class="white-text center-align">Feedback</p>
 				</div>
 			</div>
 		</div>
@@ -562,7 +596,6 @@
                 </div>
             </div>
         </div>
-        <pre>{{feedback | json}}
 		<!--<div class="row">
 			<div class="col s12 m12">
 				<div class="card">
@@ -877,18 +910,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col s12 center-align">
-				<div class="row">
-					<a href="#/dental-services/feedback" class="btn btn-floating btn-large waves-effect waves-light colors">
-						<img src="images/Your-Feedback.png" alt="" class="settingpageicons" style="margin-left: 7%;" />
-					</a>
-				</div>
-				<div class="row">
-					<p class="white-text center-align">Feedback</p>
-				</div>
-			</div>
-		</div>
 	</div>
 </script>
 <script type="text/ng-template" id="my-claims.html">
@@ -911,9 +932,9 @@
 		                        <p>Dentist: {{claim.Dentist}}</p>
 		                        <p>Practice: {{claim.Practicename}}</p>
 		                        <p>Claim Date: {{claim.ClaimsDate}}</p>
-		                        <p>Treatment cost: {{claim.TreatmentCost}}</p>
+		                        <p>Treatment cost: {{claim.TreatmentCost | currency:"£":2}}</p>
 		                        <p>Status: <span style="color: green;">{{claim.Status}}</span></p>
-		                        <a class="orange email-claim btn btn-default" onclick="$('#email-claim-modal').openModal()">
+		                        <a class="orange email-claim btn btn-default" ng-click="setClaimId(claim.ClaimsID)" onclick="$('#email-claim-modal').openModal()">
 		                        	Email Claims Form
 		                        </a>
 		                    </li>
@@ -927,13 +948,13 @@
 		        <h4>Enter Email</h4>
 		        <div class="row">
 		            <div class="input-field col s12">
-		                <input type="email" id="email" class="validate">
+		                <input ng-model="emailData.email" type="email" id="email" class="validate">
 		                <label for="email">Email of receiver</label>
 		            </div>
 		        </div>
 		    </div>
 		    <div class="modal-footer">
-		        <a onclick="Materialize.toast('Email Sent', 2000)" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Terms Service</a>
+		        <a ng-click="sendEmail()" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Terms Service</a>
 		    </div>
 		</div>
 	</div>
@@ -1062,18 +1083,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col s12 center-align">
-				<div class="row">
-					<a href="#/dental-services/feedback" class="btn btn-floating btn-large waves-effect waves-light colors">
-						<img src="images/Your-Feedback.png" alt="" class="settingpageicons" style="margin-left: 7%;" />
-					</a>
-				</div>
-				<div class="row">
-					<p class="white-text center-align">Feedback</p>
-				</div>
-			</div>
-		</div>
 	</div>
 </script>
 <script type="text/ng-template" id="services.html">
@@ -1178,8 +1187,8 @@
 		</div>
 		<div class="container">
 			<ul class="collection">
-			
-				<li class="collection-item " ng-repeat="treatment in treatments">
+				<div ng-show="message">{{message}}</div>
+				<li class="collection-item" ng-hide="message" ng-repeat="treatment in treatments">
 					<div class="row ">
 						<div class="col s7 ">
 							<span class="title"><p>{{treatment.TreatmentName}}</p></span>
@@ -1191,7 +1200,7 @@
 						<div class="col s3 ">
 							<p>
 								<span class="center" style="color: #2980B9">
-									{{treatment.TreatmentPricePayout | currency:"£":2}}
+									{{treatment.TreatmentCost | currency:"£":2}}
 								</span>
 							</p>
 						</div>
@@ -1385,10 +1394,11 @@
 	<div class="view" ng-show="loadingDone">
 		<div class="row">
 		    <ul class="collection" style="border: 1px solid #ddd">
-		        <li class="list-item" ng-repeat="item in notifications">{{item.Description}}
+		        <li class="list-item" ng-class="{'notification-unseen': item.viewed == true}" ng-repeat="item in notifications">{{item.Description}}
 		        	<!-- <a href="#" class="secondary-content">@10:00</a> -->
 		        </li>
 		    </ul>
+		    <pre>{{notifications | json}}</pre>
 		</div>
 	</div>
 </script>

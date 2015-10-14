@@ -102,7 +102,7 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'feedback.html',
 			controller: 'feedbackCtrl'
 		})
-		.when('/clinic-detail/treatment', {
+		.when('/clinic-detail/treatment/:param', {
 			templateUrl: 'treatment.html',
 			controller: 'treatmentCtrl'
 		})
@@ -119,6 +119,10 @@ avivaApp.config(function($routeProvider) {
 		.when('/clinic-detail/rating/:param', {
 			templateUrl: 'rating.html',
 			controller: 'getFeedbackCtrl'
+		})
+		.when('/help', {
+			templateUrl: 'help.html',
+			controller: 'helpCtrl'
 		})
 
 

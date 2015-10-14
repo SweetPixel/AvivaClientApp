@@ -7,7 +7,7 @@ avivaApp.controller('qrCtrl', function ($scope, qrService) {
 	
 	$scope.promise = qrService.getQR($scope.$parent.userId);
 	$scope.promise.then(function (payload) {
-		console.log("Got claim");
+		console.log("Got QR");
 		$scope.qr = payload.qr;
 	})
 })

@@ -1,4 +1,4 @@
-avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log) {
+avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log, notificationsService) {
 	var history = [];
 	$scope.$route = $route;
 	$scope.$routeParams = $routeParams;
@@ -55,4 +55,13 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 		});
 	};
 	$scope.getClinicsInfo();
+
+	//Get Notifications
+	$scope.notificationCount = false;
+	$scope.notificationsPromise = notificationsService.getNotifications($scope.userId);
+	$scope.notificationsPromise.then(function (payload) {
+		$scope.notifications = payload.notifications;
+		$scope.notificationCount = $scope.notifications.length;
+		console.log("Got notifications: " + $scope.notificationCount);
+	});
 });

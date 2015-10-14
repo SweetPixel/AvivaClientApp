@@ -1,4 +1,4 @@
-avivaApp.factory('termsService', function ($q, $http) {
+avivaApp.factory('termsService', function ($q, $http, $log) {
 	return {
 		getTerms: function () {
 			var deferred = $q.defer();

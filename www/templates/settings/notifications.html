@@ -3,10 +3,11 @@
 	<div class="view" ng-show="loadingDone">
 		<div class="row">
 		    <ul class="collection" style="border: 1px solid #ddd">
-		        <li class="list-item" ng-repeat="item in notifications">{{item.Description}}
+		        <li class="list-item" ng-class="{'notification-unseen': item.viewed == true}" ng-repeat="item in notifications">{{item.Description}}
 		        	<!-- <a href="#" class="secondary-content">@10:00</a> -->
 		        </li>
 		    </ul>
+		    <pre>{{notifications | json}}</pre>
 		</div>
 	</div>
 </script>

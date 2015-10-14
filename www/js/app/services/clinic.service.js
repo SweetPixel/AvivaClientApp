@@ -3,7 +3,7 @@ avivaApp.factory('clinicService', function ($http, $q, $log) {
 		getClinic: function () {
 			console.log("Service Called");
 			var deferred = $q.defer();
-			$http.get('https://dentalink.co.uk/healthpickapi/api/Practice')
+			$http.get('https://dentalink.co.uk/healthpickapi/api/Practice/GetPractice')
 				.success(function (data) {
 					console.log(data.length);
 					deferred.resolve({

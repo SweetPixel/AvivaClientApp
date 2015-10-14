@@ -8,8 +8,9 @@ avivaApp.controller('settingsCtrl', function ($http, $scope, $location, settings
 		console.log("Got indicator: " + $scope.indicator);
 		$scope.loadingDone = true;
 	})
+
+	//Toggle notification indicator
 	$scope.setNotification = function () {
-		console.log("doing");
 		$scope.promise = settingsService.setNotifications($scope.indicator, $scope.$parent.userId);
 		$scope.promise.then(function (payload) {
 			$scope.status = payload.status;
