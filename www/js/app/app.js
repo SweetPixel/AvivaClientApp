@@ -97,6 +97,10 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'clinic-detail.html',
 			controller: 'clinicDetailCtrl'
 		})
+		.when('/advance-search', {
+			templateUrl: 'advance-search.html',
+			controller: 'advanceSearchCtrl'
+		})
 
 		.when('/clinic-detail/rating/rate/:param', {
 			templateUrl: 'feedback.html',
