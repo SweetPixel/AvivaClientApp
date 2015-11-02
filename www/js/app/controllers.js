@@ -201,6 +201,7 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 });
 avivaApp.controller('dentalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 1;
+	$scope.$parent.getDentalClinics();
 	$scope.$parent.navbarClass = "dental-navbar";
 	$scope.loadingDone = true;
 });
@@ -494,15 +495,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 });
 avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log, notificationsService) {
 	var history = [];
-	$scope.$route = $route;
-	$scope.$routeParams = $routeParams;
-	$scope.$location = $location;
 	$scope.navbar = 'navbar.html';
-	/*$scope.dentalnavbar = 'dentalnavbarColor';
-	$scope.medicalnavbar = 'medicalnavbarColor';
-	$scope.opticalnavbar = 'opticalnavbarColor';
-	$scope.settingsnavbar = 'settingsnavbarColor';
-	$scope.notificationnavbar = 'notificationnavbarColor';*/
 	$scope.mapView = 1;
 	$scope.service = 1;
 
@@ -537,10 +530,8 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	}
 	$scope.clinics = [];
 	//Async get clinics detail
-	$scope.getClinicsInfo = function () {
+	$scope.getDentalClinics = function () {
 		$scope.promise = clinicService.getClinic();
-		$scope.medicalPromise = clinicService.getMedical();
-		$scope.opticalPromise = clinicService.getOptical();
 
 		$scope.promise.then(function (payload) {
 			console.log("Got Dental Clinics");
@@ -550,7 +541,9 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			alert("You're not connected to the internet.");
 			$log.error("Failure getting dental clinics info", errorPayload);
 		});
-
+	};
+	$scope.getMedicalClinics = function () {
+		$scope.medicalPromise = clinicService.getMedical();
 		$scope.medicalPromise.then(function (payload) {
 			console.log("Got Medical Clinics");
 			$scope.medicalClinics = payload.data;
@@ -559,7 +552,9 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			alert("You're not connected to the internet.");
 			$log.error("Failure getting medical clinics info", errorPayload);
 		});
-
+	}
+	$scope.getOpticalClinics = function () {
+		$scope.opticalPromise = clinicService.getOptical();
 		$scope.opticalPromise.then(function (payload) {
 			console.log("Got Optical Clinics");
 			$scope.opticalClinics = payload.data;
@@ -568,8 +563,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			alert("You're not connected to the internet.");
 			$log.error("Failure getting optical clinics info", errorPayload);
 		});
-	};
-	$scope.getClinicsInfo();
+	}
 
 	//Get Notifications
 	$scope.notificationCount = false;
@@ -582,6 +576,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 });
 avivaApp.controller('medicalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 2;
+	$scope.$parent.getMedicalClinics();
 	$scope.$parent.navbarClass = "medical-navbar";
 	$scope.loadingDone = true;
 });
@@ -650,6 +645,7 @@ avivaApp.controller('notificationsCtrl', function ($http, $scope, notificationsS
 })
 avivaApp.controller('opticalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 3;
+	$scope.$parent.getOpticalClinics();
 	$scope.$parent.navbarClass = "optical-navbar";
 	$scope.loadingDone = true;
 });
