@@ -19,7 +19,7 @@ avivaApp.factory('clinicService', function ($http, $q, $log) {
 		getMedical: function () {
 			console.log("Medical clinic service Called");
 			var deferred = $q.defer();
-			$http.get('https://dentalink.co.uk/healthpickapi/api/Practice/GetOpticalPractice/')
+			$http.get('http://gplink.co.uk/api/GetTreatement')
 				.success(function (data) {
 					console.log(data.length);
 					deferred.resolve({

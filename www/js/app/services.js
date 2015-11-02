@@ -300,7 +300,7 @@ avivaApp.factory('clinicService', function ($http, $q, $log) {
 		getMedical: function () {
 			console.log("Medical clinic service Called");
 			var deferred = $q.defer();
-			$http.get('https://dentalink.co.uk/healthpickapi/api/Practice/GetOpticalPractice/')
+			$http.get('http://gplink.co.uk/api/GetTreatement')
 				.success(function (data) {
 					console.log(data.length);
 					deferred.resolve({
@@ -535,8 +535,8 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			
 			var longitude = position.coords.longitude;
 			var latitude = position.coords.latitude;
-			/*var latLng = new google.maps.LatLng(latitude, longitude);*/
-			var latLng = new google.maps.LatLng(53.3788635,-1.4703039);
+			var latLng = new google.maps.LatLng(latitude, longitude);
+			// var latLng = new google.maps.LatLng(53.3788635,-1.4703039);
 			var mapOptions = {
 			    zoom: 8
 			};
