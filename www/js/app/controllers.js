@@ -27,6 +27,10 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
         treatment: ''
     }
     $scope.createMapPromise = advanceSearchService.createMap();
+    $scope.getTreatmentsPromise = advanceSearchService.getTreatments();
+    $scope.getTreatmentsPromise.then(function (payload) {
+    	$scope.treatments = payload.treatments;
+    })
 
     $scope.search = function() {
     	if ($scope.data.location == '') {
@@ -140,8 +144,25 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 	$scope.practiceId = $routeParams.param;
 	$scope.distance = "Calculating...";
 	$scope.loadingDone = false;
-	$scope.$parent.promise.then(function () {
-		$.each($scope.$parent.clinics, function (index, item) {
+	switch ($scope.$parent.service) {
+		case 1:
+			$scope.$parent.promise.then(function () {
+				corrections($scope.$parent.clinics);
+			});
+			break;
+		case 2:
+			$scope.$parent.medicalPromise.then(function() {
+				corrections($scope.$parent.medicalClinics);
+			});
+			break;
+		case 3:
+			$scope.$parent.opticalPromise.then(function () {
+				corrections($scope.$parent.opticalClinics);
+			});
+			break;
+	}
+	corrections = function (clinics) {
+		$.each(clinics, function (index, item) {
 			if (item.practiceId == $scope.practiceId) {
 				$scope.clinic = item;
 				$scope.address = $scope.clinic.Address1;
@@ -154,6 +175,20 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 				if ($scope.clinic.Address4) {
 					$scope.address += ", " +  $scope.clinic.Address4;
 				}
+				switch ($scope.$parent.service) {
+					case 1:
+						$scope.doctorFirstName = item.DentistFirstName;
+						$scope.doctorLastName = item.DentistSurname;
+						break;
+					case 2:
+						$scope.doctorFirstName = item.DoctorFirstName;
+						$scope.doctorLastName = item.DoctorSurname;
+						break;
+					case 3:
+						$scope.doctorFirstName = item.OpticalFirstName;
+						$scope.doctorLastName = item.OpticalSurname;
+						break;
+				}
 			}
 		});
 		var destination = $scope.address;
@@ -162,7 +197,7 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 			$scope.distance = distancePayload.distance;
 			$scope.loadingDone = true;
 		})
-	});
+	}
 });
 avivaApp.controller('dentalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 1;
@@ -233,11 +268,6 @@ avivaApp.controller('feedbackCtrl', function($http, $scope, feedbackService, $ro
 			$scope.$parent.back();
 		})
 	}
-	/*$scope.promise = feedbackService.getFeedbacks($scope.$parent.userId, $scope.$parent.service);
-	$scope.promise.then(function (payload) {
-		console.log("Got feedback");
-		$scope.feedback = payload.feedback;
-	})*/
 })
 avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log, $location){
 	$scope.clinics = [];
@@ -248,7 +278,43 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 	$scope.advancedSearch = false;
 	var setNearbyClinics;
 
-	$scope.$parent.promise.then(function (payload) {
+	switch ($scope.$parent.service) {
+		case 1:
+			console.log("case: "+1)
+			$scope.$parent.promise.then(function (payload) {
+				$scope.allClinics = payload.data
+				beginMapping();
+			},
+			function (errorPayload) {
+				alert("Failed to get information of clinics. Please check your connection and try again.");
+				$log.error("Failure getting clinics info", errorPayload);
+			});
+			break;
+		case 2:
+			console.log("case: "+2)
+			$scope.$parent.medicalPromise.then(function (payload) {
+				$scope.allClinics = payload.data
+				beginMapping();
+			},
+			function (errorPayload) {
+				alert("Failed to get information of clinics. Please check your connection and try again.");
+				$log.error("Failure getting clinics info", errorPayload);
+			});
+			break;
+		case 3:
+			console.log("case: "+3)
+			$scope.$parent.opticalPromise.then(function (payload) {
+				$scope.allClinics = payload.data
+				beginMapping();
+			},
+			function (errorPayload) {
+				alert("Failed to get information of clinics. Please check your connection and try again.");
+				$log.error("Failure getting clinics info", errorPayload);
+			});
+			break;
+	}
+
+	beginMapping = function () {
 		$scope.getPositionPromise = mapService.getPosition();
 		$scope.getPositionPromise.then(function (positionPayload) {
 			$scope.position = positionPayload.position;
@@ -263,7 +329,7 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 					$scope.getBoundsPromise.then(function (boundsPayload) {
 						$scope.bounds = boundsPayload.bounds;
 						$scope.circle = boundsPayload.circle;
-						$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.$parent.clinics);
+						$scope.drawMarkersPromise = mapService.drawMarkers($scope.map, $scope.bounds, $scope.allClinics);
 						$scope.drawMarkersPromise.then(function (markersPayload) {
 							$scope.loadNearbyDone = true;
 							$scope.clinics = markersPayload.nearbyClinics;
@@ -282,25 +348,50 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 				setNearbyClinics();
 			});
 		});
-	},
-	function (errorPayload) {
-		alert("Failed to get information of clinics. Please check your connection and try again.");
-		$log.error("Failure getting clinics info", errorPayload);
-	});
+	}
+	
 	$scope.searchResult = [];
 	$scope.$watch('value', function (changed) {
 		if (changed) {
 			$scope.searchResult = [];
-			$scope.$parent.promise.then(function () {
-				$.each($scope.$parent.clinics, function (index, item) {
-					if (item.Postcode.toLowerCase().indexOf(changed.toLowerCase()) > 0) {
-						$scope.gotSearchResult = true;
-						if ($scope.searchResult.length < 5) {
-							$scope.searchResult.push(item);
-						}
-					}
-				});
-			});
+			switch ($scope.$parent.service) {
+				case 1:
+					$scope.$parent.promise.then(function (payload) {
+						$.each($scope.$parent.clinics, function (index, item) {
+							if (item.Postcode.toLowerCase().indexOf(changed.toLowerCase()) > -1) {
+								$scope.gotSearchResult = true;
+								if ($scope.searchResult.length < 5) {
+									$scope.searchResult.push(item);
+								}
+							}
+						});
+					});
+					break;
+				case 2:
+					$scope.$parent.medicalPromise.then(function (payload) {
+						$.each($scope.$parent.medicalClinics, function (index, item) {
+							if (item.Postcode.toLowerCase().indexOf(changed.toLowerCase()) > -1) {
+								$scope.gotSearchResult = true;
+								if ($scope.searchResult.length < 5) {
+									$scope.searchResult.push(item);
+								}
+							}
+						});
+					});
+					break;
+				case 3:
+					$scope.$parent.opticalPromise.then(function (payload) {
+						$.each($scope.$parent.opticalClinics, function (index, item) {
+							if (item.Postcode.toLowerCase().indexOf(changed.toLowerCase()) > -1) {
+								$scope.gotSearchResult = true;
+								if ($scope.searchResult.length < 5) {
+									$scope.searchResult.push(item);
+								}
+							}
+						});
+					});
+					break;
+			}
 		}
 		else {
 			$scope.gotSearchResult = false;
@@ -327,7 +418,6 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 	}
 });
 avivaApp.controller('getFeedbackCtrl', function($http, $scope, feedbackService, $routeParams) {
-	$scope.feedback = {};
 	$scope.loadingDone = false;
 	$scope.practiceId = $routeParams.param;
 	$scope.$parent.promise.then(function () {
@@ -338,11 +428,31 @@ avivaApp.controller('getFeedbackCtrl', function($http, $scope, feedbackService, 
 		});
 		$scope.loadingDone = true;
 	});
-	/*$scope.promise = feedbackService.getFeedbacks($scope.$parent.userId, $scope.$parent.service);
-	$scope.promise.then(function (payload) {
-		console.log("Got feedback");
-		$scope.feedback = payload.feedback;
-	})*/
+	$scope.getFeedbackPromise = feedbackService.getFeedbacks($scope.$parent.userId, $scope.practiceId, $scope.$parent.service);
+	$scope.getFeedbackPromise.then(function (payload) {
+		$scope.feedbacks = payload.feedbacks;
+		if ($scope.feedbacks.length > 1) {
+			$.each($scope.feedbacks, function (index, item) {
+				var total = item.Practicecc + item.sentertainment + item.healthcareitem + item.friendlyapprochable + item.comfortlevel;
+				if (item.happywithproduct) {
+					total = total + 5;
+				}
+				var mean = total / 6;
+				item.totalScore = Math.floor(mean);
+				$scope.isArray = true;
+			});
+		}
+		else {
+			var total = $scope.feedbacks.Practicecc + $scope.feedbacks.sentertainment + $scope.feedbacks.healthcareitem + $scope.feedbacks.friendlyapprochable + $scope.feedbacks.comfortlevel;
+			if ($scope.feedbacks.happywithproduct) {
+				total = total + 5;
+			}
+			var mean = total / 6;
+			$scope.totalScore = Math.floor(mean);
+			console.log( "Should show: " + $scope.totalScore);
+			$scope.isArray = false;
+		}
+	});
 })
 avivaApp.controller('helpCtrl', function ($http, $scope, helpService) {
 	$scope.data = {
@@ -429,13 +539,34 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	//Async get clinics detail
 	$scope.getClinicsInfo = function () {
 		$scope.promise = clinicService.getClinic();
+		$scope.medicalPromise = clinicService.getMedical();
+		$scope.opticalPromise = clinicService.getOptical();
+
 		$scope.promise.then(function (payload) {
-			console.log("Got Payload");
+			console.log("Got Dental Clinics");
 			$scope.clinics = payload.data;
 		},
 		function (errorPayload) {
 			alert("You're not connected to the internet.");
-			$log.error("Failure getting clinics info", errorPayload);
+			$log.error("Failure getting dental clinics info", errorPayload);
+		});
+
+		$scope.medicalPromise.then(function (payload) {
+			console.log("Got Medical Clinics");
+			$scope.medicalClinics = payload.data;
+		},
+		function (errorPayload) {
+			alert("You're not connected to the internet.");
+			$log.error("Failure getting medical clinics info", errorPayload);
+		});
+
+		$scope.opticalPromise.then(function (payload) {
+			console.log("Got Optical Clinics");
+			$scope.opticalClinics = payload.data;
+		},
+		function (errorPayload) {
+			alert("You're not connected to the internet.");
+			$log.error("Failure getting optical clinics info", errorPayload);
 		});
 	};
 	$scope.getClinicsInfo();
@@ -613,11 +744,27 @@ avivaApp.controller('termsConditionsCtrl', function ($http, $scope, termsService
 		$scope.terms = payload.terms;
 	})
 });
+avivaApp.controller('timingCtrl', function ($http, $scope, timingService, $routeParams) {
+	$scope.loadingDone = false;
+	$scope.practiceId = $routeParams.param;
+	$scope.promise = timingService.getTiming($scope.$parent.service, $scope.practiceId);
+	$scope.promise.then(function (payload) {
+		console.log("Got practice timing");
+		$scope.practice = payload.practice;
+		$scope.loadingDone = true;
+		if ($scope.practice !== null) {
+			$scope.hasTiming = true;
+		}
+		else {
+			$scope.hasTiming = false;
+		}
+	});
+})
 avivaApp.controller('treatmentCtrl', function ($scope, treatmentService, $routeParams) {
 	$scope.practiceId = $routeParams.param;
 	$scope.loadingDone = false;
 	$scope.message = false;
-	$scope.promise = treatmentService.getTreatments($scope.practiceId);
+	$scope.promise = treatmentService.getTreatments($scope.practiceId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		$scope.loadingDone = true;
 		$scope.treatments = payload.treatments;

@@ -114,8 +114,9 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'staff.html',
 			controller: 'staffCtrl'
 		})
-		.when('/clinic-detail/timing', {
-			templateUrl: 'timing.html'
+		.when('/clinic-detail/timing/:param', {
+			templateUrl: 'timing.html',
+			controller: 'timingCtrl'
 		})
 		.when('/clinic-detail/contact', {
 			templateUrl: 'contact.html'

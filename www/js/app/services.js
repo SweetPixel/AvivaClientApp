@@ -1,5 +1,20 @@
 avivaApp.factory('advanceSearchService', function ($q, $log, $http) {
 	return {
+		getTreatments: function () {
+			var deferred = $q.defer();
+			url: 'http:'
+			$http.get(url)
+				.success(function (data) {
+					deferred.resolve({
+						treatments: data
+					});
+				})
+				error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error("Get Treatments: " + msg.ExceptionMessage, code);
+				});
+			return deferred.promise;
+		},
 		getClinics: function (treatment) {
 			var data = {
 				treatment: treatment
@@ -267,9 +282,41 @@ avivaApp.factory('changePasswordService', function ($http, $q, $log) {
 avivaApp.factory('clinicService', function ($http, $q, $log) {
 	return {
 		getClinic: function () {
-			console.log("Service Called");
+			console.log("Dental clinic service Called");
 			var deferred = $q.defer();
 			$http.get('https://dentalink.co.uk/healthpickapi/api/Practice/GetPractice')
+				.success(function (data) {
+					console.log(data.length);
+					deferred.resolve({
+						data: data
+					})
+				})
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
+			return deferred.promise;
+		},
+		getMedical: function () {
+			console.log("Medical clinic service Called");
+			var deferred = $q.defer();
+			$http.get('https://dentalink.co.uk/healthpickapi/api/Practice/GetOpticalPractice/')
+				.success(function (data) {
+					console.log(data.length);
+					deferred.resolve({
+						data: data
+					})
+				})
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
+			return deferred.promise;
+		},
+		getOptical: function () {
+			console.log("Optical clinic service Called");
+			var deferred = $q.defer();
+			$http.get('https://dentalink.co.uk/healthpickapi/api/Practice/GetOpticalPractice/')
 				.success(function (data) {
 					console.log(data.length);
 					deferred.resolve({
@@ -348,30 +395,34 @@ avivaApp.factory('familyDetailsService', function ($http, $q, $log) {
 })
 avivaApp.factory('feedbackService', function ($http, $q, $log) {
 	return {
-		getFeedbacks: function (userId, service) {
+		getFeedbacks: function (userId, practiceId, service) {
 			var deferred = $q.defer();
+			var data = {
+				username: userId,
+				practiceid: practiceId
+			}
 			var url = '';
 			switch (service) {
 				case 1:
-				url = 'https://dentalink.co.uk/healthpickapi/api/DentalService/Dental?username=' + userId;
+				url = 'https://dentalink.co.uk/healthpickapi/api/DentalService/GetFeedback';
 				break;
 				case 2:
-				url = 'https://dentalink.co.uk/healthpickapi/api/MedicalService/Medical?username=' + userId;
+				url = 'https://dentalink.co.uk/healthpickapi/api/MedicalService/GetFeedback';
 				break;
 				case 3:
-				url = 'https://dentalink.co.uk/healthpickapi/api/OpticalService/Optical?username=' + userId;
+				url = 'https://dentalink.co.uk/healthpickapi/api/OpticalService/GetFeedback';
 				break;
 			}
-			$http.get(url)
-			.success(function (response) {
-				deferred.resolve({
-					feedback: response
+			$http.post(url, data)
+				.success(function (response) {
+					deferred.resolve({
+						feedbacks: response
+					})
 				})
-			})
-			.error(function (msg, code) {
-				deferred.reject(msg);
-				$log.error(msg, code);
-			});
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
 			return deferred.promise;
 		},
 		postFeedback: function (feedback, service) {
@@ -484,8 +535,8 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 			
 			var longitude = position.coords.longitude;
 			var latitude = position.coords.latitude;
-			var latLng = new google.maps.LatLng(latitude, longitude);
-			/*var latLng = new google.maps.LatLng(53.3788635,-1.4703039);*/
+			/*var latLng = new google.maps.LatLng(latitude, longitude);*/
+			var latLng = new google.maps.LatLng(53.3788635,-1.4703039);
 			var mapOptions = {
 			    zoom: 8
 			};
@@ -906,11 +957,53 @@ avivaApp.factory('termsService', function ($q, $http, $log) {
 		}
 	}
 })
+avivaApp.factory('timingService', function ($http, $q, $log) {
+	return {
+		getTiming: function (service, practiceId) {
+			var deferred = $q.defer();
+			var url = '';
+			switch (service) {
+				case 1:
+					url = 'https://dentalink.co.uk/healthpickapi/api/Practice/GetPractice/' + practiceId;
+					break;
+				case 2:
+					url = 'http://gplink.co.uk/api/getpractice/' + practiceId;
+					break;
+				case 3:
+					url = 'https://dentalink.co.uk/healthpickapi/api/Practice/GetOpticalPractice/' + practiceId;
+					break;
+			}
+			$http.get(url)
+				.success(function (response) {
+					deferred.resolve({
+						practice: response
+					})
+				})
+				.error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error(msg, code);
+				});
+			return deferred.promise;
+		}
+	}
+})
 avivaApp.factory('treatmentService', function ($http, $q, $log) {
 	return {
-		getTreatments: function (practiceId) {
+		getTreatments: function (practiceId, service) {
 			var deferred = $q.defer();
-			var url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetTreatment?pracid=' + practiceId;
+			var url;
+			switch (service) {
+				case 1:
+					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetTreatment?pracid=' + practiceId;
+					break;
+				case 2:
+					url = 'http://gplink.co.uk/api/GetTreatement?pracId=' + practiceId;
+					break;
+				case 3:
+					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetOpticalTreatment?pracid=' + practiceId;
+					break;
+			}
+			
 			
 			$http.get(url)
 				.success(function (response) {

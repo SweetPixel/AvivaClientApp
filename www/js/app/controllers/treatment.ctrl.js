@@ -2,7 +2,7 @@ avivaApp.controller('treatmentCtrl', function ($scope, treatmentService, $routeP
 	$scope.practiceId = $routeParams.param;
 	$scope.loadingDone = false;
 	$scope.message = false;
-	$scope.promise = treatmentService.getTreatments($scope.practiceId);
+	$scope.promise = treatmentService.getTreatments($scope.practiceId, $scope.$parent.service);
 	$scope.promise.then(function (payload) {
 		$scope.loadingDone = true;
 		$scope.treatments = payload.treatments;

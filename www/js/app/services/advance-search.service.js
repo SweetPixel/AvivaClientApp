@@ -1,5 +1,20 @@
 avivaApp.factory('advanceSearchService', function ($q, $log, $http) {
 	return {
+		getTreatments: function () {
+			var deferred = $q.defer();
+			url: 'http:'
+			$http.get(url)
+				.success(function (data) {
+					deferred.resolve({
+						treatments: data
+					});
+				})
+				error(function (msg, code) {
+					deferred.reject(msg);
+					$log.error("Get Treatments: " + msg.ExceptionMessage, code);
+				});
+			return deferred.promise;
+		},
 		getClinics: function (treatment) {
 			var data = {
 				treatment: treatment

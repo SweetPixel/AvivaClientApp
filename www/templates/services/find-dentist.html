@@ -52,7 +52,7 @@
 				<div style="background-color: #FFF">
 					<p style="margin-top: 0; padding-top: 10px;" ng-show="loadNearbyDone">{{countMessage}}</p>
 					<ul class="collection" ng-show="loadNearbyDone">
-						<li ng-repeat="clinic in clinics | orderBy : sortBy" class="collection-item">
+						<li ng-repeat="clinic in clinics | orderBy : sortBy" class="collection-item" ng-init="clinic.feedback=1">
 							<a href="#/dental-services/clinic-detail/{{clinic.practiceId}}">
 								<img style="width: 100%" ng-show="clinic.PracticeImageLoc" src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}" />
 								<img style="width: 100%" ng-hide="clinic.PracticeImageLoc" src="images/dental-practice-default.jpg" />

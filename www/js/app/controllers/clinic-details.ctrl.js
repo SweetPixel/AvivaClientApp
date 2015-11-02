@@ -2,8 +2,25 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 	$scope.practiceId = $routeParams.param;
 	$scope.distance = "Calculating...";
 	$scope.loadingDone = false;
-	$scope.$parent.promise.then(function () {
-		$.each($scope.$parent.clinics, function (index, item) {
+	switch ($scope.$parent.service) {
+		case 1:
+			$scope.$parent.promise.then(function () {
+				corrections($scope.$parent.clinics);
+			});
+			break;
+		case 2:
+			$scope.$parent.medicalPromise.then(function() {
+				corrections($scope.$parent.medicalClinics);
+			});
+			break;
+		case 3:
+			$scope.$parent.opticalPromise.then(function () {
+				corrections($scope.$parent.opticalClinics);
+			});
+			break;
+	}
+	corrections = function (clinics) {
+		$.each(clinics, function (index, item) {
 			if (item.practiceId == $scope.practiceId) {
 				$scope.clinic = item;
 				$scope.address = $scope.clinic.Address1;
@@ -16,6 +33,20 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 				if ($scope.clinic.Address4) {
 					$scope.address += ", " +  $scope.clinic.Address4;
 				}
+				switch ($scope.$parent.service) {
+					case 1:
+						$scope.doctorFirstName = item.DentistFirstName;
+						$scope.doctorLastName = item.DentistSurname;
+						break;
+					case 2:
+						$scope.doctorFirstName = item.DoctorFirstName;
+						$scope.doctorLastName = item.DoctorSurname;
+						break;
+					case 3:
+						$scope.doctorFirstName = item.OpticalFirstName;
+						$scope.doctorLastName = item.OpticalSurname;
+						break;
+				}
 			}
 		});
 		var destination = $scope.address;
@@ -24,5 +55,5 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 			$scope.distance = distancePayload.distance;
 			$scope.loadingDone = true;
 		})
-	});
+	}
 });

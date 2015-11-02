@@ -5,6 +5,10 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
         treatment: ''
     }
     $scope.createMapPromise = advanceSearchService.createMap();
+    $scope.getTreatmentsPromise = advanceSearchService.getTreatments();
+    $scope.getTreatmentsPromise.then(function (payload) {
+    	$scope.treatments = payload.treatments;
+    })
 
     $scope.search = function() {
     	if ($scope.data.location == '') {

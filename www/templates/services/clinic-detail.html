@@ -16,7 +16,7 @@
 						<span class="card-title grey-text">{{clinic.PracticeName}}</span>
 						<p>Address: {{address}}</p>
 						<p>Phone: {{clinic.Telephone}}</p>
-						<p>Doctor: {{clinic.DentistFirstName}} {{clinic.DentistSurname}}</p>
+						<p>Doctor: {{doctorFirstName}} {{doctorLastName}}</p>
 						<p>Distance: {{distance}}</p>
 
 						
@@ -33,7 +33,7 @@
 						        		<i class="mdi-image-navigate-next right"></i>
 						        	</div>
 						        </a>
-						        <a href="#/clinic-detail/timing" class="collection-item">
+						        <a href="#/clinic-detail/timing/{{practiceId}}" class="collection-item">
 						        	Timings
 						        	<div class="secondary-content">
 						        		<i class="mdi-image-navigate-next right"></i>

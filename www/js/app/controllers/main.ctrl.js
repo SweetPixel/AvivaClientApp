@@ -45,13 +45,34 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	//Async get clinics detail
 	$scope.getClinicsInfo = function () {
 		$scope.promise = clinicService.getClinic();
+		$scope.medicalPromise = clinicService.getMedical();
+		$scope.opticalPromise = clinicService.getOptical();
+
 		$scope.promise.then(function (payload) {
-			console.log("Got Payload");
+			console.log("Got Dental Clinics");
 			$scope.clinics = payload.data;
 		},
 		function (errorPayload) {
 			alert("You're not connected to the internet.");
-			$log.error("Failure getting clinics info", errorPayload);
+			$log.error("Failure getting dental clinics info", errorPayload);
+		});
+
+		$scope.medicalPromise.then(function (payload) {
+			console.log("Got Medical Clinics");
+			$scope.medicalClinics = payload.data;
+		},
+		function (errorPayload) {
+			alert("You're not connected to the internet.");
+			$log.error("Failure getting medical clinics info", errorPayload);
+		});
+
+		$scope.opticalPromise.then(function (payload) {
+			console.log("Got Optical Clinics");
+			$scope.opticalClinics = payload.data;
+		},
+		function (errorPayload) {
+			alert("You're not connected to the internet.");
+			$log.error("Failure getting optical clinics info", errorPayload);
 		});
 	};
 	$scope.getClinicsInfo();
