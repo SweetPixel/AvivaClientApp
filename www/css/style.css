@@ -12,6 +12,10 @@ input[type="search"], textarea.materialize-textarea {
 	border-color: -moz-use-text-color -moz-use-text-color #ffffff;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
  *:not(textarea):not(input) {
 	-webkit-user-select: none; Chrome/Safari        
 	-moz-user-select: none; Firefox

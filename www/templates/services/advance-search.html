@@ -4,6 +4,7 @@
 		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 
 		<div>
+			<pre>{{treatments | json}}</pre>
 			<div id="search-view">
 				<div class="search-div">
 					<input type="search" placeholder="Enter a location" ng-model="data.location" ng-click="showAdvanced = true"/>
@@ -23,7 +24,9 @@
 						        <div class="input-field col s12">
 						            <select class="browser-default" style="color: #000" ng-model="data.treatment">
 						                <option value="" disabled selected>Choose your Treatment</option>
-						                <option value="{{treatment.treatmentname}}" ng-repeat="treatments">{{treatment.treatmentname}}</option>
+						                <option value="{{treatment.TreatmentName}}" ng-repeat="treatment in treatments">
+						                	{{treatment.TreatmentName}}
+						                </option>
 						            </select>
 						        </div>
 						    </div>

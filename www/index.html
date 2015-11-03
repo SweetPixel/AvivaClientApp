@@ -41,7 +41,7 @@
 <body ng-app="avivaApp" ng-cloak ng-strict>
 	<div>
 		<div ng-controller="mainCtrl">
-			<div class="ng-cloak" ng-view autoscroll="true"></div>
+			<div class="ng-cloak" ng-cloak ng-view autoscroll="true"></div>
 		</div>
 	</div>
 
@@ -181,7 +181,7 @@
     </div>
 	<script src="node_modules/loaders.css/loaders.css.js"></script>
 </script>
-<script type="text/ng-template" id="navbar.html">
+<script type="text/ng-template" id="navbar.html" ng-cloak>
     <div id="qrmodal" class="modal" ng-controller="qrCtrl" style="z-index: 100">
         <div class="modal-content center">
             <h5>My Unique Policy QR code</h5>
@@ -239,6 +239,7 @@
 		<div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
 
 		<div>
+			<pre>{{treatments | json}}</pre>
 			<div id="search-view">
 				<div class="search-div">
 					<input type="search" placeholder="Enter a location" ng-model="data.location" ng-click="showAdvanced = true"/>
@@ -258,7 +259,9 @@
 						        <div class="input-field col s12">
 						            <select class="browser-default" style="color: #000" ng-model="data.treatment">
 						                <option value="" disabled selected>Choose your Treatment</option>
-						                <option value="{{treatment.treatmentname}}" ng-repeat="treatments">{{treatment.treatmentname}}</option>
+						                <option value="{{treatment.TreatmentName}}" ng-repeat="treatment in treatments">
+						                	{{treatment.TreatmentName}}
+						                </option>
 						            </select>
 						        </div>
 						    </div>
