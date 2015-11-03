@@ -844,7 +844,7 @@ avivaApp.factory('notificationsService', function ($http, $q, $log) {
 		},
 		makeSeen: function (data) {
 			var deferred = $q.defer();
-			var url = 'https://dentalink.co.uk/healthpickapi/api/Practice/AdvanceSearch';
+			var url = 'https://dentalink.co.uk/healthpickapi/api/Notification/indicate';
 			$http.post(url, data)
 				.success(function (response) {
 					deferred.resolve({

@@ -12,7 +12,8 @@ avivaApp.controller('notificationsCtrl', function ($http, $scope, notificationsS
 		'username': $scope.$parent.userId
 	}];
 	$timeout(function () {
-		$scope.makeSeenPromise = notificationsService.makeSeen();
+		console.log("makeseen called");
+		$scope.makeSeenPromise = notificationsService.makeSeen($scope.$parent.userId);
 		$scope.makeSeenPromise.then(function (payload) {
 			console.log(payload.status);
 		});

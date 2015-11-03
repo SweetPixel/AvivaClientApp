@@ -11,6 +11,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 			$scope.status = payload.status;
 			$scope.ASyncStarted = false;
 			$scope.$parent.userId = $scope.credentials.username;
+			$scope.$parent.checkNotifications();
 			if($scope.status.Status == true) {
 				$location.path('/services');
 			}

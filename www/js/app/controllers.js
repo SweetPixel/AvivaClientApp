@@ -508,6 +508,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 			$scope.status = payload.status;
 			$scope.ASyncStarted = false;
 			$scope.$parent.userId = $scope.credentials.username;
+			$scope.$parent.checkNotifications();
 			if($scope.status.Status == true) {
 				$location.path('/services');
 			}
@@ -592,12 +593,14 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 
 	//Get Notifications
 	$scope.notificationCount = false;
-	$scope.notificationsPromise = notificationsService.getNotifications($scope.userId);
-	$scope.notificationsPromise.then(function (payload) {
-		$scope.notifications = payload.notifications;
-		$scope.notificationCount = $scope.notifications.length;
-		console.log("Got notifications: " + $scope.notificationCount);
-	});
+	$scope.checkNotifications = function () {
+		$scope.notificationsPromise = notificationsService.getNotifications($scope.userId);
+		$scope.notificationsPromise.then(function (payload) {
+			$scope.notifications = payload.notifications;
+			$scope.notificationCount = $scope.notifications.length;
+			console.log("Got notifications: " + $scope.notificationCount);
+		});
+	}
 });
 avivaApp.controller('medicalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 2;
@@ -666,7 +669,8 @@ avivaApp.controller('notificationsCtrl', function ($http, $scope, notificationsS
 		'username': $scope.$parent.userId
 	}];
 	$timeout(function () {
-		$scope.makeSeenPromise = notificationsService.makeSeen();
+		console.log("makeseen called");
+		$scope.makeSeenPromise = notificationsService.makeSeen($scope.$parent.userId);
 		$scope.makeSeenPromise.then(function (payload) {
 			console.log(payload.status);
 		});

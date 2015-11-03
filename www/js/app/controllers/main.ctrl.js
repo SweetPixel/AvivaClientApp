@@ -75,10 +75,12 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 
 	//Get Notifications
 	$scope.notificationCount = false;
-	$scope.notificationsPromise = notificationsService.getNotifications($scope.userId);
-	$scope.notificationsPromise.then(function (payload) {
-		$scope.notifications = payload.notifications;
-		$scope.notificationCount = $scope.notifications.length;
-		console.log("Got notifications: " + $scope.notificationCount);
-	});
+	$scope.checkNotifications = function () {
+		$scope.notificationsPromise = notificationsService.getNotifications($scope.userId);
+		$scope.notificationsPromise.then(function (payload) {
+			$scope.notifications = payload.notifications;
+			$scope.notificationCount = $scope.notifications.length;
+			console.log("Got notifications: " + $scope.notificationCount);
+		});
+	}
 });

@@ -2,12 +2,24 @@
 <html>
 <head>
 	<meta http-equiv="Content-Security-Policy" content="
-		default-src *;
-		style-src *; 
+		default-src 'self' 'unsafe-inline' 'unsafe-eval'
+			data: gap: https://ssl.gstatic.com 
+			https://maps.googleapis.com 
+			https://dentalink.co.uk/healthpickapi/api/ 
+			https://maps.gstatic.com 
+			http://gplink.co.uk;
+		style-src 'self' 'unsafe-inline'; 
 		media-src *; 
-		script-src *; 
+		script-src 'self' 'unsafe-inline' 'unsafe-eval' 
+			https://maps.googleapis.com 
+			https://maps.gstatic.com 
+			https://dentalink.co.uk/healthpickapi/api/ 
+			http://gplink.co.uk;  
 		img-src *; 
-		connect-src *">
+		connect-src 'unsafe-inline' 'unsafe-eval'
+			http://healthpickapi.azurewebsites.net 
+			https://dentalink.co.uk 
+			http://gplink.co.uk;">
 	<meta http-equiv="Access-Control-Allow-Origin" content="*"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
