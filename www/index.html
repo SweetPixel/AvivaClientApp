@@ -182,10 +182,10 @@
 	<script src="node_modules/loaders.css/loaders.css.js"></script>
 </script>
 <script type="text/ng-template" id="navbar.html">
-    <div id="qrmodal" class="modal" ng-controller="qrCtrl">
+    <div id="qrmodal" class="modal" ng-controller="qrCtrl" style="z-index: 100">
         <div class="modal-content center">
             <h5>My Unique Policy QR code</h5>
-            <img src="{{qr}}" style="width: 100%" />
+            <img src="{{qr}}" style="width: 90%;" />
         </div>
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
