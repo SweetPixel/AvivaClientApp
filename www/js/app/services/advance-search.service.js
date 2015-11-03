@@ -1,31 +1,31 @@
 avivaApp.factory('advanceSearchService', function ($q, $log, $http) {
 	return {
-		getTreatments: function (server) {
+		getTreatments: function (service) {
 			console.log("Get Treatments Called");
 			var deferred = $q.defer();
-			var url;
-			switch (server) {
+			var url = '';
+			switch (service) {
 				case 1:
-					url: 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetDentalTreatmentlist';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetDentalTreatmentlist';
 					break;
 				case 2:
-					url: 'http://gplink.co.uk/api/GetTreatement';
+					url = 'http://gplink.co.uk/api/GetTreatement';
 					break;
 				case 3:
-					url: 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetOpticalTreatmentlist';
+					url = 'https://dentalink.co.uk/healthpickapi/api/Treatment/GetOpticalTreatmentlist';
 					break;
 			}
 			$http.get(url)
-				.success(function (data) {
+				.success(function (response) {
+					console.log("passed");
 					deferred.resolve({
-						treatments: data
-					});
-					console.log("Got treatments");
+						treatments: response
+					})
 				})
 				.error(function (msg, code) {
+					console.log("failed");
 					deferred.reject(msg);
 					$log.error(msg, code);
-					console.log("failed");
 				});
 			return deferred.promise;
 		},

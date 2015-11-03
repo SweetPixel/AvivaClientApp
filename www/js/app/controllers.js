@@ -27,10 +27,10 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
         treatment: ''
     }
     $scope.createMapPromise = advanceSearchService.createMap();
-    $scope.getTreatmentsPromise = advanceSearchService.getTreatments();
+    $scope.getTreatmentsPromise = advanceSearchService.getTreatments($scope.$parent.service);
     $scope.getTreatmentsPromise.then(function (payload) {
     	$scope.treatments = payload.treatments;
-    })
+    });
 
     $scope.search = function() {
     	if ($scope.data.location == '') {
@@ -77,20 +77,35 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
 	    		
 	    	});
     	}
-                
     };
-    /*$scope.drawSearchMarker = function(clinic) {
-        console.log(clinic.Postcode);
+    $scope.$watch('value', function (changed) {
+    	if (changed) {
+    		$scope.searchResult = [];
+    		$scope.getTreatmentsPromise.then(function (payload) {
+    			$.each($scope.treatments, function (index, item) {
+    				if (item.TreatmentName.toLowerCase().indexOf(changed.toLowerCase()) > -1) {
+    					$scope.gotSearchResult = true;
+    					if ($scope.searchResult.length < 4) {
+    						$scope.searchResult.push(item);
+    					}
+    				}
+    			});
+    		});
+    	}
+    	else {
+    		$scope.gotSearchResult = false;
+    	}
+    });
+	$scope.gotTreatment = function (treatment) {
         $scope.gotSearchResult = false;
-        $scope.value = clinic.Postcode + ' ' + clinic.PracticeName;
-        $scope.createMapPromise.then(function() {
-            $scope.drawMarkersPromise.then(function() {
-                advanceSearchService.removeDrawings($scope.markers, $scope.circle);
-                $scope.markers = advanceSearchService.drawSearchMarker($scope.map, $scope.markers, clinic);
-            });
-        });
+        $scope.data.treatment = treatment.TreatmentName;
+        $scope.value = treatment.TreatmentName;
     };
-    $scope.resetPosition = function() {
+    $scope.setTreatment = function (value) {
+    	$scope.gotSearchResult = false;
+    	$scope.data.treatment = value;
+    }
+    /*$scope.resetPosition = function() {
         $scope.createMapPromise.then(function() {
             $scope.drawMarkersPromise.then(function() {
                 advanceSearchService.removeDrawings($scope.markers, $scope.circle);
@@ -514,7 +529,9 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 		$scope.mapView = 2;
 	}
 	$scope.back = function () {
+		console.log("back clicked");
 		if($route.current.templateUrl === 'find-dentist.html') {
+			console.log("is find clinic view");
 			if($scope.mapView == 1) {
 				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 				$location.path(prevUrl);
@@ -524,6 +541,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			}
 		}
 		else {
+			console.log("not find clinic view");
 			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 			$location.path(prevUrl);
 		}

@@ -19,7 +19,9 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 		$scope.mapView = 2;
 	}
 	$scope.back = function () {
+		console.log("back clicked");
 		if($route.current.templateUrl === 'find-dentist.html') {
+			console.log("is find clinic view");
 			if($scope.mapView == 1) {
 				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 				$location.path(prevUrl);
@@ -29,6 +31,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			}
 		}
 		else {
+			console.log("not find clinic view");
 			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 			$location.path(prevUrl);
 		}
