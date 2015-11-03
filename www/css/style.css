@@ -12,7 +12,7 @@ input[type="search"], textarea.materialize-textarea {
 	border-color: -moz-use-text-color -moz-use-text-color #ffffff;
 }
 
-/* *:not(textarea):not(input) {
+ *:not(textarea):not(input) {
 	-webkit-user-select: none; Chrome/Safari        
 	-moz-user-select: none; Firefox
 	-ms-user-select: none; IE10+
@@ -20,8 +20,7 @@ input[type="search"], textarea.materialize-textarea {
 	Rules below not implemented in browsers yet
 	-o-user-select: none;
 	user-select: none;
-} */
-
+}
 
 input[type="password"]
 {
