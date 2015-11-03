@@ -103,6 +103,19 @@ avivaApp.factory('advanceSearchService', function ($q, $log, $http) {
 		centerMap: function (map, coords) {
 			map.setCenter(coords);
 		},
+		centerMyPosition: function (map) {
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			
+			function onSuccess (position) {
+				var longitude = position.coords.longitude;
+				var latitude = position.coords.latitude;
+				var latLng = new google.maps.LatLng(latitude, longitude);
+				map.setCenter(latLng);
+			}
+			function onError () {
+				
+			}
+		},
 		getBounds: function (map, coords) {
 			console.log("get bounds started");
 			var circle = new google.maps.Circle({

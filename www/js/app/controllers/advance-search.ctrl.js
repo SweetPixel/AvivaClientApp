@@ -11,6 +11,7 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
     });
 
     $scope.search = function() {
+    	$scope.showAdvanced = false;
     	if ($scope.data.location == '') {
     		alert("Please provide a location.");
     	}
@@ -83,12 +84,12 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
     	$scope.gotSearchResult = false;
     	$scope.data.treatment = value;
     }
-    /*$scope.resetPosition = function() {
+    $scope.resetPosition = function() {
         $scope.createMapPromise.then(function() {
             $scope.drawMarkersPromise.then(function() {
-                advanceSearchService.removeDrawings($scope.markers, $scope.circle);
-                setNearbyClinics();
+                // advanceSearchService.removeDrawings($scope.markers, $scope.circle);
+                advanceSearchService.centerMyPosition($scope.map);
             });
         });
-    }*/
+    }
 });

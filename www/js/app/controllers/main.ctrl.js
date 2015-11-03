@@ -4,7 +4,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.mapView = 1;
 	$scope.service = 1;
 
-	$scope.userId = "test@test.com";
+	$scope.userId = "";
 
 	$scope.$on('$routeChangeSuccess', function () {
 		history.push($location.$$path);
@@ -21,9 +21,8 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.back = function () {
 		console.log("back clicked");
 		if($route.current.templateUrl === 'find-dentist.html') {
-			console.log("is find clinic view");
 			if($scope.mapView == 1) {
-				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+				// var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 				// $location.path(prevUrl);
 				$window.history.back();
 			}
@@ -32,8 +31,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			}
 		}
 		else {
-			console.log("not find clinic view");
-			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+			// var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 			// $location.path(prevUrl);
 			$window.history.back();
 		}
@@ -42,7 +40,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	//Async get clinics detail
 	$scope.getDentalClinics = function () {
 		$scope.promise = clinicService.getClinic();
-
+		console.log("Called get dental clinics");
 		$scope.promise.then(function (payload) {
 			console.log("Got Dental Clinics");
 			$scope.clinics = payload.data;

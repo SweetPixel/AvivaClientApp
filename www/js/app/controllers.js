@@ -33,6 +33,7 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
     });
 
     $scope.search = function() {
+    	$scope.showAdvanced = false;
     	if ($scope.data.location == '') {
     		alert("Please provide a location.");
     	}
@@ -105,14 +106,14 @@ avivaApp.controller('advanceSearchCtrl', function($scope, $log, advanceSearchSer
     	$scope.gotSearchResult = false;
     	$scope.data.treatment = value;
     }
-    /*$scope.resetPosition = function() {
+    $scope.resetPosition = function() {
         $scope.createMapPromise.then(function() {
             $scope.drawMarkersPromise.then(function() {
-                advanceSearchService.removeDrawings($scope.markers, $scope.circle);
-                setNearbyClinics();
+                // advanceSearchService.removeDrawings($scope.markers, $scope.circle);
+                advanceSearchService.centerMyPosition($scope.map);
             });
         });
-    }*/
+    }
 });
 
 avivaApp.controller('adviceCtrl', function ($scope, $location, adviceService) {
@@ -216,7 +217,12 @@ avivaApp.controller('clinicDetailCtrl', function($scope, $routeParams, mapServic
 });
 avivaApp.controller('dentalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 1;
-	$scope.$parent.getDentalClinics();
+	if($scope.$parent.clinics.length > 0) {
+
+	}
+	else {
+		$scope.$parent.getDentalClinics();
+	}
 	$scope.$parent.navbarClass = "dental-navbar";
 	$scope.loadingDone = true;
 });
@@ -501,6 +507,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 		$scope.promise.then(function (payload) {
 			$scope.status = payload.status;
 			$scope.ASyncStarted = false;
+			$scope.$parent.userId = $scope.credentials.username;
 			if($scope.status.Status == true) {
 				$location.path('/services');
 			}
@@ -514,7 +521,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.mapView = 1;
 	$scope.service = 1;
 
-	$scope.userId = "test@test.com";
+	$scope.userId = "";
 
 	$scope.$on('$routeChangeSuccess', function () {
 		history.push($location.$$path);
@@ -531,9 +538,8 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	$scope.back = function () {
 		console.log("back clicked");
 		if($route.current.templateUrl === 'find-dentist.html') {
-			console.log("is find clinic view");
 			if($scope.mapView == 1) {
-				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+				// var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 				// $location.path(prevUrl);
 				$window.history.back();
 			}
@@ -542,8 +548,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			}
 		}
 		else {
-			console.log("not find clinic view");
-			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+			// var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
 			// $location.path(prevUrl);
 			$window.history.back();
 		}
@@ -552,7 +557,7 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 	//Async get clinics detail
 	$scope.getDentalClinics = function () {
 		$scope.promise = clinicService.getClinic();
-
+		console.log("Called get dental clinics");
 		$scope.promise.then(function (payload) {
 			console.log("Got Dental Clinics");
 			$scope.clinics = payload.data;
@@ -596,7 +601,12 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 });
 avivaApp.controller('medicalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 2;
-	$scope.$parent.getMedicalClinics();
+	if($scope.$parent.medicalClinics) {
+
+	}
+	else {
+		$scope.$parent.getMedicalClinics();
+	}
 	$scope.$parent.navbarClass = "medical-navbar";
 	$scope.loadingDone = true;
 });
@@ -665,7 +675,12 @@ avivaApp.controller('notificationsCtrl', function ($http, $scope, notificationsS
 })
 avivaApp.controller('opticalServicesCtrl', function ($scope) {
 	$scope.$parent.service = 3;
-	$scope.$parent.getOpticalClinics();
+	if($scope.$parent.opticalClinics) {
+
+	}
+	else {
+		$scope.$parent.getOpticalClinics();
+	}
 	$scope.$parent.navbarClass = "optical-navbar";
 	$scope.loadingDone = true;
 });
