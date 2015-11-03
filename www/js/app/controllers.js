@@ -502,6 +502,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 	}
 	$scope.status = '';
 	$scope.login = function () {
+		ProgressIndicator.showSimple(true);
 		$scope.ASyncStarted = true;
 		$scope.promise = loginService.login($scope.credentials);
 		$scope.promise.then(function (payload) {
@@ -509,6 +510,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 			$scope.ASyncStarted = false;
 			$scope.$parent.userId = $scope.credentials.username;
 			$scope.$parent.checkNotifications();
+			ProgressIndicator.hide();
 			if($scope.status.Status == true) {
 				$location.path('/services');
 			}
