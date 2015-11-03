@@ -508,7 +508,7 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 		})
 	}
 });
-avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log, notificationsService) {
+avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location, clinicService, $log, notificationsService, $window) {
 	var history = [];
 	$scope.navbar = 'navbar.html';
 	$scope.mapView = 1;
@@ -534,7 +534,8 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			console.log("is find clinic view");
 			if($scope.mapView == 1) {
 				var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-				$location.path(prevUrl);
+				// $location.path(prevUrl);
+				$window.history.back();
 			}
 			else {
 				$scope.mapView = 1;
@@ -543,7 +544,8 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 		else {
 			console.log("not find clinic view");
 			var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-			$location.path(prevUrl);
+			// $location.path(prevUrl);
+			$window.history.back();
 		}
 	}
 	$scope.clinics = [];
