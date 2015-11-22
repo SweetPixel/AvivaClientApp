@@ -476,6 +476,9 @@ avivaApp.controller('getFeedbackCtrl', function($http, $scope, feedbackService, 
 		}
 	});
 })
+avivaApp.controller('getbookingCtrl', function ($scope, getbookingService) {
+	
+});
 avivaApp.controller('helpCtrl', function ($http, $scope, helpService) {
 	$scope.data = {
 		help: '',
