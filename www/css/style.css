@@ -55,6 +55,14 @@ input[type="password"]
 	background-color: #DE5741 !important; /*red*/
 }
 
+.forgot-navbar .navbar-color {
+	background-color: #DE5741 !important; /*red*/
+}
+
+.forgot-navbar .col.s4.right {
+	display: none;
+}
+
 .notifications-navbar .navbar-color {
 	background-color: #681751 !important; /*purple*/
 }

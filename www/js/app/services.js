@@ -249,7 +249,7 @@ avivaApp.factory('advanceSearchService', function ($q, $log, $http) {
 				});
 			}
 			function onError (error) {
-			    alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+			    console.log('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
 			}
 			return deferred.promise;
 		}
@@ -589,7 +589,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 				});
 			}
 			function onError (error) {
-			    alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+			    console.log('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
 			}
 			return deferred.promise; //return location
 		},
@@ -707,7 +707,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 				});
 			}
 			function onError (error) {
-			    alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+			    console.log('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
 			}
 			
 			return deferred.promise;
@@ -768,7 +768,7 @@ avivaApp.factory('mapService', function ($q, $log, $location) {
 				});
 			}
 			function onError (error) {
-			    alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+			    console.log('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
 			}
 			return deferred.promise;
 		}

@@ -468,6 +468,10 @@ avivaApp.controller('findDentistCtrl', function($scope, $http, mapService, $log,
 		});
 	}
 });
+avivaApp.controller('forgotCtrl', function ($scope) {
+	$scope.$parent.navbarClass = "forgot-navbar";
+	$scope.loadingDone = true;
+});
 avivaApp.controller('getFeedbackCtrl', function($http, $scope, feedbackService, $routeParams) {
 	$scope.loadingDone = false;
 	$scope.practiceId = $routeParams.param;

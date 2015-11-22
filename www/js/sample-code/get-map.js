@@ -39,6 +39,6 @@ var getMap = {
         })
     },
     onError: function (error) {
-        alert('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+        console.log('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
     }
 };
