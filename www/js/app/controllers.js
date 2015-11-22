@@ -545,6 +545,9 @@ avivaApp.controller('loginCtrl', function ($scope, $location, loginService) {
 			if($scope.status.Status == true) {
 				$location.path('/services');
 			}
+			else {
+				alert("Wrong username or password.");
+			}
 			
 		})
 	}
