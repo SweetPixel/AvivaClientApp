@@ -594,6 +594,12 @@ avivaApp.controller('mainCtrl', function($scope, $route, $routeParams, $location
 			$window.history.back();
 		}
 	}
+	$scope.logout = function () {
+		$('.button-collapse').sideNav('hide');
+		$scope.userId = "";
+		console.log("logging out.");
+		$window.history.go(-($window.history.length - 1));
+	}
 	$scope.clinics = [];
 	//Async get clinics detail
 	$scope.getDentalClinics = function () {
