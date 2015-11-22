@@ -1,0 +1,37 @@
+<script type="text/ng-template" id="booking.html">
+    <div class="view">
+        <div ng-class="navbarClass"><ng-include src="navbar"></ng-include></div>
+        <div class="container" ng-show="loadingDone">
+            <div class="row">
+                <h4 class="center-align white-text lighten-2 fonts" style="margin-top: 1rem; padding: 0 10px;">
+                    Booking
+                </h4>
+            </div>
+            <div><p style="margin-top: 0; padding-top: 10px;" ng-show="noBookings">No slots are available.</p></div>
+            <div class="row" ng-repeat="slot in slots" ng-hide="noBookings">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title grey-text text-darken-4">{{slot.PracticeName}}</span>
+                            <p>
+                                Doctor: {{slot.PracticeDentistName}}
+                            </p>
+                            <p>
+                            	Appointment Date: {{slot.AppointDate}}
+                            </p>
+                            <p>
+                                Appointment Time: {{slot.AppointTime}}
+                            </p>
+                            <p>
+                                Duration: {{slot.slotlength}}
+                            </p>
+                            <a ng-click="bookSlot(slot.AppointmentID)" class="orange waves-effect waves-light btn btn-large">
+                            	<div>Book Slot</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
