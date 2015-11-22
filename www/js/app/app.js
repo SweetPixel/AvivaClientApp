@@ -89,6 +89,10 @@ avivaApp.config(function($routeProvider) {
 			templateUrl: 'well-being.html',
 			controller: 'wellbeingCtrl'
 		})
+		.when('/clinic-detail/booking', {
+			templateUrl: 'booking.html',
+			controller: 'bookingCtrl'
+		})
 		.when('/dental-services/dental-advice', {
 			templateUrl: 'dental-advice.html',
 			controller: 'adviceCtrl'
