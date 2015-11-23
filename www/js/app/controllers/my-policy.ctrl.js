@@ -10,5 +10,6 @@ avivaApp.controller('myPolicyCtrl', function ($scope, myPolicyService) {
 	$scope.promise.then(function (payload) {
 		$scope.loadingDone = true;
 		$scope.policy = payload.policy;
+		$scope.policy.allowancedate = moment($scope.policy.allowancedate).format('DD-MMM-YYYY')
 	})
 })
