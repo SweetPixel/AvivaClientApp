@@ -1,37 +1,26 @@
-# Mac
+# temp files
 .DS_Store
+.tmp
+.sass-cache
 
-# Node
-npm-debug.log
-node_modules
-platforms
-# iOS
-CordovaSource/platforms/ios/build/
-platforms/ios/www/
-platforms/ios/cordova/console.log
-*.xcuserdatad
-CordovaSource/platforms/ios
+# npm & bower
+/node_modules/
+/app/bower_components/
 
-# android
-CordovaSource/platforms/android/assets/www
-CordovaSource/platforms/android/bin
-CordovaSource/platforms/android/gen
-CordovaSource/platforms/android/local.properties
-CordovaSource/platforms/android/ant-build
-CordovaSource/platforms/android/ant-gen
-CordovaSource/platforms/android/CordovaLib/ant-build
-CordovaSource/platforms/android/CordovaLib/ant-gen
-CordovaSource/platforms/android/CordovaLib/bin
-CordovaSource/platforms/android/CordovaLib/gen
-CordovaSource/platforms/android/CordovaLib/local.properties
+# custom gulp settings
+/gulp/.gulp_settings.json
 
-# wp8
-CordovaSource/platforms/wp8/bin
-CordovaSource/platforms/wp8/obj
-CordovaSource/platforms/wp8/www
-CordovaSource/platforms/wp8/.staging
-CordovaSource/platforms/wp8/*.suo
-CordovaSource/platforms/wp8/*.csproj.user
+# ionic fonts
+/app/main/assets/fonts/ionicons.*
 
-# res
-resources/signin
+# cordova
+/platforms/
+/plugins/
+/res/*/current/
+
+# build folder
+/www/**
+
+# IDE
+*.sublime-project
+*.sublime-workspace

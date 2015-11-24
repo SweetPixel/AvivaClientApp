@@ -1,0 +1,22 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "AvivaClientApp",
+      "appId": "com.dentalink.client",
+      "ionicCss": true,
+      "bowerPackages": [],
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "plugins": [
+        "cordova-plugin-device",
+        "com.ionic.keyboard",
+        "cordova-plugin-network-information",
+        "cordova-plugin-splashscreen",
+        "cordova-plugin-statusbar"
+      ],
+      "appModule": "AvivaClientApp"
+    }
+  }
+}
