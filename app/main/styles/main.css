@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'century';
+    src: url(../assets/fonts/century.ttf);
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.pane {
+    background-color: #ECECEC;
+}
+
+.item-select select {
+    direction: ltr;
+}
+
+ion-modal-view .row {
+    margin-top: 0;
+}
+
+.getInvisible .bar {
+    display: none;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.button-float:hover {
+    background-color: #FFA500;
+}
+
+.button-float {
+    text-transform: uppercase;
+    border: medium none;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #FFF;
+    padding: 0px;
+    border-radius: 50%;
+    width: 70.5px;
+    height: 70.5px;
+    margin: 0px auto;
+    display: block;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.button-float:hover {
+    box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.18), 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+.button-float img {
+    width: 70%;
+    margin-top: 15%;
+}
+
+.button-text {
+    margin-top: 8px;
+}
+
+.button-orange,
+.button-orange:hover {
+    border-color: #F69B19;
+    background-color: #F69B19;
+    color: #FFF;
+}
+
+.button-orange.activated,
+.button-orange.active {
+    background-color: #EA8A00;
+}
+
+.button-red,
+.button-red:hover {
+    border-color: #DE5741;
+    background-color: #DE5741;
+    color: #FFF;
+}
+
+.button-red.activated,
+.button-red.active {
+    background-color: #BF4733;
+}
+
+.text-purple {
+    color: #681950;
+}
+
+a.item.text-red,
+.text-red {
+    color: #DE5741;
+}
+
+.navbar-orange,
+.navbar-orange .bar {
+    background-color: #F69B19;
+}
+
+.navbar-green,
+.navbar-green .bar {
+    background-color: #84AB8E;
+}
+
+.navbar-purple,
+.navbar-purple .bar {
+    background-color: #681751;
+}
+
+.navbar-yellow,
+.navbar-yellow .bar {
+    background-color: #E7D101;
+}
+
+.navbar-red,
+.navbar-red .bar {
+    background-color: #DE5741;
+}
+
+.bar .button,
+.bar .title {
+    color: #FFFFFF;
+}
+
+.font-century {
+    font-family: century;
+}
+
+.tabs-positive .tab-nav {
+    top: 0px;
+}

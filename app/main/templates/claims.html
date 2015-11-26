@@ -1,16 +1,20 @@
-<ion-view view-title="main module">
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <!-- content goes here -->
-    <ion-list>
-      <ion-item class="item item-divider">
-        This is your claims template!
-      </ion-item>
-      <ion-item class="item item-icon">
-        Yeiiii!
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <h3 class="text-center text-purple font-century">My Claims</h3>
+        <div class="list card">
+            <!-- ng-repeat="claim in claims" -->
+            <div class="item">Dentist: {{claim.Dentist}}</div>
+            <div class="item">Practice: {{claim.Practicename}}</div>
+            <div class="item">Claim Date: {{claim.ClaimsDate}}</div>
+            <div class="item">Treatment cost: {{claim.TreatmentCost | currency:"£":2}}</div>
+            <div class="item">
+                Status: <span style=" color: green; ">{{claim.Status}}</span>
+            </div>
+            <a class="item item-divider ">
+                <a class="button button-block button-orange " ng-click="setClaimId(claim.ClaimsID) " onclick="$( '#email-claim-modal').openModal() ">Email Claims Form</a>
+            </a>
+        </div>
+    </ion-content>
 </ion-view>

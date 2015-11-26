@@ -1,16 +1,46 @@
-<ion-view view-title="main module">
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <!-- content goes here -->
-    <ion-list>
-      <ion-item class="item item-divider">
-        This is your mainMenu template!
-      </ion-item>
-      <ion-item class="item item-icon">
-        Yeiiii!
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+<ion-view hide-nav-bar="true">
+    <!-- do you want padding? -->
+    <ion-content class="padding" style="padding-top: 44px">
+        <!-- content goes here -->
+        <div class="row">
+            <div class="col col-50">
+                <a ui-sref="main.settings" class="button button-float" style="float: left;" ng-click="makeNavRed()">
+                    <img src="main/assets/images/svgs/user-settings.svg" class="settingpageicons circle" alt="">
+                </a>
+            </div>
+            <div class="col col-50">
+                <a ui-sref="main.notifications" class="button button-float" style="float: right;" ng-click="makeNavPurple()">
+                    <img class="settingpageicons" src="main/assets/images/svgs/notifications.svg">
+                </a>
+            </div>
+        </div>
+        <div style="margin-top: 20px; width: 90%; margin-left: 5%; margin-right: 5%;">
+            <div>
+                <img src="main/assets/images/healthpick_logo_1024.png" style="width: 100%;">
+            </div>
+            <div>
+                <h5 class="text-center text-purple" style="line-height: 2.104rem;">  How can we help ?  </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-33">
+                <a ui-sref="main.serviceMenu" class="button button-float" ng-click="makeNavOrange()">
+                    <img class="settingpageicons" src="main/assets/images/svgs/dental-services.svg">
+                </a>
+                <p class="text-center text-purple button-text">Dental Services</p>
+            </div>
+            <div class="col col-33">
+                <a ui-sref="main.serviceMenu" class="button button-float" ng-click="makeNavGreen()">
+                    <img class="settingpageicons" src="main/assets/images/svgs/medical-services.svg">
+                </a>
+                <p class="text-center text-purple button-text">Medical Services</p>
+            </div>
+            <div class="col col-33">
+                <a ui-sref="main.serviceMenu" class="button button-float" ng-click="makeNavYellow()">
+                    <img class="settingpageicons" src="main/assets/images/Optical-Services.png">
+                </a>
+                <p class="text-center text-purple button-text">Optical Services</p>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

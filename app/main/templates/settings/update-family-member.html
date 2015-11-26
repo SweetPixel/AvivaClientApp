@@ -1,0 +1,48 @@
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <h3 class="text-center text-purple font-century">Update Family Member</h3>
+        <div class="card">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">First Name</span>
+                    <input type="text" placeholder="Jason" ng-model="member.FirstName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" placeholder="Borne" ng-model="member.LastName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Relation</span>
+                    <input type="text" placeholder="Cousin" ng-model="member.Relation">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email</span>
+                    <input type="text" placeholder="jason@borne.com" ng-model="member.Email">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Date of Birth</span>
+                    <ionic-datepicker input-obj="datepickerObject">
+                        <button class="button button-light button-block">
+                            <span ng-show="datepickerObject.inputDate">{{datepickerObject.inputDate | date:'dd MMMM yyyy'}}</span>
+                            <span ng-hide="datepickerObject.inputDate">Select Date</span>
+                        </button>
+                    </ionic-datepicker>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Gender
+                    </div>
+                    <select ng-model="member.Gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </label>
+                <div class="item item-divider">
+                    <a class="button button-block button-red" ng-click="update()">Update</a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

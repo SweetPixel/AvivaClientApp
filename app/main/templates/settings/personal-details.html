@@ -1,0 +1,32 @@
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <h3 class="text-center text-purple font-century">Personal Details</h3>
+        <div class="card list">
+            <div class="item">
+                <ul class="list">
+                    <li class="item">
+                        Name
+                        <p>{{user.FirstName}} {{user.LastName}}</p>
+                    </li>
+                    <li class="item">
+                        Email
+                        <p>{{user.Email}}</p>
+                    </li>
+                    <li class="item">
+                        Date of Birth
+                        <p>{{user.Dob | date:'dd MMMM yyyy'}}</p>
+                    </li>
+                    <li class="item">
+                        Gender
+                        <p>{{user.Gender}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="item item-divider">
+                <a ui-sref="main.updatePersonalDetails" class="button button-block button-red">Update</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

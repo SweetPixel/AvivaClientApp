@@ -1,16 +1,39 @@
-<ion-view view-title="main module">
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <!-- content goes here -->
-    <ion-list>
-      <ion-item class="item item-divider">
-        This is your findPractice template!
-      </ion-item>
-      <ion-item class="item item-icon">
-        Yeiiii!
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content>
+        <!-- content goes here -->
+        <ion-tabs class="tabs-light tabs-striped tabs-top">
+            <ion-tab title="Search">
+                <div style="overflow: visible;">
+                    <div class="bar bar-subheader item-input-inset bar-light">
+                        <label class="item-input-wrapper" style="margin-top: 4px;">
+                            <input type="search" placeholder="Search">
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </label>
+                        <button class="button button-clear">
+                            <i class="icon ion-ios-search"></i>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="card">
+                            <a ui-sref="main.clinicDetails" class="button button-light">Go to Clinic Details</a>
+                        </div>
+                    </div>
+                </div>
+            </ion-tab>
+            <ion-tab title="Nearby">
+                <div class="bar bar-subheader bar-light item-input item-select">
+                    Sort By
+                    <select name="" id="">
+                        <option value="">Distance Asc.</option>
+                        <option value="">Distance Desc.</option>
+                        <option value="">Ratings Asc.</option>
+                        <option value="">Ratings Desc.</option>
+                        <option value="">Treatment Rates Asc.</option>
+                        <option value="">Treatment Rates Desc.</option>
+                    </select>
+                </div>
+            </ion-tab>
+        </ion-tabs>
+    </ion-content>
 </ion-view>

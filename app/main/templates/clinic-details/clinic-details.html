@@ -1,0 +1,60 @@
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <h3 class="text-center text-purple font-century">{{clinic.PracticeName}}</h3>
+        <div class="card list">
+            <div class="item item-image">
+                <div ng-show="clinic.PracticeImageLoc">
+                    <img src="https://dentalink.co.uk/{{clinic.PracticeImageLoc}}">
+                </div>
+                <div ng-hide="clinic.PracticeImageLoc">
+                    <img src="main/assets/images/dental-practice-default.jpg">
+                </div>
+            </div>
+            <div class="item item-divider"></div>
+            <div class="item">
+                Address
+                <p>{{address}}</p>
+            </div>
+            <div class="item">
+                Phone
+                <p>{{clinic.Telephone}}</p>
+            </div>
+            <div class="item">
+                Doctor
+                <p>{{doctorFirstName}} {{doctorLastName}}</p>
+            </div>
+            <div class="item">
+                Distance
+                <p>{{distance}}</p>
+            </div>
+            <a class="item item-divider">
+                <a ui-sref="main.booking" class="button button-block button-orange">
+                	Book Now
+                </a>
+            </a>
+            <div class="item item-divider"></div>
+            <a class="item item-icon-right text-red" ui-sref="main.treatments">
+            	Treatment Details
+            	<i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item item-icon-right text-red" ui-sref="main.staff">
+            	Our Staff
+            	<i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item item-icon-right text-red" ui-sref="main.timing">
+            	Timings
+            	<i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item item-icon-right text-red" ui-sref="main.contact">
+            	Contact Us
+            	<i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item item-icon-right text-red" ui-sref="main.reviews">
+            	Reviews & Ratings
+            	<i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

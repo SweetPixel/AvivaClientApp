@@ -1,0 +1,44 @@
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <h3 class="text-center text-purple font-century">Update Personal Details</h3>
+        <div class="card">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">First Name</span>
+                    <input type="text" placeholder="Jason" ng-model="user.FirstName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" placeholder="Borne" ng-model="user.LastName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email</span>
+                    <input type="text" placeholder="jason@borne.com" ng-model="user.Email">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Date of Birth</span>
+                    <ionic-datepicker input-obj="datepickerObject">
+                        <button class="button button-light button-block">
+                            <span ng-show="datepickerObject.inputDate">{{datepickerObject.inputDate | date:'dd MMMM yyyy'}}</span>
+                            <span ng-hide="datepickerObject.inputDate">Select Date</span>
+                        </button>
+                    </ionic-datepicker>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Gender
+                    </div>
+                    <select ng-model="user.Gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </label>
+                <div class="item item-divider" ng-click="update()">
+                    <a class="button button-block button-red">Update</a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

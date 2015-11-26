@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="description" content="">
     <!-- ionic meta tags -->
@@ -10,34 +11,31 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>AvivaClientApp</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
     <!-- endbower -->
     <!-- endbuild -->
-
     <!-- build:css main/styles/app.css -->
     <!-- inject:css -->
     <link rel="stylesheet" href="main/styles/main.css">
     <!-- endinject -->
     <!-- endbuild -->
-  </head>
-  <body ng-app="AvivaClientApp">
+</head>
 
+<body ng-app="AvivaClientApp">
     <!-- the nav bar will be updated as we navigate between views -->
     <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
     <ion-nav-bar class="bar-energized">
-      <ion-nav-back-button></ion-nav-back-button>
+        <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
     <!-- the current view will be rendered in the <ion-nav-view> directive -->
     <ion-nav-view></ion-nav-view>
-
     <!-- will be a 404 during development -->
     <script src="cordova.js"></script>
-
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -45,38 +43,51 @@
     <script src="bower_components/ionic/release/js/ionic.js"></script>
     <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
     <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+    <script src="bower_components/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
     <!-- build:js scripts/app.js -->
     <!-- inject:js -->
     <script src="main/main.js"></script>
+    <script src="main/services/personal-details-service-serv.js"></script>
     <script src="main/services/main-serv.js"></script>
-    <script src="main/controllers/without-nav-ctrl.js"></script>
+    <script src="main/services/data-service-serv.js"></script>
+    <script src="main/controllers/without-nav/without-nav-ctrl.js"></script>
+    <script src="main/controllers/without-nav/login-ctrl.js"></script>
+    <script src="main/controllers/without-nav/forgot-ctrl.js"></script>
     <script src="main/controllers/wellbeing-ctrl.js"></script>
-    <script src="main/controllers/treatments-ctrl.js"></script>
-    <script src="main/controllers/timing-ctrl.js"></script>
     <script src="main/controllers/support-ctrl.js"></script>
-    <script src="main/controllers/staff-ctrl.js"></script>
-    <script src="main/controllers/settings-ctrl.js"></script>
-    <script src="main/controllers/reviews-ctrl.js"></script>
+    <script src="main/controllers/side-nav/qr-ctrl.js"></script>
+    <script src="main/controllers/side-nav/notifications-ctrl.js"></script>
+    <script src="main/controllers/side-nav/help-ctrl.js"></script>
+    <script src="main/controllers/settings/update-personal-details-ctrl.js"></script>
+    <script src="main/controllers/settings/update-family-member-ctrl.js"></script>
+    <script src="main/controllers/settings/terms-ctrl.js"></script>
+    <script src="main/controllers/settings/settings-ctrl.js"></script>
+    <script src="main/controllers/settings/personal-details-ctrl.js"></script>
+    <script src="main/controllers/settings/family-details-ctrl.js"></script>
+    <script src="main/controllers/settings/change-password-ctrl.js"></script>
+    <script src="main/controllers/settings/add-family-member-ctrl.js"></script>
+    <script src="main/controllers/services-ctrl.js"></script>
     <script src="main/controllers/policy-ctrl.js"></script>
-    <script src="main/controllers/notifications-ctrl.js"></script>
     <script src="main/controllers/menu-ctrl.js"></script>
     <script src="main/controllers/main-menu-ctrl.js"></script>
-    <script src="main/controllers/help-ctrl.js"></script>
-    <script src="main/controllers/give-feedback-ctrl.js"></script>
     <script src="main/controllers/find-practice-ctrl.js"></script>
-    <script src="main/controllers/debug-ctrl.js"></script>
-    <script src="main/controllers/contact-ctrl.js"></script>
-    <script src="main/controllers/clinic-details-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/treatments-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/timing-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/staff-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/reviews-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/give-feedback-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/contact-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/clinic-details-ctrl.js"></script>
+    <script src="main/controllers/clinic-details/booking-ctrl.js"></script>
     <script src="main/controllers/claims-ctrl.js"></script>
-    <script src="main/controllers/booking-ctrl.js"></script>
     <script src="main/controllers/advice-ctrl.js"></script>
     <script src="main/controllers/advance-search-ctrl.js"></script>
     <script src="main/constants/config-const.js"></script>
     <script src="app.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
-  </body>
+</body>
+
 </html>

@@ -1,0 +1,25 @@
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <ion-list>
+            <h3 class="text-center text-purple font-century">Family Details</h3>
+            <div class="card list">
+                <div class="item">
+                    <div class="list">
+                        <div class="item item-button-right" ng-repeat="member in family">
+                            {{member.FirstName}} {{member.LastName}}
+                            <p>{{member.Relation}}</p>
+                            <a ng-click="update(member.FamilyID)" class="button button-clear">
+                                <i class="icon ion-ios-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item item-divider">
+                    <a ui-sref="main.addFamilyMember" class="button button-block button-red">Add Member</a>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>
