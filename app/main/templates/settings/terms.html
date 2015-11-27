@@ -4,8 +4,11 @@
         <!-- content goes here -->
         <h3 class="text-center text-purple font-century">Terms & Conditions</h3>
         <div class="card">
+            <div class="item" ng-hide="loadingDone">
+                <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+            </div>
             <div class="item item-text-wrap">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, blanditiis vel doloribus pariatur sunt quod nesciunt iste obcaecati ducimus necessitatibus expedita nostrum, ad quasi aspernatur ipsam similique quo omnis deserunt.
+                {{terms}}
             </div>
         </div>
     </ion-content>

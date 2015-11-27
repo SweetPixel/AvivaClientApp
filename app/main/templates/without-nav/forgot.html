@@ -1,16 +1,30 @@
-<ion-view view-title="main module">
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <!-- content goes here -->
-    <ion-list>
-      <ion-item class="item item-divider">
-        This is your forgot template!
-      </ion-item>
-      <ion-item class="item item-icon">
-        Yeiiii!
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+<ion-view ng-init="loadingDone = true">
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <div style="margin-top: 20px; width: 90%; margin-left: 5%; margin-right: 5%;">
+            <div>
+                <img src="main/assets/images/healthpick_logo_1024.png" style="width: 100%;">
+            </div>
+            <div>
+                <h5 class="text-center text-purple" style="line-height: 2.104rem;">
+                	FILL IN TO RETRIEVE LOG IN DETAILS
+                </h5>
+            </div>
+            <form name="loginForm" novalidate>
+                <label class="item item-input roundedcorners" style="margin-top: 20px">
+                    <i class="icon ion-person"></i>
+                    <input class="whitefield" type="email" placeholder="Email" ng-model="credentials.username" required>
+                </label>
+                <label class="item item-input roundedcorners">
+                    <i class="icon ion-lock-combination"></i>
+                    <input class="whitefield" type="password" placeholder="Username or policy number(if known)" ng-model="credentials.password" required>
+                </label>
+                <div style="width: 100%; margin-top: 20px">
+                    <ion-spinner ng-hide="loadingDone" icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+                    <a class="button button-block button-red" ng-click="login()">Recover Password</a>
+                </div>
+            </form>
+        </div>
+    </ion-content>
 </ion-view>

@@ -6,8 +6,11 @@
         <div class="list card">
             <div class="item">
             </div>
-            <div class="item item-image">
-                <img src="main/assets/images/My-QR-Code.png">
+            <div class="item" ng-hide="loadingDone">
+                <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+            </div>
+            <div class="item item-image" ng-show="loadingDone">
+                <img src="{{qr}}">
             </div>
         </div>
     </ion-content>

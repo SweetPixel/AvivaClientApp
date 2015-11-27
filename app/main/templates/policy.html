@@ -4,17 +4,20 @@
         <!-- content goes here -->
         <h3 class="text-center text-purple font-century">My Policy</h3>
         <div class="card">
+            <div class="item" ng-hide="loadingDone">
+                <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+            </div>
             <div class="item">
                 Annual Allowance Renewal
-                <p>blah{{policy.allowancedate}}</p>
+                <p>{{policy.allowancedate | date:"dd MMMM yyyy"}}</p>
             </div>
             <div class="item">
                 Annual Allowance Limit
-                <span class="item-note">{{policy.allowancelimit | currency:"£":2}}</span>
+                <p>{{policy.allowancelimit | currency:"£":2}}</p>
             </div>
             <div class="item">
                 Annual Allowance Used
-                <span class="item-note">{{policy.allowanceused | currency:"£":2}}</span>
+                <p>{{policy.allowanceused | currency:"£":2}}</p>
             </div>
         </div>
     </ion-content>

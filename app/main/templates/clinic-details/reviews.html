@@ -1,16 +1,30 @@
-<ion-view view-title="main module">
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <!-- content goes here -->
-    <ion-list>
-      <ion-item class="item item-divider">
-        This is your reviews template!
-      </ion-item>
-      <ion-item class="item item-icon">
-        Yeiiii!
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <h3 class="text-center text-purple font-century">Reviews</h3>
+        <div class="card list" ng-init="totalScore = 1">
+            <li class="item item-divider">
+                <a ui-sref="main.giveFeedback" class="button button-block" ng-class="{'button-orange': navColor==1, 'button-green': navColor==2, 'button-yellow': navColor==3, 'button-red': navColor==5, 'button-purple': navColor==4}">
+        			Give Feedback
+        		</a>
+            </li>
+            <div class="item" ng-hide="loadingDone">
+                <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+            </div>
+            <li class="item item-text-wrap" ng-show="message">
+                {{message}}
+            </li>
+            <div ng-hide="message">
+                <li class="item item-text-wrap" ng-repeat="item in feedbacks" ng-show="isArray">
+                    <h5>{{item.username}}</h5>
+                    <!-- <div star-rating rating-value="item.totalScore" max="5" ></div> -->
+                </li>
+                <li class="item item-text-wrap" ng-hide="isArray">
+                    <h5>{{feedbacks.username}}</h5>
+                    <!-- <div star-rating rating-value="totalScore" max="5" ></div> -->
+                </li>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

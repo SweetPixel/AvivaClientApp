@@ -2,13 +2,20 @@
     <!-- do you want padding? -->
     <ion-content class="padding">
         <!-- content goes here -->
-        <h3 class="text-center text-purple font-century">{{clinic.PracticeName}}</h3>
+        <h3 class="text-center text-purple font-century">Our Staff</h3>
         <div class="card list">
-            <li class="item item-avatar">
-                <img src="main/assets/images/bar.jpg" alt=""> Occupation
-                <p>Dentist of the 23rd tooth</p>
+            <div class="item" ng-hide="loadingDone">
+                <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+            </div>
+            <li class="item item-textwrap" ng-show="message">
+                {{message}}
+            </li>
+            <li class="item item-avatar" ng-repeat="doctor in staff">
+                <img ng-src="https://dentalink.co.uk/{{doctor.DentistPhotoLoc}}" alt=""> {{doctor.DentistFirstName}} {{doctor.DentistSurName}}
+                <br>Occupation
+                <p>{{doctor.DentistJobTitle}}</p>
                 GDC Number
-                <p>2342 2342</p>
+                <p>{{doctor.GDCNumber}}</p>
             </li>
         </div>
     </ion-content>

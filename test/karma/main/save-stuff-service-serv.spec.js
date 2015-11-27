@@ -1,6 +1,6 @@
 'use strict';
 
-describe('module: main, service: PersonalDetailsService', function () {
+describe('module: main, service: SaveStuffService', function () {
 
 	// load the service's module
 	beforeEach(module('main'));
@@ -8,13 +8,13 @@ describe('module: main, service: PersonalDetailsService', function () {
 	beforeEach(module('ngHtml2Js'));
 
 	// instantiate service
-	var PersonalDetailsService;
-	beforeEach(inject(function (_PersonalDetailsService_) {
-		PersonalDetailsService = _PersonalDetailsService_;
+	var SaveStuffService;
+	beforeEach(inject(function (_SaveStuffService_) {
+		SaveStuffService = _SaveStuffService_;
 	}));
 
 	it('should do something', function () {
-		expect(!!PersonalDetailsService).toBe(true);
+		expect(!!SaveStuffService).toBe(true);
 	});
 
 });

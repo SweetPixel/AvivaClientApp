@@ -4,14 +4,8 @@
         <!-- content goes here -->
         <h3 class="text-center text-purple font-century">Notifications</h3>
         <ul class="list">
-            <li class="item">
-                ...
-            </li>
-            <li class="item">
-                ...
-            </li>
-            <li class="item">
-                ...
+            <li ng-click="makeSeen(item.Notificationid)" class="item" ng-class="{'notification-unseen': item.viewed == true}" ng-repeat="item in notifications">
+                {{item.Description}}
             </li>
         </ul>
     </ion-content>

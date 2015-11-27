@@ -14,23 +14,26 @@
             </div>
             <div class="item item-divider"></div>
             <div class="item">
+                <div star-rating rating-value="clinic.feedback" max="5"></div>
+            </div>
+            <div class="item item-text-wrap">
                 Address
                 <p>{{address}}</p>
             </div>
-            <div class="item">
+            <div class="item item-text-wrap">
                 Phone
                 <p>{{clinic.Telephone}}</p>
             </div>
-            <div class="item">
+            <div class="item item-text-wrap">
                 Doctor
                 <p>{{doctorFirstName}} {{doctorLastName}}</p>
             </div>
-            <div class="item">
+            <div class="item item-text-wrap">
                 Distance
-                <p>{{distance}}</p>
+                <p>{{clinic.distance}}</p>
             </div>
             <a class="item item-divider">
-                <a ui-sref="main.booking" class="button button-block button-orange">
+                <a ui-sref="main.booking" class="button button-block" ng-class="{'button-orange': navColor==1, 'button-green': navColor==2, 'button-yellow': navColor==3, 'button-red': navColor==5, 'button-purple': navColor==4}">
                 	Book Now
                 </a>
             </a>

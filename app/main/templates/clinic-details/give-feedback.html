@@ -1,16 +1,131 @@
-<ion-view view-title="main module">
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <!-- content goes here -->
-    <ion-list>
-      <ion-item class="item item-divider">
-        This is your giveFeedback template!
-      </ion-item>
-      <ion-item class="item item-icon">
-        Yeiiii!
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+<ion-view>
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <h3 class="text-center text-purple font-century">Give Feedback</h3>
+        <div class="card">
+            <div class="list">
+                <div class="item item-text-wrap">
+                    Please rank the following aspects of the service. (1 Very Poor) – (5 Excellent)
+                </div>
+                <div class="item item-text-wrap">
+                    Is the practice clean and comfortable?
+                </div>
+                <div class="item range range-positive item-divider">
+                    1
+                    <input type="range" name="volume" min="1" max="5" value="1" ng-model="feedback.Practicecc"> 5
+                </div>
+                <div class="item item-text-wrap">
+                    Is there sufficient entertainment/literature while you wait?
+                </div>
+                <div class="item range range-positive item-divider">
+                    1
+                    <input type="range" name="volume" min="1" max="5" value="1" ng-model="feedback.sentertainment"> 5
+                </div>
+                <div class="item item-text-wrap">
+                    Are necessary healthcare/sundry items available?
+                </div>
+                <div class="item range range-positive item-divider">
+                    1
+                    <input type="range" name="volume" min="1" max="5" value="1" ng-model="feedback.healthcareitem"> 5
+                </div>
+                <div class="item item-text-wrap">
+                    Is your team friendly and approachable?
+                </div>
+                <div class="item range range-positive item-divider">
+                    1
+                    <input type="range" name="volume" min="1" max="5" value="1" ng-model="feedback.friendlyapprochable"> 5
+                </div>
+                <div class="item item-text-wrap">
+                    How much is your level of comfort and trust in your clinician and the practice team?
+                </div>
+                <div class="item range range-positive item-divider">
+                    1
+                    <input type="range" name="volume" min="1" max="5" value="1" ng-model="feedback.comfortlevel"> 5
+                </div>
+                <div class="item item-text-wrap">
+                    What can the practice improve (ideas, suggestions, comments)?
+                </div>
+                <div class="item item-input item-divider">
+                    <textarea cols="30" rows="6" class="aviva-textarea" placeholder="Write here..." ng-model="feedback.Ideas"></textarea>
+                </div>
+                <div class="item item-text-wrap">
+                    Are you happy with the dental products you are using?
+                </div>
+                <div class="item range range-positive item-divider">
+                    No
+                    <input type="range" name="volume" min="1" max="2" value="1" ng-model="feedback.happywithproduct"> Yes
+                </div>
+                <div class="item item-text-wrap">
+                    Name of Products
+                </div>
+                <div class="item item-input item-divider">
+                    <textarea cols="30" rows="6" class="aviva-textarea" placeholder="Write here..." ng-model="feedback.Productname"></textarea>
+                </div>
+                <div class="item item-text-wrap">
+                    Reasons for satisfaction or unsatisfaction
+                </div>
+                <div class="item item-input item-divider">
+                    <textarea cols="30" rows="6" class="aviva-textarea" placeholder="Write here..." ng-model="feedback.satisfaction"></textarea>
+                </div>
+                <!-- <div class="item item-text-wrap">
+                    How likely is it that you would recommend our practice to a friend or colleague?
+                </div>
+                <div class="item range range-positive item-divider">
+                    1
+                    <input type="range" name="volume" min="1" max="5" value="1"> 5
+                </div>
+                <div class="item item-text-wrap">
+                	What do you like best about your practice?
+                </div>
+                <div class="item item-input item-divider">
+                	<textarea cols="30" rows="6" class="aviva-textarea" placeholder="Write here..."></textarea>
+                </div>
+                <div class="item item-text-wrap">
+                	How would you rate your overall experience?
+                </div>
+                <div class="item range range-positive item-divider">
+                    1
+                    <input type="range" name="volume" min="1" max="5" value="1"> 5
+                </div>
+                <div class="item item-text-wrap">
+                	Can we use your feedback as testimonial on the Practice website?
+                </div>
+                <label class="item item-radio item-divider">
+                    <input type="radio" name="group">
+                    <div class="item-content">
+                        Yes
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <label class="item item-radio item-divider">
+                    <input type="radio" name="group">
+                    <div class="item-content">
+                        No
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <div class="item item-text-wrap">
+                	Would you like to be informed special offers and exclusive deals from your practice?
+                </div>
+                <label class="item item-radio item-divider">
+                    <input type="radio" name="group">
+                    <div class="item-content">
+                        Yes
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <label class="item item-radio item-divider">
+                    <input type="radio" name="group">
+                    <div class="item-content">
+                        No
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label> -->
+                <div class="item item-divider">
+                    <a class="button button-block button-red" ng-click="submit()">Submit</a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

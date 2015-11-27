@@ -4,20 +4,48 @@
         <!-- content goes here -->
         <h3 class="text-center text-purple font-century">Timing</h3>
         <div class="card" style="text-align: center;">
-            <div class="row" style="font-weight: bold">
-                <div class="col col-33">Day</div>
-                <div class="col col-33">Opening</div>
-                <div class="col col-33">Closing</div>
-            </div>
-            <div class="row">
-                <div class="col col-33">Monday</div>
-                <div class="col col-33">3:00 AM</div>
-                <div class="col col-33">3:01 AM</div>
-            </div>
-            <div class="row">
-                <div class="col col-33">Tuesday</div>
-                <div class="col col-33">3:00 AM</div>
-                <div class="col col-33">3:01 AM</div>
+            <div class="item" ng-hide="hasTiming">Timing not given for this practice.</div>
+            <div class="item" ng-show="hasTiming">
+                <div class="row" style="font-weight: bold">
+                    <div class="col col-33">Day</div>
+                    <div class="col col-33">Opening</div>
+                    <div class="col col-33">Closing</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Monday</div>
+                    <div class="col col-33">{{data.timing.OT_Mon}}</div>
+                    <div class="col col-33">{{data.timing.CT_Mon}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Tuesday</div>
+                    <div class="col col-33">{{data.timing.OT_Tue}}</div>
+                    <div class="col col-33">{{data.timing.CT_Tue}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Wednesday</div>
+                    <div class="col col-33">{{data.timing.OT_Wed}}</div>
+                    <div class="col col-33">{{data.timing.CT_Wed}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Thursday</div>
+                    <div class="col col-33">{{data.timing.OT_Thu}}</div>
+                    <div class="col col-33">{{data.timing.CT_Thu}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Friday</div>
+                    <div class="col col-33">{{data.timing.OT_Fri}}</div>
+                    <div class="col col-33">{{data.timing.CT_Fri}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Saturday</div>
+                    <div class="col col-33">{{data.timing.OT_Sat}}</div>
+                    <div class="col col-33">{{data.timing.CT_Sat}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Sunday</div>
+                    <div class="col col-33">{{data.timing.OT_Sun}}</div>
+                    <div class="col col-33">{{data.timing.CT_Sun}}</div>
+                </div>
             </div>
         </div>
     </ion-content>

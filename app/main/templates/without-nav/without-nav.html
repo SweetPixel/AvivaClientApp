@@ -1,16 +1,12 @@
-<ion-view view-title="main module">
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <!-- content goes here -->
-    <ion-list>
-      <ion-item class="item item-divider">
-        This is your withoutNav template!
-      </ion-item>
-      <ion-item class="item item-icon">
-        Yeiiii!
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+<ion-view>
+    <!-- header bar -->
+    <!-- the nav bar will be updated as we navigate between views -->
+    <ion-nav-bar class="bar-custom bar transparent">
+        <!-- back button, shown if applicable -->
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+        <!-- nav button, shown if applicable -->
+    </ion-nav-bar>
+    <!-- ROUTING INJECTED HERE: pageContent -->
+    <ion-nav-view name="pageContent"></ion-nav-view>
 </ion-view>

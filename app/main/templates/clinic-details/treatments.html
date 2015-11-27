@@ -4,10 +4,16 @@
         <!-- content goes here -->
         <h3 class="text-center text-purple font-century">Treatment Details</h3>
         <div class="card list">
-            <li class="item item-avatar">
+            <div class="item" ng-hide="loadingDone">
+                <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+            </div>
+            <li class="item" ng-show="message">
+                {{message}}
+            </li>
+            <li class="item item-avatar" ng-repeat="treatment in treatments" ng-show="treatments">
                 <img src="main/assets/images/bar.jpg" alt="">
-                <span style="float: left">Treatment</span>
-                <span class="text-purple" style="float: right;">$34</span>
+                <span style="float: left">{{treatment.TreatmentName}}</span>
+                <span class="text-purple" style="float: right;">{{treatment.TreatmentCost | currency:"£":2}}</span>
             </li>
         </div>
     </ion-content>

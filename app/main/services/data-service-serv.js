@@ -71,8 +71,8 @@ angular.module('main')
 				practiceId: false,
 				url: {
 					dental: 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Dental?username=',
-					medical: 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Optical?username=',
-					optical: 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Medical?username='
+					medical: 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Medical?username=',
+					optical: 'https://dentalink.co.uk/healthpickapi/api/MyPolicy/Optical?username=',
 				}
 			}
 		}, {
@@ -120,7 +120,7 @@ angular.module('main')
 			data: {
 				userId: false,
 				serviceId: true,
-				practiceId: false,
+				practiceId: true,
 				url: {
 					dental: 'https://dentalink.co.uk/healthpickapi/api/Practice/GetPractice/',
 					medical: 'https://dentalink.co.uk/HealthpickApi/api/medicalpractice',
@@ -152,6 +152,8 @@ angular.module('main')
 				}
 			}
 		}];
+
+		//========================================================================================================
 		var postUrls = [{
 			name: 'advanceSearch',
 			data: {
@@ -271,14 +273,6 @@ angular.module('main')
 				serviceId: false,
 				practiceId: false,
 				url: 'https://dentalink.co.uk/healthpickapi/api/Notification/indicate'
-			}
-		}, {
-			name: 'support',
-			data: {
-				userId: false,
-				serviceId: false,
-				practiceId: false,
-				url: 'https://dentalink.co.uk/healthpickapi/api/terms'
 			}
 		}, {
 			name: 'updatePersonalDetails',
