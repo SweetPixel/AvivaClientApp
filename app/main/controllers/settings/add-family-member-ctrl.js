@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('AddFamilyMemberCtrl', function ($log, $scope, $ionicHistory, DataService) {
+	.controller('AddFamilyMemberCtrl', function ($log, $scope, $ionicHistory, DataService, $ionicLoading) {
 		$scope.member = {
 			FamilyID: '',
 			UserName: $scope.$parent.userId,
@@ -19,14 +19,33 @@ angular.module('main')
 			}
 		}
 		$scope.update = function () {
-			$scope.loadingDone = false;
 			$scope.member.Dob = $scope.datepickerObject.inputDate;
-			$scope.promise = DataService.postData($scope.$parent.userId, '', '', 'addFamilyMember', $scope.member);
-			$scope.promise.then(function (payload) {
-				$scope.loadingDone = true;
-				console.log('Got Response: ' + payload.data);
-				$ionicHistory.goBack();
-			});
+			if ($scope.member.FirstName === '' || $scope.member.LastName === '' || $scope.member.Email === '' || $scope.member.Dob === '' || $scope.member.Gender === '' || $scope.member.Relation === '') {
+				sweetAlert("Missing...", "Please provide all information.", "error");
+			} else {
+				$scope.loadingDone = false;
+				$scope.promise = DataService.postData($scope.$parent.userId, '', '', 'addFamilyMember', $scope.member);
+				$scope.promise.then(function (payload) {
+					$scope.status = payload.data;
+					console.log('Got Response: ' + $scope.status);
+					if ($scope.status === true) {
+						$ionicLoading.show({
+							template: 'Family member added.',
+							noBackdrop: true,
+							duration: 2000
+						});
+						$scope.loadingDone = true;
+						$ionicHistory.goBack();
+					} else {
+						$ionicLoading.show({
+							template: 'Something went wrong. Please check your connection.',
+							noBackdrop: true,
+							duration: 3000
+						});
+						$scope.loadingDone = true;
+					}
+				});
+			}
 		};
 
 	});

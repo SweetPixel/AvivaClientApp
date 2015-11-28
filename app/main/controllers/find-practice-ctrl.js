@@ -125,7 +125,7 @@ angular.module('main')
 		$scope.search = function () {
 			$scope.closeModal();
 			if ($scope.data.location == '') {
-				alert("Please provide a location.");
+				sweetAlert("Missing...", "Please provide a location.", "error");
 			} else {
 				MapService.removeDrawings($scope.markers, $scope.circle);
 				$scope.toSearch = {

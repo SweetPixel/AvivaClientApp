@@ -61,7 +61,8 @@ angular.module('main')
 					}
 				});
 			} else {
-				alert('Please provide an email address.');
+				$scope.asyncStarted = false;
+				sweetAlert("Missing...", "Please provide an email address.", "error");
 			}
 		};
 	});

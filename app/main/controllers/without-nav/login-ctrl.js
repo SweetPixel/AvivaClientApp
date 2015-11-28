@@ -29,7 +29,7 @@ angular.module('main')
 					console.log("Logged In.");
 					$state.go('main.menu');
 				} else {
-					alert("Wrong username or password.");
+					sweetAlert("Oops...", "Wrong username or password.", "error");
 				}
 
 			})
