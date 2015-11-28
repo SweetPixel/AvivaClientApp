@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view ng-init="loadingDone = true">
     <!-- do you want padding? -->
     <ion-content class="padding">
         <!-- content goes here -->
@@ -123,7 +123,8 @@
                     <i class="radio-icon ion-checkmark"></i>
                 </label> -->
                 <div class="item item-divider">
-                    <a class="button button-block button-red" ng-click="submit()">Submit</a>
+                    <ion-spinner ng-hide="loadingDone" icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+                    <a class="button button-block button-red" ng-class="{'button-orange': navColor==1, 'button-green': navColor==2, 'button-yellow': navColor==3, 'button-red': navColor==5, 'button-purple': navColor==4}" ng-click="submit()">Submit</a>
                 </div>
             </div>
         </div>

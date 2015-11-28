@@ -17,6 +17,7 @@
             <div class="item">Appointment Time: {{slot.AppointTime}}</div>
             <div class="item">Duration: {{slot.slotlength}}</div>
             <a class="item item-divider">
+                <ion-spinner ng-hide="loadingDone" icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
                 <a class="button button-block" ng-class="{'button-orange': navColor==1, 'button-green': navColor==2, 'button-yellow': navColor==3, 'button-red': navColor==5, 'button-purple': navColor==4}" ng-click="bookSlot(slot.AppointmentID)">Book Slot</a>
             </a>
         </div>

@@ -32,6 +32,7 @@
                     <span class="input-label">Email of receiver</span>
                     <input ng-model="emailData.email" type="text" placeholder="jason@borne.com">
                 </label>
+                <ion-spinner ng-show="asyncStarted" icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
                 <button class="button button-full" ng-class="{'button-orange': navColor==1, 'button-green': navColor==2, 'button-yellow': navColor==3, 'button-red': navColor==5, 'button-purple': navColor==4}" ng-click="sendEmail()">Send Email</button>
             </div>
         </ion-content>

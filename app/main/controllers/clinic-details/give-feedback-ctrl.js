@@ -16,7 +16,7 @@ angular.module('main')
 		$scope.submit = function () {
 			$scope.feedback.practiceid = $scope.clinic.practiceId;
 			$scope.feedback.username = $scope.$parent.userId;
-
+			$scope.loadingDone = false;
 			$scope.feedback.Practicecc = parseInt($scope.feedback.Practicecc, 10);
 			$scope.feedback.sentertainment = parseInt($scope.feedback.sentertainment, 10);
 			$scope.feedback.healthcareitem = parseInt($scope.feedback.healthcareitem, 10);
@@ -31,8 +31,24 @@ angular.module('main')
 			console.log($scope.feedback);
 			$scope.promise = DataService.postData('', $scope.$parent.serviceName, '', 'postFeedback', $scope.feedback);
 			$scope.promise.then(function (payload) {
-				console.log("Got Response: " + payload.data);
-				$ionicHistory.goBack();
+				$scope.status = payload.data;
+				console.log('Got Response: ' + $scope.status);
+				if ($scope.status === true) {
+					$ionicLoading.show({
+						template: 'Slot booked. Thank you.',
+						noBackdrop: true,
+						duration: 2000
+					});
+					$scope.loadingDone = true;
+					$ionicHistory.goBack();
+				} else {
+					$ionicLoading.show({
+						template: 'Something went wrong. Please check your connection.',
+						noBackdrop: true,
+						duration: 3000
+					});
+					$scope.loadingDone = true;
+				}
 			})
 		}
 	});

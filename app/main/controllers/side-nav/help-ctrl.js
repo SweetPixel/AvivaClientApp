@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('HelpCtrl', function ($log, $scope, DataService, $state) {
+	.controller('HelpCtrl', function ($log, $scope, DataService, $state, $ionicLoading) {
 
 		$log.log('Hello from your Controller: HelpCtrl in module main:. This is your controller:', this);
 		$scope.data = {
@@ -14,8 +14,22 @@ angular.module('main')
 				$scope.promise.then(function (payload) {
 					$scope.status = payload.data;
 					console.log('Got Response: ' + $scope.status);
-					$scope.asyncStarted = false;
-					$state.go('main.menu');
+					if ($scope.status === true) {
+						$ionicLoading.show({
+							template: 'We\'ll get back to you soon.',
+							noBackdrop: true,
+							duration: 2000
+						});
+						$scope.asyncStarted = false;
+						$state.go('main.menu');
+					} else {
+						$ionicLoading.show({
+							template: 'Something went wrong. Please check your connection.',
+							noBackdrop: true,
+							duration: 3000
+						});
+						$scope.asyncStarted = false;
+					}
 				})
 			} else {
 				alert('Please write something in the textbox.');

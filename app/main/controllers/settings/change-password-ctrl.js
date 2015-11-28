@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('ChangePasswordCtrl', function ($log, $scope, DataService, $ionicHistory) {
+	.controller('ChangePasswordCtrl', function ($log, $scope, DataService, $ionicHistory, $ionicLoading) {
 		$scope.data = {
 			username: $scope.$parent.userId,
 			oldpassword: '',
@@ -15,12 +15,23 @@ angular.module('main')
 				$scope.loadingDone = false;
 				$scope.promise = DataService.postData('', '', '', 'changePassword', $scope.data);
 				$scope.promise.then(function (payload) {
-					$scope.loadingDone = true;
-					console.log('Got Response: ' + payload.data);
-					if (payload.data === true) {
+					$scope.status = payload.data;
+					console.log('Got Response: ' + $scope.status);
+					if ($scope.status === true) {
+						$ionicLoading.show({
+							template: 'Password updated.',
+							noBackdrop: true,
+							duration: 2000
+						});
+						$scope.loadingDone = true;
 						$ionicHistory.goBack();
 					} else {
-						alert('Old password is not correct.');
+						$ionicLoading.show({
+							template: 'Old password not correct.',
+							noBackdrop: true,
+							duration: 3000
+						});
+						$scope.loadingDone = true;
 					}
 				});
 			}
