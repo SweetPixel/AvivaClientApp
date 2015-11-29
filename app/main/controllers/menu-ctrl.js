@@ -9,7 +9,7 @@ angular.module('main')
 		$scope.makeNavRed = function () {
 			$scope.navColor = 5;
 		}
-		$scope.userId = 'test@test.com';
+		$scope.userId = '';
 		$scope.showLoading = function () {
 			$ionicLoading.show({
 				template: 'Loading...'

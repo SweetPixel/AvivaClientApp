@@ -40,11 +40,16 @@ angular.module('main')
 				console.log($scope.$parent.serviceName + ' practices found from server: ' + $scope.$parent.clinics.length);
 			})
 		}
-		$scope.$parent.notificationsPromise = DataService.getData($scope.userId, '', '', 'notifications');
-		$scope.$parent.notificationsPromise.then(function (payload) {
-			$scope.$parent.notifications = payload.data;
-			$scope.$parent.notificationCount = $scope.$parent.notifications.length;
-			console.log("Got notifications: " + $scope.$parent.notificationCount);
-		});
+		$scope.promise = SaveStuffService.getStoredData('userId', '');
+		$scope.promise.then(function (payload) {
+			console.log('main userID: ' + payload.data);
+			$scope.$parent.userId = payload.data;
+			$scope.notificationsPromise = DataService.getData($scope.$parent.userId, '', '', 'notifications');
+			$scope.notificationsPromise.then(function (payload) {
+				$scope.$parent.notifications = payload.data;
+				$scope.$parent.notificationCount = $scope.$parent.notifications.length;
+				console.log("Got notifications: " + $scope.$parent.notificationCount);
+			});
+		})
 
 	});

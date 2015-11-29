@@ -290,6 +290,15 @@ angular.module('main', [
 					}
 				}
 			})
+			.state('withoutNav.logout', {
+				url: '/logout',
+				views: {
+					'pageContent': {
+						templateUrl: 'main/templates/without-nav/logout.html',
+						controller: 'LogoutCtrl as ctrl'
+					}
+				}
+			})
 			.state('withoutNav.forgot', {
 				url: '/forgot',
 				views: {
