@@ -253,3 +253,10 @@ ul.rating {
 .transparent .bar {
     border: none;
 }
+
+.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
+    top: 0;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 44px;
+}
