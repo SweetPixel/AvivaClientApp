@@ -44,8 +44,8 @@ angular.module('main')
 		$scope.promise.then(function (payload) {
 			console.log('main userID: ' + payload.data);
 			$scope.$parent.userId = payload.data;
-			$scope.notificationsPromise = DataService.getData($scope.$parent.userId, '', '', 'notifications');
-			$scope.notificationsPromise.then(function (payload) {
+			$scope.$parent.notificationsPromise = DataService.getData($scope.$parent.userId, '', '', 'notifications');
+			$scope.$parent.notificationsPromise.then(function (payload) {
 				$scope.$parent.notifications = payload.data;
 				$scope.$parent.notificationCount = $scope.$parent.notifications.length;
 				console.log("Got notifications: " + $scope.$parent.notificationCount);
