@@ -1,23 +1,39 @@
 'use strict';
 angular.module('main')
-	.service('MapService', function ($log, $q, $state, SaveStuffService) {
-
+	.service('MapService', function ($log, $q, $state, SaveStuffService, $cordovaGeolocation) {
 		$log.log('Hello from your Service: MapService in module main');
 		return {
 			getPosition: function () {
-				var deferred = $q.defer();
 
-				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				ionic.Platform.ready(function(){
+						// will execute when device is ready, or immediately if the device is already ready.
+						console.log('ready');
+				});
 
-				function onSuccess(position) {
-					deferred.resolve({
-						position: position
+				var posOptions = {timeout: 10000, enableHighAccuracy: false},
+						deferred = $q.defer();
+
+				// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+				$cordovaGeolocation
+					.getCurrentPosition(posOptions)
+					.then(function (position) {
+							deferred.resolve({
+								position: position
+							});
+					}, function (err) {
+							console.log(err);
 					});
-				}
 
-				function onError(error) {
-					console.log('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
-				}
+				// function onSuccess(position) {
+				// 	deferred.resolve({
+				// 		position: position
+				// 	});
+				// }
+				//
+				// function onError(error) {
+				// 	console.log('Code: ' + error.code + '\n' + 'message' + error.message + '\n');
+				// }
 				return deferred.promise; //return location
 			},
 			createMap: function (position) {
