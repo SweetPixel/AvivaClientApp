@@ -5,24 +5,27 @@ angular.module('main')
 		return {
 			getPosition: function () {
 
-				ionic.Platform.ready(function(){
-						// will execute when device is ready, or immediately if the device is already ready.
-						console.log('ready');
+				ionic.Platform.ready(function () {
+					// will execute when device is ready, or immediately if the device is already ready.
+					console.log('ready');
 				});
 
-				var posOptions = {timeout: 10000, enableHighAccuracy: false},
-						deferred = $q.defer();
+				var posOptions = {
+						timeout: 10000,
+						enableHighAccuracy: false
+					},
+					deferred = $q.defer();
 
 				// navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 				$cordovaGeolocation
 					.getCurrentPosition(posOptions)
 					.then(function (position) {
-							deferred.resolve({
-								position: position
-							});
+						deferred.resolve({
+							position: position
+						});
 					}, function (err) {
-							console.log(err);
+						console.log(err);
 					});
 
 				// function onSuccess(position) {
@@ -93,7 +96,7 @@ angular.module('main')
 						positions.push(position);
 						nearbyClinics.push(item);
 						markers[i].setMap(map);
-						markers[i].addListener('click', function () {
+						markers[i].addListener('touchend', function () {
 							$state.go('main.clinicDetails');
 							item.practiceId = item.PracticeId;
 							SaveStuffService.setClinic(item);
@@ -160,7 +163,7 @@ angular.module('main')
 						positions.push(position);
 						nearbyClinics.push(item);
 						markers[i].setMap(map);
-						markers[i].addListener('click', function () {
+						markers[i].addListener('touchend', function () {
 							$state.go('main.clinicDetails');
 							SaveStuffService.setClinic(item);
 						});
