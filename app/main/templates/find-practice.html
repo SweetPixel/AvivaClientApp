@@ -15,6 +15,9 @@
                         </button>
                     </div>
                     <div id="map" data-tap-disabled="true"></div>
+                    <a ng-click="resetPosition()" id="current-location" class="button-float">
+                        <i style="color: #666" class="icon ion-ios-navigate"></i>
+                    </a>
                     <div class="search-result" ng-show="gotSearchResult">
                         <div class="list">
                             <a ng-click="drawSearchMarker(clinic)" class="item item-text-wrap" ng-repeat="clinic in searchResult">

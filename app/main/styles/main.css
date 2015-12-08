@@ -254,9 +254,28 @@ ul.rating {
     border: none;
 }
 
-.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
+.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs,
+.platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
     top: 0;
 }
+
 .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
     top: 44px;
+}
+
+#current-location {
+    background-color: #FFF;
+    position: absolute;
+    bottom: 40px;
+    left: 14px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+}
+
+#current-location i {
+    color: #000;
+    font-size: 26px;
+    line-height: 37px;
 }
