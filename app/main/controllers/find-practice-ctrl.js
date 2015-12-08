@@ -186,4 +186,13 @@ angular.module('main')
 			$scope.data.treatment = treatment.TreatmentName;
 			$scope.gotTreatmentResult = false;
 		};
+		$scope.resetPosition = function () {
+			$scope.createMapPromise.then(function () {
+				$scope.drawMarkersPromise.then(function () {
+					MapService.removeDrawings($scope.markers, $scope.circle);
+					setNearbyClinics();
+				})
+				
+			})
+		}
 	});
