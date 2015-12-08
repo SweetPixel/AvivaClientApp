@@ -23,7 +23,11 @@ angular.module('main')
 				familyMember = member;
 			},
 			getFamilyMember: function () {
-				return familyMember;
+				var deferred = $q.defer();
+				deferred.resolve({
+					familyMember: familyMember
+				});
+				return deferred.promise;
 			},
 			setStoredData: function (key, data, serviceName) {
 				var name;

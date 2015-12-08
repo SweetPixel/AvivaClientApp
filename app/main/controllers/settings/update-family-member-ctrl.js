@@ -3,14 +3,18 @@ angular.module('main')
 	.controller('UpdateFamilyMemberCtrl', function ($log, $scope, $ionicHistory, SaveStuffService, DataService, $ionicLoading) {
 
 		$log.log('Hello from your Controller: UpdateFamilyMemberCtrl in module main:. This is your controller:', this);
-		$scope.member = SaveStuffService.getFamilyMember();
+		$scope.memberPromise = SaveStuffService.getFamilyMember();
+		$scope.memberPromise.then(function (payload) {
+			$scope.member = payload.familyMember;
+			$scope.datepickerObject.inputDate = $scope.member.Dob;
+		})
 		$scope.datepickerObject = {
 			callback: function (val) {
 				console.log(val);
 				$scope.datepickerObject.inputDate = val;
 			}
-		};
-		$scope.datepickerObject.inputDate = $scope.member.Dob;
+		}
+		
 		$scope.update = function () {
 			$scope.member.Dob = $scope.datepickerObject.inputDate;
 			if ($scope.member.FirstName === '' || $scope.member.LastName === '' || $scope.member.Email === '' || $scope.member.Dob === '' || $scope.member.Gender === '' || $scope.member.Relation === '') {
@@ -23,7 +27,7 @@ angular.module('main')
 					console.log('Got Response: ' + $scope.status);
 					if ($scope.status === true) {
 						$ionicLoading.show({
-							template: 'Personal details updated.',
+							template: 'Family details updated.',
 							noBackdrop: true,
 							duration: 2000
 						});

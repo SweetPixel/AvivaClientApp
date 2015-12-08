@@ -10,10 +10,10 @@
                 </div>
                 <div class="item">
                     <div class="list">
-                        <div class="item item-button-right" ng-repeat="member in family">
+                        <div ng-click="update(member.FamilyID)" class="item item-button-right" ng-repeat="member in family">
                             {{member.FirstName}} {{member.LastName}}
                             <p>{{member.Relation}}</p>
-                            <a ng-click="update(member.FamilyID)" class="button button-clear">
+                            <a class="button button-clear">
                                 <i class="icon ion-ios-arrow-right"></i>
                             </a>
                         </div>
