@@ -264,7 +264,7 @@ angular.module('main')
 				userId: false,
 				serviceId: false,
 				practiceId: false,
-				url: 'https://dentalink.co.uk/healthpickapi/api/Notification/indicate'
+				url: 'https://dentalink.co.uk/HealthpickApi/api/Notification/list'
 			}
 		}, {
 			name: 'toggleNotifications',

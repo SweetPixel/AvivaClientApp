@@ -51,7 +51,6 @@
     <ion-modal-view>
         <ion-header-bar class="bar bar-header" ng-class="{'navbar-orange': navColor==1, 'navbar-green': navColor==2, 'navbar-yellow': navColor==3, 'navbar-red': navColor==5, 'navbar-purple': navColor==4}">
             <h1 class="title"></h1>
-            <button class="button button-clear button-primary" ng-click="closeModal()">Cancel</button>
         </ion-header-bar>
         <ion-content class="padding">
             <ul class="list">
@@ -68,6 +67,7 @@
                     </label>
                 </li>
             </ul>
+            <button class="button button-clear button-block button-primary" ng-click="closeModal()">Done</button>
         </ion-content>
     </ion-modal-view>
 </script>
