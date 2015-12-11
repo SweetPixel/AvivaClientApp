@@ -46,8 +46,8 @@ angular.module('main')
 
 				var longitude = position.coords.longitude;
 				var latitude = position.coords.latitude;
-				var latLng = new google.maps.LatLng(latitude, longitude);
-				// var latLng = new google.maps.LatLng(53.3788635, -1.4703039);
+				// var latLng = new google.maps.LatLng(latitude, longitude);
+				var latLng = new google.maps.LatLng(53.3788635, -1.4703039);
 				var mapOptions = {
 					zoom: 8
 				};
