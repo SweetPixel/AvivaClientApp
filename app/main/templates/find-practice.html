@@ -1,4 +1,4 @@
-<ion-view ng-init="locationOK=true">
+<ion-view ng-init="locationOK=true" cache-view="false">
     <!-- do you want padding? -->
     <ion-content scroll="false">
         <!-- content goes here -->
@@ -17,16 +17,16 @@
                     <div id="map" data-tap-disabled="true"></div>
                     <div ng-hide="locationOK" style="text-align: center; margin: 50% 30px">
                         <p>Failed to get location. Please check your location settings and then refresh.</p>
-                        <button class="button button-primary">
-                            <i class="icon ion-ios-refresh-empty" ng-click="doOtherStuff()"></i>
+                        <button class="button button-primary" ng-click="goBack()">
+                            <i class="icon ion-ios-refresh-empty"></i>
                         </button>
                     </div>
-                    <div ng-hide="locationOK" style="text-align: center; margin: 50% 30px">
+                    <!-- <div ng-hide="locationOK" style="text-align: center; margin: 50% 30px">
                         <p>Failed to get Google Maps Services. Please check your connection and then try again.</p>
                         <button class="button button-primary">
                             <i class="icon ion-ios-refresh-empty" ng-click="doOtherStuff()"></i>
                         </button>
-                    </div>
+                    </div> -->
                     <a ng-click="resetPosition()" id="current-location" class="button-float">
                         <i style="color: #666" class="icon ion-ios-navigate"></i>
                     </a>

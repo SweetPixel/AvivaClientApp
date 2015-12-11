@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('FindPracticeCtrl', function ($log, $scope, $state, MapService, SaveStuffService, DataService, $ionicModal, $ionicLoading) {
+	.controller('FindPracticeCtrl', function ($log, $scope, $state, $ionicHistory, MapService, SaveStuffService, DataService, $ionicModal, $ionicLoading) {
 
 		$log.log('Hello from your Controller: FindPracticeCtrl in module main:. This is your controller:', this);
 		$ionicModal.fromTemplateUrl('advance-search-modal.html', {
@@ -23,16 +23,15 @@ angular.module('main')
 			sortBy: '+distance'
 		}
 		var setNearbyClinics;
+		$scope.goBack = function () {
+			$ionicHistory.goBack();
+		}
 		$scope.doOtherStuff = function () {
 			$ionicLoading.hide();
 			$scope.getPositionPromise = MapService.getPosition();
 			$scope.getPositionPromise.then(function (positionPayload) {
-				if (!positionPayload) {
-					$scope.locationOK = false;
-				} else {
-					$scope.position = positionPayload.position;
-				}
-
+				console.log('Got position true;');
+				$scope.position = positionPayload.position;
 				$scope.createMapPromise = MapService.createMap($scope.position);
 				$scope.createMapPromise.then(function (mapPayload) {
 					$scope.map = mapPayload.map;
@@ -59,6 +58,12 @@ angular.module('main')
 					setNearbyClinics();
 				});
 			});
+			$scope.getPositionPromise.catch(function () {
+				console.log('Got position false;');
+				$scope.getPositionPromise = '';
+				$scope.locationOK = false;
+				sweetAlert('Oops...', 'We couldn\'t get your location. Please make sure your location service is on and then try again.', 'error');
+			})
 		};
 		$scope.$parent.getStoredDataPromise.then(function (payload) {
 			$scope.clinics = payload.data;

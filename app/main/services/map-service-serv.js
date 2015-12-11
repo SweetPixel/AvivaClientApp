@@ -2,6 +2,10 @@
 angular.module('main')
 	.service('MapService', function ($log, $q, $state, SaveStuffService, $cordovaGeolocation) {
 		$log.log('Hello from your Service: MapService in module main');
+		var posOptions = {
+			timeout: 10000,
+			enableHighAccuracy: false
+		};
 		return {
 			getPosition: function () {
 
@@ -10,25 +14,19 @@ angular.module('main')
 					console.log('ready');
 				});
 
-				var posOptions = {
-						timeout: 10000,
-						enableHighAccuracy: false
-					},
-					deferred = $q.defer();
+				var deferred = $q.defer();
 
 				// navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 				$cordovaGeolocation
 					.getCurrentPosition(posOptions)
 					.then(function (position) {
+						console.log('Got position');
 						deferred.resolve({
 							position: position
 						});
 					}, function (err) {
-						deferred.resolve({
-							position: false
-						});
-						sweetAlert('Oops...', 'We couldn\'t get your location. Please make sure your location service is on and then try again.', 'error');
+						deferred.reject(err);
 						console.log(err);
 					});
 
@@ -174,7 +172,15 @@ angular.module('main')
 					}
 					i++;
 				});
-				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				$cordovaGeolocation
+					.getCurrentPosition(posOptions)
+					.then(function (position) {
+						onSuccess(position);
+					}, function (err) {
+						deferred.reject(err);
+						onError(err);
+					});
 
 				function onSuccess(position) {
 					var origin = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -256,7 +262,16 @@ angular.module('main')
 			},
 			getDistance: function (destination) {
 				var deferred = $q.defer();
-				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				$cordovaGeolocation
+					.getCurrentPosition(posOptions)
+					.then(function (position) {
+						onSuccess(position);
+					}, function (err) {
+						deferred.reject(err);
+						onError(err);
+					});
+
 
 				function onSuccess(position) {
 					var longitude = position.coords.longitude;
@@ -350,7 +365,15 @@ angular.module('main')
 				map.setCenter(coords);
 			},
 			centerMyPosition: function (map) {
-				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				$cordovaGeolocation
+					.getCurrentPosition(posOptions)
+					.then(function (position) {
+						onSuccess(position);
+					}, function (err) {
+						deferred.reject(err);
+						onError(err);
+					});
 
 				function onSuccess(position) {
 					var longitude = position.coords.longitude;
