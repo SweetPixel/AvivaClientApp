@@ -1,4 +1,4 @@
-<ion-view ng-init="locationOK=true" cache-view="false">
+<ion-view ng-init="locationOK=true; loadingMap = true" cache-view="false">
     <!-- do you want padding? -->
     <ion-content scroll="false">
         <!-- content goes here -->
@@ -20,6 +20,9 @@
                         <button class="button button-primary" ng-click="goBack()">
                             <i class="icon ion-ios-refresh-empty"></i>
                         </button>
+                    </div>
+                    <div ng-show="loadingMap" style="margin-top: 20%">
+                        <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
                     </div>
                     <!-- <div ng-hide="locationOK" style="text-align: center; margin: 50% 30px">
                         <p>Failed to get Google Maps Services. Please check your connection and then try again.</p>

@@ -34,6 +34,7 @@ angular.module('main')
 				$scope.position = positionPayload.position;
 				$scope.createMapPromise = MapService.createMap($scope.position);
 				$scope.createMapPromise.then(function (mapPayload) {
+					$scope.loadingMap = false;
 					$scope.map = mapPayload.map;
 					$scope.latLng = mapPayload.latLng;
 					setNearbyClinics = function () {
