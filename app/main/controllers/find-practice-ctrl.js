@@ -210,4 +210,8 @@ angular.module('main')
 
 			})
 		}
+		$scope.$on('$locationChangeStart', function (event) {
+			console.log('Cleaning up maps.');
+			document.getElementById('map').innerHTML = '';
+		});
 	});

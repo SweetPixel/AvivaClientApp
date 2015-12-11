@@ -10,3 +10,27 @@
         </ul>
     </ion-content>
 </ion-view>
+<script id="notification-detail.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar bar-header" ng-class="{'navbar-orange': navColor==1, 'navbar-green': navColor==2, 'navbar-yellow': navColor==3, 'navbar-red': navColor==5, 'navbar-purple': navColor==4}">
+            <h1 class="title"></h1>
+            <button class="button button-clear button-primary" ng-click="closeModal()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+            <ul class="list">
+                <div class="item" ng-hide="loadingDone">
+                    <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
+                </div>
+                <li class="item item-toggle">
+                    Notifications
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" value="1" ng-model="stuff.indicator" ng-click="setNotification()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </ion-content>
+    </ion-modal-view>
+</script>
