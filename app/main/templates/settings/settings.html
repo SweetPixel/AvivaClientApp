@@ -67,7 +67,7 @@
                     </label>
                 </li>
             </ul>
-            <button class="button button-clear button-block button-primary" ng-click="closeModal()">Done</button>
+            <button class="button button-block" ng-class="{'button-orange': navColor==1, 'button-green': navColor==2, 'button-yellow': navColor==3, 'button-red': navColor==5, 'button-purple': navColor==4}" ng-click="closeModal()">Done</button>
         </ion-content>
     </ion-modal-view>
 </script>

@@ -4,8 +4,8 @@
         <!-- content goes here -->
         <h3 class="text-center text-purple font-century">Notifications</h3>
         <ul class="list">
-            <li ng-click="makeSeen(item.Notificationid)" class="item" ng-class="{'notification-unseen': item.viewed == true}" ng-repeat="item in notifications">
-                {{item.Description}}
+            <li ng-click="openModal(item.Notificationid)" class="item" ng-class="{'notification-unseen': item.viewed == false}" ng-repeat="item in notifications  | orderBy : item.Notificationid">
+                {{item.title}}
             </li>
         </ul>
     </ion-content>
@@ -14,23 +14,11 @@
     <ion-modal-view>
         <ion-header-bar class="bar bar-header" ng-class="{'navbar-orange': navColor==1, 'navbar-green': navColor==2, 'navbar-yellow': navColor==3, 'navbar-red': navColor==5, 'navbar-purple': navColor==4}">
             <h1 class="title"></h1>
-            <button class="button button-clear button-primary" ng-click="closeModal()">Cancel</button>
         </ion-header-bar>
         <ion-content class="padding">
-            <ul class="list">
-                <div class="item" ng-hide="loadingDone">
-                    <ion-spinner icon="spiral" style="width: 30px; margin: 0 auto; display: block;"></ion-spinner>
-                </div>
-                <li class="item item-toggle">
-                    Notifications
-                    <label class="toggle toggle-assertive">
-                        <input type="checkbox" value="1" ng-model="stuff.indicator" ng-click="setNotification()">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-            </ul>
+            <h4>{{oneNotification.title}}</h4>
+            <p>{{oneNotification.Description}}</p>
+            <button class="button button-block" ng-class="{'button-orange': navColor==1, 'button-green': navColor==2, 'button-yellow': navColor==3, 'button-red': navColor==5, 'button-purple': navColor==4}" ng-click="closeModal()">Done</button>
         </ion-content>
     </ion-modal-view>
 </script>
