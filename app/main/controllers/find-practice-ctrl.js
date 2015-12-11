@@ -1,7 +1,7 @@
 'use strict';
 angular.module('main')
 	.controller('FindPracticeCtrl', function ($log, $scope, $state, $ionicHistory, MapService, SaveStuffService, DataService, $ionicModal, $ionicLoading) {
-
+		console.log('In service: ' + $scope.$parent.serviceName);
 		$log.log('Hello from your Controller: FindPracticeCtrl in module main:. This is your controller:', this);
 		$ionicModal.fromTemplateUrl('advance-search-modal.html', {
 			scope: $scope,

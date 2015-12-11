@@ -7,19 +7,19 @@ angular.module('main')
 			$scope.$parent.navColor = 1;
 			$scope.$parent.serviceName = 'Dental';
 			$scope.$parent.doctor = 'Dentist';
-			$scope.getClinics();
+			$scope.getClinics('Dental');
 		}
 		$scope.makeNavGreen = function () {
 			$scope.$parent.navColor = 2;
 			$scope.$parent.serviceName = 'Medical';
 			$scope.$parent.doctor = 'Doctor';
-			$scope.getClinics();
+			$scope.getClinics('Medical');
 		}
 		$scope.makeNavYellow = function () {
 			$scope.$parent.navColor = 3;
 			$scope.$parent.serviceName = 'Optical';
 			$scope.$parent.doctor = 'Optician';
-			$scope.getClinics();
+			$scope.getClinics('Optical');
 		}
 		$scope.makeNavPurple = function () {
 			$scope.$parent.navColor = 4;
@@ -27,19 +27,19 @@ angular.module('main')
 		$scope.makeNavRed = function () {
 			$scope.$parent.navColor = 5;
 		}
-		$scope.getClinics = function () {
-			$scope.$parent.getStoredDataPromise = SaveStuffService.getStoredData('practice', $scope.$parent.serviceName);
+		$scope.getClinics = function (serviceName) {
+			$scope.$parent.getStoredDataPromise = SaveStuffService.getStoredData('practice', serviceName);
 			$scope.$parent.getStoredDataPromise.then(function (payload) {
 				$scope.$parent.clinics = payload.data;
 				if ($scope.$parent.clinics) {
-					console.log($scope.$parent.serviceName + ' practices found from localStorage: ' + $scope.$parent.clinics.length);
+					console.log(serviceName + ' practices found from localStorage: ' + $scope.$parent.clinics.length);
 				}
 			});
-			$scope.$parent.getServerDataPromise = DataService.getData('', $scope.$parent.serviceName, '', 'practice');
+			$scope.$parent.getServerDataPromise = DataService.getData('', serviceName, '', 'practice');
 			$scope.$parent.getServerDataPromise.then(function (payload) {
 				$scope.$parent.clinics = payload.data;
-				SaveStuffService.setStoredData('practice', $scope.$parent.clinics, $scope.$parent.serviceName);
-				console.log($scope.$parent.serviceName + ' practices found from server: ' + $scope.$parent.clinics.length);
+				SaveStuffService.setStoredData('practice', $scope.$parent.clinics, serviceName);
+				console.log(serviceName + ' practices found from server: ' + $scope.$parent.clinics.length);
 			})
 		}
 		$scope.promise = SaveStuffService.getStoredData('userId', '');
