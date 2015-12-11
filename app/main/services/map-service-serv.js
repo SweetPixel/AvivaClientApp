@@ -25,6 +25,10 @@ angular.module('main')
 							position: position
 						});
 					}, function (err) {
+						deferred.resolve({
+							position: false
+						});
+						sweetAlert('Oops...', 'We couldn\'t get your location. Please make sure your location service is on and then try again.', 'error');
 						console.log(err);
 					});
 

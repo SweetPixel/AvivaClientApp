@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('FindPracticeCtrl', function ($log, $scope, $state, MapService, SaveStuffService, DataService, $ionicModal) {
+	.controller('FindPracticeCtrl', function ($log, $scope, $state, MapService, SaveStuffService, DataService, $ionicModal, $ionicLoading) {
 
 		$log.log('Hello from your Controller: FindPracticeCtrl in module main:. This is your controller:', this);
 		$ionicModal.fromTemplateUrl('advance-search-modal.html', {
@@ -24,9 +24,14 @@ angular.module('main')
 		}
 		var setNearbyClinics;
 		$scope.doOtherStuff = function () {
+			$ionicLoading.hide();
 			$scope.getPositionPromise = MapService.getPosition();
 			$scope.getPositionPromise.then(function (positionPayload) {
-				$scope.position = positionPayload.position;
+				if (!positionPayload) {
+					$scope.locationOK = false;
+				} else {
+					$scope.position = positionPayload.position;
+				}
 
 				$scope.createMapPromise = MapService.createMap($scope.position);
 				$scope.createMapPromise.then(function (mapPayload) {
@@ -55,15 +60,20 @@ angular.module('main')
 				});
 			});
 		};
-		$scope.clinics = $scope.$parent.clinics;
-		if ($scope.clinics.length < 1) {
-			$scope.$parent.getServerDataPromise.then(function () {
-				$scope.clinics = $scope.$parent.clinics;
+		$scope.$parent.getStoredDataPromise.then(function (payload) {
+			$scope.clinics = payload.data;
+			if (!$scope.clinics) {
+				$ionicLoading.show({
+					template: 'Getting practices...'
+				});
+				$scope.$parent.getServerDataPromise.then(function () {
+					$scope.clinics = $scope.$parent.clinics;
+					$scope.doOtherStuff();
+				})
+			} else {
 				$scope.doOtherStuff();
-			})
-		} else {
-			$scope.doOtherStuff();
-		}
+			}
+		});
 		$scope.searchResult = [];
 		$scope.$watch('value.value', function (changed) {
 			if (changed) {
@@ -192,7 +202,7 @@ angular.module('main')
 					MapService.removeDrawings($scope.markers, $scope.circle);
 					setNearbyClinics();
 				})
-				
+
 			})
 		}
 	});

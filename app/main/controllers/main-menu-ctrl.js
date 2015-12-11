@@ -31,7 +31,9 @@ angular.module('main')
 			$scope.$parent.getStoredDataPromise = SaveStuffService.getStoredData('practice', $scope.$parent.serviceName);
 			$scope.$parent.getStoredDataPromise.then(function (payload) {
 				$scope.$parent.clinics = payload.data;
-				console.log($scope.$parent.serviceName + ' practices found from localStorage: ' + $scope.$parent.clinics.length);
+				if ($scope.$parent.clinics) {
+					console.log($scope.$parent.serviceName + ' practices found from localStorage: ' + $scope.$parent.clinics.length);
+				}
 			});
 			$scope.$parent.getServerDataPromise = DataService.getData('', $scope.$parent.serviceName, '', 'practice');
 			$scope.$parent.getServerDataPromise.then(function (payload) {
