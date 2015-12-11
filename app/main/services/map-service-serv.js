@@ -98,7 +98,7 @@ angular.module('main')
 						positions.push(position);
 						nearbyClinics.push(item);
 						markers[i].setMap(map);
-						markers[i].addListener('touchend', function () {
+						markers[i].addListener('click', function () {
 							$state.go('main.clinicDetails');
 							item.practiceId = item.PracticeId;
 							SaveStuffService.setClinic(item);
@@ -165,7 +165,7 @@ angular.module('main')
 						positions.push(position);
 						nearbyClinics.push(item);
 						markers[i].setMap(map);
-						markers[i].addListener('touchend', function () {
+						markers[i].addListener('click', function () {
 							$state.go('main.clinicDetails');
 							SaveStuffService.setClinic(item);
 						});
