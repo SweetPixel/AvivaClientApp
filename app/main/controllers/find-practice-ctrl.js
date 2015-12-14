@@ -116,11 +116,13 @@ angular.module('main')
 			}
 		});
 		$scope.drawSearchMarker = function (clinic) {
+			$scope.searchInProgress = true;
 			console.log('Drawing search marker for: ' + clinic.Postcode);
 			$scope.gotSearchResult = false;
 			$scope.value.value = clinic.Postcode + ' ' + clinic.PracticeName;
 			$scope.createMapPromise.then(function () {
 				$scope.drawMarkersPromise.then(function () {
+					$scope.searchInProgress = false;
 					MapService.removeDrawings($scope.markers, $scope.circle);
 					$scope.markers = MapService.drawSearchMarker($scope.map, $scope.markers, clinic);
 				});
@@ -145,6 +147,7 @@ angular.module('main')
 			treatment: ''
 		}
 		$scope.search = function () {
+			$scope.searchInProgress = true;
 			$scope.closeModal();
 			if ($scope.data.location == '') {
 				sweetAlert("Missing...", "Please provide a location.", "error");
@@ -172,6 +175,7 @@ angular.module('main')
 									$scope.circle = payload.circle;
 									$scope.drawMarkersPromise = MapService.drawAdvanceMarkers($scope.map, $scope.coords, $scope.advanceBounds, $scope.practices);
 									$scope.drawMarkersPromise.then(function (payload) {
+										$scope.searchInProgress = false;
 										// $scope.nearbyClinics = payload.nearbyClinics;
 										$scope.markers = payload.markers;
 									});
@@ -205,6 +209,7 @@ angular.module('main')
 			}
 		});
 		$scope.searchLocation = function () {
+			$scope.searchInProgress = true;
 			if ($scope.value.searchPostcode === false) {
 				$scope.gotSearchResult = false;
 				console.log('searching by location.');
@@ -221,6 +226,7 @@ angular.module('main')
 								$scope.circle = payload.circle;
 								$scope.drawMarkersPromise = MapService.drawAdvanceMarkers($scope.map, $scope.coords, $scope.advanceBounds, $scope.clinics);
 								$scope.drawMarkersPromise.then(function (payload) {
+									$scope.searchInProgress = false;
 									// $scope.nearbyClinics = payload.nearbyClinics;
 									$scope.markers = payload.markers;
 								});

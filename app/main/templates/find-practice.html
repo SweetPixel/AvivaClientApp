@@ -1,4 +1,4 @@
-<ion-view ng-init="locationOK=true; loadingMap = true" cache-view="false">
+<ion-view ng-init="locationOK=true; loadingMap=true; searchInProgress=false;" cache-view="false">
     <!-- do you want padding? -->
     <ion-content scroll="false">
         <!-- content goes here -->
@@ -14,6 +14,9 @@
                                     Submit
                                 </button>
                             </form>
+                            <i class="icon" ng-show="searchInProgress">
+                            	<ion-spinner icon="spiral" style="width: 20px;"></ion-spinner>
+                            </i>
                         </label>
                         <button ng-click="searchLocation()" class="button button-clear">
                             <i class="icon ion-ios-arrow-right"></i>
