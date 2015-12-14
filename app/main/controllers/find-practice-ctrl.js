@@ -172,7 +172,7 @@ angular.module('main')
 									$scope.circle = payload.circle;
 									$scope.drawMarkersPromise = MapService.drawAdvanceMarkers($scope.map, $scope.coords, $scope.advanceBounds, $scope.practices);
 									$scope.drawMarkersPromise.then(function (payload) {
-										$scope.nearbyClinics = payload.nearbyClinics;
+										// $scope.nearbyClinics = payload.nearbyClinics;
 										$scope.markers = payload.markers;
 									});
 								});
@@ -221,7 +221,7 @@ angular.module('main')
 								$scope.circle = payload.circle;
 								$scope.drawMarkersPromise = MapService.drawAdvanceMarkers($scope.map, $scope.coords, $scope.advanceBounds, $scope.clinics);
 								$scope.drawMarkersPromise.then(function (payload) {
-									$scope.nearbyClinics = payload.nearbyClinics;
+									// $scope.nearbyClinics = payload.nearbyClinics;
 									$scope.markers = payload.markers;
 								});
 							});
