@@ -51,6 +51,7 @@ angular.module('main')
 								if (clinicsCount > 0) {
 									$scope.countMessage = 'The following ' + clinicsCount + ' practices were found within 30 kms of your location.';
 								} else {
+									sweetAlert('', 'No practices were found near you.', 'info');
 									$scope.countMessage = 'No practices were found within 30 kms of your location';
 								}
 							});
