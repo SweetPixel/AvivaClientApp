@@ -37,6 +37,7 @@ angular.module('main', [
 				}
 			})
 			.state('main.findPractice', {
+				cache: false,
 				url: '/menu/services/find-practice',
 				views: {
 					'pageContent': {

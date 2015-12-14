@@ -88,10 +88,13 @@ angular.module('main')
 					$scope.$parent.getServerDataPromise.then(function () {
 						$.each($scope.clinics, function (index, item) {
 							if (item.Postcode.toLowerCase().indexOf(changed.toLowerCase()) > -1) {
+								$scope.value.searchPostcode = true;
 								$scope.gotSearchResult = true;
 								if ($scope.searchResult.length < 5) {
 									$scope.searchResult.push(item);
 								}
+							} else {
+								$scope.value.searchPostcode = false;
 							}
 						});
 					})
@@ -99,9 +102,12 @@ angular.module('main')
 					$.each($scope.clinics, function (index, item) {
 						if (item.Postcode.toLowerCase().indexOf(changed.toLowerCase()) > -1) {
 							$scope.gotSearchResult = true;
+							$scope.value.searchPostcode = true;
 							if ($scope.searchResult.length < 5) {
 								$scope.searchResult.push(item);
 							}
+						} else {
+							$scope.value.searchPostcode = false;
 						}
 					});
 				}
@@ -198,6 +204,32 @@ angular.module('main')
 				$scope.gotTreatmentResult = false;
 			}
 		});
+		$scope.searchLocation = function () {
+			if ($scope.value.searchPostcode === false) {
+				$scope.gotSearchResult = false;
+				console.log('searching by location.');
+				$scope.createMapPromise.then(function (payload) {
+					MapService.removeDrawings($scope.markers, $scope.circle);
+					if ($scope.value.value !== '') {
+						$scope.geocodePromise = MapService.geocode($scope.value.value);
+						$scope.geocodePromise.then(function (payload) {
+							$scope.coords = payload.coords;
+							MapService.centerMap($scope.map, $scope.coords);
+							$scope.getAdvanceBoundsPromise = MapService.getBounds($scope.coords, $scope.map);
+							$scope.getAdvanceBoundsPromise.then(function (payload) {
+								$scope.advanceBounds = payload.bounds;
+								$scope.circle = payload.circle;
+								$scope.drawMarkersPromise = MapService.drawAdvanceMarkers($scope.map, $scope.coords, $scope.advanceBounds, $scope.clinics);
+								$scope.drawMarkersPromise.then(function (payload) {
+									$scope.nearbyClinics = payload.nearbyClinics;
+									$scope.markers = payload.markers;
+								});
+							});
+						});
+					}
+				});
+			}
+		}
 		$scope.gotTreatment = function (treatment) {
 			$scope.data.treatment = treatment.TreatmentName;
 			$scope.gotTreatmentResult = false;

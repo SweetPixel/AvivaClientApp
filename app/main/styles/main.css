@@ -279,3 +279,10 @@ ul.rating {
     font-size: 26px;
     line-height: 40px;
 }
+
+.bar > .button + .button:last-child {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    bottom: 5px;
+}

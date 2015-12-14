@@ -21,7 +21,6 @@ angular.module('main')
 				$cordovaGeolocation
 					.getCurrentPosition(posOptions)
 					.then(function (position) {
-						console.log('Got position');
 						deferred.resolve({
 							position: position
 						});
