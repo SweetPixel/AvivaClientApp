@@ -120,11 +120,15 @@ angular.module('main')
 			console.log('Drawing search marker for: ' + clinic.Postcode);
 			$scope.gotSearchResult = false;
 			$scope.value.value = clinic.Postcode + ' ' + clinic.PracticeName;
-			$scope.createMapPromise.then(function () {
-				$scope.drawMarkersPromise.then(function () {
-					$scope.searchInProgress = false;
-					MapService.removeDrawings($scope.markers, $scope.circle);
-					$scope.markers = MapService.drawSearchMarker($scope.map, $scope.markers, clinic);
+			$scope.$parent.getServerDataPromise.then(function () {
+				$scope.getPositionPromise.then(function () {
+					$scope.createMapPromise.then(function () {
+						$scope.drawMarkersPromise.then(function () {
+							$scope.searchInProgress = false;
+							MapService.removeDrawings($scope.markers, $scope.circle);
+							$scope.markers = MapService.drawSearchMarker($scope.map, $scope.markers, clinic);
+						});
+					});
 				});
 			});
 		};
