@@ -44,9 +44,14 @@ angular.module('main')
 							$scope.circle = boundsPayload.circle;
 							$scope.drawMarkersPromise = MapService.drawMarkers($scope.map, $scope.bounds, $scope.clinics);
 							$scope.drawMarkersPromise.then(function (markersPayload) {
-								$scope.loadingDone = true;
 								$scope.nearbyClinics = markersPayload.nearbyClinics;
 								$scope.markers = markersPayload.markers;
+								$scope.loadingDone = true;
+								$scope.getDistancePromise = MapService.calculateDistance($scope.nearbyClinics, $scope.latLng);
+								$scope.getDistancePromise.then(function (payload) {
+									$scope.nearbyClinics = payload.clinics;
+									$scope.gotDistance = true;
+								})
 								var clinicsCount = $scope.nearbyClinics.length;
 								if (clinicsCount > 0) {
 									$scope.countMessage = 'The following ' + clinicsCount + ' practices were found within 30 kms of your location.';
@@ -154,8 +159,8 @@ angular.module('main')
 		$scope.search = function () {
 			$scope.searchInProgress = true;
 			$scope.closeModal();
-			if ($scope.data.location == '') {
-				sweetAlert("Missing...", "Please provide a location.", "error");
+			if ($scope.data.location === '') {
+				sweetAlert('Missing...', 'Please provide a location.', 'error');
 			} else {
 				MapService.removeDrawings($scope.markers, $scope.circle);
 				$scope.toSearch = {
@@ -164,7 +169,7 @@ angular.module('main')
 				$scope.getClinicsPromise = DataService.postData('', '', '', 'advanceSearch', $scope.toSearch);
 				$scope.getClinicsPromise.then(function (payload) {
 					$scope.allPractices = payload.data;
-					$scope.createMapPromise.then(function (payload) {
+					$scope.createMapPromise.then(function () {
 						$scope.filterPracticesPromise = MapService.filterPractices($scope.data, $scope.allPractices);
 						$scope.filterPracticesPromise.then(function (payload) {
 							$scope.practices = payload.practices;
@@ -195,7 +200,7 @@ angular.module('main')
 		$scope.$watch('data.treatment', function (changed) {
 			if (changed) {
 				$scope.treatmentResult = [];
-				$scope.getTreatmentsPromise.then(function (payload) {
+				$scope.getTreatmentsPromise.then(function () {
 					$.each($scope.treatments, function (index, item) {
 						if (item.TreatmentName.toLowerCase().indexOf(changed.toLowerCase()) > -1) {
 							if (item.TreatmentName.toLowerCase() === changed.toLowerCase()) {
@@ -218,7 +223,7 @@ angular.module('main')
 			if ($scope.value.searchPostcode === false) {
 				$scope.gotSearchResult = false;
 				console.log('searching by location.');
-				$scope.createMapPromise.then(function (payload) {
+				$scope.createMapPromise.then(function () {
 					MapService.removeDrawings($scope.markers, $scope.circle);
 					if ($scope.value.value !== '') {
 						$scope.geocodePromise = MapService.geocode($scope.value.value);
@@ -254,8 +259,10 @@ angular.module('main')
 
 			})
 		}
-		$scope.$on('$locationChangeStart', function (event) {
+		$scope.$on('$locationChangeStart', function () {
 			console.log('Cleaning up maps.');
 			document.getElementById('map').innerHTML = '';
 		});
+
+
 	});

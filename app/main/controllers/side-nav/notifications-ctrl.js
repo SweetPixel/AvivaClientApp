@@ -31,8 +31,8 @@ angular.module('main')
 		}];
 		$scope.makeSeen = function () {
 			var data = {
-				"id": $scope.oneNotification.Notificationid,
-				"username": $scope.$parent.userId
+				'id': $scope.oneNotification.Notificationid,
+				'username': $scope.$parent.userId
 			}
 			$scope.oneNotification.viewed = true;
 			$scope.makeSeenPromise = DataService.postData('', '', '', 'makeNotificationSeen', data);

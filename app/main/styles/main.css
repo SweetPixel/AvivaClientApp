@@ -291,3 +291,8 @@ ul.rating {
     width: 12px;
     height: 12px;
 }
+
+.distance .spinner svg {
+    width: 12px;
+    height: 12px;
+}

@@ -1,11 +1,5 @@
 'use strict';
-angular.module('main', [
-		'ionic',
-		'ngCordova',
-		'ui.router',
-		'ionic-datepicker',
-		// TODO: load other modules selected during generation
-	])
+angular.module('main', ['ionic', 'ngCordova', 'ui.router', 'ionic-datepicker'])
 	.config(function ($stateProvider, $urlRouterProvider) {
 
 		// ROUTING with ui.router

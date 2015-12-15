@@ -1,4 +1,4 @@
-<ion-view ng-init="locationOK=true; loadingMap=true; searchInProgress=false;" cache-view="false">
+<ion-view ng-init="locationOK=true; loadingMap=true; searchInProgress=false; gotDistance=false;" cache-view="false">
     <!-- do you want padding? -->
     <ion-content scroll="false">
         <!-- content goes here -->
@@ -73,10 +73,12 @@
                             </div>
                             {{countMessage}}
                         </a>
-                        <a class="item item-thumbnail-left" ng-click="goToClinic(clinic)" ng-repeat="clinic in nearbyClinics | orderBy : sort.sortBy" ng-init="clinic.feedback = 1">
+                        <a class="item item-thumbnail-left" ng-click="goToClinic(clinic)" ng-repeat="clinic in nearbyClinics | orderBy : sort.sortBy">
                             <img style="width: 80px" ng-src="{{clinic.imageToUse}}">
                             <h2>{{clinic.PracticeName}}</h2>
-                            <p>Distance: {{clinic.distance}}</p>
+                            <p class="distance">Distance: {{clinic.distance}}
+                                <ion-spinner icon="dots" ng-hide="gotDistance" style="width: 12px;"></ion-spinner>
+                            </p>
                             <div star-rating rating-value="clinic.feedback" max="5"></div>
                         </a>
                     </div>

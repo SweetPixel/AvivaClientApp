@@ -13,7 +13,7 @@ angular.module('main')
 		$scope.update = function () {
 			$scope.user.Dob = $scope.datepickerObject.inputDate;
 			if ($scope.user.Dob === '' || $scope.user.FirstName === '' || $scope.user.LastName === '' || $scope.user.Email === '' || $scope.user.Gender === '') {
-				sweetAlert("Missing...", "Please provide all information.", "error");
+				sweetAlert('Missing...', 'Please provide all information.', 'error');
 			} else {
 				$scope.loadingDone = false;
 				$scope.promise = DataService.postData('', '', '', 'updatePersonalDetails', $scope.user);

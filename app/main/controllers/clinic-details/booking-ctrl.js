@@ -5,7 +5,7 @@ angular.module('main')
 		$log.log('Hello from your Controller: BookingCtrl in module main:. This is your controller:', this);
 		$scope.promise = DataService.getData('', '', '', 'booking');
 		$scope.promise.then(function (payload) {
-			console.log("Got bookings");
+			console.log('Got bookings');
 			$scope.loadingDone = true;
 			var slots = payload.data;
 			$scope.slots = _.where(slots, {

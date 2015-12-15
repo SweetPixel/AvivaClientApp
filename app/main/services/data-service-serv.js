@@ -333,7 +333,7 @@ angular.module('main')
 					})
 					.error(function (msg, code) {
 						deferred.reject(msg);
-						sweetAlert("Oops...", "There was a problem with the server. Please try again later.", "error");
+						sweetAlert('Oops...', 'There was a problem with the server. Please try again later.', 'error');
 						$log.error(msg, code);
 					});
 				return deferred.promise;
@@ -385,7 +385,7 @@ angular.module('main')
 					})
 					.error(function (msg, code) {
 						deferred.reject(msg);
-						sweetAlert("Oops...", "There was a problem with the server. Please try again later.", "error");
+						sweetAlert('Oops...', 'There was a problem with the server. Please try again later.', 'error');
 						$log.error(msg, code);
 					});
 				return deferred.promise;

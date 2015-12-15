@@ -33,7 +33,7 @@ angular.module('main')
 				})
 			} else {
 				$scope.asyncStarted = false;
-				sweetAlert("Missing...", "Please write something in the textbox.", "error");
+				sweetAlert('Missing...', 'Please write something in the textbox.', 'error');
 			}
 		}
 	});

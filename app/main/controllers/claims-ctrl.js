@@ -6,10 +6,22 @@ angular.module('main')
 		$scope.promise = SaveStuffService.getStoredData('claims', $scope.$parent.serviceName);
 		$scope.promise.then(function (payload) {
 			$scope.claims = payload.data;
-			if ($scope.claims.length !== 0 || $scope.claims.length) {
-				$scope.loadingDone = true;
+			if ($scope.claims) {
+				if ($scope.claims.length !== 0 || $scope.claims.length) {
+					$scope.loadingDone = true;
+				}
 			}
 		});
+		if ($scope.$parent.serviceName === 'Dental') {
+			$scope.guy = 'Dentist';
+
+		} else if ($scope.$parent.serviceName === 'Medical') {
+			$scope.guy = 'Doctor';
+
+		} else if ($scope.$parent.serviceName === 'Optical') {
+			$scope.guy = 'Dentist';
+
+		}
 		$scope.promise = DataService.getData($scope.$parent.userId, $scope.$parent.serviceName, '', 'claims');
 		$scope.promise.then(function (payload) {
 			$scope.claims = payload.data;
@@ -62,7 +74,7 @@ angular.module('main')
 				});
 			} else {
 				$scope.asyncStarted = false;
-				sweetAlert("Missing...", "Please provide an email address.", "error");
+				sweetAlert('Missing...', 'Please provide an email address.', 'error');
 			}
 		};
 	});

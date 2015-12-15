@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('LoginCtrl', function ($log, $scope, $state, DataService, SaveStuffService, $ionicHistory) {
+	.controller('LoginCtrl', function ($log, $scope, $state, DataService, SaveStuffService) {
 
 		$log.log('Hello from your Controller: LoginCtrl in module main:. This is your controller:', this);
 		$scope.credentials = {
@@ -21,18 +21,18 @@ angular.module('main')
 		$scope.login = function () {
 			$scope.loadingDone = false;
 			$scope.promise = DataService.postData('', '', '', 'login', $scope.credentials);
-			console.log("Logging in");
+			console.log('Logging in');
 			$scope.promise.then(function (payload) {
 				$scope.status = payload.data;
 				$scope.loadingDone = true;
-				if ($scope.status.Status == true) {
+				if ($scope.status.Status === true) {
 					$scope.$parent.userId = $scope.credentials.username;
 					console.log($scope.$parent.userId);
 					SaveStuffService.setStoredData('userId', $scope.$parent.userId, '');
-					console.log("Logged In.");
+					console.log('Logged In.');
 					$state.go('main.menu');
 				} else {
-					sweetAlert("Oops...", "Wrong username or password.", "error");
+					sweetAlert('Oops...', 'Wrong username or password.', 'error');
 				}
 
 			})

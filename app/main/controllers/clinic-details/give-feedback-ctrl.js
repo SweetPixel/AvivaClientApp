@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('GiveFeedbackCtrl', function ($log, $scope, DataService, $ionicHistory) {
+	.controller('GiveFeedbackCtrl', function ($log, $scope, DataService, $ionicHistory, $ionicLoading) {
 
 		$log.log('Hello from your Controller: GiveFeedbackCtrl in module main:. This is your controller:', this);
 		$scope.feedback = {

@@ -26,31 +26,31 @@ angular.module('main')
 		$scope.promise.then(function (payload) {
 			$scope.stuff.indicator = payload.data;
 			if ($scope.stuff.indicator) {
-				console.log("Got Response: " + $scope.stuff.indicator);
+				console.log('Got Response: ' + $scope.stuff.indicator);
 				$scope.loadingDone = true;
 			}
 		});
 		$scope.getPromise = DataService.getData($scope.$parent.userId, '', '', 'checkIfNotificationsOn');
 		$scope.getPromise.then(function (payload) {
 			$scope.stuff.indicator = payload.data;
-			console.log("Got Response: " + $scope.stuff.indicator);
+			console.log('Got Response: ' + $scope.stuff.indicator);
 			$scope.loadingDone = true;
 		})
 
 		//Toggle notification indicator
 		$scope.setNotification = function () {
-			if ($scope.stuff.indicator == '1') {
-				console.log("Was 1");
+			if ($scope.stuff.indicator === '1') {
+				console.log('Was 1');
 				$scope.data.notific = true;
 			} else {
-				console.log("Was 0");
+				console.log('Was 0');
 				$scope.data.notific = false;
 			}
 			$scope.promise = DataService.postData('', '', '', 'toggleNotifications', $scope.data);
 			$scope.promise.then(function (payload) {
 				$scope.status = payload.data;
 				SaveStuffService.setStoredData('toggleNotifications', $scope.stuff.indicator, '');
-				console.log("Set notifications: " + $scope.status);
+				console.log('Set notifications: ' + $scope.status);
 			});
 		}
 	});

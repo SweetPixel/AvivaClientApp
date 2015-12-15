@@ -5,8 +5,17 @@
   },
   "globals": {
     "angular": true,
-    "ionic": true
+    "ionic": true,
+    "google": true,
+    "document": true,
+    "$": true,
+    "_": true,
+    "sweetAlert": true
   },
   "rules": {
   }
 }
+/*global google:true*/
+/*global document:true*/
+/*global $:true*/
+/*global document:true*/

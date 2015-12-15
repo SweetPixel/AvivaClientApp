@@ -12,7 +12,7 @@ angular.module('main')
 				ratingValue: '=',
 				max: '='
 			},
-			link: function (scope, elem, attrs) {
+			link: function (scope) { //, elem, attrs
 				scope.stars = [];
 				var updateStars = function () {
 					scope.stars = [];

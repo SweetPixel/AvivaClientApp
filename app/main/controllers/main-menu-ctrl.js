@@ -50,7 +50,7 @@ angular.module('main')
 			$scope.$parent.notificationsPromise.then(function (payload) {
 				$scope.$parent.notifications = payload.data;
 				$scope.$parent.notificationCount = $scope.$parent.notifications.length;
-				console.log("Got notifications: " + $scope.$parent.notificationCount);
+				console.log('Got notifications: ' + $scope.$parent.notificationCount);
 			});
 		})
 

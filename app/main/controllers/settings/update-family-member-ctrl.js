@@ -14,11 +14,11 @@ angular.module('main')
 				$scope.datepickerObject.inputDate = val;
 			}
 		}
-		
+
 		$scope.update = function () {
 			$scope.member.Dob = $scope.datepickerObject.inputDate;
 			if ($scope.member.FirstName === '' || $scope.member.LastName === '' || $scope.member.Email === '' || $scope.member.Dob === '' || $scope.member.Gender === '' || $scope.member.Relation === '') {
-				sweetAlert("Missing...", "Please provide all information.", "error");
+				sweetAlert('Missing...', 'Please provide all information.', 'error');
 			} else {
 				$scope.loadingDone = false;
 				$scope.promise = DataService.postData($scope.$parent.userId, '', '', 'updateFamilyMember', $scope.member);

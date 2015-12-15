@@ -10,7 +10,7 @@ angular.module('main')
 		$log.log('Hello from your Controller: ChangePasswordCtrl in module main:. This is your controller:', this);
 		$scope.update = function () {
 			if ($scope.data.newpassword !== $scope.data.confirmpassword) {
-				sweetAlert("Password Mismatch", "New and confirm password do not match.", "error");
+				sweetAlert('Password Mismatch', 'New and confirm password do not match.', 'error');
 			} else {
 				$scope.loadingDone = false;
 				$scope.promise = DataService.postData('', '', '', 'changePassword', $scope.data);
