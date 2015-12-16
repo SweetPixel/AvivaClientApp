@@ -50,10 +50,14 @@ angular.module('main')
 								$scope.start = 0;
 								$scope.end = 24;
 								if ($scope.end >= $scope.nearbyClinics.length) {
-
 									$scope.end = $scope.nearbyClinics.length;
 								}
-								$scope.loadMore();
+								if ($scope.nearbyClinics.length > 0) {
+									$scope.loadMore();
+								} else {
+									$scope.more = false;
+									$scope.loadingDone = true;
+								}
 								var clinicsCount = $scope.nearbyClinics.length;
 								if (clinicsCount > 0) {
 									$scope.countMessage = 'The following ' + clinicsCount + ' practices were found within 30 kms of your location.';

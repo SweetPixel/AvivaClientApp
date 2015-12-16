@@ -141,7 +141,7 @@ angular.module('main')
 						if (!item.PracticeImageLoc) {
 							item.imageToUse = 'main/assets/images/dental-practice-default.jpg';
 						} else {
-							item.imageToUse = 'https://dentalink.co.uk/' + item.PracticeImageLoc;
+							item.imageToUse = item.PracticeImageLoc; //'https://dentalink.co.uk/' + 
 						}
 					});
 					var userPosition = new google.maps.LatLng(userLatLng.coords.latitude, userLatLng.coords.longitude);
