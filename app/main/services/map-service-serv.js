@@ -49,7 +49,7 @@ angular.module('main')
 				var latLng = new google.maps.LatLng(latitude, longitude);
 				// var latLng = new google.maps.LatLng(51.5287352, -0.3817831);
 				var mapOptions = {
-					zoom: 9
+					zoom: 13
 				};
 				var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 				deferred.resolve({
@@ -63,7 +63,7 @@ angular.module('main')
 				var circle = new google.maps.Circle({
 					center: latLng,
 					map: map,
-					radius: 30000,
+					radius: 10000,
 					strokeColor: '#FF0000',
 					strokeOpacity: 0.4,
 					strokeWeight: 2,
@@ -71,7 +71,7 @@ angular.module('main')
 					fillOpacity: 0.1
 				});
 				map.setCenter(latLng);
-				map.setZoom(9);
+				map.setZoom(13);
 				var deferred = $q.defer();
 				var myBounds = circle.getBounds();
 				deferred.resolve({
