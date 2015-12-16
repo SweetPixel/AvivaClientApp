@@ -16,13 +16,14 @@
                 {{message}}
             </li>
             <div ng-hide="message">
+                <pre>{{feedbacks | json}}</pre>
                 <li class="item item-text-wrap" ng-repeat="item in feedbacks" ng-show="isArray">
                     <h5>{{item.username}}</h5>
-                    <!-- <div star-rating rating-value="item.totalScore" max="5" ></div> -->
+                    <div star-rating rating-value="item.totalScore" max="5"></div>
                 </li>
                 <li class="item item-text-wrap" ng-hide="isArray">
                     <h5>{{feedbacks.username}}</h5>
-                    <!-- <div star-rating rating-value="totalScore" max="5" ></div> -->
+                    <div star-rating rating-value="rating.totalScore" max="5"></div>
                 </li>
             </div>
         </div>

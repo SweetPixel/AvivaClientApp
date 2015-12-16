@@ -9,7 +9,7 @@ angular.module('main')
 			healthcareitem: 1,
 			friendlyapprochable: 1,
 			comfortlevel: 1,
-			happywithproduct: false
+			happywithproduct: true
 		};
 		$scope.clinic = $scope.$parent.oneClinic;
 
@@ -35,7 +35,7 @@ angular.module('main')
 				console.log('Got Response: ' + $scope.status);
 				if ($scope.status === true) {
 					$ionicLoading.show({
-						template: 'Slot booked. Thank you.',
+						template: 'Thank you.',
 						noBackdrop: true,
 						duration: 2000
 					});

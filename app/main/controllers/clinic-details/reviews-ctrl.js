@@ -4,6 +4,9 @@ angular.module('main')
 
 		$log.log('Hello from your Controller: ReviewsCtrl in module main:. This is your controller:', this);
 		$scope.clinic = $scope.$parent.oneClinic
+		$scope.rating = {
+			totalScore: 1
+		}
 		$scope.data = {
 			username: $scope.$parent.userId,
 			practiceid: $scope.clinic.practiceId
@@ -15,7 +18,7 @@ angular.module('main')
 			$scope.feedbacks = payload.data;
 			$scope.loadingDone = true;
 			if ($scope.feedbacks) {
-				if ($scope.feedbacks.length > 1) {
+				if ($scope.feedbacks.length > 0) {
 					$.each($scope.feedbacks, function (index, item) {
 						var total = item.Practicecc + item.sentertainment + item.healthcareitem + item.friendlyapprochable + item.comfortlevel;
 						if (item.happywithproduct) {
@@ -31,8 +34,8 @@ angular.module('main')
 						total = total + 5;
 					}
 					var mean = total / 6;
-					$scope.totalScore = Math.floor(mean);
-					console.log('Should show: ' + $scope.totalScore);
+					$scope.rating.totalScore = Math.floor(mean);
+					console.log('Should show: ' + $scope.rating.totalScore);
 					$scope.isArray = false;
 				}
 				$scope.message = false;

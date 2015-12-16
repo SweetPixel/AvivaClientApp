@@ -128,6 +128,14 @@ angular.module('main')
 				}
 			}
 		}, {
+			name: 'helpSupport',
+			data: {
+				userId: false,
+				serviceId: false,
+				practiceId: false,
+				url: 'https://dentalink.co.uk/HealthpickApi/api/Practice/HelpSupport'
+			}
+		}, {
 			name: 'treatments',
 			data: {
 				userId: false,
