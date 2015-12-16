@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.controller('FindPracticeCtrl', function ($log, $scope, $state, $ionicHistory, MapService, SaveStuffService, DataService, $ionicModal, $ionicLoading) {
+	.controller('FindPracticeCtrl', function ($log, $scope, $state, $ionicHistory, MapService, SaveStuffService, DataService, $ionicModal, $ionicLoading, lodash) {
 		console.log('In service: ' + $scope.$parent.serviceName);
 		$log.log('Hello from your Controller: FindPracticeCtrl in module main:. This is your controller:', this);
 		$ionicModal.fromTemplateUrl('advance-search-modal.html', {
@@ -34,7 +34,8 @@ angular.module('main')
 				$scope.position = positionPayload.position;
 				$scope.createMapPromise = MapService.createMap($scope.position);
 				$scope.createMapPromise.then(function (mapPayload) {
-					$scope.loadingMap = false;
+					$scope.loadingMap = false;;
+
 					$scope.map = mapPayload.map;
 					$scope.latLng = mapPayload.latLng;
 					setNearbyClinics = function () {
@@ -46,12 +47,13 @@ angular.module('main')
 							$scope.drawMarkersPromise.then(function (markersPayload) {
 								$scope.nearbyClinics = markersPayload.nearbyClinics;
 								$scope.markers = markersPayload.markers;
-								$scope.loadingDone = true;
-								$scope.getDistancePromise = MapService.calculateDistance($scope.nearbyClinics, $scope.latLng);
-								$scope.getDistancePromise.then(function (payload) {
-									$scope.nearbyClinics = payload.clinics;
-									$scope.gotDistance = true;
-								})
+								$scope.start = 0;
+								$scope.end = 24;
+								if ($scope.end >= $scope.nearbyClinics.length) {
+									$scope.more = false;
+									$scope.end = $scope.nearbyClinics.length;
+								}
+								$scope.loadMore();
 								var clinicsCount = $scope.nearbyClinics.length;
 								if (clinicsCount > 0) {
 									$scope.countMessage = 'The following ' + clinicsCount + ' practices were found within 30 kms of your location.';
@@ -72,6 +74,34 @@ angular.module('main')
 				sweetAlert('Oops...', 'We couldn\'t get your location. Please make sure your location service is on and then try again.', 'error');
 			})
 		};
+
+		$scope.servedClinics = [];
+		$scope.loadMore = function () {
+			$scope.nextChunk = lodash.slice($scope.nearbyClinics, $scope.start, $scope.end);
+			console.log('got chunk' + $scope.nextChunk.length);
+
+			function runGetDistance() {
+				$scope.getDistancePromise = MapService.calculateDistance($scope.nextChunk, $scope.latLng);
+				$scope.getDistancePromise.then(function (payload) {
+					var got = payload.data;
+					$.each(got, function (index, item) {
+						$scope.servedClinics.push(item);
+					});
+					console.log('Got distances ' + $scope.servedClinics.length);
+					$scope.start = $scope.end;
+					$scope.end = $scope.end + 24;
+					if ($scope.end >= $scope.nearbyClinics.length) {
+						$scope.end = $scope.nearbyClinics;
+					}
+					$scope.loadingDone = true;
+					$scope.$broadcast('scroll.infiniteScrollComplete');
+				});
+				$scope.getDistancePromise.catch(function (payload) {
+					runGetDistance();
+				});
+			}
+			runGetDistance();
+		}
 		$scope.$parent.getStoredDataPromise.then(function (payload) {
 			$scope.clinics = payload.data;
 			if (!$scope.clinics) {
