@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-	.service('MapService', function ($log, $q, $state, SaveStuffService, $cordovaGeolocation, $http) {
+	.service('MapService', function ($log, $q, $state, SaveStuffService, $cordovaGeolocation, $http, lodash) {
 		$log.log('Hello from your Service: MapService in module main');
 		var posOptions = {
 			timeout: 10000,
@@ -206,8 +206,8 @@ angular.module('main')
 						if (status === google.maps.DistanceMatrixStatus.OK) {
 							// var origins = response.originAddresses;
 							// var destinations = response.destinationAddresses;
-
-							var distance = response.rows[0].elements[0].distance.text;
+							var value = response.rows[0].elements[0].distance.value;
+							var distance = value / 1000;
 
 							deferred.resolve({
 								distance: distance
@@ -313,63 +313,37 @@ angular.module('main')
 
 			},
 			calculateDistance: function (clinics, latLng) {
+				console.log('Getting distances for ' + clinics.length + ' practices');
 				var deferred = $q.defer();
-				$log.log('Now getting distance', null);
-				var chunks = [];
-				var i, j, k = 0;
+				var positions = [];
+				$.each(clinics, function (index, item) {
+					var position = new google.maps.LatLng(item.Latitude, item.Longitude);
+					positions.push(position);
+				});
 				var origin = latLng;
 				var service = new google.maps.DistanceMatrixService();
-				var start = 0;
-				var end = 24;
-				$.each(clinics, function (index, item) {
-					item.position = new google.maps.LatLng(item.Latitude, item.Longitude);
-				});
-				var allPositions = _.pluck(clinics, 'position');
-
-				function calculate() {
-					setTimeout(function () {
-						var distances = [];
-						var chunk = [];
-						if (end >= clinics.length) {
-							end = clinics.length;
-						}
-						console.log('Doing it for start: ' + start + ' end: ' + end);
-						for (var i = start; i < end; i++) {
-							chunk.push(allPositions[i]);
-						}
-						service.getDistanceMatrix({
-							origins: [origin],
-							destinations: chunk,
-							unitSystem: google.maps.UnitSystem.METRIC,
-							travelMode: google.maps.TravelMode.DRIVING,
-						}, function (response, status) {
-							if (status === google.maps.DistanceMatrixStatus.OK) {
-								var elements = response.rows[0].elements;
-								$.each(elements, function (index, value) {
-									distances.push(value.distance.text);
-								});
-								var l = 0;
-								for (var i = start; i < end; i++) {
-									clinics[i].distance = distances[l];
-									console.log('Got distance for clinic: ' + clinics[i].PracticeName + ' ' + distances[l]);
-									l = l + 1;
-								}
-								start = end;
-								end = end + 24;
-								if (start < clinics.length) {
-									calculate();
-								} else {
-									deferred.resolve({
-										clinics: clinics
-									});
-								}
-							} else {
-								console.error('No practices found near your position. ' + status);
-							}
+				service.getDistanceMatrix({
+					origins: [origin],
+					destinations: positions,
+					unitSystem: google.maps.UnitSystem.METRIC,
+					travelMode: google.maps.TravelMode.DRIVING,
+				}, function (response, status) {
+					if (status === google.maps.DistanceMatrixStatus.OK) {
+						var elements = response.rows[0].elements;
+						var i = 0;
+						$.each(elements, function (index, value) {
+							var gotValue = Math.round(value.distance.value) / 1000;
+							// distances.push(gotValue);
+							clinics[i].distance = gotValue;
+							i++;
 						});
-					}, 5000);
-				}
-				calculate();
+						deferred.resolve({
+							data: clinics
+						});
+					} else {
+						console.error('No practices found near your position. ' + status);
+					}
+				});
 				return deferred.promise;
 			}
 		}

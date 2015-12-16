@@ -1,5 +1,5 @@
 'use strict';
-angular.module('main', ['ionic', 'ngCordova', 'ui.router', 'ionic-datepicker'])
+angular.module('main', ['ionic', 'ngCordova', 'ui.router', 'ionic-datepicker', 'ngLodash'])
 	.config(function ($stateProvider, $urlRouterProvider) {
 
 		// ROUTING with ui.router
