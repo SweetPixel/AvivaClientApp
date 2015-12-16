@@ -50,7 +50,7 @@ angular.module('main')
 								$scope.start = 0;
 								$scope.end = 24;
 								if ($scope.end >= $scope.nearbyClinics.length) {
-									$scope.more = false;
+
 									$scope.end = $scope.nearbyClinics.length;
 								}
 								$scope.loadMore();
@@ -92,6 +92,7 @@ angular.module('main')
 					$scope.end = $scope.end + 24;
 					if ($scope.end >= $scope.nearbyClinics.length) {
 						$scope.end = $scope.nearbyClinics;
+						$scope.more = false;
 					}
 					$scope.loadingDone = true;
 					$scope.$broadcast('scroll.infiniteScrollComplete');
